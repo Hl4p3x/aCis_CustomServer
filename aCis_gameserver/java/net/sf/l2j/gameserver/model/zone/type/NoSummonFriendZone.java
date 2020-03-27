@@ -25,4 +25,6 @@ public class NoSummonFriendZone extends ZoneType
 	{
 		character.setInsideZone(ZoneId.NO_SUMMON_FRIEND, false);
 	}
+	
+
 }

@@ -28,7 +28,7 @@ import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
  */
 public final class CharacterKillingManager
 {
-	private static final Logger _log = Logger.getLogger(CharacterKillingManager.class.getName());
+	public static final Logger _log = Logger.getLogger(CharacterKillingManager.class.getName());
 	private int _cycle = 0;
 	private long _cycleStart = 0L;
 	private int _winnerPvPKills;

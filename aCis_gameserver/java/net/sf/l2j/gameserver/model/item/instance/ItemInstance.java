@@ -50,7 +50,7 @@ import net.sf.l2j.gameserver.taskmanager.ItemsOnGroundTaskManager;
  */
 public final class ItemInstance extends WorldObject implements Runnable, Comparable<ItemInstance>
 {
-	private static final Logger ITEM_LOG = Logger.getLogger("item");
+	public static final Logger ITEM_LOG = Logger.getLogger("item");
 	
 	private static final String DELETE_AUGMENTATION = "DELETE FROM augmentations WHERE item_oid = ?";
 	private static final String RESTORE_AUGMENTATION = "SELECT attributes, skill_id, skill_level FROM augmentations WHERE item_oid = ?";

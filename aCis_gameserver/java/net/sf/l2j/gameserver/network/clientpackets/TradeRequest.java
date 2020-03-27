@@ -49,6 +49,12 @@ public final class TradeRequest extends L2GameClientPacket
 			return;
 		}
 		
+		if (target.isInTradeProt())
+		{
+		    player.sendMessage(player.getName() + " You cannot trade in offline trade.");
+		    return;
+		}
+		
 		// Alt game - Karma punishment
 		if (!Config.KARMA_PLAYER_CAN_TRADE && (player.getKarma() > 0 || target.getKarma() > 0))
 		{

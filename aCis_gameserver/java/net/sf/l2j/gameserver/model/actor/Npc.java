@@ -30,7 +30,6 @@ import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminNpc;
 import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.WorldObject;
-import net.sf.l2j.gameserver.model.actor.instance.SkillSeller;
 import net.sf.l2j.gameserver.model.actor.stat.NpcStat;
 import net.sf.l2j.gameserver.model.actor.status.NpcStatus;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
@@ -201,18 +200,6 @@ public class Npc extends Creature
 	@Override
 	public void onAction(Player player)
 	{
-		
-		  if (getNpcId() == SkillSeller.NPC_ID)
-		  {
-		   ItemInstance i = player.getInventory().getItemByItemId(SkillSeller.ITEM_ID);
-
-		   if (i == null || i.getCount() < SkillSeller.ITEM_COUNT)
-		   {
-		    player.sendMessage("You need " + SkillSeller.ITEM_COUNT + " " + Config.SELLER_SKILLS_MESSAGE_TEXT + "to use this Npc.");
-		    player.sendPacket(new ActionFailed());
-		    return;
-		   }
-		  }
 		  
 		// Set the target of the player
 		if (player.getTarget() != this)

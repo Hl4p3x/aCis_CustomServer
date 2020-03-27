@@ -38,4 +38,5 @@ public class DerbyTrackZone extends ZoneType
 			character.setInsideZone(ZoneId.NO_SUMMON_FRIEND, false);
 		}
 	}
+	
 }

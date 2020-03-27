@@ -25,4 +25,5 @@ public class PeaceZone extends ZoneType
 	{
 		character.setInsideZone(ZoneId.PEACE, false);
 	}
+	
 }

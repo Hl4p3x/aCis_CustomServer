@@ -13,7 +13,6 @@ import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.SkillTable.FrequentSkill;
-import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.data.xml.MapRegionData;
 import net.sf.l2j.gameserver.data.xml.MapRegionData.TeleportType;
 import net.sf.l2j.gameserver.enums.AiEventType;
@@ -47,6 +46,8 @@ import net.sf.l2j.gameserver.model.actor.container.creature.FusionSkill;
 import net.sf.l2j.gameserver.model.actor.instance.Door;
 import net.sf.l2j.gameserver.model.actor.instance.Monster;
 import net.sf.l2j.gameserver.model.actor.instance.Pet;
+import net.sf.l2j.gameserver.model.actor.instance.RiftInvader;
+import net.sf.l2j.gameserver.model.actor.instance.Walker;
 import net.sf.l2j.gameserver.model.actor.move.CreatureMove;
 import net.sf.l2j.gameserver.model.actor.stat.CreatureStat;
 import net.sf.l2j.gameserver.model.actor.status.CreatureStatus;
@@ -59,7 +60,6 @@ import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
 import net.sf.l2j.gameserver.model.itemcontainer.Inventory;
 import net.sf.l2j.gameserver.model.location.Location;
-import net.sf.l2j.gameserver.model.zone.type.MultiZone;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.AbstractNpcInfo.NpcInfo;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
@@ -96,6 +96,8 @@ import net.sf.l2j.gameserver.skills.funcs.FuncPAtkMod;
 import net.sf.l2j.gameserver.skills.funcs.FuncPAtkSpeed;
 import net.sf.l2j.gameserver.skills.funcs.FuncPDefMod;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
+import net.sf.l2j.gameserver.taskmanager.MovementTaskManager;
+
 
 /**
  * An instance type extending {@link WorldObject} which represents the mother class of all character objects of the world such as players, NPCs and monsters.
@@ -114,6 +116,9 @@ public abstract class Creature extends WorldObject
 	private boolean _isRunning = false;
 	protected boolean _isTeleporting = false;
 	protected boolean _showSummonAnimation = false;
+	
+	/** The _is buff protected. */
+	private boolean _isBuffProtected = false; // Protect From Debuffs
 	
 	protected boolean _isInvul = false;
 	private boolean _isMortal = true;
@@ -1495,9 +1500,7 @@ public abstract class Creature extends WorldObject
 		if (hasAI())
 			getAI().notifyEvent(AiEventType.DEAD, null);
 
-		final MultiZone zone = ZoneManager.getInstance().getZone(this, MultiZone.class);
-		if (zone != null)
-			zone.onDie(this);
+
 		
 		return true;
 	}
@@ -1527,9 +1530,6 @@ public abstract class Creature extends WorldObject
 		
 		_status.setCurrentHp(getMaxHp() * Config.RESPAWN_RESTORE_HP);
 
-		final MultiZone zone = ZoneManager.getInstance().getZone(this, MultiZone.class);
-		if (zone != null)
-			zone.onRevive(this);
 
 		// Start broadcast status
 		broadcastPacket(new Revive(this));
@@ -4704,5 +4704,395 @@ public abstract class Creature extends WorldObject
 	public void setStopArena(boolean value)
 	{
 		_isStopMov = value;
+	}
+
+	/**
+	 * Sets the checks if is buff protected.
+	 * @param value the new checks if is buff protected
+	 */
+	public final void setIsBuffProtected(final boolean value)
+	{
+		_isBuffProtected = value;
+	}
+	
+	/**
+	 * Checks if is buff protected.
+	 * @return true, if is buff protected
+	 */
+	public boolean isBuffProtected()
+	{
+		return _isBuffProtected;
+	}
+	protected MoveData _move1;
+	public final boolean isOnGeodataPath()
+	{
+		MoveData m = _move1;
+		if (m == null)
+			return false;
+		
+		if (m.onGeodataPathIndex == -1)
+			return false;
+		
+		if (m.onGeodataPathIndex == m.geoPath.size() - 1)
+			return false;
+		
+		return true;
+	}
+	
+	public static class MoveData
+	{
+		// when we retrieve x/y/z we use GameTimeControl.getGameTicks()
+		// if we are moving, but move timestamp==gameticks, we don't need
+		// to recalculate position
+		public long _moveStartTime;
+		public long _moveTimestamp; // last update
+		public int _xDestination;
+		public int _yDestination;
+		public int _zDestination;
+		public double _xAccurate; // otherwise there would be rounding errors
+		public double _yAccurate;
+		public double _zAccurate;
+		public int _heading;
+		
+		public boolean disregardingGeodata;
+		public int onGeodataPathIndex;
+		public List<Location> geoPath;
+		public int geoPathAccurateTx;
+		public int geoPathAccurateTy;
+		public int geoPathGtx;
+		public int geoPathGty;
+	}
+	
+	public void moveToLocation(int x, int y, int z, int offset)
+	{
+		// get movement speed of character
+		double speed = getStat().getMoveSpeed();
+		if (speed <= 0 || isMovementDisabled())
+			return;
+		
+		// get current position of character
+		final int curX = getX();
+		final int curY = getY();
+		final int curZ = getZ();
+		
+		// calculate distance (dx, dy, dz) between current position and new destination
+		// TODO: improve Z axis move/follow support when dx,dy are small compared to dz
+		double dx = (x - curX);
+		double dy = (y - curY);
+		double dz = (z - curZ);
+		double distance = Math.sqrt(dx * dx + dy * dy);
+		
+		// check vertical movement
+		final boolean verticalMovementOnly = isFlying() && distance == 0 && dz != 0;
+		if (verticalMovementOnly)
+			distance = Math.abs(dz);
+			
+		// TODO: really necessary?
+		// adjust target XYZ when swiming in water (can be easily over 3000)
+		if (isInsideZone(ZoneId.WATER) && distance > 700)
+		{
+			double divider = 700 / distance;
+			x = curX + (int) (divider * dx);
+			y = curY + (int) (divider * dy);
+			z = curZ + (int) (divider * dz);
+			dx = (x - curX);
+			dy = (y - curY);
+			dz = (z - curZ);
+			distance = Math.sqrt(dx * dx + dy * dy);
+		}
+		
+		double cos;
+		double sin;
+		
+		// Check if a movement offset is defined or no distance to go through
+		if (offset > 0 || distance < 1)
+		{
+			// approximation for moving closer when z coordinates are different
+			// TODO: handle Z axis movement better
+			offset -= Math.abs(dz);
+			if (offset < 5)
+				offset = 5;
+			
+			// If no distance to go through, the movement is canceled
+			if (distance < 1 || distance - offset <= 0)
+			{
+				// Notify the AI that the Creature is arrived at destination
+				getAI().notifyEvent(AiEventType.ARRIVED);
+				return;
+			}
+			
+			// Calculate movement angles needed
+			sin = dy / distance;
+			cos = dx / distance;
+			
+			distance -= (offset - 5); // due to rounding error, we have to move a bit closer to be in range
+			
+			// Calculate the new destination with offset included
+			x = curX + (int) (distance * cos);
+			y = curY + (int) (distance * sin);
+		}
+		else
+		{
+			// Calculate movement angles needed
+			sin = dy / distance;
+			cos = dx / distance;
+		}
+		
+		// get new MoveData
+		MoveData newMd = new MoveData();
+		
+		// initialize new MoveData
+		newMd.onGeodataPathIndex = -1;
+		newMd.disregardingGeodata = false;
+		
+		// flying chars not checked - even canSeeTarget doesn't work yet
+		// swimming also not checked unless in siege zone - but distance is limited
+		// npc walkers not checked
+		if (!isFlying() && (!isInsideZone(ZoneId.WATER) || isInsideZone(ZoneId.SIEGE)) && !(this instanceof Walker))
+		{
+			final boolean isInBoat = this instanceof Player && ((Player) this).getBoat() != null;
+			if (isInBoat)
+				newMd.disregardingGeodata = true;
+			
+			double originalDistance = distance;
+			int originalX = x;
+			int originalY = y;
+			int originalZ = z;
+			int gtx = (originalX - World.WORLD_X_MIN) >> 4;
+			int gty = (originalY - World.WORLD_Y_MIN) >> 4;
+			
+			// Movement checks:
+			// when geodata == 2, for all characters except mobs returning home (could be changed later to teleport if pathfinding fails)
+			// when geodata == 1, for l2playableinstance and l2riftinstance only
+			// assuming intention_follow only when following owner
+			if ((!(this instanceof Attackable && ((Attackable) this).isReturningToSpawnPoint())) || (this instanceof Player && !(isInBoat && distance > 1500)) || (this instanceof Summon && !(getAI().getDesire().getIntention() == IntentionType.FOLLOW)) || isAfraid() || this instanceof RiftInvader)
+			{
+				if (isOnGeodataPath())
+				{
+					try
+					{
+						if (gtx == _move1.geoPathGtx && gty == _move1.geoPathGty)
+							return;
+						
+						_move1.onGeodataPathIndex = -1; // Set not on geodata path
+					}
+					catch (NullPointerException e)
+					{
+						// nothing
+					}
+				}
+				
+				if (curX < World.WORLD_X_MIN || curX > World.WORLD_X_MAX || curY < World.WORLD_Y_MIN || curY > World.WORLD_Y_MAX)
+				{
+					// Temporary fix for character outside world region errors
+					getAI().setIntention(IntentionType.IDLE);
+					
+					if (this instanceof Player)
+						((Player) this).logout(false);
+					else if (this instanceof Summon)
+						return; // prevention when summon get out of world coords, player will not loose him, unsummon handled from pcinstance
+					else
+						onDecay();
+					
+					return;
+				}
+				
+				// location different if destination wasn't reached (or just z coord is different)
+				Location destiny = GeoEngine.getInstance().canMoveToTargetLoc(curX, curY, curZ, x, y, z);
+				x = destiny.getX();
+				y = destiny.getY();
+				z = destiny.getZ();
+				dx = x - curX;
+				dy = y - curY;
+				dz = z - curZ;
+				distance = verticalMovementOnly ? Math.abs(dz * dz) : Math.sqrt(dx * dx + dy * dy);
+			}
+			
+			// Pathfinding checks. Only when geodata setting is 2, the LoS check gives shorter result than the original movement was and the LoS gives a shorter distance than 2000
+			// This way of detecting need for pathfinding could be changed.
+			if (originalDistance - distance > 30 && distance < 2000 && !isAfraid())
+			{
+				// Path calculation -- overrides previous movement check
+				if ((this instanceof Playable && !isInBoat) || isMinion() || isInCombat())
+				{
+					newMd.geoPath = GeoEngine.getInstance().findPath(curX, curY, curZ, originalX, originalY, originalZ, this instanceof Playable);
+					if (newMd.geoPath == null || newMd.geoPath.size() < 2)
+					{
+						// No path found
+						// Even though there's no path found (remember geonodes aren't perfect), the mob is attacking and right now we set it so that the mob will go after target anyway, is dz is small enough.
+						// With cellpathfinding this approach could be changed but would require taking off the geonodes and some more checks.
+						// Summons will follow their masters no matter what.
+						// Currently minions also must move freely since L2AttackableAI commands them to move along with their leader
+						if (this instanceof Player || (!(this instanceof Playable) && !isMinion() && Math.abs(z - curZ) > 140) || (this instanceof Summon && !((Summon) this).getFollowStatus()))
+							return;
+						
+						newMd.disregardingGeodata = true;
+						x = originalX;
+						y = originalY;
+						z = originalZ;
+						distance = originalDistance;
+					}
+					else
+					{
+						newMd.onGeodataPathIndex = 0; // on first segment
+						newMd.geoPathGtx = gtx;
+						newMd.geoPathGty = gty;
+						newMd.geoPathAccurateTx = originalX;
+						newMd.geoPathAccurateTy = originalY;
+						
+						x = newMd.geoPath.get(newMd.onGeodataPathIndex).getX();
+						y = newMd.geoPath.get(newMd.onGeodataPathIndex).getY();
+						z = newMd.geoPath.get(newMd.onGeodataPathIndex).getZ();
+						
+						dx = x - curX;
+						dy = y - curY;
+						dz = z - curZ;
+						distance = verticalMovementOnly ? Math.abs(dz * dz) : Math.sqrt(dx * dx + dy * dy);
+						sin = dy / distance;
+						cos = dx / distance;
+					}
+				}
+			}
+			
+			// If no distance to go through, the movement is canceled
+			if (distance < 1)
+			{
+				if (this instanceof Summon)
+					((Summon) this).setFollowStatus(false);
+				
+				getAI().setIntention(IntentionType.IDLE);
+				return;
+			}
+		}
+		
+		// Apply Z distance for flying or swimming for correct timing calculations
+		if ((isFlying() || isInsideZone(ZoneId.WATER)) && !verticalMovementOnly)
+			distance = Math.sqrt(distance * distance + dz * dz);
+		
+		// Caclulate the Nb of ticks between the current position and the destination
+		newMd._xDestination = x;
+		newMd._yDestination = y;
+		newMd._zDestination = z;
+		
+		// Calculate and set the heading of the Creature
+		newMd._heading = 0;
+		
+		newMd._moveStartTime = System.currentTimeMillis();
+		
+		// set new MoveData as character MoveData
+		_move1 = newMd;
+		
+		// Does not broke heading on vertical movements
+		if (!verticalMovementOnly)
+			getPosition().setHeading(MathUtil.calculateHeadingFrom(cos, sin));
+		
+		// add the character to moving objects of the GameTimeController
+		MovementTaskManager.getInstance().add(this);
+	}
+	
+	public boolean updatePosition()
+	{
+		// Get movement data
+		MoveData m = _move1;
+		
+		if (m == null)
+			return true;
+		
+		if (!isVisible())
+		{
+			_move1 = null;
+			return true;
+		}
+		
+		// Check if this is the first update
+		if (m._moveTimestamp == 0)
+		{
+			m._moveTimestamp = m._moveStartTime;
+			m._xAccurate = getX();
+			m._yAccurate = getY();
+		}
+		
+		// get current time
+		final long time = System.currentTimeMillis();
+		
+		// Check if the position has already been calculated
+		if (m._moveTimestamp > time)
+			return false;
+		
+		int xPrev = getX();
+		int yPrev = getY();
+		int zPrev = getZ(); // the z coordinate may be modified by coordinate synchronizations
+		
+		double dx = m._xDestination - m._xAccurate;
+		double dy = m._yDestination - m._yAccurate;
+		double dz;
+		
+		final boolean isFloating = isFlying() || isInsideZone(ZoneId.WATER);
+		
+		// Z coordinate will follow geodata or client values once a second to reduce possible cpu load
+		if (!isFloating && !m.disregardingGeodata && Rnd.get(10) == 0 && GeoEngine.getInstance().hasGeo(xPrev, yPrev))
+		{
+			short geoHeight = GeoEngine.getInstance().getHeight(xPrev, yPrev, zPrev);
+			dz = m._zDestination - geoHeight;
+			// quite a big difference, compare to validatePosition packet
+			if (this instanceof Player && Math.abs(((Player) this).getClientZ() - geoHeight) > 200 && Math.abs(((Player) this).getClientZ() - geoHeight) < 1500)
+			{
+				// allow diff
+				dz = m._zDestination - zPrev;
+			}
+			// allow mob to climb up to pcinstance
+			else if (isInCombat() && Math.abs(dz) > 200 && (dx * dx + dy * dy) < 40000)
+			{
+				// climbing
+				dz = m._zDestination - zPrev;
+			}
+			else
+				zPrev = geoHeight;
+		}
+		else
+			dz = m._zDestination - zPrev;
+		
+		double delta = dx * dx + dy * dy;
+		// close enough, allows error between client and server geodata if it cannot be avoided
+		// should not be applied on vertical movements in water or during flight
+		if (delta < 10000 && (dz * dz > 2500) && !isFloating)
+			delta = Math.sqrt(delta);
+		else
+			delta = Math.sqrt(delta + dz * dz);
+		
+		double distFraction = Double.MAX_VALUE;
+		if (delta > 1)
+		{
+			final double distPassed = (getStat().getMoveSpeed() * (time - m._moveTimestamp)) / 1000;
+			distFraction = distPassed / delta;
+		}
+		
+		// already there, Set the position of the Creature to the destination
+		if (distFraction > 1)
+			setXYZ(m._xDestination, m._yDestination, m._zDestination);
+		else
+		{
+			m._xAccurate += dx * distFraction;
+			m._yAccurate += dy * distFraction;
+			
+			// Set the position of the Creature to estimated after parcial move
+			setXYZ((int) (m._xAccurate), (int) (m._yAccurate), zPrev + (int) (dz * distFraction + 0.5));
+		}
+		revalidateZone(false);
+		
+		// Set the timer of last position update to now
+		m._moveTimestamp = time;
+		
+		return (distFraction > 1);
+	}
+
+	/**
+	 * @param spawnLoc
+	 * @param i
+	 */
+	public void teleToLocation(Object spawnLoc, int i)
+	{
+
+		
 	}
 }

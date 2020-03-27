@@ -53,4 +53,5 @@ public class ArenaEventZone extends SpawnZoneType
 		}
 	}
 	
+	
 }

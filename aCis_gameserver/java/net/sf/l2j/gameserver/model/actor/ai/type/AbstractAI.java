@@ -13,6 +13,8 @@ import net.sf.l2j.gameserver.model.location.SpawnLocation;
 import net.sf.l2j.gameserver.network.serverpackets.AutoAttackStart;
 import net.sf.l2j.gameserver.network.serverpackets.AutoAttackStop;
 import net.sf.l2j.gameserver.network.serverpackets.Die;
+import net.sf.l2j.gameserver.network.serverpackets.MoveToLocation;
+import net.sf.l2j.gameserver.network.serverpackets.MoveToPawn;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 
 abstract class AbstractAI
@@ -21,6 +23,12 @@ abstract class AbstractAI
 	protected final Desire _desire = new Desire();
 	
 	private NextAction _nextAction;
+	
+	protected volatile boolean _clientMoving;
+	
+	/** Different internal state flags */
+	private long _moveToPawnTimeout;
+	protected int _clientMovingToPawnOffset;
 	
 	/** Different targets this AI maintains */
 	private WorldObject _target;
@@ -396,6 +404,75 @@ abstract class AbstractAI
 	 */
 	protected void clientActionFailed()
 	{
+	}
+	
+	protected void moveToPawn(WorldObject pawn, int offset)
+	{
+		// Check if actor can move
+		if (!_actor.isMovementDisabled())
+		{
+			if (offset < 10)
+				offset = 10;
+			
+			// prevent possible extra calls to this function (there is none?).
+			if (_clientMoving && (_target == pawn))
+			{
+				if (_clientMovingToPawnOffset == offset)
+				{
+					if (System.currentTimeMillis() < _moveToPawnTimeout)
+					{
+						clientActionFailed();
+						return;
+					}
+				}
+				else if (_actor.isOnGeodataPath())
+				{
+					// minimum time to calculate new route is 2 seconds
+					if (System.currentTimeMillis() < _moveToPawnTimeout + 1000)
+					{
+						clientActionFailed();
+						return;
+					}
+				}
+			}
+			
+			// Set AI movement data
+			_clientMoving = true;
+			_clientMovingToPawnOffset = offset;
+			_target = pawn;
+			_moveToPawnTimeout = System.currentTimeMillis() + 1000;
+			
+			if (pawn == null)
+			{
+				clientActionFailed();
+				return;
+			}
+			
+			// Calculate movement data for a move to location action and add the actor to movingObjects of GameTimeController
+			_actor.moveToLocation(pawn.getX(), pawn.getY(), pawn.getZ(), offset);
+			
+			if (!_actor.isMoving())
+			{
+				clientActionFailed();
+				return;
+			}
+			
+			// Broadcast MoveToPawn/MoveToLocation packet
+			if (pawn instanceof Creature)
+			{
+				if (_actor.isOnGeodataPath())
+				{
+					_actor.broadcastPacket(new MoveToLocation(_actor));
+					_clientMovingToPawnOffset = 0;
+				}
+				else
+					_actor.broadcastPacket(new MoveToPawn(_actor, pawn, offset));
+			}
+			else
+				_actor.broadcastPacket(new MoveToLocation(_actor));
+		}
+		else
+			clientActionFailed();
 	}
 	
 	/**

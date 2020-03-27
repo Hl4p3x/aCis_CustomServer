@@ -1538,6 +1538,32 @@ public class GeoEngine
 		}
 	}
 	
+	public final Location canMoveToTargetLoc(int ox, int oy, int oz, int tx, int ty, int tz)
+	{
+		// get origin and check existing geo coordinates
+		final int gox = getGeoX(ox);
+		final int goy = getGeoY(oy);
+		if (!hasGeoPos(gox, goy))
+			return new Location(tx, ty, tz);
+		
+		final short goz = getHeightNearest(gox, goy, oz);
+		
+		// get target and check existing geo coordinates
+		final int gtx = getGeoX(tx);
+		final int gty = getGeoY(ty);
+		if (!hasGeoPos(gtx, gty))
+			return new Location(tx, ty, tz);
+		
+		final short gtz = getHeightNearest(gtx, gty, tz);
+		
+		// target coordinates reached
+		if (gox == gtx && goy == gty && goz == gtz)
+			return new Location(tx, ty, tz);
+		
+		// perform geodata check
+		return checkMove(gox, goy, goz, gtx, gty, gtz);
+	}
+	
 	/**
 	 * Returns the instance of the {@link GeoEngine}.
 	 * @return {@link GeoEngine} : The instance.

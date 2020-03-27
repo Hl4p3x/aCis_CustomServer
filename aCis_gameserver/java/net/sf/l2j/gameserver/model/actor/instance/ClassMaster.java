@@ -47,10 +47,10 @@ public final class ClassMaster extends Folk
 	public void showChatWindow(Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-		String filename = "data/html/classmaster/disabled.htm";
+		String filename = "data/html/mods/classmaster/disabled.htm";
 		
 		if (Config.ALLOW_CLASS_MASTERS)
-			filename = "data/html/classmaster/" + getNpcId() + ".htm";
+			filename = "data/html/mods/classmaster/" + getNpcId() + ".htm";
 		
 		final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
@@ -90,12 +90,12 @@ public final class ClassMaster extends Folk
 			{
 				player.setNoble(true, true);
 				player.sendPacket(new UserInfo(player));
-				html.setFile("data/html/classmaster/nobleok.htm");
+				html.setFile("data/html/mods/classmaster/nobleok.htm");
 				player.sendPacket(html);
 			}
 			else
 			{
-				html.setFile("data/html/classmaster/alreadynoble.htm");
+				html.setFile("data/html/mods/classmaster/alreadynoble.htm");
 				player.sendPacket(html);
 			}
 		}
@@ -153,7 +153,7 @@ public final class ClassMaster extends Folk
 		if (getMinLevel(currentClassId.level()) > player.getLevel() && !Config.ALLOW_ENTIRE_TREE)
 			return;
 		
-		String msg = HtmCache.getInstance().getHtm("data/html/classmaster/template.htm");
+		String msg = HtmCache.getInstance().getHtm("data/html/mods/classmaster/template.htm");
 		msg = msg.replaceAll("%name%", PlayerData.getInstance().getClassNameById(currentClassId.getId()));
 		
 		final StringBuilder menu = new StringBuilder(100);
@@ -217,7 +217,7 @@ public final class ClassMaster extends Folk
 		{
 			final ClassId currentClassId = player.getClassId();
 			if (currentClassId.level() >= level)
-				html.setFile("data/html/classmaster/nomore.htm");
+				html.setFile("data/html/mods/classmaster/nomore.htm");
 			else
 			{
 				final int minLevel = getMinLevel(currentClassId.level());
@@ -235,13 +235,13 @@ public final class ClassMaster extends Folk
 					
 					if (menu.length() > 0)
 					{
-						html.setFile("data/html/classmaster/template.htm");
+						html.setFile("data/html/mods/classmaster/template.htm");
 						html.replace("%name%", PlayerData.getInstance().getClassNameById(currentClassId.getId()));
 						html.replace("%menu%", menu.toString());
 					}
 					else
 					{
-						html.setFile("data/html/classmaster/comebacklater.htm");
+						html.setFile("data/html/mods/classmaster/comebacklater.htm");
 						html.replace("%level%", getMinLevel(level - 1));
 					}
 				}
@@ -249,11 +249,11 @@ public final class ClassMaster extends Folk
 				{
 					if (minLevel < Integer.MAX_VALUE)
 					{
-						html.setFile("data/html/classmaster/comebacklater.htm");
+						html.setFile("data/html/mods/classmaster/comebacklater.htm");
 						html.replace("%level%", minLevel);
 					}
 					else
-						html.setFile("data/html/classmaster/nomore.htm");
+						html.setFile("data/html/mods/classmaster/nomore.htm");
 				}
 			}
 		}

@@ -73,6 +73,7 @@ public class MotherTreeZone extends ZoneType
 		}
 	}
 	
+	
 	public int getMpRegenBonus()
 	{
 		return _mpRegen;

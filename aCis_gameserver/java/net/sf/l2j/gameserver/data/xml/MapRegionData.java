@@ -36,7 +36,7 @@ public class MapRegionData implements IXmlReader
 		CASTLE,
 		CLAN_HALL,
 		SIEGE_FLAG,
-		TOWN
+		TOWN, CHANGE_PVP_ZONE
 	}
 	
 	private static final int REGIONS_X = 11;
@@ -224,6 +224,8 @@ public class MapRegionData implements IXmlReader
 		if (player.isInsideZone(ZoneId.MONSTER_TRACK))
 			return MDT_LOCATION;
 		
+		
+		
 		if (teleportType != TeleportType.TOWN && player.getClan() != null)
 		{
 			if (teleportType == TeleportType.CLAN_HALL)
@@ -248,6 +250,25 @@ public class MapRegionData implements IXmlReader
 					return castle.getRndSpawn((player.getKarma() > 0) ? SpawnType.CHAOTIC : SpawnType.OWNER);
 			}
 			else if (teleportType == TeleportType.SIEGE_FLAG)
+			{
+				final Siege siege = CastleManager.getInstance().getActiveSiege(player);
+				if (siege != null)
+				{
+					final Npc flag = siege.getFlag(player.getClan());
+					if (flag != null)
+						return flag.getPosition();
+				}
+				
+				final SiegableHall sh = ClanHallManager.getInstance().getNearestSiegableHall(player);
+				if (sh != null)
+				{
+					final Npc flag = sh.getSiege().getFlag(player.getClan());
+					if (flag != null)
+						return flag.getPosition();
+				}
+			}
+			
+			else if (teleportType == TeleportType.CHANGE_PVP_ZONE)
 			{
 				final Siege siege = CastleManager.getInstance().getActiveSiege(player);
 				if (siege != null)

@@ -28,7 +28,8 @@ public class AdminGmChat implements IAdminCommandHandler
 		{
 			try
 			{
-				AdminData.getInstance().broadcastToGMs(new CreatureSay(activeChar, SayType.ALLIANCE, command.substring((command.startsWith("admin_gmchat_menu")) ? 18 : 13)));
+				AdminData.getInstance();
+				AdminData.broadcastToGMs(new CreatureSay(activeChar, SayType.ALLIANCE, command.substring((command.startsWith("admin_gmchat_menu")) ? 18 : 13)));
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{

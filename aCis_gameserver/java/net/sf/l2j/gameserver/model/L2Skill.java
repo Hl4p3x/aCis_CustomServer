@@ -2421,4 +2421,5 @@ public abstract class L2Skill implements IChanceSkillTrigger
 	{
 		return "" + _name + "[id=" + _id + ",lvl=" + _level + "]";
 	}
+	
 }

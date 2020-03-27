@@ -17,6 +17,7 @@ public final class RequestGmList extends L2GameClientPacket
 		if (player == null)
 			return;
 		
-		AdminData.getInstance().sendListToPlayer(player);
+		AdminData.getInstance();
+		AdminData.sendListToPlayer(player);
 	}
 }

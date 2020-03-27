@@ -69,7 +69,7 @@ public class Continuous implements ISkillHandler
 			{
 				case BUFF:
 					// Target under buff immunity.
-					if (target.getFirstEffect(L2EffectType.BLOCK_BUFF) != null)
+					if (target.isBuffProtected() && target.getFirstEffect(L2EffectType.BLOCK_BUFF) != null)
 						continue;
 					
 					// Player holding a cursed weapon can't be buffed and can't buff
@@ -94,7 +94,7 @@ public class Continuous implements ISkillHandler
 			}
 			
 			// Target under debuff immunity.
-			if (skill.isOffensive() && target.getFirstEffect(L2EffectType.BLOCK_DEBUFF) != null)
+			if (skill.isOffensive() != target.isBuffProtected() && target.getFirstEffect(L2EffectType.BLOCK_DEBUFF) != null)
 				continue;
 			
 			boolean acted = true;

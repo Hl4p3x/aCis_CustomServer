@@ -34,7 +34,7 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  */
 public class DonateManager extends Folk
 {
-	private static final Logger DONATE_AUDIT_LOG = Logger.getLogger("donate");
+	public static final Logger DONATE_AUDIT_LOG = Logger.getLogger("donate");
 	
 	public DonateManager(int objectId, NpcTemplate template)
 	{
@@ -653,9 +653,9 @@ public class DonateManager extends Folk
 	@Override
 	public void showChatWindow(Player player, int val)
 	{
-		String name = "data/html/donate/" + getNpcId() + ".htm";
+		String name = "data/html/mods/donate/" + getNpcId() + ".htm";
 		if (val != 0)
-			name = "data/html/donate/" + getNpcId() + "-" + val + ".htm";
+			name = "data/html/mods/donate/" + getNpcId() + "-" + val + ".htm";
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);

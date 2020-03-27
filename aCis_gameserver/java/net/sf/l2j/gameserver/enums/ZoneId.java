@@ -22,9 +22,10 @@ public enum ZoneId
 	NO_RESTART(17),
 	SCRIPT(18),
 	BOSS(19),
-	MULTI(20),
-	ARENA_EVENT(21),
-	TORURNAMENT_ARENA(22);
+	ARENA_EVENT(20),
+	TORURNAMENT_ARENA(21),
+	RANDOM(22),
+	CHANGE_PVP_ZONE(23);
 	
 	private final int _id;
 	

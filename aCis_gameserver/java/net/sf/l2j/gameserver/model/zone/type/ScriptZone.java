@@ -25,4 +25,5 @@ public class ScriptZone extends ZoneType
 	{
 		character.setInsideZone(ZoneId.SCRIPT, false);
 	}
+	
 }

@@ -55,7 +55,9 @@ public class CharInfo extends L2GameServerPacket
 	            writeD(_inv.getPaperdollItemId(7));
 	            writeD(_inv.getPaperdollItemId(15));
 	            writeD(_inv.getPaperdollItemId(14));
+	            
 	        } else {
+
 	            writeD(_inv.getPaperdollItemId(16));
 	            writeD(_inv.getPaperdollItemId(6));
 	            writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(7) : (_player.getDressMeData().getWeapId() == 0 ? _player.getInventory().getPaperdollItemId(7) : _player.getDressMeData().getWeapId()));
@@ -68,6 +70,9 @@ public class CharInfo extends L2GameServerPacket
 	            writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(7) : (_player.getDressMeData().getWeapId() == 0 ? _player.getInventory().getPaperdollItemId(7) : _player.getDressMeData().getWeapId()));
 	            writeD(_inv.getPaperdollItemId(15));
 	            writeD(_inv.getPaperdollItemId(14));
+	            
+	            
+
 	        }
 		
 		writeH(0x00);

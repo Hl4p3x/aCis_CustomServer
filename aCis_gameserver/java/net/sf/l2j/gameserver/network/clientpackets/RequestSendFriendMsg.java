@@ -12,7 +12,7 @@ import net.sf.l2j.gameserver.network.serverpackets.L2FriendSay;
 
 public final class RequestSendFriendMsg extends L2GameClientPacket
 {
-	private static final Logger CHAT_LOG = Logger.getLogger("chat");
+	public static final Logger CHAT_LOG = Logger.getLogger("chat");
 	
 	private String _message;
 	private String _targetName;

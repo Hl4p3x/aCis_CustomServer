@@ -122,7 +122,6 @@ public final class RequestRestartPoint extends L2GameClientPacket
 			if (!player.isGM() && !player.isFestivalParticipant())
 				return;
 			
-			loc = player.getPosition();
 		}
 		// To jail.
 		else if (_requestType == 27)

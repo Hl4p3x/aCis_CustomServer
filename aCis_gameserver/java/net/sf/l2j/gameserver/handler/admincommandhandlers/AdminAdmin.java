@@ -51,6 +51,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		"admin_reload"
 	};
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public boolean useAdminCommand(String command, Player activeChar)
 	{

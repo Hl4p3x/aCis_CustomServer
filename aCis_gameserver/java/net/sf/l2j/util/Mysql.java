@@ -11,7 +11,7 @@ import net.sf.l2j.L2DatabaseFactory;
 
 public abstract class Mysql
 {
-	private static final Logger _log = Logger.getLogger(Mysql.class.getName());
+	public static final Logger _log = Logger.getLogger(Mysql.class.getName());
 
 	/**
 	 * Performs a simple sql queries where unnecessary control parameters <BR>

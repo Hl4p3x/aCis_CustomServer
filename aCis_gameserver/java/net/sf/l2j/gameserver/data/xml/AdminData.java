@@ -33,7 +33,7 @@ public final class AdminData implements IXmlReader
 {
 	private final TreeMap<Integer, AccessLevel> _accessLevels = new TreeMap<>();
 	private final Map<String, Integer> _adminCommandAccessRights = new HashMap<>();
-	private final Map<Player, Boolean> _gmList = new ConcurrentHashMap<>();
+	private final static Map<Player, Boolean> _gmList = new ConcurrentHashMap<>();
 	
 	protected AdminData()
 	{
@@ -124,7 +124,7 @@ public final class AdminData implements IXmlReader
 	 * @param includeHidden : If true, we add hidden GMs.
 	 * @return the List of GM {@link Player}s. This List can include or not hidden GMs.
 	 */
-	public List<Player> getAllGms(boolean includeHidden)
+	public static List<Player> getAllGms(boolean includeHidden)
 	{
 		final List<Player> list = new ArrayList<>();
 		for (Entry<Player, Boolean> entry : _gmList.entrySet())
@@ -139,7 +139,7 @@ public final class AdminData implements IXmlReader
 	 * @param includeHidden : If true, we add hidden GMs.
 	 * @return the List of GM {@link Player}s names. This List can include or not hidden GMs.
 	 */
-	public List<String> getAllGmNames(boolean includeHidden)
+	public static List<String> getAllGmNames(boolean includeHidden)
 	{
 		final List<String> list = new ArrayList<>();
 		for (Entry<Player, Boolean> entry : _gmList.entrySet())
@@ -157,7 +157,7 @@ public final class AdminData implements IXmlReader
 	 * @param player : The Player to add on the map.
 	 * @param hidden : The hidden state of this Player.
 	 */
-	public void addGm(Player player, boolean hidden)
+	public static void addGm(Player player, boolean hidden)
 	{
 		_gmList.put(player, hidden);
 	}
@@ -166,7 +166,7 @@ public final class AdminData implements IXmlReader
 	 * Delete a {@link Player} from the _gmList map..
 	 * @param player : The Player to remove from the map.
 	 */
-	public void deleteGm(Player player)
+	public static void deleteGm(Player player)
 	{
 		_gmList.remove(player);
 	}
@@ -176,7 +176,7 @@ public final class AdminData implements IXmlReader
 	 * @param player : The GM to affect.
 	 * @return the current GM state.
 	 */
-	public boolean showOrHideGm(Player player)
+	public static boolean showOrHideGm(Player player)
 	{
 		return _gmList.computeIfPresent(player, (k, v) -> !v);
 	}
@@ -185,7 +185,7 @@ public final class AdminData implements IXmlReader
 	 * @param includeHidden : Include or not hidden GM Players.
 	 * @return true if at least one GM {@link Player} is online.
 	 */
-	public boolean isGmOnline(boolean includeHidden)
+	public static boolean isGmOnline(boolean includeHidden)
 	{
 		for (Entry<Player, Boolean> entry : _gmList.entrySet())
 		{
@@ -199,7 +199,7 @@ public final class AdminData implements IXmlReader
 	 * @param player : The player to test.
 	 * @return true if this {@link Player} is registered as GM.
 	 */
-	public boolean isRegisteredAsGM(Player player)
+	public static boolean isRegisteredAsGM(Player player)
 	{
 		return _gmList.containsKey(player);
 	}
@@ -208,7 +208,7 @@ public final class AdminData implements IXmlReader
 	 * Send the GM list of current online GM {@link Player}s to the Player set as parameter.
 	 * @param player : The Player to send list.
 	 */
-	public void sendListToPlayer(Player player)
+	public static void sendListToPlayer(Player player)
 	{
 		if (isGmOnline(player.isGM()))
 		{
@@ -228,7 +228,7 @@ public final class AdminData implements IXmlReader
 	 * Broadcast to GM {@link Player}s a specific packet set as parameter.
 	 * @param packet : The {@link L2GameServerPacket} packet to broadcast.
 	 */
-	public void broadcastToGMs(L2GameServerPacket packet)
+	public static void broadcastToGMs(L2GameServerPacket packet)
 	{
 		for (Player gm : getAllGms(true))
 			gm.sendPacket(packet);
@@ -238,7 +238,7 @@ public final class AdminData implements IXmlReader
 	 * Broadcast a message to GM {@link Player}s.
 	 * @param message : The String message to broadcast.
 	 */
-	public void broadcastMessageToGMs(String message)
+	public static void broadcastMessageToGMs(String message)
 	{
 		for (Player gm : getAllGms(true))
 			gm.sendMessage(message);

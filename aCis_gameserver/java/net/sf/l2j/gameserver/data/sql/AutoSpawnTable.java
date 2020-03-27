@@ -292,7 +292,7 @@ public class AutoSpawnTable
 			_objectId = objectId;
 		}
 		
-		@SuppressWarnings("synthetic-access")
+
 		@Override
 		public void run()
 		{
@@ -401,7 +401,6 @@ public class AutoSpawnTable
 			_objectId = objectId;
 		}
 		
-		@SuppressWarnings("synthetic-access")
 		@Override
 		public void run()
 		{

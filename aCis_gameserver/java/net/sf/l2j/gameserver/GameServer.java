@@ -109,14 +109,15 @@ import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 import net.sf.l2j.gameserver.taskmanager.RandomAnimationTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ShadowItemTaskManager;
 import net.sf.l2j.gameserver.taskmanager.WaterTaskManager;
-import net.sf.l2j.gameserver.taskmanager.ZoneTaskManager;
 import net.sf.l2j.util.DeadLockDetector;
 import net.sf.l2j.util.IPv4Filter;
 
+import Dev.AutoBackup.BackupDBSave;
 import Dev.FakePlayer.PhantomStore;
 import Dev.FakePlayer.PhantomWalker;
 import Dev.PartyFarm.InitialPartyFarm;
 import Dev.PartyFarm.PartyFarm;
+import Dev.Phantom.FakePlayerManager;
 import Dev.StartPlayer.StartupManager;
 import Dev.Tournament.Arena2x2;
 import Dev.Tournament.Arena4x4;
@@ -124,7 +125,11 @@ import Dev.Tournament.Arena9x9;
 import Dev.Tournament.ArenaEvent;
 import Dev.Tournament.ArenaTask;
 import Dev.VoteEngine.VoteSystem;
+import Dev.VoteGatekkeper.PvPZoneManager;
+import Dev.announcerTopPlayer.AnnounceOnlinePlayers;
 import hwid.Hwid;
+
+
 
 
 public class GameServer
@@ -161,9 +166,6 @@ public class GameServer
 			LogManager.getLogManager().readConfiguration(is);
 		}
 		
-		StringUtil.printSection("aCis 384 / Dev Juvenil Amaro");
-
-		
 		// Initialize config
 		Config.loadGameServer();
 		
@@ -180,6 +182,7 @@ public class GameServer
 		AnnouncementData.getInstance();
 		ServerMemoTable.getInstance();
 		AntiBotData.getInstance();
+
 		
 		StringUtil.printSection("Skills");
 		SkillTable.getInstance();
@@ -235,6 +238,7 @@ public class GameServer
 		
 		StringUtil.printSection("Zones");
 		ZoneManager.getInstance();
+		PvPZoneManager.getInstance();
 		
 		StringUtil.printSection("Castles & Clan Halls");
 		CastleManager.getInstance();
@@ -249,7 +253,6 @@ public class GameServer
 		RandomAnimationTaskManager.getInstance();
 		ShadowItemTaskManager.getInstance();
 		WaterTaskManager.getInstance();
-		ZoneTaskManager.getInstance();
 		
 		StringUtil.printSection("Auto Spawns");
 		AutoSpawnTable.getInstance();
@@ -360,7 +363,7 @@ public class GameServer
 		
 		StringUtil.printSection("Vote System");
 		VoteSystem.initialize();
-		
+		FakePlayerManager.initialise();
 		StringUtil.printSection("Phantom Store");
 
 		if (Config.ALLOW_PHANTOM_STORE)
@@ -384,6 +387,18 @@ public class GameServer
 		else
 		{
 			LOGGER.info("Phantom Walker Desatived");
+		}
+		
+		if (Config.ALLOW_ANNOUNCE_ONLINE_PLAYERS)
+			AnnounceOnlinePlayers.getInstance();
+		
+		StringUtil.printSection("DataBase Auto Save");
+        if (Config.ENABLE_BACKUP_BOOLEAN) {
+        	BackupDBSave.getInstance();
+            LOGGER.info("[DataBase Auto Save]: Enabled");
+        }else
+		{
+			LOGGER.info("[DataBase Auto Save]: Desatived");
 		}
 		
 		StringUtil.printSection("Handlers");
@@ -410,9 +425,9 @@ public class GameServer
 		
 		System.gc();
 		initStats();
-		
 		StringUtil.printSection("Login");
 		LoginServerThread.getInstance().start();
+		
 		final SelectorConfig sc = new SelectorConfig();
 		sc.MAX_READ_PER_PASS = Config.MMO_MAX_READ_PER_PASS;
 		sc.MAX_SEND_PER_PASS = Config.MMO_MAX_SEND_PER_PASS;
@@ -471,6 +486,7 @@ public class GameServer
 			}
 		}, 3600 * 1000);
 	}
+	
 	
 	public class SpawnMonsters implements Runnable
 	{

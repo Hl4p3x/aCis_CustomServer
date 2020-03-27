@@ -1,5 +1,7 @@
 package net.sf.l2j.gameserver.model.actor.stat;
 
+
+
 import java.util.Map;
 
 import net.sf.l2j.commons.math.MathUtil;
@@ -43,10 +45,15 @@ public class PlayerStat extends PlayableStat
 	@Override
 	public boolean addExp(long value)
 	{
+		
+		Player activeChar = getActiveChar();
+		
+		
 		// Allowed to gain exp?
 		if (!getActiveChar().getAccessLevel().canGainExp())
 			return false;
-		
+		if (activeChar.cantGainXP())
+		    return false;
 		if (!super.addExp(value))
 			return false;
 		
@@ -70,8 +77,13 @@ public class PlayerStat extends PlayableStat
 	@Override
 	public boolean addExpAndSp(long addToExp, int addToSp)
 	{
+		Player activeChar = getActiveChar();
+		
 		if (!super.addExpAndSp(addToExp, addToSp))
 			return false;
+		
+		if (activeChar.cantGainXP())
+		    return false;
 		
 		SystemMessage sm;
 		
@@ -449,7 +461,20 @@ public class PlayerStat extends PlayableStat
 	{
 		
 	    int val = super.getMAtkSpd();
-	    if (val > Config.MAX_MATK_SPEED)
+	    
+		 if (getActiveChar().getClassId().equals(ClassId.OVERLORD) || getActiveChar().getClassId().equals(ClassId.DOMINATOR))
+		 {
+		     if (val > Config.MAX_MATK_SPEED_OVER)
+		         return Config.MAX_MATK_SPEED_OVER;
+		 }
+		 
+		 else if (getActiveChar().getClassId().equals(ClassId.WARCRYER) || getActiveChar().getClassId().equals(ClassId.DOOMCRYER))
+		 {
+		     if (val > Config.MAX_MATK_SPEED_OVER)
+		         return Config.MAX_MATK_SPEED_OVER;
+		 }
+		 
+	    else if (val > Config.MAX_MATK_SPEED)
 	        return Config.MAX_MATK_SPEED;
 	   return val;
 

@@ -49,9 +49,9 @@ public class RaidBosInfo extends Folk
 	@Override
 	public void showChatWindow(Player player, int val)
 	{
-		String name = "data/html/raidbossinfo/" + getNpcId() + ".htm";
+		String name = "data/html/mods/raidbossinfo/" + getNpcId() + ".htm";
 		if (val != 0)
-			name = "data/html/raidbossinfo/" + getNpcId() + "-" + val + ".htm";
+			name = "data/html/mods/raidbossinfo/" + getNpcId() + "-" + val + ".htm";
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);

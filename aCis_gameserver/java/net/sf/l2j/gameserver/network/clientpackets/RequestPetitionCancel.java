@@ -41,7 +41,8 @@ public final class RequestPetitionCancel extends L2GameClientPacket
 					
 					// Notify all GMs that the player's pending petition has been cancelled.
 					String msgContent = player.getName() + " has canceled a pending petition.";
-					AdminData.getInstance().broadcastToGMs(new CreatureSay(player.getObjectId(), SayType.HERO_VOICE, "Petition System", msgContent));
+					AdminData.getInstance();
+					AdminData.broadcastToGMs(new CreatureSay(player.getObjectId(), SayType.HERO_VOICE, "Petition System", msgContent));
 				}
 				else
 					player.sendPacket(SystemMessageId.FAILED_CANCEL_PETITION_TRY_LATER);

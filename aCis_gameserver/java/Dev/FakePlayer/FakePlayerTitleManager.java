@@ -55,7 +55,7 @@ public enum FakePlayerTitleManager
 
 	private void loadWordlist()
 	{
-		try (LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/aCis/phantom/Title_list.txt"))));)
+		try (LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/aCis/Phantom/Faketitle.txt"))));)
 		{
 			String line;
 			ArrayList<String> playersList = new ArrayList<>();

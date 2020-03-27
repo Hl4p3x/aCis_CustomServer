@@ -67,6 +67,8 @@ public class Monster extends Attackable
 	
 	private boolean _isChampion;
 	
+	private int _spoilerId;
+	
 	public Monster(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -427,6 +429,16 @@ public class Monster extends Attackable
 	public SeedState getSeedState()
 	{
 		return _seedState;
+	}
+	
+	public final int getSpoilerId()
+	{
+		return _spoilerId;
+	}
+	
+	public final void setSpoilerId(int value)
+	{
+		_spoilerId = value;
 	}
 	
 	/**

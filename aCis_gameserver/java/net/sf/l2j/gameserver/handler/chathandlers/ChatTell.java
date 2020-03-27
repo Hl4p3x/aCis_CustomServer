@@ -8,6 +8,8 @@ import net.sf.l2j.gameserver.model.actor.container.player.BlockList;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 
+import Dev.Phantom.FakePlayer;
+
 public class ChatTell implements IChatHandler
 {
 	private static final SayType[] COMMAND_IDS =
@@ -22,7 +24,7 @@ public class ChatTell implements IChatHandler
 			return;
 		
 		final Player receiver = World.getInstance().getPlayer(target);
-		if (receiver == null || receiver.getClient().isDetached())
+		if (receiver == null || receiver.getClient().isDetached() && (receiver instanceof FakePlayer))
 		{
 			activeChar.sendPacket(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);
 			return;

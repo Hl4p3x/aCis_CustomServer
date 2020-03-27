@@ -28,4 +28,5 @@ public class NoStoreZone extends ZoneType
 		if (character instanceof Player)
 			character.setInsideZone(ZoneId.NO_STORE, false);
 	}
+	
 }

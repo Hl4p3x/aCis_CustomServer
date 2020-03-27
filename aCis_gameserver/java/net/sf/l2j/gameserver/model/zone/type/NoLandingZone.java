@@ -38,4 +38,5 @@ public class NoLandingZone extends ZoneType
 			((Player) character).exitOnNoLandingZone();
 		}
 	}
+	
 }

@@ -1,5 +1,6 @@
 package net.sf.l2j.gameserver.handler.itemhandlers;
 
+
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.items.ShotType;
 import net.sf.l2j.gameserver.handler.IItemHandler;
@@ -53,6 +54,9 @@ public class BeastSoulShots implements IItemHandler
 		    	   player.sendPacket(SystemMessageId.NOT_ENOUGH_SOULSHOTS_FOR_PET);
 		       return;
 		   }
+		   
+		   if (!player.isSSDisabled())
+			   summon.setChargedShot(ShotType.SOULSHOT, true);
 		
 		
 		

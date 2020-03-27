@@ -59,4 +59,5 @@ public class CastleZone extends ResidenceZoneType
 	{
 		character.setInsideZone(ZoneId.CASTLE, false);
 	}
+	
 }

@@ -67,4 +67,5 @@ public class ClanHallZone extends ResidenceZoneType
 		if (character instanceof Player)
 			character.setInsideZone(ZoneId.CLAN_HALL, false);
 	}
+	
 }

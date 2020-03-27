@@ -42,9 +42,39 @@ public final class Config
 	public static final String SKINS_FILE = "./config/aCis/Skins.properties";
 	public static final String BESTFARM_FILE = "./config/aCis/DungeonPartyFarm.properties";
 	public static final String TOURNAMENTE_FILE = "./config/aCis/Tournament.properties";
-	public static final String SKILLS_SELLER = "./config/aCis/NpcSkillSeller.properties";
 	public static final String ACIS_FILE = "./config/aCis/aCis.properties";
-	public static final String FAKEPLAYER_FILE = "./config/aCis/phantom/FakePlayer.properties";
+	public static final String DOBLE_CLASS_FILE = "./config/aCis/DobleClassNpc.properties";
+	public static final String FAKEPLAYER_FILE = "./config/aCis/FakePlayer.properties";
+	public static final String FAKE_ARMOR = "./config/aCis/Phantom/ArmorFakePvP.properties";
+	public static final String FAKE_WEAPON = "./config/aCis/Phantom/WeaponFakePvP.properties";
+	public static final String VOTEZONE_FILE = "./config/aCis/VoteZone.properties";
+	
+	/** Auto Save Data Base */
+	public static boolean ENABLE_BACKUP_BOOLEAN;
+	public static String NAME_DATA_BASE;
+	public static String[] AUTO_SAVE_TIME;
+	
+	/** leave buff on die */
+	public static boolean LEAVE_BUFFS_ON_DIE;
+	
+	/** Announce Online Players */
+	public static boolean ALLOW_ANNOUNCE_ONLINE_PLAYERS;
+	public static int ANNOUNCE_ONLINE_PLAYERS_DELAY;
+	
+	/** ChangeZone */
+	public static boolean flagZone, deleteNpc, rewardPvp;
+	public static int changeZoneTime, announceTimer, rewardId, rewardCount;
+	
+	/** Npc Doble SubClass*/
+	public static int SUBCLASS_LVL;
+	public static String SUBCLASS_ITEMNAME;
+	public static String SUBCLASS_TEX1;
+	public static String SUBCLASS_TEX2;
+	public static String SUBCLASS_TEX3;
+	public static boolean ENABLE_EFFECT_HERO;
+	public static boolean ENABLE_EFFECT_LVLUP;
+	public static int SUBCLASS_COUNT;
+	public static int SUBCLASS_SETITEM;
 	
 	/** phantom town */
 	// private store fake
@@ -91,7 +121,162 @@ public final class Config
 
     public static int CLANID; 
     public static int CLANIDWALKER;
+    
+	/** FAKE PLAYERS Buffer L2jBan**/
+	public static String FIGHTER_BUFF;
+	public static ArrayList<Integer> FIGHTER_BUFF_LIST;
+	public static String MAGE_BUFF;
+	public static ArrayList<Integer> MAGE_BUFF_LIST;
+	public static boolean ENABLE_GIRAN_TO;
+	public static int[] TELE_TO_GIRAN = new int[3];
+	public static boolean ENABLE_GODARD_TO;
+	public static int[] TELE_TO_GODDARD = new int[3];
+	 public static boolean ENABLE_SPAWN_TO_50_PLAYER;
+	public static int[] TELE_TO_SPWAN50 = new int[3];
 
+	
+	public static boolean CONTROLL_FAKE_ON = false;
+	public static boolean FAKE_PLAYER_CAN_TARGET_REAL_PLAYER = false;
+	
+	public static int FAKE_SPAWN_RANDOM_OFFSET;
+	
+	/** Min Max Enchant Fake player L2jBan */
+	public static int MIN_ENCHANT_FAKE_ARMOR;
+	public static int MAX_ENCHANT_FAKE_ARMOR;
+	public static int MIN_ENCHANT_FAKE_WEAPON;
+	public static int MAX_ENCHANT_FAKE_WEAPON;
+	public static  boolean FAKE_PLAYER_RETURNS_TO_FARM;
+	public static  int[] SPAWN_FAKE_LOC2;
+	public static int[] SPAWN_FAKE_LOC1;
+	/** FAKE Armor L2jBan**/
+	public static String FAKE_ARMOR_MYSTIC_MUSE;
+	public static List<Integer> ARMOR_MYSTIC_MUSE = new ArrayList<>();
+	public static String FAKE_ARMOR_HIEROPHANT;
+	public static List<Integer> ARMOR_HIEROPHANT = new ArrayList<>();
+	public static String FAKE_ARMOR_ARCANA_LORD;
+	public static List<Integer> ARMOR_ARCANA_LORD = new ArrayList<>();
+	public static String FAKE_ARMOR_CARDINAL;
+	public static List<Integer> ARMOR_CARDINAL = new ArrayList<>();
+	public static String FAKE_ARMOR_ELEMENTAL_MASTER;
+	public static List<Integer> ARMOR_ELEMENTAL_MASTER = new ArrayList<>();
+	public static String FAKE_ARMOR_DOOMCRYER;
+	public static List<Integer> ARMOR_DOOMCRYER = new ArrayList<>();
+	public static String FAKE_ARMOR_DOMINATOR;
+	public static List<Integer> ARMOR_DOMINATOR = new ArrayList<>();
+	public static String FAKE_ARMOR_GHOST_SENTINEL;
+	public static List<Integer> ARMOR_GHOST_SENTINEL = new ArrayList<>();
+	public static String FAKE_ARMOR_ADVENTURER;
+	public static List<Integer> ARMOR_ADVENTURER = new ArrayList<>();
+	public static String FAKE_ARMOR_SOULTAKER;
+	public static List<Integer> ARMOR_SOULTAKER = new ArrayList<>();
+	public static String FAKE_ARMOR_ARCHMAGE;
+	public static List<Integer> ARMOR_ARCHMAGE = new ArrayList<>();
+	public static String FAKE_ARMOR_DUELIST;
+	public static List<Integer> ARMOR_DUELIST = new ArrayList<>();
+	public static String FAKE_ARMOR_MAESTRO;
+	public static List<Integer> ARMOR_MAESTRO = new ArrayList<>();
+	public static String FAKE_ARMOR_HELL_KNIGHT;
+	public static List<Integer> ARMOR_HELL_KNIGHT = new ArrayList<>();
+	public static String FAKE_ARMOR_TITAN;
+	public static List<Integer> ARMOR_TITAN = new ArrayList<>();
+	public static String FAKE_ARMOR_SAGGITARIUS;
+	public static List<Integer> ARMOR_SAGGITARIUS = new ArrayList<>();
+	public static String FAKE_ARMOR_WIND_RIDER;
+	public static List<Integer> ARMOR_WIND_RIDER = new ArrayList<>();
+	public static String FAKE_ARMOR_GRAND_KHAVATARI;
+	public static List<Integer> ARMOR_GRAND_KHAVATARI = new ArrayList<>();
+	public static String FAKE_ARMOR_STORM_SCREAMER;
+	public static List<Integer> ARMOR_STORM_SCREAMER = new ArrayList<>();
+	public static String FAKE_ARMOR_EVAS_SAINT;
+	public static List<Integer> ARMOR_EVAS_SAINT = new ArrayList<>();
+	public static String FAKE_ARMOR_SPECTRAL_MASTER;
+	public static List<Integer> ARMOR_SPECTRAL_MASTER = new ArrayList<>();
+	public static String FAKE_ARMOR_SHILLIEN_SAINT;
+	public static List<Integer> ARMOR_SHILLIEN_SAINT = new ArrayList<>();
+	public static String FAKE_ARMOR_DREADNOUGHT;
+	public static List<Integer> ARMOR_DREADNOUGHT = new ArrayList<>();
+	public static String FAKE_ARMOR_PHOENIX_KNIGHT;
+	public static List<Integer> ARMOR_PHOENIX_KNIGHT = new ArrayList<>();
+	public static String FAKE_ARMOR_SWORD_MUSE;
+	public static List<Integer> ARMOR_SWORD_MUSE = new ArrayList<>();
+	public static String FAKE_ARMOR_SPECTRAL_DANCER;
+	public static List<Integer> ARMOR_SPECTRAL_DANCER = new ArrayList<>();
+	public static String FAKE_ARMOR_EVAS_TEMPLAR;
+	public static List<Integer> ARMOR_EVAS_TEMPLAR = new ArrayList<>();
+	public static String FAKE_ARMOR_SHILLIEN_TEMPLAR;
+	public static List<Integer> ARMOR_SHILLIEN_TEMPLAR = new ArrayList<>();	
+	public static String FAKE_ARMOR_MOONLIGHT;
+	public static List<Integer> ARMOR_MOONLIGHT = new ArrayList<>();	
+	public static String FAKE_ARMOR_GHOST_HUNTER;
+	public static List<Integer> ARMOR_GHOST_HUNTER = new ArrayList<>();
+	public static String FAKE_ARMOR_FORTUNE;
+	public static List<Integer> ARMOR_FORTUNE = new ArrayList<>();
+	/** FINAL ARMOR FAKE PLAYER BAN JUVENIL AMARO-TM **/
+	
+	/** FAKE WEAPON e Weapons L2jBan **/
+	public static String FAKE_WEAPON_MYSTIC_MUSE;
+	public static List<Integer> WEAPON_MYSTIC_MUSE = new ArrayList<>();
+	public static String FAKE_WEAPON_HIEROPHANT;
+	public static List<Integer> WEAPON_HIEROPHANT = new ArrayList<>();
+	public static String FAKE_WEAPON_ARCANA_LORD;
+	public static List<Integer> WEAPON_ARCANA_LORD = new ArrayList<>();
+	public static String FAKE_WEAPON_CARDINAL;
+	public static List<Integer> WEAPON_CARDINAL = new ArrayList<>();
+	public static String FAKE_WEAPON_ELEMENTAL_MASTER;
+	public static List<Integer> WEAPON_ELEMENTAL_MASTER = new ArrayList<>();
+	public static String FAKE_WEAPON_DOOMCRYER;
+	public static List<Integer> WEAPON_DOOMCRYER = new ArrayList<>();
+	public static String FAKE_WEAPON_DOMINATOR;
+	public static List<Integer> WEAPON_DOMINATOR = new ArrayList<>();
+	public static String FAKE_WEAPON_GHOST_SENTINEL;
+	public static List<Integer> WEAPON_GHOST_SENTINEL = new ArrayList<>();
+	public static String FAKE_WEAPON_ADVENTURER;
+	public static List<Integer> WEAPON_ADVENTURER = new ArrayList<>();
+	public static String FAKE_WEAPON_SOULTAKER;
+	public static List<Integer> WEAPON_SOULTAKER = new ArrayList<>();
+	public static String FAKE_WEAPON_ARCHMAGE;
+	public static List<Integer> WEAPON_ARCHMAGE = new ArrayList<>();
+	public static String FAKE_WEAPON_DUELIST;
+	public static List<Integer> WEAPON_DUELIST = new ArrayList<>();
+	public static String FAKE_WEAPON_MAESTRO;
+	public static List<Integer> WEAPON_MAESTRO = new ArrayList<>();
+	public static String FAKE_WEAPON_HELL_KNIGHT;
+	public static List<Integer> WEAPON_HELL_KNIGHT = new ArrayList<>();
+	public static String FAKE_WEAPON_TITAN;
+	public static List<Integer> WEAPON_TITAN = new ArrayList<>();
+	public static String FAKE_WEAPON_SAGGITARIUS;
+	public static List<Integer> WEAPON_SAGGITARIUS = new ArrayList<>();
+	public static String FAKE_WEAPON_WIND_RIDER;
+	public static List<Integer> WEAPON_WIND_RIDER = new ArrayList<>();
+	public static String FAKE_WEAPON_GRAND_KHAVATARI;
+	public static List<Integer> WEAPON_GRAND_KHAVATARI = new ArrayList<>();
+	public static String FAKE_WEAPON_STORM_SCREAMER;
+	public static List<Integer> WEAPON_STORM_SCREAMER = new ArrayList<>();
+	public static String FAKE_WEAPON_EVAS_SAINT;
+	public static List<Integer> WEAPON_EVAS_SAINT = new ArrayList<>();
+	public static String FAKE_WEAPON_SPECTRAL_MASTER;
+	public static List<Integer> WEAPON_SPECTRAL_MASTER = new ArrayList<>();
+	public static String FAKE_WEAPON_SHILLIEN_SAINT;
+	public static List<Integer> WEAPON_SHILLIEN_SAINT = new ArrayList<>();
+	public static String FAKE_WEAPON_DREADNOUGHT;
+	public static List<Integer> WEAPON_DREADNOUGHT = new ArrayList<>();
+	public static String FAKE_WEAPON_PHOENIX_KNIGHT;
+	public static List<Integer> WEAPON_PHOENIX_KNIGHT = new ArrayList<>();
+	public static String FAKE_WEAPON_SWORD_MUSE;
+	public static List<Integer> WEAPON_SWORD_MUSE = new ArrayList<>();
+	public static String FAKE_WEAPON_SPECTRAL_DANCER;
+	public static List<Integer> WEAPON_SPECTRAL_DANCER = new ArrayList<>();
+	public static String FAKE_WEAPON_EVAS_TEMPLAR;
+	public static List<Integer> WEAPON_EVAS_TEMPLAR = new ArrayList<>();
+	public static String FAKE_WEAPON_SHILLIEN_TEMPLAR;
+	public static List<Integer> WEAPON_SHILLIEN_TEMPLAR = new ArrayList<>();	
+	public static String FAKE_WEAPON_MOONLIGHT_SENTINEL;
+	public static List<Integer> WEAPON_MOONLIGHT_SENTINEL = new ArrayList<>();	
+	public static String FAKE_WEAPON_GHOST_HUNTER;
+	public static List<Integer> WEAPON_GHOST_HUNTER = new ArrayList<>();
+	public static String FAKE_WEAPON_FORTUNE_SEEKER;
+	public static List<Integer> WEAPON_FORTUNE_SEEKER = new ArrayList<>();
+	/** FINAL WEAPON WEAPONS FAKE PLAYER BAN JUVENIL AMARO-TM **/
 	
 	public static boolean ALLOW_GIVE_ITEM_WITHOUT_CHECK_OF_TOPSITES;
 	public static boolean MENU;
@@ -123,11 +308,7 @@ public final class Config
 	public static Map<Integer, Integer> AUTO_POTIONS = new HashMap<>();
 	public static Map<Integer, String[]> AUTO_POTIONS_LIMITS = new HashMap<>();
 
-	/** Seller Npc Skills */
-	public static int SELLER_SKILLS_NPCID;
-	public static int SELLER_SKILLS_ITEM;
-	public static String SELLER_SKILLS_MESSAGE_TEXT;
-	public static int SELLER_SKILLS_COUNT;
+
 		
 	/** L2jBan Tour */
 	public static boolean TOURNAMENT_EVENT_START;
@@ -302,6 +483,7 @@ public final class Config
 	public static int ANTI_SS_BUG_2;
 	public static int ANTI_SS_BUG_3;
 	public static int MAX_MATK_SPEED;
+	public static int MAX_MATK_SPEED_OVER;
 	public static int MAX_PATK_SPEED;
 	public static int MAX_PATK_SPEED_GHOST;
 	public static int MAX_PATK_SPEED_MOONL;
@@ -1574,6 +1756,402 @@ public final class Config
 		CH_MAX_ATTACKERS_NUMBER = sieges.getProperty("ChAttackerMaxClans", 10);
 	}
 	
+	private static final void loadArmor1()
+	{
+		final ExProperties ArmorFakePlayer = initProperties(FAKE_ARMOR);
+		
+		MIN_ENCHANT_FAKE_ARMOR = Integer.parseInt(ArmorFakePlayer.getProperty("MinEnchant_Armor", "0"));
+		MAX_ENCHANT_FAKE_ARMOR = Integer.parseInt(ArmorFakePlayer.getProperty("MaxEnchant_Armor", "0"));
+		
+		/*FAKE ARMOR E WEAPONS BAN*/
+		FAKE_ARMOR_MYSTIC_MUSE = ArmorFakePlayer.getProperty("ARMOR_MYSTIC_MUSE", "0");
+		ARMOR_MYSTIC_MUSE = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_MYSTIC_MUSE.split(",")) {
+        	ARMOR_MYSTIC_MUSE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_HIEROPHANT = ArmorFakePlayer.getProperty("ARMOR_HIEROPHANT", "0");
+		ARMOR_HIEROPHANT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_HIEROPHANT.split(",")) {
+        	ARMOR_HIEROPHANT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_ARCANA_LORD = ArmorFakePlayer.getProperty("ARMOR_ARCANA_LORD", "0");
+		ARMOR_ARCANA_LORD = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_ARCANA_LORD.split(",")) {
+        	ARMOR_ARCANA_LORD.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_CARDINAL = ArmorFakePlayer.getProperty("ARMOR_CARDINAL", "0");
+		ARMOR_CARDINAL = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_CARDINAL.split(",")) {
+        	ARMOR_CARDINAL.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_ELEMENTAL_MASTER = ArmorFakePlayer.getProperty("ARMOR_ELEMENTAL_MASTER", "0");
+		ARMOR_ELEMENTAL_MASTER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_ELEMENTAL_MASTER.split(",")) {
+        	ARMOR_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_DOOMCRYER = ArmorFakePlayer.getProperty("ARMOR_DOOMCRYER", "0");
+		ARMOR_DOOMCRYER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_DOOMCRYER.split(",")) {
+        	ARMOR_DOOMCRYER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_DOMINATOR = ArmorFakePlayer.getProperty("ARMOR_DOMINATOR", "0");
+		ARMOR_DOMINATOR = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_DOMINATOR.split(",")) {
+        	ARMOR_DOMINATOR.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_GHOST_SENTINEL = ArmorFakePlayer.getProperty("ARMOR_GHOST_SENTINEL", "0");
+		ARMOR_GHOST_SENTINEL = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_GHOST_SENTINEL.split(",")) {
+        	ARMOR_GHOST_SENTINEL.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_ADVENTURER = ArmorFakePlayer.getProperty("ARMOR_ADVENTURER", "0");
+		ARMOR_ADVENTURER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_ADVENTURER.split(",")) {
+        	ARMOR_ADVENTURER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SOULTAKER = ArmorFakePlayer.getProperty("ARMOR_SOULTAKER", "0");
+		ARMOR_SOULTAKER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SOULTAKER.split(",")) {
+        	ARMOR_SOULTAKER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_ARCHMAGE = ArmorFakePlayer.getProperty("ARMOR_ARCHMAGE", "0");
+		ARMOR_ARCHMAGE = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_ARCHMAGE.split(",")) {
+        	ARMOR_ARCHMAGE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_DUELIST = ArmorFakePlayer.getProperty("ARMOR_DUELIST", "0");
+		ARMOR_DUELIST = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_DUELIST.split(",")) {
+        	ARMOR_DUELIST.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_MAESTRO = ArmorFakePlayer.getProperty("ARMOR_MAESTRO", "0");
+		ARMOR_MAESTRO = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_MAESTRO.split(",")) {
+        	ARMOR_MAESTRO.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_HELL_KNIGHT = ArmorFakePlayer.getProperty("ARMOR_HELL_KNIGHT", "0");
+		ARMOR_HELL_KNIGHT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_HELL_KNIGHT.split(",")) {
+        	ARMOR_HELL_KNIGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_TITAN = ArmorFakePlayer.getProperty("ARMOR_TITAN", "0");
+		ARMOR_TITAN = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_TITAN.split(",")) {
+        	ARMOR_TITAN.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SAGGITARIUS = ArmorFakePlayer.getProperty("ARMOR_SAGGITARIUS", "0");
+		ARMOR_SAGGITARIUS = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SAGGITARIUS.split(",")) {
+        	ARMOR_SAGGITARIUS.add(Integer.parseInt(listid));
+        }
+		
+		FAKE_ARMOR_WIND_RIDER = ArmorFakePlayer.getProperty("ARMOR_WIND_RIDER", "0");
+		ARMOR_WIND_RIDER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_WIND_RIDER.split(",")) {
+        	ARMOR_WIND_RIDER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_GRAND_KHAVATARI = ArmorFakePlayer.getProperty("ARMOR_GRAND_KHAVATARI", "0");
+		ARMOR_GRAND_KHAVATARI = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_GRAND_KHAVATARI.split(",")) {
+        	ARMOR_GRAND_KHAVATARI.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_STORM_SCREAMER = ArmorFakePlayer.getProperty("ARMOR_STORM_SCREAMER", "0");
+		ARMOR_STORM_SCREAMER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_STORM_SCREAMER.split(",")) {
+        	ARMOR_STORM_SCREAMER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_EVAS_SAINT = ArmorFakePlayer.getProperty("ARMOR_EVAS_SAINT", "0");
+		ARMOR_EVAS_SAINT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_EVAS_SAINT.split(",")) {
+        	ARMOR_EVAS_SAINT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SPECTRAL_MASTER = ArmorFakePlayer.getProperty("ARMOR_SPECTRAL_MASTER", "0");
+		ARMOR_SPECTRAL_MASTER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SPECTRAL_MASTER.split(",")) {
+        	ARMOR_SPECTRAL_MASTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SHILLIEN_SAINT = ArmorFakePlayer.getProperty("ARMOR_SHILLIEN_SAINT", "0");
+		ARMOR_SHILLIEN_SAINT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SHILLIEN_SAINT.split(",")) {
+        	ARMOR_SHILLIEN_SAINT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_DREADNOUGHT = ArmorFakePlayer.getProperty("ARMOR_DREADNOUGHT", "0");
+		ARMOR_DREADNOUGHT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_DREADNOUGHT.split(",")) {
+        	ARMOR_DREADNOUGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_PHOENIX_KNIGHT = ArmorFakePlayer.getProperty("ARMOR_PHOENIX_KNIGHT", "0");
+		ARMOR_PHOENIX_KNIGHT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_PHOENIX_KNIGHT.split(",")) {
+        	ARMOR_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SWORD_MUSE = ArmorFakePlayer.getProperty("ARMOR_SWORD_MUSE", "0");
+		ARMOR_SWORD_MUSE = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SWORD_MUSE.split(",")) {
+        	ARMOR_SWORD_MUSE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_SPECTRAL_DANCER = ArmorFakePlayer.getProperty("ARMOR_SPECTRAL_DANCER", "0");
+		ARMOR_SPECTRAL_DANCER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SPECTRAL_DANCER.split(",")) {
+        	ARMOR_SPECTRAL_DANCER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_EVAS_TEMPLAR = ArmorFakePlayer.getProperty("ARMOR_EVAS_TEMPLAR", "0");
+		ARMOR_EVAS_TEMPLAR = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_EVAS_TEMPLAR.split(",")) {
+        	ARMOR_EVAS_TEMPLAR.add(Integer.parseInt(listid));
+        }
+        
+        
+		FAKE_ARMOR_SHILLIEN_TEMPLAR = ArmorFakePlayer.getProperty("ARMOR_SHILLIEN_TEMPLAR", "0");
+		ARMOR_SHILLIEN_TEMPLAR = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_SHILLIEN_TEMPLAR.split(",")) {
+        	ARMOR_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_MOONLIGHT = ArmorFakePlayer.getProperty("ARMOR_MOONLIGHT", "0");
+		ARMOR_MOONLIGHT = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_MOONLIGHT.split(",")) {
+        	ARMOR_MOONLIGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_GHOST_HUNTER = ArmorFakePlayer.getProperty("ARMOR_GHOST_HUNTER", "0");
+		ARMOR_GHOST_HUNTER = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_GHOST_HUNTER.split(",")) {
+        	ARMOR_GHOST_HUNTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_ARMOR_FORTUNE = ArmorFakePlayer.getProperty("ARMOR_FORTUNE", "0");
+		ARMOR_FORTUNE = new ArrayList<>();
+        for (final String listid : FAKE_ARMOR_FORTUNE.split(",")) {
+        	ARMOR_FORTUNE.add(Integer.parseInt(listid));
+        }
+		
+		
+	}
+	
+	private static final void loadWeapon()
+	{
+		final ExProperties WeaponFakePlayer = initProperties(FAKE_WEAPON);
+		
+		/*FAKE WEAPONS BAN*/
+		
+		MIN_ENCHANT_FAKE_WEAPON = Integer.parseInt(WeaponFakePlayer.getProperty("MinEnchant_Weapon", "0"));
+		MAX_ENCHANT_FAKE_WEAPON = Integer.parseInt(WeaponFakePlayer.getProperty("MaxEnchant_Weapon", "0"));
+		
+		FAKE_WEAPON_MYSTIC_MUSE = WeaponFakePlayer.getProperty("WEAPON_MYSTIC_MUSE", "0");
+		WEAPON_MYSTIC_MUSE = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_MYSTIC_MUSE.split(",")) {
+        	WEAPON_MYSTIC_MUSE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_HIEROPHANT = WeaponFakePlayer.getProperty("WEAPON_HIEROPHANT", "0");
+		WEAPON_HIEROPHANT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_HIEROPHANT.split(",")) {
+        	WEAPON_HIEROPHANT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_ARCANA_LORD = WeaponFakePlayer.getProperty("WEAPON_ARCANA_LORD", "0");
+		WEAPON_ARCANA_LORD = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_ARCANA_LORD.split(",")) {
+        	WEAPON_ARCANA_LORD.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_CARDINAL = WeaponFakePlayer.getProperty("WEAPON_CARDINAL", "0");
+		WEAPON_CARDINAL = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_CARDINAL.split(",")) {
+        	WEAPON_CARDINAL.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_ELEMENTAL_MASTER = WeaponFakePlayer.getProperty("WEAPON_ELEMENTAL_MASTER", "0");
+		WEAPON_ELEMENTAL_MASTER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_ELEMENTAL_MASTER.split(",")) {
+        	WEAPON_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_DOOMCRYER = WeaponFakePlayer.getProperty("WEAPON_DOOMCRYER", "0");
+		WEAPON_DOOMCRYER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_DOOMCRYER.split(",")) {
+        	WEAPON_DOOMCRYER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_DOMINATOR = WeaponFakePlayer.getProperty("WEAPON_DOMINATOR", "0");
+		WEAPON_DOMINATOR = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_DOMINATOR.split(",")) {
+        	WEAPON_DOMINATOR.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_GHOST_SENTINEL = WeaponFakePlayer.getProperty("WEAPON_GHOST_SENTINEL", "0");
+		WEAPON_GHOST_SENTINEL = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_GHOST_SENTINEL.split(",")) {
+        	WEAPON_GHOST_SENTINEL.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_ADVENTURER = WeaponFakePlayer.getProperty("WEAPON_ADVENTURER", "0");
+		WEAPON_ADVENTURER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_ADVENTURER.split(",")) {
+        	WEAPON_ADVENTURER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SOULTAKER = WeaponFakePlayer.getProperty("WEAPON_SOULTAKER", "0");
+		WEAPON_SOULTAKER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SOULTAKER.split(",")) {
+        	WEAPON_SOULTAKER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_ARCHMAGE = WeaponFakePlayer.getProperty("WEAPON_ARCHMAGE", "0");
+		WEAPON_ARCHMAGE = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_ARCHMAGE.split(",")) {
+        	WEAPON_ARCHMAGE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_DUELIST = WeaponFakePlayer.getProperty("WEAPON_DUELIST", "0");
+		WEAPON_DUELIST = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_DUELIST.split(",")) {
+        	WEAPON_DUELIST.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_MAESTRO = WeaponFakePlayer.getProperty("WEAPON_MAESTRO", "0");
+		WEAPON_MAESTRO = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_MAESTRO.split(",")) {
+        	WEAPON_MAESTRO.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_HELL_KNIGHT = WeaponFakePlayer.getProperty("WEAPON_HELL_KNIGHT", "0");
+		WEAPON_HELL_KNIGHT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_HELL_KNIGHT.split(",")) {
+        	WEAPON_HELL_KNIGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_TITAN = WeaponFakePlayer.getProperty("WEAPON_TITAN", "0");
+		WEAPON_TITAN = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_TITAN.split(",")) {
+        	WEAPON_TITAN.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SAGGITARIUS = WeaponFakePlayer.getProperty("WEAPON_SAGGITARIUS", "0");
+		WEAPON_SAGGITARIUS = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SAGGITARIUS.split(",")) {
+        	WEAPON_SAGGITARIUS.add(Integer.parseInt(listid));
+        }
+		
+		FAKE_WEAPON_WIND_RIDER = WeaponFakePlayer.getProperty("WEAPON_WIND_RIDER", "0");
+		WEAPON_WIND_RIDER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_WIND_RIDER.split(",")) {
+        	WEAPON_WIND_RIDER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_GRAND_KHAVATARI = WeaponFakePlayer.getProperty("WEAPON_GRAND_KHAVATARI", "0");
+		WEAPON_GRAND_KHAVATARI = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_GRAND_KHAVATARI.split(",")) {
+        	WEAPON_GRAND_KHAVATARI.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_STORM_SCREAMER = WeaponFakePlayer.getProperty("WEAPON_STORM_SCREAMER", "0");
+		WEAPON_STORM_SCREAMER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_STORM_SCREAMER.split(",")) {
+        	WEAPON_STORM_SCREAMER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_EVAS_SAINT = WeaponFakePlayer.getProperty("WEAPON_EVAS_SAINT", "0");
+		WEAPON_EVAS_SAINT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_EVAS_SAINT.split(",")) {
+        	WEAPON_EVAS_SAINT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SPECTRAL_MASTER = WeaponFakePlayer.getProperty("WEAPON_SPECTRAL_MASTER", "0");
+		WEAPON_SPECTRAL_MASTER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SPECTRAL_MASTER.split(",")) {
+        	WEAPON_SPECTRAL_MASTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SHILLIEN_SAINT = WeaponFakePlayer.getProperty("WEAPON_SHILLIEN_SAINT", "0");
+		WEAPON_SHILLIEN_SAINT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SHILLIEN_SAINT.split(",")) {
+        	WEAPON_SHILLIEN_SAINT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_DREADNOUGHT = WeaponFakePlayer.getProperty("WEAPON_DREADNOUGHT", "0");
+		WEAPON_DREADNOUGHT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_DREADNOUGHT.split(",")) {
+        	WEAPON_DREADNOUGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_PHOENIX_KNIGHT = WeaponFakePlayer.getProperty("WEAPON_PHOENIX_KNIGHT", "0");
+		WEAPON_PHOENIX_KNIGHT = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_PHOENIX_KNIGHT.split(",")) {
+        	WEAPON_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SWORD_MUSE = WeaponFakePlayer.getProperty("WEAPON_SWORD_MUSE", "0");
+		WEAPON_SWORD_MUSE = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SWORD_MUSE.split(",")) {
+        	WEAPON_SWORD_MUSE.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SPECTRAL_DANCER = WeaponFakePlayer.getProperty("WEAPON_SPECTRAL_DANCER", "0");
+		WEAPON_SPECTRAL_DANCER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SPECTRAL_DANCER.split(",")) {
+        	WEAPON_SPECTRAL_DANCER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_EVAS_TEMPLAR = WeaponFakePlayer.getProperty("WEAPON_EVAS_TEMPLAR", "0");
+		WEAPON_EVAS_TEMPLAR = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_EVAS_TEMPLAR.split(",")) {
+        	WEAPON_EVAS_TEMPLAR.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_SHILLIEN_TEMPLAR = WeaponFakePlayer.getProperty("WEAPON_SHILLIEN_TEMPLAR", "0");
+		WEAPON_SHILLIEN_TEMPLAR = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_SHILLIEN_TEMPLAR.split(",")) {
+        	WEAPON_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_MOONLIGHT_SENTINEL = WeaponFakePlayer.getProperty("WEAPON_MOONLIGHT_SENTINEL", "0");
+		WEAPON_MOONLIGHT_SENTINEL = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_MOONLIGHT_SENTINEL.split(",")) {
+        	WEAPON_MOONLIGHT_SENTINEL.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_GHOST_HUNTER = WeaponFakePlayer.getProperty("WEAPON_GHOST_HUNTER", "0");
+		WEAPON_GHOST_HUNTER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_GHOST_HUNTER.split(",")) {
+        	WEAPON_GHOST_HUNTER.add(Integer.parseInt(listid));
+        }
+        
+		FAKE_WEAPON_FORTUNE_SEEKER = WeaponFakePlayer.getProperty("WEAPON_FORTUNE_SEEKER", "0");
+		WEAPON_FORTUNE_SEEKER = new ArrayList<>();
+        for (final String listid : FAKE_WEAPON_FORTUNE_SEEKER.split(",")) {
+        	WEAPON_FORTUNE_SEEKER.add(Integer.parseInt(listid));
+        }
+		
+		
+	}
+	
 	private static final void loadPhysics()
 	{
 	final ExProperties Physics = initProperties(PHYSICIS_FILE); 
@@ -1590,6 +2168,7 @@ public final class Config
 	ANTI_SS_BUG_3 = Integer.parseInt(Physics.getProperty("DelayNextAttack", "470000"));
 	
 	MAX_MATK_SPEED = Integer.parseInt(Physics.getProperty("MaxMAtkSpeed", "1999"));
+	MAX_MATK_SPEED_OVER = Integer.parseInt(Physics.getProperty("MaxMAtkSpeedOverlord", "1300"));
 	MAX_PATK_SPEED = Integer.parseInt(Physics.getProperty("MaxPAtkSpeed", "1500"));
 	MAX_PATK_SPEED_GHOST = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedGhost", "1500"));
 	MAX_PATK_SPEED_MOONL = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedMoonl", "1500"));
@@ -1986,23 +2565,101 @@ private static final void loadTournament()
         
         CLANIDWALKER = Phanton.getProperty("ClanWalkerID", 50);
 
-    	
+        FIGHTER_BUFF = Phanton.getProperty("FighterBuffList", "0");
+        FIGHTER_BUFF_LIST = new ArrayList<>();
+        for (final String id : Config.FIGHTER_BUFF.trim().split(",")) {
+            Config.FIGHTER_BUFF_LIST.add(Integer.parseInt(id.trim()));
+        }
+        MAGE_BUFF = Phanton.getProperty("MageBuffList", "0");
+        MAGE_BUFF_LIST = new ArrayList<>();
+        for (final String id : MAGE_BUFF.trim().split(",")) {
+            MAGE_BUFF_LIST.add(Integer.parseInt(id.trim()));
+        }
+        
+    	ENABLE_GIRAN_TO = Phanton.getProperty("EnabledGiranWalker", true);
+ 
+		String[] TelepropertySplit = Phanton.getProperty("SpwanLocationGiran", "0,0,0").split(",");
+		if (TelepropertySplit.length < 3)
+			System.out.println("Fake Player Giran Walker [Config.load()]: invalid config property -> SpwanLocationFakePlayer");
+		else
+		{
+			TELE_TO_GIRAN[0] = Integer.parseInt(TelepropertySplit[0]);
+			TELE_TO_GIRAN[1] = Integer.parseInt(TelepropertySplit[1]);
+			TELE_TO_GIRAN[2] = Integer.parseInt(TelepropertySplit[2]);
+		}
+		
+		
+		ENABLE_GODARD_TO = Phanton.getProperty("EnabledGoddardWalker", true);
+		
+		String[] TelepropertySplit1 = Phanton.getProperty("SpwanLocationGoddard", "0,0,0").split(",");
+		if (TelepropertySplit1.length < 3)
+			System.out.println("Fake Player Goddard Walker [Config.load()]: invalid config property -> SpwanLocationGoddard");
+		else
+		{
+			TELE_TO_GODDARD[0] = Integer.parseInt(TelepropertySplit1[0]);
+			TELE_TO_GODDARD[1] = Integer.parseInt(TelepropertySplit1[1]);
+			TELE_TO_GODDARD[2] = Integer.parseInt(TelepropertySplit1[2]);
+		}
+		
+		ENABLE_SPAWN_TO_50_PLAYER = Phanton.getProperty("Enabled50FakePlayerSpwan", true);
+		
+		String[] TelepropertySplit2 = Phanton.getProperty("SpwanFakeCustom50", "0,0,0").split(",");
+		if (TelepropertySplit2.length < 3)
+			System.out.println("Fake Player Spawn 50 Player [Config.load()]: invalid config property -> SpwanFakeCustom50");
+		else
+		{
+			TELE_TO_SPWAN50[0] = Integer.parseInt(TelepropertySplit2[0]);
+			TELE_TO_SPWAN50[1] = Integer.parseInt(TelepropertySplit2[1]);
+			TELE_TO_SPWAN50[2] = Integer.parseInt(TelepropertySplit2[2]);
+		}
+		
+
+		
+		CONTROLL_FAKE_ON = Boolean.parseBoolean(Phanton.getProperty("ControlFakeOn", "False"));
+		FAKE_PLAYER_CAN_TARGET_REAL_PLAYER = Boolean.parseBoolean(Phanton.getProperty("FakePlayerTargetRealPlayer", "False"));
+		
+		FAKE_PLAYER_RETURNS_TO_FARM = Phanton.getProperty("FakePlayerReturnFarm", true);
+		
+		SPAWN_FAKE_LOC1 = Phanton.getProperty("FakeSpawnLocation1", new int []
+			{53717, 83639, -3540});
+		SPAWN_FAKE_LOC2 = Phanton.getProperty("FakeSpawnLocation2", new int []
+			{57428, 82020, -3599});
+		
+		FAKE_SPAWN_RANDOM_OFFSET = Phanton.getProperty("RandomSpawnOffset", 0);
 	}
 	   
-	private static final void loadSellerSkills() 
+
+	
+	private static final void loadDobleBlass() 
 {	
-	final ExProperties NpcSkillSeller = initProperties(Config.SKILLS_SELLER);
-	    	
-	SELLER_SKILLS_NPCID = Integer.parseInt(NpcSkillSeller.getProperty("SellerSkillsNpcId", "1"));
-	SELLER_SKILLS_ITEM = NpcSkillSeller.getProperty("SellerItemId", 57);
-	SELLER_SKILLS_COUNT = NpcSkillSeller.getProperty("SellerItemCount", 100);
-	SELLER_SKILLS_MESSAGE_TEXT = NpcSkillSeller.getProperty("ItemName", "Adena");
+	final ExProperties DobleClass = initProperties(Config.DOBLE_CLASS_FILE);
+	
+	SUBCLASS_LVL = DobleClass.getProperty("SubClassLevel", 45);
+	SUBCLASS_SETITEM = DobleClass.getProperty("BuySubClassItem", 3470);
+	SUBCLASS_COUNT = DobleClass.getProperty("SubClassItemCount", 100);
+	SUBCLASS_ITEMNAME = DobleClass.getProperty("ItemName", "Gold Bar");
+	ENABLE_EFFECT_HERO = DobleClass.getProperty("MagicSkillEffect0", false);
+	ENABLE_EFFECT_LVLUP = DobleClass.getProperty("MagicSkillEffect1", false);
+	SUBCLASS_TEX1 = DobleClass.getProperty("Tex1", "Felicitaciones");
+	SUBCLASS_TEX2 = DobleClass.getProperty("Tex2", " Por Hacer");
+	SUBCLASS_TEX3 = DobleClass.getProperty("Tex3", "SubClass");
 
 }
 	
 	private static final void loadaCis()
 {	
 	final ExProperties aCis = initProperties(Config.ACIS_FILE);
+	
+	AUTO_SAVE_TIME = aCis.getProperty("AutoSaveTime", "20:00").split(",");
+	
+	ENABLE_BACKUP_BOOLEAN = Boolean.parseBoolean(aCis.getProperty("AutoSaveDB", "True"));
+	NAME_DATA_BASE = aCis.getProperty("URL_DB", "aCis");
+	
+	LEAVE_BUFFS_ON_DIE = Boolean.parseBoolean(aCis.getProperty("LeaveBuffsOnDie", "True"));
+	
+    ALLOW_ANNOUNCE_ONLINE_PLAYERS = Boolean.parseBoolean(aCis.getProperty("AllowAnnounceOnlinePlayers", "True"));
+    ANNOUNCE_ONLINE_PLAYERS_DELAY = Integer.parseInt(aCis.getProperty("AnnounceOnlinePlayersDelay", "300"));
+
 	
 	String ap = aCis.getProperty("AutoPotions", "");
 	String[] ap_split = ap.split(";");
@@ -2206,7 +2863,19 @@ private static final void loadTournament()
 }
 	   
 
+	private static final void loadVoteZone()
+{	
+	final ExProperties VoteZone = initProperties(Config.VOTEZONE_FILE);
 	
+	flagZone = VoteZone.getProperty("FlagZone", true);
+	deleteNpc = VoteZone.getProperty("DeleteNpc", false);
+	changeZoneTime = VoteZone.getProperty("ChangeZoneTime", 60);
+	announceTimer = VoteZone.getProperty("AnnounceTimer", 5);
+	rewardPvp = VoteZone.getProperty("RewardPvP", false);
+	rewardId = VoteZone.getProperty("RewardId", 57);
+	rewardCount = VoteZone.getProperty("RewardCount", 5);
+	
+}
     private static final void loadNewbies() {
     	
     	final ExProperties StartPlayer = initProperties(Config.NEWBIE_FILE);
@@ -2519,13 +3188,17 @@ private static final void loadTournament()
 		
 		loadTournament();
 		
-		loadSellerSkills();
-		
 		loadaCis();
 		
 		loadFakePlayer();
 		
+		loadDobleBlass();
 		
+		loadArmor1();
+		
+		loadWeapon();
+		
+		loadVoteZone();
 	}
 	
 	public static final void loadLoginServer()

@@ -1,5 +1,6 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
+
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
@@ -10,10 +11,12 @@ import net.sf.l2j.gameserver.handler.ChatHandler;
 import net.sf.l2j.gameserver.handler.IChatHandler;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.network.SystemMessageId;
+import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
 public final class Say2 extends L2GameClientPacket
 {
-	private static final Logger CHAT_LOG = Logger.getLogger("chat");
+	public static final Logger CHAT_LOG = Logger.getLogger("chat");
+
 	
 	private static final String[] WALKER_COMMAND_LIST =
 	{
@@ -57,6 +60,7 @@ public final class Say2 extends L2GameClientPacket
 	private String _text;
 	private int _id;
 	private String _target;
+
 	
 	@Override
 	protected void readImpl()
@@ -92,6 +96,15 @@ public final class Say2 extends L2GameClientPacket
 		{
 			player.sendPacket(SystemMessageId.CHATTING_PROHIBITED);
 			return;
+		}
+		
+		if (player.getMessageRefusal())
+		{
+			player.sendPacket(new SystemMessage(SystemMessageId.THE_PERSON_IS_IN_MESSAGE_REFUSAL_MODE));
+		}
+		else
+		{
+			player.sendPacket(new SystemMessage(SystemMessageId.THE_PERSON_IS_IN_MESSAGE_REFUSAL_MODE));
 		}
 		
 		if (type == SayType.PETITION_PLAYER && player.isGM())

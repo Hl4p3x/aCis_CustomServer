@@ -72,7 +72,7 @@ public class Plagueseeker extends L2AttackableAIScript
 	        Plagueseeker = npc;
 	        Plagueseeker.setIsInvul(true);
 	        paralyzeAll(true);
-	        startSpecialCamera(false);
+	        startSpecialCamera(true);
 	        return super.onSpawn(npc);
 	    }
 	   

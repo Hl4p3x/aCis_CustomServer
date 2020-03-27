@@ -50,8 +50,6 @@ public class LoginServer
 			LogManager.getLogManager().readConfiguration(is);
 		}
 		
-		StringUtil.printSection("aCis 384 / Dev Juvenil Amaro");
-		
 		// Initialize config
 		Config.loadLoginServer();
 		

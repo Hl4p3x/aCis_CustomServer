@@ -27,4 +27,5 @@ public class PrayerZone extends ZoneType
 	{
 		character.setInsideZone(ZoneId.CAST_ON_ARTIFACT, false);
 	}
+	
 }

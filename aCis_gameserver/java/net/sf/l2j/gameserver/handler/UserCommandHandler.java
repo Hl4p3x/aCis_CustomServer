@@ -14,7 +14,11 @@ import net.sf.l2j.gameserver.handler.usercommandhandlers.Dressme;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Escape;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.GoldCoin;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Loc;
+import net.sf.l2j.gameserver.handler.usercommandhandlers.Menu;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Vote;
+
+import Dev.AioMenu.VipMenu;
+
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Mount;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.OlympiadStat;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.PartyInfo;
@@ -46,6 +50,8 @@ public class UserCommandHandler
 		registerHandler(new SiegeStatus());
 		registerHandler(new Time());
 		registerHandler(new Vote());
+		registerHandler(new Menu());
+		registerHandler(new VipMenu());
 	}
 	
 	private void registerHandler(IUserCommandHandler handler)

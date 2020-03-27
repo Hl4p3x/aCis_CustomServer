@@ -57,9 +57,9 @@ public class Casino extends Folk
 	@Override
 	public void showChatWindow(Player player, int val)
 	{
-		String name = "data/html/casino/" + getNpcId() + ".htm";
+		String name = "data/html/mods/casino/" + getNpcId() + ".htm";
 		if (val != 0)
-			name = "data/html/casino/" + getNpcId() + "-" + val + ".htm";
+			name = "data/html/mods/casino/" + getNpcId() + "-" + val + ".htm";
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);

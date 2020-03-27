@@ -23,6 +23,7 @@ public class FishingZone extends ZoneType
 	{
 	}
 	
+	
 	public int getWaterZ()
 	{
 		return getZone().getHighZ();

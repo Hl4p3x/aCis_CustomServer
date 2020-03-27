@@ -29,6 +29,7 @@ import net.sf.l2j.gameserver.enums.SealType;
 import net.sf.l2j.gameserver.enums.SiegeSide;
 import net.sf.l2j.gameserver.enums.ZoneId;
 import net.sf.l2j.gameserver.enums.actors.ClassRace;
+import net.sf.l2j.gameserver.handler.usercommandhandlers.Menu;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -66,8 +67,10 @@ import net.sf.l2j.gameserver.network.serverpackets.UserInfo;
 import net.sf.l2j.gameserver.scripting.Quest;
 import net.sf.l2j.gameserver.scripting.QuestState;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
-import net.sf.l2j.gameserver.taskmanager.ZoneTaskManager;
 
+import Dev.AioMenu.AioMenu;
+import Dev.AioMenu.VipMenu;
+import Dev.HeroMenu.HeroMenu;
 import Dev.PartyFarm.PartyFarm;
 import Dev.StartPlayer.StartupManager;
 import Dev.Tournament.ArenaTask;
@@ -126,9 +129,15 @@ public class EnterWorld extends L2GameClientPacket
 				player.setInRefusalMode(true);
 			
 			if (Config.GM_STARTUP_AUTO_LIST && AdminData.getInstance().hasAccess("admin_gmlist", player.getAccessLevel()))
-				AdminData.getInstance().addGm(player, false);
+			{
+				AdminData.getInstance();
+				AdminData.addGm(player, false);
+			}
 			else
-				AdminData.getInstance().addGm(player, true);
+			{
+				AdminData.getInstance();
+				AdminData.addGm(player, true);
+			}
 		}
 		
 		
@@ -258,7 +267,20 @@ public class EnterWorld extends L2GameClientPacket
 		// Announcements, welcome & Seven signs period messages
 		player.sendPacket(SystemMessageId.WELCOME_TO_LINEAGE);
 		player.sendPacket(SevenSignsManager.getInstance().getCurrentPeriod().getMessageId());
+		
+		
+		
+		
 		AnnouncementData.getInstance().showAnnouncements(player, false);
+		
+		Menu.sendMainWindow(player);
+		
+		if (player.isVip())
+		{
+			VipMenu.bypass(player, null, null);
+			player.sendMessage("" + player.getName() + "Use Command Vip Buffer /vip");
+		}
+
 		
 		if (ArenaTask.is_started() && Config.ARENA_MESSAGE_ENABLED)
 			player.sendPacket(new ExShowScreenMessage(Config.ARENA_MESSAGE_TEXT, Config.ARENA_MESSAGE_TIME, 2, true));
@@ -462,6 +484,7 @@ public class EnterWorld extends L2GameClientPacket
 			{
 				player.setAio(true);
 				player.sendMessage("Seu Aio terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("aioTime", 0))) + ".");
+				AioMenu.mainHtml(player, 0);
 			}
 		}
 		
@@ -476,6 +499,7 @@ public class EnterWorld extends L2GameClientPacket
 			{
 				player.setHero(true);
 				player.sendMessage("Seu Hero terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("heroTime", 0))) + ".");
+				HeroMenu.mainHtml(player, 0);
 			}
 		}
  		
@@ -513,7 +537,7 @@ public class EnterWorld extends L2GameClientPacket
 		
 		ClassMaster.showQuestionMark(player);
 		
-		ZoneTaskManager.getInstance().onEnter(player);
+
 		
 		if (player.isVip() && Config.ANNOUNCE_VIP_ENTER)
 			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()), true);

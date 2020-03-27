@@ -3,7 +3,6 @@ package net.sf.l2j.gameserver.network.clientpackets;
 import net.sf.l2j.commons.concurrent.ThreadPool;
 
 import net.sf.l2j.Config;
-import net.sf.l2j.gameserver.enums.ZoneId;
 import net.sf.l2j.gameserver.enums.items.ActionType;
 import net.sf.l2j.gameserver.enums.items.EtcItemType;
 import net.sf.l2j.gameserver.enums.items.WeaponType;
@@ -17,7 +16,6 @@ import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.itemcontainer.Inventory;
-import net.sf.l2j.gameserver.model.zone.type.MultiZone;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ItemList;
 import net.sf.l2j.gameserver.network.serverpackets.PetItemList;
@@ -61,12 +59,6 @@ public final class UseItem extends L2GameClientPacket
 		final ItemInstance item = player.getInventory().getItemByObjectId(_objectId);
 		if (item == null)
 			return;
-		
-		if (player.isInsideZone(ZoneId.MULTI) && MultiZone.isRestrictedItem(item.getItemId()))
-		{
-			player.sendMessage(item.getName() + " cannot be used inside multi zone.");
-			return;
-		}
 		
 		if (item.getItem().getType2() == Item.TYPE2_QUEST)
 		{

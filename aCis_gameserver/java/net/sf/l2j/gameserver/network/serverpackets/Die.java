@@ -1,14 +1,13 @@
 package net.sf.l2j.gameserver.network.serverpackets;
 
 import net.sf.l2j.gameserver.data.manager.CastleManager;
-import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.enums.SiegeSide;
+import net.sf.l2j.gameserver.enums.ZoneId;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.instance.Monster;
 import net.sf.l2j.gameserver.model.entity.Siege;
 import net.sf.l2j.gameserver.model.pledge.Clan;
-import net.sf.l2j.gameserver.model.zone.type.MultiZone;
 
 public class Die extends L2GameServerPacket
 {
@@ -30,13 +29,10 @@ public class Die extends L2GameServerPacket
 		if (creature instanceof Player)
 		{
 			Player player = (Player) creature;
-			_allowFixedRes = player.getAccessLevel().allowFixedRes();
+			_allowFixedRes = player.getAccessLevel().allowFixedRes() || player.isInsideZone(ZoneId.RANDOM);
 			_clan = player.getClan();
 			_funEvent = !player.isInFunEvent();
 
-			// multi zonas
-			final MultiZone zone = ZoneManager.getInstance().getZone(player, MultiZone.class);
-			_inZone = zone != null && zone.getRevive() > 0;
 			
 		}
 		else if (creature instanceof Monster)

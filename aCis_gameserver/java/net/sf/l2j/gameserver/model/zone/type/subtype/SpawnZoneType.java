@@ -17,6 +17,9 @@ public abstract class SpawnZoneType extends ZoneType
 {
 	private Map<SpawnType, List<Location>> _spawns = new HashMap<>();
 	
+	private List<Location> _spawnLocs = null;
+	private List<Location> _chaoticSpawnLocs = null;
+	
 	public SpawnZoneType(int id)
 	{
 		super(id);
@@ -50,5 +53,21 @@ public abstract class SpawnZoneType extends ZoneType
 	public final Location getRndSpawn(SpawnType type)
 	{
 		return Rnd.get(getSpawns(type));
+	}
+	
+	/**
+	 * @return a random {@link Location} from _spawnLocs {@link List}.
+	 */
+	public final Location getSpawnLoc()
+	{
+		return Rnd.get(_spawnLocs);
+	}
+	
+	/**
+	 * @return a random {@link Location} from _chaoticSpawnLocs {@link List}. If _chaoticSpawnLocs isn't initialized, return a random Location from _spawnLocs.
+	 */
+	public final Location getChaoticSpawnLoc()
+	{
+		return Rnd.get((_chaoticSpawnLocs != null) ? _chaoticSpawnLocs : _spawnLocs);
 	}
 }

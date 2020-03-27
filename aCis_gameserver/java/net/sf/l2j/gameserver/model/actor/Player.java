@@ -92,7 +92,6 @@ import net.sf.l2j.gameserver.enums.skills.L2EffectFlag;
 import net.sf.l2j.gameserver.enums.skills.L2EffectType;
 import net.sf.l2j.gameserver.enums.skills.L2SkillType;
 import net.sf.l2j.gameserver.enums.skills.Stats;
-
 import net.sf.l2j.gameserver.geoengine.GeoEngine;
 import net.sf.l2j.gameserver.handler.IItemHandler;
 import net.sf.l2j.gameserver.handler.ItemHandler;
@@ -262,7 +261,9 @@ import net.sf.l2j.gameserver.taskmanager.ShadowItemTaskManager;
 import net.sf.l2j.gameserver.taskmanager.VipTaskManager;
 import net.sf.l2j.gameserver.taskmanager.WaterTaskManager;
 
+import Dev.Phantom.FakePlayer;
 import Dev.Tournament.ArenaTask;
+import Dev.VoteGatekkeper.PvPZoneManager;
 
 /**
  * This class represents a player in the world.<br>
@@ -272,7 +273,23 @@ public class Player extends Playable
 
 {
 
-	
+	private FakePlayer _fakePlayerUnderControl = null;
+
+	public boolean isControllingFakePlayer()
+	{
+		return _fakePlayerUnderControl != null;
+	}
+
+	public FakePlayer getPlayerUnderControl()
+	{
+		return _fakePlayerUnderControl;
+	}
+
+	public void setPlayerUnderControl(FakePlayer fakePlayer)
+	{
+		_fakePlayerUnderControl = fakePlayer;
+	}
+
 	
 	private static final String RESTORE_SKILLS_FOR_CHAR = "SELECT skill_id,skill_level FROM character_skills WHERE char_obj_id=? AND class_index=?";
 	private static final String ADD_OR_UPDATE_SKILL = "INSERT INTO character_skills (char_obj_id,skill_id,skill_level,class_index) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE skill_level=VALUES(skill_level)";
@@ -312,6 +329,14 @@ public class Player extends Playable
 	private static final Comparator<GeneralSkillNode> COMPARE_SKILLS_BY_MIN_LVL = Comparator.comparing(GeneralSkillNode::getMinLvl);
 	private static final Comparator<GeneralSkillNode> COMPARE_SKILLS_BY_LVL = Comparator.comparing(GeneralSkillNode::getValue);
 
+	private boolean _cantGainXP = false;
+	private boolean _isPartyInvProt = false;
+	private boolean _isInTradeProt = false;
+	private boolean _isSSDisabled = false;
+	
+	private boolean _isBuffProtected = false;
+	
+	
 	private String _code = "";
 	private int _attempt = 0;
 	private int _mobs_dead = 0;
@@ -409,7 +434,6 @@ public class Player extends Playable
 	private OperateType _operateType = OperateType.NONE;
 	
 	private long _offlineShopStart;
-	
 	private TradeList _activeTradeList;
 	private ItemContainer _activeWarehouse;
 	
@@ -573,7 +597,7 @@ public class Player extends Playable
 	 * @param accountName The name of the account including this Player
 	 * @param app The PcAppearance of the Player
 	 */
-	private Player(int objectId, PlayerTemplate template, String accountName, Appearance app)
+	protected Player(int objectId, PlayerTemplate template, String accountName, Appearance app)
 	{
 		super(objectId, template);
 		
@@ -3744,6 +3768,9 @@ public class Player extends Playable
 		if (targetPlayer == null || targetPlayer == this)
 			return;
 		
+		if (isInsideZone(ZoneId.CHANGE_PVP_ZONE))
+			PvPZoneManager.addKillsInZone(this);
+		
 		if (Config.ENABLE_FARM_PVP)
 			checkAntiFarm();
 		
@@ -5083,12 +5110,19 @@ public class Player extends Playable
 		// We refresh GMList if the access level is GM.
 		if (accessLevel.isGm())
 		{
+			AdminData.getInstance();
 			// A little hack to avoid Enterworld config to be replaced.
-			if (!AdminData.getInstance().isRegisteredAsGM(this))
-				AdminData.getInstance().addGm(this, false);
+			if (!AdminData.isRegisteredAsGM(this))
+			{
+				AdminData.getInstance();
+				AdminData.addGm(this, false);
+			}
 		}
 		else
-			AdminData.getInstance().deleteGm(this);
+		{
+			AdminData.getInstance();
+			AdminData.deleteGm(this);
+		}
 		
 		getAppearance().setNameColor(accessLevel.getNameColor());
 		getAppearance().setTitleColor(accessLevel.getTitleColor());
@@ -8521,7 +8555,10 @@ public class Player extends Playable
 			
 			// If the Player is a GM, remove it from the GM List
 			if (isGM())
-				AdminData.getInstance().deleteGm(this);
+			{
+				AdminData.getInstance();
+				AdminData.deleteGm(this);
+			}
 			
 			// Check if the Player is in observer mode to set its position to its position before entering in observer mode
 			if (isInObserverMode())
@@ -9343,7 +9380,7 @@ public class Player extends Playable
 		}
 	}
 	
-	private void notifyFriends(boolean login)
+	protected void notifyFriends(boolean login)
 	{
 		for (int id : _friendList)
 		{
@@ -9731,7 +9768,6 @@ public class Player extends Playable
 	
 	private class startAntiBotTask implements Runnable
 	{
-		@SuppressWarnings("synthetic-access")
 		public startAntiBotTask()
 		{
 			setIsParalyzed(true);
@@ -10190,52 +10226,36 @@ public class Player extends Playable
 			}
 		}
 		
-		public static Player loadPhantom(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean)
-		{
-			Player localPlayer = null;
-			
-			int[] classes =
-			{
-				94,
-				103,
-				110
-			};
-			
-			int i = classes[Rnd.get(classes.length)];
-			if (paramInt3 > 0)
-			{
-				i = paramInt3;
-			}
-			Sex sex;
-			if (Rnd.get(100) < 70)
-			{
-				sex = Sex.MALE;
-			}
-			else
-			{
-				sex = Sex.FEMALE;
-			}
-			PlayerTemplate localL2PcTemplate = PlayerData.getInstance().getTemplate(i);
-			byte b = (byte) Rnd.get(3);
-			Appearance localPcAppearance = new Appearance(b, b, b, sex);
-			if (paramBoolean)
-			{
-				localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
-			}
-			else
-			{
-				localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
-			}
-
-			localPlayer.setAccessLevel(0);
-
-			localPlayer.setHero(false);
-			localPlayer.setClassId(i);
-			
-			
-			localPlayer.addExpAndSp(Experience.LEVEL[81], 0);
-			return localPlayer;
-		}
+		 public static Player loadPhantom(final int paramInt1, final int paramInt2, final int paramInt3, final boolean paramBoolean) {
+		        Player localPlayer = null;
+		        final int[] classes = { 0, 18, 31, 44, 10, 25, 38, 49, 53, 114 };
+		        int i = classes[Rnd.get(classes.length)];
+		        if (paramInt3 > 0) {
+		            i = paramInt3;
+		        }
+		        Sex sex;
+		        if (Rnd.get(100) < 70) {
+		            sex = Sex.MALE;
+		        }
+		        else {
+		            sex = Sex.FEMALE;
+		        }
+		        final PlayerTemplate localL2PcTemplate = PlayerData.getInstance().getTemplate(i);
+		        final byte b = (byte)Rnd.get(3);
+		        final Appearance localPcAppearance = new Appearance(b, b, b, sex);
+		        if (paramBoolean) {
+		            localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
+		        }
+		        else {
+		            localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
+		        }
+		        localPlayer.setAccessLevel(0);
+		        localPlayer.setHero(false);
+		        localPlayer.setClassId(i);
+				
+		        localPlayer.getStat().addExp(Experience.LEVEL[81]);
+		        return localPlayer;
+		    }
 		
 		public void rndWalk()
 		{
@@ -10277,9 +10297,7 @@ public class Player extends Playable
 			}
 			setRunning();
 			if (GeoEngine.getInstance().canMoveToTarget(getX(), getY(), getZ(), x, y, z))
-			{
-				
-			}
+				getAI().setIntention(IntentionType.MOVE_TO, new Location(x, y, z), _isOnline);
 		}
 
 	    public void setStoreType(StoreType type) {
@@ -10290,7 +10308,77 @@ public class Player extends Playable
 	    	return _storeType;
 	    }
 	    
-
+	    public boolean isInTradeProt()
+	    {
+	        return _isInTradeProt;
+	    }
+	        
+	    public void setIsInTradeProt(boolean value)
+	    {
+	        _isInTradeProt = value;
+	    }
+	        
+	    public boolean isSSDisabled()
+	    {
+	        return _isSSDisabled;
+	    }
+	        
+	    public void setIsSSDisabled(boolean value)
+	    {
+	        _isSSDisabled = value;
+	    }
+	        
+	    public boolean isPartyInvProt()
+	    {
+	        return _isPartyInvProt;
+	    }
+	        
+	    public void setIsPartyInvProt(boolean value)
+	    {
+	        _isPartyInvProt = value;
+	    }
+	        
+	    public void cantGainXP(boolean b)
+	    {
+	        _cantGainXP = b;
+	    }
+	        
+	    public boolean cantGainXP()
+	    {
+	        return _cantGainXP;
+	    }
+	
+	/**
+	 * Gets the message refusal.
+	 * @return the message refusal
+	 */
+	public boolean getMessageRefusal()
+	{
+		return _messageRefusal;
+	}
+	
+	/**
+	 * Sets the message refusal.
+	 * @param mode the new message refusal
+	 */
+	public void setMessageRefusal(final boolean mode)
+	{
+		_messageRefusal = mode;
+		sendPacket(new EtcStatusUpdate(this));
+	}
+	
+    @Override
+	public boolean isBuffProtected()
+    {
+        return _isBuffProtected;
+    }
+        
+    public void setisBuffProtected(boolean value)
+    {
+    	_isBuffProtected = value;
+    }
+    
+	
 
 	    
 }

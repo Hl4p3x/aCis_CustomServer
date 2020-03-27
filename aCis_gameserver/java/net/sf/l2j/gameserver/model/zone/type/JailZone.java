@@ -36,4 +36,5 @@ public class JailZone extends ZoneType
 			character.setInsideZone(ZoneId.NO_STORE, false);
 		}
 	}
+	
 }

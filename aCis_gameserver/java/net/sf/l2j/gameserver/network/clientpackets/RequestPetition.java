@@ -27,7 +27,8 @@ public final class RequestPetition extends L2GameClientPacket
 		if (player == null)
 			return;
 		
-		if (!AdminData.getInstance().isGmOnline(false))
+		AdminData.getInstance();
+		if (!AdminData.isGmOnline(false))
 		{
 			player.sendPacket(SystemMessageId.NO_GM_PROVIDING_SERVICE_NOW);
 			player.sendPacket(new PlaySound("systemmsg_e.702"));

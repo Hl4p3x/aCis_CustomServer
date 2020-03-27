@@ -7,14 +7,14 @@ import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.xml.TeleportLocationData;
-import net.sf.l2j.gameserver.enums.SpawnType;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.location.TeleportLocation;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.sf.l2j.gameserver.taskmanager.ZoneTaskManager;
+
+import Dev.VoteGatekkeper.PvPZoneManager;
 
 /**
  * An instance type extending {@link Folk}, used for teleporters.<br>
@@ -40,6 +40,7 @@ public final class Gatekeeper extends Folk
 		return "data/html/teleporter/" + filename + ".htm";
 	}
 	
+	@SuppressWarnings("unused")
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{
@@ -47,10 +48,12 @@ public final class Gatekeeper extends Folk
 		if (!Config.KARMA_PLAYER_CAN_USE_GK && player.getKarma() > 0 && showPkDenyChatWindow(player, "teleporter"))
 			return;
 		
+		StringTokenizer st = new StringTokenizer(command, " ");
+		String actualCommand = st.nextToken(); // Get actual command
+		
+		
 		if (command.startsWith("goto"))
 		{
-			final StringTokenizer st = new StringTokenizer(command, " ");
-			st.nextToken();
 			
 			// No more tokens.
 			if (!st.hasMoreTokens())
@@ -101,6 +104,7 @@ public final class Gatekeeper extends Folk
 			
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 		}
+		
 		else if (command.startsWith("Chat"))
 		{
 			int val = 0;
@@ -138,10 +142,42 @@ public final class Gatekeeper extends Folk
 			}
 			showChatWindow(player, val);
 		}
-		else if (command.equals("randomZone"))
-			player.teleportTo(ZoneTaskManager.getInstance().getCurrentZone().getRndSpawn(SpawnType.NORMAL), 0);
-		else
+			else if (command.startsWith("change_zone"))
+			{
+				showChangeWindow(player);
+			}
+			
+			else if (command.startsWith("voteZone"))
+			{
+				int playerId = Integer.parseInt(st.nextToken());
+				String name = st.nextToken();
+				PvPZoneManager.getInstance().setVoteZone(playerId, name);
+			}
+			else
 			super.onBypassFeedback(player, command);
+	}
+	
+	
+
+	
+	public void showChangeWindow(Player player)
+	{
+		NpcHtmlMessage html = new NpcHtmlMessage(1);
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html><head><title>PvP Zone</title></head><body><center><br>");
+		
+		sb.append("<font color=\"LEVEL\">(Auto PvPZone & PvP King Zone - No Bishop)</font><br1>");
+		PvPZoneManager.getInstance().getMessage(player.getObjectId(), sb);
+		sb.append("<br><br>");
+		sb.append("<font color=\"LEVEL\">(Special PvP Arenas)</font>");
+		sb.append("<a action=\"bypass -h npc_%objectId%_goto 80031\">Imperial Tomb</a><br1>");
+		sb.append("<a action=\"bypass -h npc_%objectId%_goto 80032\">Antharas' Lair</a><br1>");
+		sb.append("<a action=\"bypass -h npc_%objectId%_goto 80033\">Talking Island</a><br1>");
+		sb.append("<br1><img src=\"l2ui.squaregray\" width=\"230\" height=\"1s\"><br1>");
+		sb.append("</center></body></html>");
+		html.setHtml(sb.toString());
+		html.replace("%objectId%", String.valueOf(getObjectId()));
+		player.sendPacket(html);
 	}
 	
 	@Override

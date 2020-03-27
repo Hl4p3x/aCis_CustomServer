@@ -184,17 +184,20 @@ public class AdminSpawn implements IAdminCommandHandler
 			RaidBossManager.getInstance().cleanUp(false);
 			DayNightManager.getInstance().cleanUp();
 			World.getInstance().deleteVisibleNpcSpawns();
-			AdminData.getInstance().broadcastMessageToGMs("NPCs' unspawn is now complete.");
+			AdminData.getInstance();
+			AdminData.broadcastMessageToGMs("NPCs' unspawn is now complete.");
 		}
 		else if (command.startsWith("admin_spawnday"))
 		{
 			DayNightManager.getInstance().spawnCreatures(false);
-			AdminData.getInstance().broadcastMessageToGMs("Spawning day creatures spawns.");
+			AdminData.getInstance();
+			AdminData.broadcastMessageToGMs("Spawning day creatures spawns.");
 		}
 		else if (command.startsWith("admin_spawnnight"))
 		{
 			DayNightManager.getInstance().spawnCreatures(true);
-			AdminData.getInstance().broadcastMessageToGMs("Spawning night creatures spawns.");
+			AdminData.getInstance();
+			AdminData.broadcastMessageToGMs("Spawning night creatures spawns.");
 		}
 		else if (command.startsWith("admin_respawnall") || command.startsWith("admin_spawn_reload"))
 		{
@@ -207,7 +210,8 @@ public class AdminSpawn implements IAdminCommandHandler
 			SpawnTable.getInstance().reload();
 			RaidBossManager.getInstance().reload();
 			SevenSignsManager.getInstance().spawnSevenSignsNPC();
-			AdminData.getInstance().broadcastMessageToGMs("NPCs' respawn is now complete.");
+			AdminData.getInstance();
+			AdminData.broadcastMessageToGMs("NPCs' respawn is now complete.");
 		}
 		else if (command.startsWith("admin_spawnfence"))
 		{

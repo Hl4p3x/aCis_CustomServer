@@ -1,7 +1,6 @@
 package net.sf.l2j.gameserver.model.actor;
 
 import net.sf.l2j.Config;
-import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.enums.AiEventType;
 import net.sf.l2j.gameserver.enums.IntentionType;
 import net.sf.l2j.gameserver.enums.ZoneId;
@@ -13,7 +12,6 @@ import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.actor.stat.PlayableStat;
 import net.sf.l2j.gameserver.model.actor.status.PlayableStatus;
 import net.sf.l2j.gameserver.model.actor.template.CreatureTemplate;
-import net.sf.l2j.gameserver.model.zone.type.MultiZone;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.Revive;
@@ -129,12 +127,9 @@ public abstract class Playable extends Creature
 			if (getCharmOfLuck())
 				stopCharmOfLuck(null);
 		}
-		else
-			stopAllEffectsExceptThoseThatLastThroughDeath();
+		if (Config.LEAVE_BUFFS_ON_DIE)
+				stopAllEffectsExceptThoseThatLastThroughDeath();
 		
-		final MultiZone zone = ZoneManager.getInstance().getZone(this, MultiZone.class);
-		if (zone != null)
-			zone.onDie(this);
 		
 		// Send the Server->Client packet StatusUpdate with current HP and MP to all other Player to inform
 		broadcastStatusUpdate();
@@ -175,9 +170,6 @@ public abstract class Playable extends Creature
 		else
 			getStatus().setCurrentHp(getMaxHp() * Config.RESPAWN_RESTORE_HP);
 		
-		final MultiZone zone = ZoneManager.getInstance().getZone(this, MultiZone.class);
-		if (zone != null)
-			zone.onRevive(this);
 		
 		// Start broadcast status
 		broadcastPacket(new Revive(this));

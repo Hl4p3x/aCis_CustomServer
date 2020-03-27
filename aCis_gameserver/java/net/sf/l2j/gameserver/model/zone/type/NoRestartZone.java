@@ -28,4 +28,5 @@ public class NoRestartZone extends ZoneType
 		if (character instanceof Player)
 			character.setInsideZone(ZoneId.NO_RESTART, false);
 	}
+	
 }

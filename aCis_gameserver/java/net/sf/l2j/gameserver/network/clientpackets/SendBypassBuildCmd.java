@@ -10,7 +10,7 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 public final class SendBypassBuildCmd extends L2GameClientPacket
 {
-	private static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
+	public static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
 	
 	private String _command;
 	

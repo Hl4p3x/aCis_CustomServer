@@ -10,7 +10,7 @@ import net.sf.l2j.gameserver.skills.DocumentSkill;
 
 public class SkillTable
 {
-	private static final Logger _log = Logger.getLogger(SkillTable.class.getName());
+	public static final Logger _log = Logger.getLogger(SkillTable.class.getName());
 	
 	private static final Map<Integer, L2Skill> _skills = new HashMap<>();
 	private static final Map<Integer, Integer> _skillMaxLevel = new HashMap<>();

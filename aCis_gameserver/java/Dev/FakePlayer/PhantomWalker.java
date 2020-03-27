@@ -41,6 +41,7 @@ import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.GameClient.GameClientState;
 import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 
+
 /**
  * @author Gabia
  *
@@ -76,6 +77,8 @@ public class PhantomWalker
 	{
 		return _instance;
 	}
+	
+
 	
 	private void load()
 	{
@@ -119,6 +122,7 @@ public class PhantomWalker
 		return Config.LIST_PRIVATE_SELL.get(Rnd.get(Config.LIST_PRIVATE_SELL.size())).intValue();
 	}
 	
+
 	@SuppressWarnings("null")
 	static Location getRandomLoc()
 	{
@@ -148,7 +152,7 @@ public class PhantomWalker
 		FileReader localFileReader = null;
 		try
 		{
-			File localFile = new File("./config/aCis/phantom/walker_sets.ini");
+			File localFile = new File("./config/aCis/Walker/Walker_sets.ini");
 			if (!localFile.exists())
 			{
 				return;
@@ -230,8 +234,8 @@ public class PhantomWalker
 				_phantom.setSpawnProtection(false);
 			}
 			_phantom.rndWalk();
-			
 			PhantomWalker.startWalk(_phantom);
+			
 		}
 	}
 	
@@ -381,6 +385,7 @@ public class PhantomWalker
 								PlayerInfoTable.getInstance().updatePlayerData(player, false);
 								
 								player.setClan(ClanTable.getInstance().getClan(Config.CLANIDWALKER));
+								PhantomWalker.startWalk(player);
 
                                 player.getAppearance().setNameColor(Integer.decode("0x" + Config.NAME_COLOR));
                                 player.getAppearance().setTitleColor(Integer.decode("0x" + Config.TITLE_COLOR));
@@ -393,6 +398,13 @@ public class PhantomWalker
                                     player.isHero();
                                     player.broadcastUserInfo();
                                 }
+                                
+								if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
+									PhantomWalker.startWalk(player);
+								else if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
+									PhantomWalker.startWalk(player);
+								
+								PhantomWalker._players.add(player);
 								
 								player.addExpAndSp(Experience.LEVEL[81], 0);
 								player.rewardSkills();
@@ -401,6 +413,7 @@ public class PhantomWalker
 								String playertitle = FakePlayerTitleManager.INSTANCE.getRandomAvailableName();
 								player.setTitle(playertitle);	
 								player.broadcastTitleInfo();
+
 								
 								player.getInventory().equipItemAndRecord(localL2ItemInstance1);
 								player.getInventory().equipItemAndRecord(localL2ItemInstance2);
@@ -439,14 +452,7 @@ public class PhantomWalker
 								}
 								player.broadcastUserInfo();
 								
-								if (Rnd.get(100) < 15)
-								{
-									PhantomWalker.startWalk(player);
-								}
-								else if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
-								{
-									PhantomWalker.startWalk(player);
-								}
+
 								
 								PhantomWalker._players.add(player);
 								
@@ -492,7 +498,7 @@ public class PhantomWalker
 									L2Skill skill = SkillTable.getInstance().getInfo(4554, 4);
 									skill.getEffects(player, player);
 								}
-								PhantomWalker.startWalk(player);
+								
 								
 								player.addSkill(SkillTable.getInstance().getInfo(9900, 1), false);
 								
@@ -552,6 +558,7 @@ public class PhantomWalker
 
 	}
 	
+	
 	@SuppressWarnings("resource")
 	private static void parceTownLocs()
 	{
@@ -561,7 +568,7 @@ public class PhantomWalker
 		FileReader localFileReader = null;
 		try
 		{
-			File localFile = new File("./config/aCis/phantom/walker_locs.ini");
+			File localFile = new File("./config/aCis/Walker/Walker_locs.ini");
 			if (!localFile.exists())
 			{
 				return;

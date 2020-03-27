@@ -51,7 +51,9 @@ import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminTeleport;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminTournament;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminVip;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminZone;
+import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminZoneCreation;
 
+import Dev.Phantom.Admincommands.AdminFakePlayers;
 import hwid.hwidmanager.HWIDAdminBan;
 
 public class AdminCommandHandler
@@ -106,10 +108,12 @@ public class AdminCommandHandler
 		registerHandler(new AdminTeleport());
 		registerHandler(new AdminVip());
 		registerHandler(new AdminZone());
+		registerHandler(new AdminZoneCreation());
 		
 		registerHandler(new HWIDAdminBan());
 		registerHandler(new AdminTournament());
 		registerHandler(new AdminPartyFarm());
+		registerHandler(new AdminFakePlayers());
 	}
 	
 	private void registerHandler(IAdminCommandHandler handler)

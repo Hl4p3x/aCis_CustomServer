@@ -152,7 +152,7 @@ public class PhantomStore
 		FileReader localFileReader = null;
 		try
 		{
-			File localFile = new File("./config/aCis/phantom/store_sets.ini");
+			File localFile = new File("./config/aCis/Store/store_sets.ini");
 			if (!localFile.exists())
 			{
 				return;
@@ -599,7 +599,7 @@ public class PhantomStore
 		FileReader localFileReader = null;
 		try
 		{
-			File localFile = new File("./config/aCis/phantom/store_locs.ini");
+			File localFile = new File("./config/aCis/Store/store_locs.ini");
 			if (!localFile.exists())
 			{
 				return;

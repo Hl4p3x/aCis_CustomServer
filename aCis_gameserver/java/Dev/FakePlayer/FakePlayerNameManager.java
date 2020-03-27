@@ -55,7 +55,7 @@ public enum FakePlayerNameManager
 
 	private void loadWordlist()
 	{
-		try (LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/aCis/phantom/Name_list.txt"))));)
+		try (LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/aCis/Phantom/Fakename.txt"))));)
 		{
 			String line;
 			ArrayList<String> playersList = new ArrayList<>();

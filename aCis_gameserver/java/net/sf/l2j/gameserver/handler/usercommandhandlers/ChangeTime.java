@@ -50,6 +50,7 @@ public class ChangeTime implements IUserCommandHandler
 	}
 
 
+	@SuppressWarnings("deprecation")
 	public double arredondaValor(int casasDecimais, double valor)
 	{
 		return new BigDecimal(valor).setScale(casasDecimais, 3).doubleValue();

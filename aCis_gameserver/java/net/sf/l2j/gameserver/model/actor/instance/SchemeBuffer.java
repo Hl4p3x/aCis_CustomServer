@@ -17,6 +17,7 @@ import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.Summon;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
+import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class SchemeBuffer extends Folk
@@ -60,6 +61,22 @@ public class SchemeBuffer extends Folk
                 html.setFile("data/html/mods/buffer/" + category + "/" + htmfile + ".htm");
             }
             html.replace("%objectId%", String.valueOf(this.getObjectId()));
+            player.sendPacket(html);
+        }
+		else if (currentCommand.equalsIgnoreCase("dobuff")) {
+            int buffid = Integer.valueOf(st.nextToken());
+            int bufflevel = Integer.valueOf(st.nextToken());
+            String category = st.nextToken();
+            String windowhtml = st.nextToken();
+            Player target = player;
+            MagicSkillUse mgc = new MagicSkillUse(this, target, buffid, bufflevel, 1150, 0);
+            player.sendPacket(mgc);
+            player.broadcastPacket(mgc);
+            SkillTable.getInstance().getInfo(buffid, bufflevel).getEffects(this, target);
+            NpcHtmlMessage html = new NpcHtmlMessage(this.getObjectId());
+            html.setFile("data/html/mods/buffer/" + category + "/" + windowhtml + ".htm");
+            html.replace("%objectId%", String.valueOf(this.getObjectId()));
+            html.replace("%name%", player.getName());
             player.sendPacket(html);
         }
 		else if (currentCommand.startsWith("cleanup"))

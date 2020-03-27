@@ -13,13 +13,13 @@ public class Vote implements IUserCommandHandler
 {
 	private static final int[] COMMAND_IDS =
 	{
-		118
+		130
 	};
 	
 	@Override
 	public void useUserCommand(int id, Player player)
 	{
-		if (id == 118)
+		if (id == 130)
 		{
 			if (Config.MENU)
 				sendMainWindow(player);
@@ -32,7 +32,7 @@ public class Vote implements IUserCommandHandler
 
 			
 			NpcHtmlMessage htm = new NpcHtmlMessage(0);
-			htm.setFile("data/html/mods/menu/vote.htm");
+			htm.setFile("data/html/mods/vote.htm");
 			htm.replace("%name%", player.getName());
 			String status = Individual.cdInTopList(player, "lastVoteReward") ? Individual.Cd(player, "lastVoteReward", false) : "You can vote";
 			htm.replace("%status%", status);

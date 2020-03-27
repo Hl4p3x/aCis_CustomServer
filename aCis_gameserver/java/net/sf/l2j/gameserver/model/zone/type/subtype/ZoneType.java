@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.sf.l2j.commons.logging.CLogger;
 
@@ -31,17 +32,24 @@ public abstract class ZoneType
 	private final int _id;
 	protected final Map<Integer, Creature> _characters = new ConcurrentHashMap<>();
 	
+	protected static int _charactersCount;
+	protected List<Creature> _characterList;
+	
 	private Map<ScriptEventType, List<Quest>> _questEvents;
 	private ZoneForm _zone;
 	
 	protected ZoneType(int id)
 	{
 		_id = id;
+		_characterList = new CopyOnWriteArrayList<>();
 	}
 	
 	protected abstract void onEnter(Creature character);
 	
 	protected abstract void onExit(Creature character);
+	
+
+	
 	
 	@Override
 	public String toString()
@@ -52,7 +60,26 @@ public abstract class ZoneType
 	public int getId()
 	{
 		return _id;
+	
 	}
+	
+	public int getCountCharactersInside()
+	{
+		
+		for (Creature character : getCharactersInside())
+		{
+			if (character instanceof Player)
+				_charactersCount++;
+		}
+		return _charactersCount;
+		
+	}
+	
+	public List<Creature> getCharactersInside()
+	{
+		return _characterList;
+	}
+	
 	
 	public ZoneForm getZone()
 	{

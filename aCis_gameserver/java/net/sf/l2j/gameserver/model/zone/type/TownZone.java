@@ -63,6 +63,8 @@ public class TownZone extends SpawnZoneType
 		character.setInsideZone(ZoneId.TOWN, false);
 	}
 	
+
+	
 	public int getTownId()
 	{
 		return _townId;

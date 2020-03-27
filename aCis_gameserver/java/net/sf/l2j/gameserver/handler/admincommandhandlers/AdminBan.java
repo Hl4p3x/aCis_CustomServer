@@ -29,7 +29,7 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
  */
 public class AdminBan implements IAdminCommandHandler
 {
-	private static final Logger LOG = Logger.getLogger(AdminBan.class.getName());
+	public static final Logger LOG = Logger.getLogger(AdminBan.class.getName());
 	
 	private static final String UPDATE_BAN = "UPDATE characters SET punish_level=?, punish_timer=? WHERE char_name=?";
 	private static final String UPDATE_JAIL = "UPDATE characters SET x=-114356, y=-249645, z=-2984, punish_level=?, punish_timer=? WHERE char_name=?";

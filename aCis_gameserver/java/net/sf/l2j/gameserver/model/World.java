@@ -47,6 +47,8 @@ public final class World
 	private final Map<Integer, Pet> _pets = new ConcurrentHashMap<>();
 	private final Map<Integer, Player> _players = new ConcurrentHashMap<>();
 	
+
+	
 	private final WorldRegion[][] _worldRegions = new WorldRegion[REGIONS_X + 1][REGIONS_Y + 1];
 	
 	protected World()
@@ -252,7 +254,13 @@ public final class World
 		toAllOnlinePlayers(new CreatureSay((critical) ? SayType.CRITICAL_ANNOUNCE : SayType.ANNOUNCEMENT, null, text));
 	}
 	
-
+	/**
+	 * @return a collection containing all players in game.
+	 */
+	public Map<Integer, Player> getAllPlayers()
+	{
+		return _players;
+	}
 	
 	public static World getInstance()
 	{

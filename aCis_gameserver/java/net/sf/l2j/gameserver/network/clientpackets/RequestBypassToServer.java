@@ -1,5 +1,6 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
+
 import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
@@ -13,6 +14,7 @@ import net.sf.l2j.gameserver.handler.AdminCommandHandler;
 import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
 import net.sf.l2j.gameserver.handler.custom.DressMeData;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Dressme;
+import net.sf.l2j.gameserver.handler.usercommandhandlers.Menu;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Vote;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.World;
@@ -20,9 +22,7 @@ import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.instance.OlympiadManagerNpc;
-import net.sf.l2j.gameserver.model.actor.instance.SkillSeller;
 
-import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.itemcontainer.Inventory;
 import net.sf.l2j.gameserver.model.olympiad.OlympiadManager;
 import net.sf.l2j.gameserver.network.FloodProtectors;
@@ -31,17 +31,18 @@ import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
 import net.sf.l2j.gameserver.scripting.QuestState;
 import net.sf.l2j.util.Mysql;
 
+import Dev.AioMenu.AioMenu;
+import Dev.AioMenu.VipMenu;
 import Dev.StartPlayer.StartupManager;
 import Dev.VoteEngine.Individual;
 
 public final class RequestBypassToServer extends L2GameClientPacket
 {
-	private static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
-	private static final Logger REPORT_LOG = Logger.getLogger("report");
+	public static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
+	public static final Logger REPORT_LOG = Logger.getLogger("report");
 	
 	public static String _command;
 	
@@ -90,6 +91,166 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			
 			ach.useAdminCommand(_command, player);
 		}
+		
+		// MENU ACIS JUVENIL JUNIOR
+		else if (_command.startsWith("setPartyRefuse"))
+		{
+            if (player.isPartyInvProt())
+            	player.setIsPartyInvProt(false);
+            else
+            	player.setIsPartyInvProt(true);
+            Menu.sendMainWindow(player);
+		}
+		else if (_command.startsWith("setTradeRefuse"))
+		{
+            if (player.isInTradeProt())
+            	player.setIsInTradeProt(false);
+            else
+            	player.setIsInTradeProt(true);
+            Menu.sendMainWindow(player);
+		}
+		else if (_command.startsWith("setMessageRefuse"))
+		{
+            if (player.getMessageRefusal())
+            	player.setMessageRefusal(false);
+            else
+            	player.setMessageRefusal(true);
+            Menu.sendMainWindow(player);
+		}
+		else if (_command.startsWith("setbuffsRefuse"))
+		{
+            if (player.isBuffProtected())
+            	player.setisBuffProtected(false);
+            else
+            	player.setisBuffProtected(true);
+            player.sendMessage("Buff protection.");
+            Menu.sendMainWindow(player);
+		}
+		else if (_command.startsWith("setxpnot"))
+		{
+            if (player.cantGainXP())
+            	player.cantGainXP(false);
+            else
+            	player.cantGainXP(true);
+            player.sendMessage(" Xp effects.");
+            Menu.sendMainWindow(player);
+		}
+		else if (_command.startsWith("setSsprot"))
+		{
+            if (player.isSSDisabled())
+            	player.setIsSSDisabled(false);
+            else
+            	player.setIsSSDisabled(true);
+            player.sendMessage("Soulshots effects.");
+            Menu.sendMainWindow(player);
+		}
+		
+		if (_command.startsWith("Heroic_Valor"))
+		{
+			
+
+			L2Skill skill = SkillTable.getInstance().getInfo(1374, 1);
+			skill.getEffects(player, player);
+			
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Heroic Valor!");
+			
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("P_Attak"))
+		{
+		
+			L2Skill skill = SkillTable.getInstance().getInfo(5154, 10);
+			skill.getEffects(player, player);
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Might Argument!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("M_Attak"))
+		{
+			L2Skill skill = SkillTable.getInstance().getInfo(5156, 10);
+			skill.getEffects(player, player);
+			
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Empower Valor!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("P_Def"))
+		{
+
+			L2Skill skill = SkillTable.getInstance().getInfo(5158, 10);
+			skill.getEffects(player, player);
+			
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Shield Argument!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("M_Def"))
+		{
+			
+			L2Skill skill = SkillTable.getInstance().getInfo(5159, 10);
+			skill.getEffects(player, player);
+			
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Magic Barrier Argument!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("Malaria"))
+		{
+		
+			L2Skill skill = SkillTable.getInstance().getInfo(4554, 4);
+			skill.getEffects(player, player);
+
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Malaria!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("Flu"))
+		{
+		
+			L2Skill skill = SkillTable.getInstance().getInfo(4553, 4);
+			skill.getEffects(player, player);
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Flu!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("Cholera"))
+		{
+			
+			L2Skill skill = SkillTable.getInstance().getInfo(4552, 4);
+			skill.getEffects(player, player);
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Cholera!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("Salvation"))
+		{
+			
+			L2Skill skill = SkillTable.getInstance().getInfo(1410, 1);
+			skill.getEffects(player, player);
+			player.broadcastUserInfo();
+			player.sendMessage("Felicitaciones, use buff Salvation!");
+			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("aiopanel"))
+		{
+			String value = _command.substring(8);
+			StringTokenizer st = new StringTokenizer(value);
+			String command = st.nextToken();
+			
+			AioMenu.bypass(player, command, st);
+		}
+		
+		
 		else if (_command.startsWith("player_help "))
 		{
 			final String path = _command.substring(12);
@@ -239,7 +400,8 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				
 				REPORT_LOG.info("Character Info: " + info + "\r\nBug Type: " + type + "\r\nMessage: " + msg);
 				player.sendMessage("Relatério enviado. Os Gms irão verifica-la em breve, obrigado.");
-				AdminData.getInstance().broadcastMessageToGMs("Report Manager: "+ player.getName() + " enviou um relatório de bug.");
+				AdminData.getInstance();
+				AdminData.broadcastMessageToGMs("Report Manager: "+ player.getName() + " enviou um relatório de bug.");
 			}
 			catch (Exception e)
 			{
@@ -345,37 +507,6 @@ public final class RequestBypassToServer extends L2GameClientPacket
             StartupManager.getInstance().Classes(_command, player);       
         }
 		
-		   // L2SkillSeller
-		if (_command.startsWith("skill"))
-		   {
-		    String b = _command.substring(5);
-		    int id = 0;
-		    try
-		    {
-		     id = Integer.parseInt(b);
-		    }
-		    catch (Exception e)
-		    {
-		     e.printStackTrace();
-		    }
-
-		    if (id == 0)
-		     return;
-
-		    L2Skill s = SkillTable.getInstance().getInfo(id, 10);
-		    ItemInstance i = player.getInventory().getItemByItemId(SkillSeller.ITEM_ID);
-
-		    if (i == null || i.getCount() < SkillSeller.ITEM_COUNT)
-		    {
-		     player.sendMessage("You don't have enought " + Config.SELLER_SKILLS_MESSAGE_TEXT);
-		     return;
-		    }
-
-		    player.getInventory().destroyItemByItemId("", SkillSeller.ITEM_ID, SkillSeller.ITEM_COUNT, player, null);
-		    player.sendMessage("You rewarded successfully with " + s.getName() + " Lvl:10, " + Config.SELLER_SKILLS_COUNT + " " + Config.SELLER_SKILLS_MESSAGE_TEXT + " dissapeared");
-		    player.addSkill(s, false);
-		    player.broadcastPacket(new SocialAction(player, 9));
-		   }
 
 	}
 	

@@ -1,5 +1,6 @@
 package net.sf.l2j.gameserver.handler.itemhandlers;
 
+
 import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
@@ -64,6 +65,12 @@ public class SoulShots implements IItemHandler
 		
 		weaponInst.setChargedShot(ShotType.SOULSHOT, true);
 		player.sendPacket(SystemMessageId.ENABLED_SOULSHOT);
+		
+		if (!player.isSSDisabled())
+			weaponInst.setChargedShot(ShotType.SOULSHOT, true);
+		
+		
+		
 		player.broadcastPacketInRadius(new MagicSkillUse(player, player, skills[0].getId(), 1, 0, 0), 600);
 	}
 }

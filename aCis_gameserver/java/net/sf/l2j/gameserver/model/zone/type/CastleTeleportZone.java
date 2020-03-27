@@ -55,6 +55,7 @@ public class CastleTeleportZone extends ZoneType
 		character.setInsideZone(ZoneId.NO_SUMMON_FRIEND, false);
 	}
 	
+	
 	public void oustAllPlayers()
 	{
 		for (Player player : getKnownTypeInside(Player.class))
