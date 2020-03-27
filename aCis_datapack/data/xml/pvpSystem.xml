@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<!-- PvP Reward Examble : ItemId-ItemCoun;ItemId-ItemCoun; -->
+	<reward rewards="0-0"/>
+	
+	<!-- PvP Color -->
+	<color pvpAmount="5" nameColor="FFFF77" titleColor="FFFF77" />
+	<color pvpAmount="6" nameColor="CC3333" titleColor="CC3333" />	
+	<color pvpAmount="7" nameColor="FF66CC" titleColor="FF66CC" />
+	<color pvpAmount="8" nameColor="003399" titleColor="003399" />
+	<color pvpAmount="9" nameColor="339933" titleColor="339933" />
+	<color pvpAmount="10" nameColor="CC6600" titleColor="CC6600" />
+	
+	<!-- The type of sound file. 0 - Sound, 1 - Music, 2 - Voice -->
+	<SpreeKills type="1" sound="doublekill" kills="2" msg="Double Kill" reward="0-0"/>
+	<SpreeKills type="1" sound="triplekill" kills="3" msg="Triple Kill" reward="0-0"/>
+	<SpreeKills type="1" sound="megakill" kills="5" msg="Mega Kill" reward="0-0"/>
+	<SpreeKills type="1" sound="ultrakill" kills="8" msg="Ultra Kill"  reward="0-0"/>
+	<SpreeKills type="1" sound="monsterkill" kills="10" msg="Monster Kill" reward="0-0"/>
+	<SpreeKills type="1" sound="Unstoppable" kills="12" msg="Unstoppable Kill" reward="9217-1"/>
+</list>

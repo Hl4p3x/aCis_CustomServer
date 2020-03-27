@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<category type="Buffs">
+		<buff id="1036" price="0" desc="Increases M. Def."/><!-- Magic Barrier -->
+		<buff id="1040" price="0" desc="Increases P. Def."/><!-- Shield -->
+		<buff id="1045" price="0" desc="Increases maximum HP."/><!-- Blessed Body -->
+		<buff id="1048" price="0" desc="Increases maximum MP."/><!-- Blessed Soul -->
+		<buff id="1059" price="0" desc="Increases M. Atk."/><!-- Empower -->
+		<buff id="1062" price="0" desc="Reduces def. and increase atk. power."/><!-- Berserker Spirit -->
+		<buff id="1068" price="0" desc="Increases P. Atk."/><!-- Might -->
+		<buff id="1077" price="0" desc="Increases critical attack rate."/><!-- Focus -->
+		<buff id="1078" price="0" desc="Increases magic concentration."/><!-- Concentration -->
+		<buff id="1085" price="0" desc="Increases Casting Spd."/><!-- Acumen -->
+		<buff id="1086" price="0" desc="Increases Atk. Spd."/><!-- Haste -->
+		<buff id="1087" price="0" desc="Increases Evasion."/><!-- Agility -->
+		<buff id="1204" price="0" desc="Increases Speed."/><!-- Wind Walk -->
+		<buff id="1240" price="0" desc="Increases Accuracy."/><!-- Guidance -->
+		<buff id="1242" price="0" desc="Increases critical attack."/><!-- Death Whisper -->
+		<buff id="1303" price="0" desc="Increases crit. rate of magic attacks."/><!-- Wild Magic -->
+		<buff id="1355" price="0" desc="Increases mage abilities."/><!-- Prophecy of Water -->
+		<buff id="1356" price="0" desc="Increases fighter abilities."/><!-- Prophecy of Fire -->
+		<buff id="1357" price="0" desc="Increases dagger abilities."/><!-- Prophecy of Wind -->
+		<buff id="1388" price="0" desc="Increases P. Atk."/><!-- Greater Might -->
+		<buff id="1389" price="0" desc="Increases P. Def."/><!-- Greater Shield -->
+	</category>
+	<category type="Dances">
+		<buff id="271" price="0" desc="Increases P. Atk."/><!-- Dance of the Warrior -->
+		<buff id="272" price="0" desc="Increases Accuracy."/><!-- Dance of Inspiration -->
+		<buff id="273" price="0" desc="Increases M. Atk."/><!-- Dance of the Mystic -->
+		<buff id="274" price="0" desc="Increases critical damage."/><!-- Dance of Fire -->
+		<buff id="275" price="0" desc="Increases attack speed."/><!-- Dance of Fury -->
+		<buff id="276" price="0" desc="Increases Casting Spd."/><!-- Dance of Concentration -->
+		<buff id="277" price="0" desc="Sacred power to physical attack."/><!-- Dance of Light -->
+		<buff id="307" price="0" desc="Increases water resistance."/><!-- Dance of Aqua Guard -->
+		<buff id="309" price="0" desc="Increases earth resistance."/><!-- Dance of Earth Guard -->
+		<buff id="310" price="0" desc="Restores HP by inflicted damage."/><!-- Dance of the Vampire -->
+		<buff id="311" price="0" desc="Increases resistance to terrain damage."/><!-- Dance of Protection -->
+		<buff id="365" price="0" desc="Increases rate of magic crit. damage."/><!-- Siren's Dance -->
+	</category>
+	<category type="Songs">
+		<buff id="264" price="0" desc="Increases P. Def."/><!-- Song of Earth -->
+		<buff id="265" price="0" desc="Increases HP regeneration."/><!-- Song of Life -->
+		<buff id="266" price="0" desc="Increases Evasion."/><!-- Song of Water -->
+		<buff id="267" price="0" desc="Increases M. Def."/><!-- Song of Warding -->
+		<buff id="268" price="0" desc="Increases movement."/><!-- Song of Wind -->
+		<buff id="269" price="0" desc="Increases critical rate."/><!-- Song of Hunter -->
+		<buff id="270" price="0" desc="Increases resistance to dark magic."/><!-- Song of Invocation -->
+		<buff id="304" price="0" desc="Increases maximum HP."/><!-- Song of Vitality -->
+		<buff id="305" price="0" desc="Reflects damage received."/><!-- Song of Vengeance -->
+		<buff id="306" price="0" desc="Increases resistance to fire."/><!-- Song of Flame Guard -->
+		<buff id="308" price="0" desc="Increases resistance to wind."/><!-- Song of Storm Guard -->
+		<buff id="349" price="0" desc="Decreases re-use time."/><!-- Song of Renewal -->
+		<buff id="363" price="0" desc="Increases MP regeneration rate."/><!-- Song of Meditation -->
+		<buff id="364" price="0" desc="Decreases re-use time of physical skills."/><!-- Song of Champion -->
+	</category>
+	<category type="Chants">
+		<buff id="1002" price="0" desc="Increases Castind Spd."/><!-- Flame Chant -->
+		<buff id="1006" price="0" desc="Increases M.Def."/><!-- Chant of Fire -->
+		<buff id="1007" price="0" desc="Increases P.Atk."/><!-- Chant of Battle -->
+		<buff id="1009" price="0" desc="Increases P.Def."/><!-- Chant of Shielding -->
+		<buff id="1251" price="0" desc="Increases Atk.Spd."/><!-- Chant of Fury -->
+		<buff id="1252" price="0" desc="Increases Evasion."/><!-- Chant of Evasion -->
+		<buff id="1253" price="0" desc="Increases critical attack."/><!-- Chant of Rage -->
+		<buff id="1284" price="0" desc="Reflects damage received."/><!-- Chant of Revenge -->
+		<buff id="1309" price="0" desc="Increases Accuracy."/><!-- Chant of Eagle -->
+		<buff id="1308" price="0" desc="Increases critical attack rate."/><!-- Chant of Predator -->
+		<buff id="1310" price="0" desc="Restores Hp using inflected damage."/><!-- Chant of Vampire -->
+		<buff id="1362" price="0" desc="Increases resistance to de-buff attack."/><!-- Chant of Spirit -->
+		<buff id="1363" price="0" desc="Increases combat abilities."/><!-- Chant of Victory -->
+		<buff id="1390" price="0" desc="Increases P.Atk."/><!-- War Chant -->
+		<buff id="1391" price="0" desc="Increases P.Def."/><!-- Earth Chant -->
+		<buff id="1413" price="0" desc="Increases combat abilities."/><!-- Magnus' Chant -->
+	</category>
+	<category type="Pa'agrios">
+		<buff id="1003" price="0" desc="Increases P.Atk."/><!-- Pa'agrian Gift  -->
+		<buff id="1005" price="0" desc="Increases P.Def."/><!-- Blessings of Pa'agrio -->
+		<buff id="1008" price="0" desc="Increases M.Def."/><!-- The Glory of Pa'agrio  -->
+		<buff id="1260" price="0" desc="Increases evasion."/><!-- The Tact of Pa'agrio -->
+		<buff id="1004" price="0" desc="Increases casting Spd."/><!-- The Wisdom of Pa'agrio -->
+		<buff id="1250" price="0" desc="Increases shield defense power."/><!-- Under the Protection of Pa'agrio -->
+		<buff id="1261" price="0" desc="Reduces def, and increase atk power."/><!-- The Rage of Pa'agrio -->
+		<buff id="1249" price="0" desc="Increases Accuracy."/><!-- The Vision of Pa'agrio -->
+		<buff id="1282" price="0" desc="Increases Speed."/><!-- Pa'agrian Haste -->
+		<buff id="1364" price="0" desc="Increases critical attack."/><!-- The Eye of Pa'agrio -->
+		<buff id="1365" price="0" desc="Increases M.Atk."/><!-- The Soul of Pa'agrio -->
+		<buff id="1415" price="0" desc="Increases resistance to de-buff attack."/><!-- Pa'agrio's Emblem -->
+		<buff id="1414" price="0" desc="Increases combat abilities."/><!-- Victories of Pa'agrio  -->
+		<buff id="1416" price="0" desc="Increases and restore CP."/><!-- Pa'agrio's Fist -->
+	</category>
+	<category type="Protection">
+		<buff id="1032" price="0" desc="Increases resistence to bleeding."/><!-- Invigor  -->
+		<buff id="1033" price="0" desc="Increases resistence to poison."/><!-- Resist Poison -->
+		<buff id="1035" price="0" desc="Increases resistence to mental attacks."/><!-- Mental Shield  -->
+		<buff id="1182" price="0" desc="Increases resistence to water attacks"/><!-- Resist Aqua -->
+		<buff id="1189" price="0" desc="Increases resistence to wind attacks."/><!-- Resist Wind -->
+		<buff id="1191" price="0" desc="Increases resistence to fire attacks."/><!-- Resist Fire -->
+		<buff id="1243" price="0" desc="Increases shield defense rate."/><!-- Bless Shield -->
+		<buff id="1259" price="0" desc="Increases resistence to stun attacks"/><!-- Resist Shock -->
+		<buff id="1304" price="0" desc="Increases shield defense power"/><!-- Advanced Block -->
+		<buff id="1352" price="0" desc="Increases resistence to atures"/><!-- Elemental Protection -->
+		<buff id="1353" price="0" desc="Increases resistence to dark attacks."/><!-- Divine Protection -->
+		<buff id="1354" price="0" desc="Increases resistance to de-buff attack."/><!-- Arcane Protection -->
+		<buff id="1392" price="0" desc="Increases resistence to sacred attacks."/><!-- Holy Resistance  -->
+		<buff id="1393" price="0" desc="Increases resistence to dark attacks."/><!-- Unholy Resistance -->
+	</category>
+	<category type="Summon">
+		<buff id="4699" price="0" desc="Increases critical attack."/><!-- Blessing of Queen  -->
+		<buff id="4700" price="0" desc="Increases P.Atk and accuracy."/><!-- Gift of Queen -->
+		<buff id="4702" price="0" desc="Increases Mp regeneration."/><!-- Blessing of Seraphim  -->
+		<buff id="4703" price="0" desc="Decreases magic re-use time."/><!-- Gift of Seraphim -->
+	</category>
+</list>

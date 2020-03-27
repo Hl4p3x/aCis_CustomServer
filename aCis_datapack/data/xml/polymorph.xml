@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<npc id="50009">
+		<appearance name="TopPvP" nameColor="FFFFFF" title="Top PvP Monument" titleColor="FFFFFF" radius="9" height="22" race="0" sex="0" class="10" hairStyle="0" hairColor="3" face="0" hero="0" enchant="0"/>
+		<items rightHand="0" leftHand="0" chest="0" legs="0" gloves="0" feet="0" hair="0" hair2="0"/>
+		<clan clanId="0" clanCrest="0" allyId="0" allyCrest="0" pledge="0"/>
+	</npc>
+	<npc id="50010">
+		<appearance name="TopPk" nameColor="FFFFFF" title="Top Pk Monument" titleColor="FFFFFF" radius="9" height="22" race="0" sex="0" class="10" hairStyle="0" hairColor="3" face="0" hero="0" enchant="0"/>
+		<items rightHand="0" leftHand="0" chest="0" legs="0" gloves="0" feet="0" hair="0" hair2="0"/>
+		<clan clanId="0" clanCrest="0" allyId="0" allyCrest="0" pledge="0"/>
+	</npc>
+</list>

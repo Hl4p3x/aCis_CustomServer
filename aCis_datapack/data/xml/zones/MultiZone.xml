@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+   <zone id="1" shape="Cuboid" minZ="-3850" maxZ="-350"> <!-- giran_pvp_battle -->
+		<node x="72493" y="142263" />
+		<node x="73493" y="143261" />
+		<stat name="name" val="Giran Arena" />
+		<stat name="isNoStore" val="false" />
+		<stat name="isNoSummonFriend" val="false" />
+		<stat name="isFlagEnabled" val="false" />
+		<stat name="isHealEnabled" val="false" />
+		<stat name="duration" val="0" /> <!-- minutes -->
+		<stat name="reviveDelay" val="5" /> <!-- seconds -->
+		<stat name="restrictedItems" val="6611;6612" />
+		<spawn x="73890" y="142656" z="-3778" />
+	</zone>
+	<zone id="2" shape="Cuboid" minZ="-3752" maxZ="-352"> <!-- gludin_pvp -->
+		<node x="-88411" y="141732" />
+		<node x="-87429" y="142708" />
+		<stat name="name" val="Gludin Arena" />
+		<stat name="isNoStore" val="false" />
+		<stat name="isNoSummonFriend" val="false" />
+		<stat name="isFlagEnabled" val="true" />
+		<stat name="isHealEnabled" val="true" />
+		<stat name="duration" val="0" /> <!-- minutes -->
+		<stat name="reviveDelay" val="5" /> <!-- seconds -->
+		<stat name="restrictedItems" val="6611;6612" />
+		<spawn x="-86979" y="142402" z="-3643" />
+	</zone>
+</list>

@@ -1,0 +1,52 @@
+<html>
+	<body>
+		<center>
+			<br>
+			<table width="256">
+				<tr><td width="256" align="left">Seja bem vindo %player%, aqui você pode aderir alguns dos meus serviços.</td></tr>
+			</table>
+			<br>
+			<table width="256">
+				<tr><td width="256" align="center">Ainda não comprou nada? <font color="LEVEL">Essa é a hora</font></td></tr>
+			</table>
+			<br>
+			<table width="128" cellspacing="2">
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_aio 1">Aio 30 dias</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_clanLevel 2">Clan Level</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_clanSkill 3">Clan Skills</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_clanRep 4">Clan Rep</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_hero 12">Hero 30 dias</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_nobles 7">Nobles</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_level 8">Level 81</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_vip 9">Vip 30 dias</a></td></tr>
+				<tr><td width="128" align="center"><a action="bypass -h npc_%objectId%_gender 10">Troca de gênero</a></td></tr>
+			</table>
+			<br>
+			Troca de Classe Base
+		<table width=240>
+		<tr>
+			<td><combobox width=120 height=21 var="cb" list=Duelist;Dreadnought;Phoenix_Knight;Hell_Knight;Saggitarius;Adventure;Archmage;Soultaker;Arcana_Lord;Cardial;Hierophant;Evas_Templar;Sword_Muse;Wind_Rider;Moonlight_Sentinel;Mystic_Muse;Elemental_Master;Evas_Saint;Shillie_Templar;Spectral_Dancer;Ghost_Hunter;Ghost_Sentinel;Storm_Screamer;Spectral_Master;Shillien_Saint;Titan;Grand_Khavatari;Dominator;Doomcryer;Fortune_Seeker;Maestro></td>
+			<td><button value="Adicionar" action="bypass -h npc_%objectId%_classe 11 $cb" width=75 height=21 back="L2UI_ch3.Btn1_normalOn" fore="L2UI_ch3.Btn1_normal"></td>
+		</tr>
+	</table><br>
+	Trocar Nome
+	<center>
+	<edit var="newName" width=160>
+	<br>
+		<button action="bypass -h npc_%objectId%_name 6 $newName" value="Troca de nome" width=140 height=25 back=L2UI_ch3.BigButton3_over fore=L2UI_ch3.BigButton3_over>
+	<br>
+	Trocar Nome de Clan
+	<center>
+	<edit var="newNameClan" width=160>
+	<br>
+		<button action="bypass -h npc_%objectId%_clanName 5 $newNameClan" value="Troca de nome" width=140 height=25 back=L2UI_ch3.BigButton3_over fore=L2UI_ch3.BigButton3_over>
+	<br>
+	<img src=L2UI.SquareGray width=300 height=1>
+	<br>
+	<table width="256">
+		<tr><td width="256" align="center">L2Dev</td></tr>
+	</table>
+	<br>
+	<img src=L2UI.SquareGray width=300 height=1>
+	</center>
+</body>

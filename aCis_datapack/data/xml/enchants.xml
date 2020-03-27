@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!--
+	Info :
+	   - Safe can be maded by steps of 100% chances (100;100;100;...) (full body armor hardcoded safe to +4)
+	   - Max enchant contain to length of rate values
+	Settings:
+	   - crystalize : Boolean when failed break item.
+	   - return     : Integer Use return enchant value if the scroll is crystalize="false" to return on failed.
+	                  Use crystalize="false" and return="-1" and when failed item will keep the same value
+	Chances:
+	   - rateF/rateM: You have an option to setup different enchant rate only on weapons for mage and fighter
+	                  take example from the list below, if you want to use same rate you can rate="" (look armor scrolls).
+	Announcement:
+	   - Example 	: <announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+					: enchants="a;b;c;..." are the values that will be announced with current scroll
+	-->
+	<scroll id="959" grade="S" isWeapon="true"> <!-- Scrolls: Enchant Weapon (Grade S) -->
+		<chances rateF="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65" 
+		         rateM="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="729" grade="A" isWeapon="true"> <!-- Scrolls: Enchant Weapon (Grade A) -->
+		<chances rateF="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;" 
+		         rateM="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="947" grade="B" isWeapon="true"> <!-- Scrolls: Enchant Weapon (Grade B) -->
+		<chances rateF="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65" 
+		         rateM="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="951" grade="C" isWeapon="true"> <!-- Scrolls: Enchant Weapon (Grade C) -->
+		<chances rateF="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65" 
+		         rateM="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="955" grade="D" isWeapon="true"> <!-- Scrolls: Enchant Weapon (Grade D) -->
+		<chances rateF="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;" 
+		         rateM="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="960" grade="S" isWeapon="false"> <!-- Scrolls: Enchant Armor (Grade S) -->
+		<chances rate="100;100;100;100;100;100;100"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="730" grade="A" isWeapon="false"> <!-- Scrolls: Enchant Armor (Grade A) -->
+		<chances rate="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="948" grade="B" isWeapon="false"> <!-- Scrolls: Enchant Armor (Grade B) -->
+		<chances rate="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="952" grade="C" isWeapon="false"> <!-- Scrolls: Enchant Armor (Grade C) -->
+		<chances rate="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	<scroll id="956" grade="D" isWeapon="false"> <!-- Scrolls: Enchant Armor (Grade D) -->
+		<chances rate="100;100;100;100;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65;65"/>
+	</scroll>
+	
+	<scroll id="6577" grade="S" isWeapon="true"> <!-- Scrolls: Blessed Enchant Weapon (Grade S) -->
+		<settings crystalize="false" return="6"/>
+		<chances rateF="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75" 
+				 rateM="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="6569" grade="A" isWeapon="true"> <!-- Scrolls: Blessed Enchant Weapon (Grade A) -->
+		<settings crystalize="false" return="6"/>
+		<chances rateF="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"
+				 rateM="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6571" grade="B" isWeapon="true"> <!-- Scrolls: Blessed Enchant Weapon (Grade B) -->
+		<settings crystalize="false" return="6"/>
+		<chances rateF="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"
+				 rateM="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6573" grade="C" isWeapon="true"> <!-- Scrolls: Blessed Enchant Weapon (Grade C) -->
+		<settings crystalize="false" return="6"/>
+		<chances rateF="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75" 
+				 rateM="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6575" grade="D" isWeapon="true"> <!-- Scrolls: Blessed Enchant Weapon (Grade D) -->
+		<settings crystalize="false" return="6"/>
+		<chances rateF="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"
+		         rateM="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6578" grade="S" isWeapon="false"> <!-- Scrolls: Blessed Enchant Armor (Grade S) -->
+		<settings crystalize="false" return="6"/>
+		<chances rate="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="6570" grade="A" isWeapon="false"> <!-- Scrolls: Blessed Enchant Armor (Grade A) -->
+		<settings crystalize="false" return="6"/>
+		<chances rate="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6572" grade="B" isWeapon="false"> <!-- Scrolls: Blessed Enchant Armor (Grade B) -->
+		<settings crystalize="false" return="6"/>
+		<chances rate="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6574" grade="C" isWeapon="false"> <!-- Scrolls: Blessed Enchant Armor (Grade C) -->
+		<settings crystalize="false" return="6"/>
+		<chances rate="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	<scroll id="6576" grade="D" isWeapon="false"> <!-- Scrolls: Blessed Enchant Armor (Grade D) -->
+		<settings crystalize="false" return="6"/>
+		<chances rate="100;100;100;100;100;100;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75;75"/>
+	</scroll>
+	
+	<scroll id="961" grade="S" isWeapon="true"> <!-- Scrolls: Crystal Enchant Weapon (Grade S) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="731" grade="A" isWeapon="true"> <!-- Scrolls: Crystal Enchant Weapon (Grade A) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="949" grade="B" isWeapon="true"> <!-- Scrolls: Crystal Enchant Weapon (Grade B) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="953" grade="C" isWeapon="true"> <!-- Scrolls: Crystal Enchant Weapon (Grade C) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="957" grade="D" isWeapon="true"> <!-- Scrolls: Crystal Enchant Weapon (Grade D) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="962" grade="S" isWeapon="false"> <!-- Scrolls: Crystal Enchant Armor (Grade S) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+		<announce message="%s has successfully enchanted his item \n> %s" enchants="15;20;25"/>
+	</scroll>
+	<scroll id="732" grade="A" isWeapon="false"> <!-- Scrolls: Crystal Enchant Armor (Grade A) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="950" grade="B" isWeapon="false"> <!-- Scrolls: Crystal Enchant Armor (Grade B) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="954" grade="C" isWeapon="false"> <!-- Scrolls: Crystal Enchant Armor (Grade C) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+	<scroll id="958" grade="D" isWeapon="false"> <!-- Scrolls: Crystal Enchant Armor (Grade D) -->
+		<settings crystalize="false" return="-1"/>
+		<chances rate="100;100;100;100;100;100;100"/>
+	</scroll>
+</list>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<donate service="1" duration="30" price="3470-5" /> <!-- aio service 30-days -->
+	<donate service="2" duration="0" price="3470-10" /> <!-- Clan level service -->
+	<donate service="3" duration="0" price="3470-20" /> <!-- Clan skills service -->
+	<donate service="4" duration="0" price="3470-30" /> <!-- Clan reputation service -->
+	<donate service="5" duration="0" price="3470-40" /> <!-- Clan change name service -->
+	<donate service="6" duration="0" price="3470-50" /> <!-- Change name service -->
+	<donate service="7" duration="0" price="3470-60" /> <!-- Noble service -->
+	<donate service="8" duration="0" price="3470-70" /> <!-- Level 81 service -->
+	<donate service="9" duration="30" price="3470-80" /> <!-- Vip service 30-days -->
+	<donate service="10" duration="0" price="3470-90" /> <!-- Change gender service -->
+	<donate service="11" duration="0" price="3470-95" /> <!-- Change class service -->
+	<donate service="12" duration="0" price="3470-30" /> <!-- Hero service -->
+</list>

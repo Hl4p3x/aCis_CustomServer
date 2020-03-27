@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<list>
+
+<!-- 
+
+Use <set name="handler" val="Skin1" /> EtcItem
+Equipe Skins Item
+
+<set name="handler" val="Skin2" />
+<set name="handler" val="Skin3" />
+<set name="handler" val="Skin4" />
+<set name="handler" val="Skin5" />
+<set name="handler" val="Skin6" />
+<set name="handler" val="Skin7" />
+<set name="handler" val="Skin8" />
+<set name="handler" val="Skin9" />
+<set name="handler" val="Skin10" />
+<set name="handler" val="Skin11" />
+<set name="handler" val="Skin12" />
+<set name="handler" val="Skin13" />
+<set name="handler" val="Skin14" />
+<set name="handler" val="Skin15" />
+
+ -->
+
+
+	<item id="9505" type="EtcItem" name="Draconic Armor">
+	<set name="material" val="STEEL" />
+	<set name="is_destroyable" val="false" />
+	<set name="is_dropable" val="false" />
+	<set name="is_sellable" val="false" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin1" />
+	</item>
+	
+</list>

@@ -1,0 +1,33 @@
+<html><title>Zone Creation</title><body>
+	<table width=270>
+		<tr>
+			<td width=45><button value="Main" action="bypass -h admin_admin" width=45 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+			<td width=180 align=center>Zone Creation</td>
+			<td width=45><button value="Back" action="bypass -h admin_zone_check" width=45 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+		</tr>
+	</table><br>
+	<center>
+	<img src=l2ui.SquareGray width=270 height=1>
+	<table width=270>
+		<tr>
+			<td width=65>Type:</td>
+			<td width=140><combobox width="100" var="zoneType" list=NPoly;Cuboid;Cylinder></td>
+			<td align=right width=65><button value="Select" action="bypass admin_setType $zoneType" width=65 height=19 back="L2UI_ch3.smallbutton2_over" fore="L2UI_ch3.smallbutton2"></td>
+		</tr>
+	</table><br>
+	<img src=l2ui.SquareGray width=270 height=1>
+	<table width=270>
+		<tr><td width=140>Type: <font color=LEVEL>%zoneShape%</font></td></tr>
+		<tr><td width=140>%locsSize%</td></tr>
+	</table>	
+	<img src=l2ui.SquareGray width=270 height=1><br>
+	<table width=280>
+		<tr>
+			<td align=center width=70>%proceed%</td>
+			<td align=center width=70>%undo%</td>
+			<td align=center width=70><button value="Add Loc" action="bypass admin_saveLoc" width=65 height=19 back="L2UI_ch3.smallbutton2_over" fore="L2UI_ch3.smallbutton2"></td>
+			<td align=center width=70><button value="Reset" action="bypass admin_reset" width=65 height=19 back="L2UI_ch3.smallbutton2_over" fore="L2UI_ch3.smallbutton2"></td>
+		</tr>
+	</table>
+	<br><br>%dist%
+</center></body></html>
