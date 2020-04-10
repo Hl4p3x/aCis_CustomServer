@@ -113,12 +113,14 @@ import net.sf.l2j.util.DeadLockDetector;
 import net.sf.l2j.util.IPv4Filter;
 
 import Dev.AutoBackup.BackupDBSave;
+import Dev.EventMoster.ChristmasEvent;
 import Dev.FakePlayer.PhantomStore;
 import Dev.FakePlayer.PhantomWalker;
 import Dev.PartyFarm.InitialPartyFarm;
 import Dev.PartyFarm.PartyFarm;
 import Dev.Phantom.FakePlayerManager;
 import Dev.StartPlayer.StartupManager;
+import Dev.TeamVsTeam.TvTEventManager;
 import Dev.Tournament.Arena2x2;
 import Dev.Tournament.Arena4x4;
 import Dev.Tournament.Arena9x9;
@@ -400,6 +402,12 @@ public class GameServer
 		{
 			LOGGER.info("[DataBase Auto Save]: Desatived");
 		}
+        
+        StringUtil.printSection("Team Vs Team");
+        TvTEventManager.getInstance();
+        
+        StringUtil.printSection("Christmas Event");
+        LOGGER.info("Loaded " + ChristmasEvent.getInstance().rewardsSize() + " Rewards!");
 		
 		StringUtil.printSection("Handlers");
 		LOGGER.info("Loaded {} admin command handlers.", AdminCommandHandler.getInstance().size());

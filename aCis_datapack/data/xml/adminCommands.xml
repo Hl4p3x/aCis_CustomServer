@@ -1,18 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <list>
 
-	<!-- FAKE PLAYER L2jBan -->
-	<aCar name="admin_takecontrol" accessLevel="7"/>
-	<aCar name="admin_releasecontrol" accessLevel="7"/>
-	<aCar name="admin_pvp" accessLevel="7"/>
-	<aCar name="admin_fakes" accessLevel="7"/>
-	<aCar name="admin_deletepvp" accessLevel="7"/>
-	<aCar name="admin_enchanter" accessLevel="7"/>
-	<aCar name="admin_fakegiran" accessLevel="7"/>
-	<aCar name="admin_fakegoddard" accessLevel="7"/>
-	<aCar name="admin_roboto" accessLevel="7"/>
-	
-	
+	<!-- ZONE CREATE -->
+	<aCar name="admin_create_zone" accessLevel="7"/>
+	<aCar name="admin_setType" accessLevel="7"/>
+	<aCar name="admin_saveLoc" accessLevel="7"/>
+	<aCar name="admin_setRad" accessLevel="7"/>
+	<aCar name="admin_reset" accessLevel="7"/>
+	<aCar name="admin_removeLoc" accessLevel="7"/>
+	<aCar name="admin_storeLocs" accessLevel="7"/>
+
 	<!-- AIO -->
 	<aCar name="admin_setaio" accessLevel="7" />
 	<aCar name="admin_removeaio" accessLevel="7" />
@@ -22,6 +19,17 @@
 	<aCar name="admin_ptfarm" accessLevel="7"/>
 	<aCar name="admin_tour" accessLevel="7"/>
 
+	<!-- FAKE PLAYER Dev 384 -->
+	<aCar name="admin_takecontrol" accessLevel="7"/>
+	<aCar name="admin_releasecontrol" accessLevel="7"/>
+	<aCar name="admin_pvp" accessLevel="7"/>
+	<aCar name="admin_fakes" accessLevel="7"/>
+	<aCar name="admin_deletepvp" accessLevel="7"/>
+	<aCar name="admin_enchanter" accessLevel="7"/>
+	<aCar name="admin_fakegiran" accessLevel="7"/>
+	<aCar name="admin_fakegoddard" accessLevel="7"/>
+	<aCar name="admin_roboto" accessLevel="7"/>
+	<aCar name="admin_walkers" accessLevel="7"/>
 	
 	<!-- ADMIN -->
 	<aCar name="admin_admin" accessLevel="7"/>

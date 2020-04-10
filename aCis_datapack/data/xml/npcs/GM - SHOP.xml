@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+
+		<npc id="20704" idTemplate="22129" name="Hagnar" title="GM-SHOP">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="80"/>
+		<set name="radius" val="12"/>
+		<set name="height" val="28.4"/>
+		<set name="rHand" val="8211"/>
+		<set name="lHand" val="8210"/>
+		<set name="type" val="Merchant"/>
+		<set name="exp" val="42352"/>
+		<set name="sp" val="5240"/>
+		<set name="hp" val="3077.1572058"/>
+		<set name="mp" val="1848.24"/>
+		<set name="hpRegen" val="8.874"/>
+		<set name="mpRegen" val="3.1314"/>
+		<set name="pAtk" val="1009.3950039"/>
+		<set name="pDef" val="373969485"/>
+		<set name="mAtk" val="719.599557852"/>
+		<set name="mDef" val="27365463924"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="53"/>
+		<set name="runSpd" val="180"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="500" clan="solina_clan" clanRange="300" canMove="true" seedable="true"/>
+		<skills>
+			<skill id="4032" level="1"/>
+			<skill id="4336" level="2"/>
+			<skill id="4408" level="12"/>
+			<skill id="4410" level="16"/>
+			<skill id="4414" level="1"/>
+			<skill id="4416" level="8"/>
+			<skill id="4423" level="3"/>
+			<skill id="4467" level="3"/>
+			<skill id="4574" level="1"/>
+			<skill id="4643" level="1"/>
+		</skills>
+	</npc>
+
+</list>

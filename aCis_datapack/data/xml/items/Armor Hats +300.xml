@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+
+	<item id="20089" type="Armor" name="Immortal Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+
+	<item id="20090" type="Armor" name="Twilight Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	
+	</item>
+
+	<item id="20091" type="Armor" name="Seraph Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	
+	</item>
+	
+	<item id="20092" type="Armor" name="Eternal Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<!-- Novos Acc L2jBan -->
+	
+		<item id="20093" type="Armor" name="Refined Wizard">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20094" type="Armor" name="Refined Jester">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20095" type="Armor" name="Refined Romantic">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20096" type="Armor" name="Refined Dapper">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20097" type="Armor" name="Assassin's Bamboo">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20098" type="Armor" name="Laborer">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="20099" type="Armor" name="Noblesse Oblige">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21000" type="Armor" name="Goddess Hair A">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+		<item id="21001" type="Armor" name="Goddess Hair B">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21002" type="Armor" name="Titanium Crown">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	
+	<item id="21003" type="Armor" name="BOPE Nation">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21004" type="Armor" name="CAPITAO Nation">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21005" type="Armor" name="HOMEM DE FERRO Nation">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21006" type="Armor" name="HUCK Nation">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21007" type="Armor" name="Magical Cap">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21008" type="Armor" name="Barka Wings">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21009" type="Armor" name="Zaken">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21010" type="Armor" name="Mask Chaotic">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21011" type="Armor" name="Angel">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21012" type="Armor" name="Pirat King">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21013" type="Armor" name="Valakas Flame">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21014" type="Armor" name="Granny Tiger">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21015" type="Armor" name="Flag Cap">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="face" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="300"/> <!-- P.def. +300 -->
+	<add order="0x30" stat="mDef" val="300"/> <!-- M.def. +300 -->
+	</for>
+	</item>
+	
+	<item id="21016" type="Armor" name="Shirt Dyes Race Dex">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7554-1" />
+		
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>
+	
+	<item id="21017" type="Armor" name="Shirt Dyes Race Con">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7555-1" />
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>
+
+	<item id="21018" type="Armor" name="Shirt Dyes Race Srt">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7556-1" />
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>
+
+	<item id="21019" type="Armor" name="Shirt Dyes Race Wit">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7557-1" />
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>
+
+	<item id="21020" type="Armor" name="Shirt Dyes Race Int">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7558-1" />
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>
+
+	<item id="21021" type="Armor" name="Shirt Dyes Race Men">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="hair" />
+		<set name="material" val="WOOD" />
+		<set name="weight" val="10" />
+		<set name="is_tradable" val="false" />
+		<set name="is_dropable" val="false" />
+		<set name="is_sellable" val="false" />
+		<set name="is_depositable" val="false" />
+		<set name="item_skill" val="7559-1" />
+			
+	
+		
+	<for>
+	<add order="0x30" stat="pDef" val="0"/> <!-- P.Def. 0 -->
+	<add order="0x30" stat="mDef" val="0"/> <!-- M.Def. 0 -->
+	</for>
+	</item>	
+</list>

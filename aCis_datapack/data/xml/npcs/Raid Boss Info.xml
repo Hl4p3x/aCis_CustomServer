@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+
+	<npc id="105" idTemplate="31294" name="Arold" title="Raid Boss Info Manager">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="80"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="23.5"/>
+		<set name="rHand" val="94"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="RaidBosInfo"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="3290.11306877694"/>
+		<set name="mp" val="1674.8"/>
+		<set name="hpRegen" val="8.5"/>
+		<set name="mpRegen" val="3"/>
+		<set name="pAtk" val="970.537548504614"/>
+		<set name="pDef" val="341.375"/>
+		<set name="mAtk" val="662.751329129412"/>
+		<set name="mDef" val="249.80341"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<set name="attackRange" val="40"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="1000" canMove="true" seedable="false"/>
+		<skills>
+			<skill id="4045" level="1"/>
+			<skill id="4416" level="14"/>
+		</skills>
+	</npc>
+	
+</list>

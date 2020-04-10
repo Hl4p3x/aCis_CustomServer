@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+
+	<npc id="20704" idTemplate="25283" name="GM SHOP" title="Merchant">
+<set name="usingServerSideName" val="true"/>
+<set name="usingServerSideTitle" val="true"/>
+<set name="level" val="80"/>
+<set name="radius" val="42.5"/>
+<set name="height" val="55"/>
+<set name="rHand" val="0"/>
+<set name="lHand" val="0"/>
+<set name="type" val="Merchant"/>
+<set name="exp" val="2374400"/>
+<set name="sp" val="1196456"/>
+<set name="hp" val="688716.902670109"/>
+<set name="mp" val="1674.8"/>
+<set name="hpRegen" val="211.789458580091"/>
+<set name="mpRegen" val="3"/>
+<set name="pAtk" val="3893.46388223624"/>
+<set name="pDef" val="1024.125"/>
+<set name="mAtk" val="630.998398930805"/>
+<set name="mDef" val="499.6"/>
+<set name="crit" val="4"/>
+<set name="atkSpd" val="253"/>
+<set name="str" val="60"/>
+<set name="int" val="76"/>
+<set name="dex" val="73"/>
+<set name="wit" val="70"/>
+<set name="con" val="57"/>
+<set name="men" val="80"/>
+<set name="corpseTime" val="7"/>
+<set name="walkSpd" val="45"/>
+<set name="runSpd" val="200"/>
+<set name="dropHerbGroup" val="0"/>
+<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+<skills>
+	<skill id="4045" level="1"/>
+	<skill id="4197" level="9"/>
+	<skill id="4278" level="1"/>
+	<skill id="4333" level="5"/>
+	<skill id="4416" level="9"/>
+	<skill id="4494" level="1"/>
+	<skill id="4897" level="1"/>
+</skills>
+	</npc>
+	
+	
+		<npc id="14000" idTemplate="14000" name="Cthylhu" title="Donate Shop">
+		<set name="usingServerSideName" val="false"/>
+		<set name="usingServerSideTitle" val="false"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="45"/>
+		<set name="height" val="184"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="Merchant"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+		<skills>
+			<skill id="4045" level="1"/>
+			<skill id="4416" level="14"/>
+		</skills>
+	</npc>
+		
+	</list>

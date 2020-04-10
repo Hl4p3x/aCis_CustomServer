@@ -10378,7 +10378,51 @@ public class Player extends Playable
     	_isBuffProtected = value;
     }
     
-	
+    private List<Integer> _ignored = new ArrayList<>();
 
-	    
+       public void ignored(Integer itemId)
+       {
+           if (_ignored.contains(itemId))
+               _ignored.remove(itemId);
+           else
+               _ignored.add(itemId);
+       }
+      
+       public boolean ignoredDropContain(int itemId)
+       {
+           return _ignored.contains(itemId);
+       } 
+       
+   	private int _team1;
+	
+   	public void setTeam(int team1)
+   	{
+   		_team1 = team1;
+   	}
+   	
+   	public int getTeam1()
+   	{
+   		return _team1;
+   	}
+   	
+
+	private int _eventPoints = 0;
+	public int getPointScore()
+	{
+		return _eventPoints;
+	}
+	
+	public void increasePointScore()
+	{
+		_eventPoints++;
+	}
+	
+	private boolean _isAttackP;
+    public void setAttackP(final boolean value) {
+        this._isAttackP = value;
+    }
+    
+    public boolean isAttackP() {
+        return this._isAttackP;
+    }
 }

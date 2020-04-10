@@ -40,6 +40,7 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
+
 /**
  * A monster extends {@link Attackable} class.<br>
  * <br>
@@ -286,6 +287,8 @@ public class Monster extends Attackable
 		// FIXME: to test to allow monsters hit others monsters
 		if (attacker instanceof Monster)
 			return false;
+		
+
 		
 		return true;
 	}
@@ -572,6 +575,7 @@ public class Monster extends Attackable
 	public void teleToMaster()
 	{
 		if (_master == null)
+	
 			return;
 		
 		// Init the position of the Minion and add it in the world as a visible object
@@ -928,7 +932,7 @@ public class Monster extends Attackable
 	{
 		if (mainDamageDealer == null)
 			return;
-		
+	
 		// Don't drop anything if the last attacker or owner isn't Player
 		final Player player = mainDamageDealer.getActingPlayer();
 		if (player == null)
@@ -950,7 +954,7 @@ public class Monster extends Attackable
 					for (DropData drop : cat.getAllDrops())
 					{
 						item = calculateRewardItem(drop, levelModifier, true, player);
-						if (item == null)
+						if (item == null || player.ignoredDropContain(item.getId()))
 							continue;
 						
 						getSpoilState().getSweepItems().add(item);
@@ -972,6 +976,8 @@ public class Monster extends Attackable
 				
 				if (item != null)
 				{
+					if (player.ignoredDropContain(item.getId()))
+						continue;
 					// Check if the autoLoot mode is active
 					if ((isRaidBoss() && Config.AUTO_LOOT_RAID) || (!isRaidBoss() && Config.AUTO_LOOT))
 						player.doAutoLoot(this, item);

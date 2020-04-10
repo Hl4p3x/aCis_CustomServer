@@ -583,7 +583,7 @@ public class DonateManager extends Folk
 				}
 			}
 		}
-		
+
 		super.onBypassFeedback(player, command);
 	}
 	

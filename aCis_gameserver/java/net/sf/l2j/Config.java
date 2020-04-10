@@ -48,6 +48,35 @@ public final class Config
 	public static final String FAKE_ARMOR = "./config/aCis/Phantom/ArmorFakePvP.properties";
 	public static final String FAKE_WEAPON = "./config/aCis/Phantom/WeaponFakePvP.properties";
 	public static final String VOTEZONE_FILE = "./config/aCis/VoteZone.properties";
+	public static final String TEAMVSTEAM_FILE = "./config/aCis/TeamVsTeam.properties";
+	
+	/** TvT Event settings */
+	public static boolean TVT_EVENT_ENABLED;
+	public static int TVT_EVENT_INTERVAL;
+	public static int TVT_EVENT_PARTICIPATION_TIME;
+	public static int TVT_EVENT_RUNNING_TIME;
+	public static int TVT_EVENT_PARTICIPATION_NPC_ID;
+	public static int TVT_EVENT_MIN_PLAYERS_IN_TEAMS;
+	public static int TVT_EVENT_MAX_PLAYERS_IN_TEAMS;
+	public static int TVT_EVENT_RESPAWN_TELEPORT_DELAY;
+	public static int TVT_EVENT_START_LEAVE_TELEPORT_DELAY;
+	public static String TVT_EVENT_TEAM_1_NAME;
+	public static int[] TVT_EVENT_BACK_COORDINATES = new int[3];
+	public static int[] TVT_EVENT_TEAM_1_COORDINATES = new int[3];
+	public static String TVT_EVENT_TEAM_2_NAME;
+	public static int[] TVT_EVENT_TEAM_2_COORDINATES = new int[3];
+	public static List<int[]> TVT_EVENT_REWARDS = new ArrayList<>();
+	public static boolean TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED;
+	public static boolean TVT_EVENT_POTIONS_ALLOWED;
+	public static boolean TVT_EVENT_SUMMON_BY_ITEM_ALLOWED;
+	public static List<Integer> TVT_EVENT_DOOR_IDS = new ArrayList<>();
+	public static byte TVT_EVENT_MIN_LVL;
+	public static byte TVT_EVENT_MAX_LVL;
+	public static boolean TVT_EVENT_REMOVE_BUFFS;
+	public static boolean TVT_EVENT_HEAL_PLAYERS;
+	public static boolean TVT_KILLS_REWARD_ENABLED;
+	public static List<int[]> TVT_KILLS_REWARD = new ArrayList<>();
+	public static String TVT_NPC_LOC_NAME;
 	
 	/** Auto Save Data Base */
 	public static boolean ENABLE_BACKUP_BOOLEAN;
@@ -414,6 +443,7 @@ public final class Config
 	
     /** Skins Dressme  */
 	public static boolean ALLOW_DRESS_ME_SYSTEM;
+	public static Map<String, Integer> DRESS_ME_HELMET = new HashMap<>();
 	public static Map<String, Integer> DRESS_ME_CHESTS = new HashMap<>();
 	public static Map<String, Integer> DRESS_ME_LEGS = new HashMap<>();
 	public static Map<String, Integer> DRESS_ME_BOOTS = new HashMap<>();
@@ -434,6 +464,38 @@ public final class Config
 	public static String SKIN_NAME13;
 	public static String SKIN_NAME14;
 	public static String SKIN_NAME15;
+	public static String SKIN_NAME16;
+	public static String SKIN_NAME17;
+	public static String SKIN_NAME18;
+	public static String SKIN_NAME19;
+	public static String SKIN_NAME20;
+	public static String SKIN_NAME21;
+	public static String SKIN_NAME22;
+	public static String SKIN_NAME23;
+	public static String SKIN_NAME24;
+	public static String SKIN_NAME25;
+	public static String SKIN_NAME26;
+	public static String SKIN_NAME27;
+	public static String SKIN_NAME28;
+	public static String SKIN_NAME29;
+	public static String SKIN_NAME30;
+	public static String SKIN_NAME31;
+	public static String SKIN_NAME32;
+	public static String SKIN_NAME33;
+	public static String SKIN_NAME34;
+	public static String SKIN_NAME35;
+	public static String SKIN_NAME36;
+	public static String SKIN_NAME37;
+	public static String SKIN_NAME38;
+	public static String SKIN_NAME39;
+	public static String SKIN_NAME40;
+	public static String SKIN_NAME41;
+	public static String SKIN_NAME42;
+	public static String SKIN_NAME43;
+	public static String SKIN_NAME44;
+	public static String SKIN_NAME45;
+	public static String SKIN_NAME46;
+	
 	public static int SKIN_ITEM_1;
 	public static int SKIN_ITEM_2;
 	public static int SKIN_ITEM_3;
@@ -449,6 +511,39 @@ public final class Config
 	public static int SKIN_ITEM_13;
 	public static int SKIN_ITEM_14;
 	public static int SKIN_ITEM_15;
+	public static int SKIN_ITEM_16;
+	
+	public static int SKIN_ITEM_17;
+	public static int SKIN_ITEM_18;
+	public static int SKIN_ITEM_19;
+	public static int SKIN_ITEM_20;
+	public static int SKIN_ITEM_21;
+	public static int SKIN_ITEM_22;
+	public static int SKIN_ITEM_23;
+	public static int SKIN_ITEM_24;
+	public static int SKIN_ITEM_25;
+	public static int SKIN_ITEM_26;
+	public static int SKIN_ITEM_27;
+	public static int SKIN_ITEM_28;
+	public static int SKIN_ITEM_29;
+	public static int SKIN_ITEM_30;
+	public static int SKIN_ITEM_31;
+	public static int SKIN_ITEM_32;
+	public static int SKIN_ITEM_33;
+	public static int SKIN_ITEM_34;
+	public static int SKIN_ITEM_35;
+	public static int SKIN_ITEM_36;
+	public static int SKIN_ITEM_37;
+	public static int SKIN_ITEM_38;
+	public static int SKIN_ITEM_39;
+	public static int SKIN_ITEM_40;
+	public static int SKIN_ITEM_41;
+	public static int SKIN_ITEM_42;
+	public static int SKIN_ITEM_43;
+	public static int SKIN_ITEM_44;
+	public static int SKIN_ITEM_45;
+	public static int SKIN_ITEM_46;
+	
 	
 	public static String NAME1;
 	public static String NAME2;
@@ -465,7 +560,38 @@ public final class Config
 	public static String NAME13;
 	public static String NAME14;
 	public static String NAME15;
-	
+	public static String NAME16;
+	public static String NAME17;
+	public static String NAME18;
+	public static String NAME19;
+	public static String NAME20;
+	public static String NAME21;
+	public static String NAME22;
+	public static String NAME23;
+	public static String NAME24;
+	public static String NAME25;
+	public static String NAME26;
+	public static String NAME27;
+	public static String NAME28;
+	public static String NAME29;
+	public static String NAME30;
+	public static String NAME31;
+	public static String NAME32;
+	public static String NAME33;
+	public static String NAME34;
+	public static String NAME35;
+	public static String NAME36;
+	public static String NAME37;
+	public static String NAME38;
+	public static String NAME39;
+	public static String NAME40;
+	public static String NAME41;
+	public static String NAME42;
+	public static String NAME43;
+	public static String NAME44;
+	public static String NAME45;
+	public static String NAME46;
+
 	
 	/** Disable attack Npcs */
 	public static boolean DISABLE_ATTACK_NPC_TYPE;
@@ -2396,6 +2522,39 @@ private static final void loadTournament()
 	SKIN_NAME13 = String.valueOf(Skins.getProperty("SkinName13", "SkinName"));
 	SKIN_NAME14 = String.valueOf(Skins.getProperty("SkinName14", "SkinName"));
 	SKIN_NAME15 = String.valueOf(Skins.getProperty("SkinName15", "SkinName"));
+	SKIN_NAME16 = String.valueOf(Skins.getProperty("SkinName16", "SkinName"));
+	
+	SKIN_NAME17 = String.valueOf(Skins.getProperty("SkinName17", "SkinName"));
+	SKIN_NAME18 = String.valueOf(Skins.getProperty("SkinName18", "SkinName"));
+	SKIN_NAME19 = String.valueOf(Skins.getProperty("SkinName19", "SkinName"));
+	SKIN_NAME20 = String.valueOf(Skins.getProperty("SkinName20", "SkinName"));
+	SKIN_NAME21 = String.valueOf(Skins.getProperty("SkinName21", "SkinName"));
+	SKIN_NAME22 = String.valueOf(Skins.getProperty("SkinName22", "SkinName"));
+	SKIN_NAME23 = String.valueOf(Skins.getProperty("SkinName23", "SkinName"));
+	SKIN_NAME24 = String.valueOf(Skins.getProperty("SkinName24", "SkinName"));
+	SKIN_NAME25 = String.valueOf(Skins.getProperty("SkinName25", "SkinName"));
+	SKIN_NAME26 = String.valueOf(Skins.getProperty("SkinName26", "SkinName"));
+	SKIN_NAME27 = String.valueOf(Skins.getProperty("SkinName27", "SkinName"));
+	SKIN_NAME28 = String.valueOf(Skins.getProperty("SkinName28", "SkinName"));
+	SKIN_NAME29 = String.valueOf(Skins.getProperty("SkinName29", "SkinName"));
+	SKIN_NAME30 = String.valueOf(Skins.getProperty("SkinName30", "SkinName"));
+	SKIN_NAME31 = String.valueOf(Skins.getProperty("SkinName31", "SkinName"));
+	SKIN_NAME32 = String.valueOf(Skins.getProperty("SkinName32", "SkinName"));
+	SKIN_NAME33 = String.valueOf(Skins.getProperty("SkinName33", "SkinName"));
+	SKIN_NAME34 = String.valueOf(Skins.getProperty("SkinName34", "SkinName"));
+	SKIN_NAME35 = String.valueOf(Skins.getProperty("SkinName35", "SkinName"));
+	SKIN_NAME36 = String.valueOf(Skins.getProperty("SkinName36", "SkinName"));
+	SKIN_NAME37 = String.valueOf(Skins.getProperty("SkinName37", "SkinName"));
+	SKIN_NAME38 = String.valueOf(Skins.getProperty("SkinName38", "SkinName"));
+	SKIN_NAME39 = String.valueOf(Skins.getProperty("SkinName39", "SkinName"));
+	SKIN_NAME40 = String.valueOf(Skins.getProperty("SkinName40", "SkinName"));
+	SKIN_NAME41 = String.valueOf(Skins.getProperty("SkinName41", "SkinName"));
+	SKIN_NAME42 = String.valueOf(Skins.getProperty("SkinName42", "SkinName"));
+	SKIN_NAME43 = String.valueOf(Skins.getProperty("SkinName43", "SkinName"));
+	SKIN_NAME44 = String.valueOf(Skins.getProperty("SkinName44", "SkinName"));
+	SKIN_NAME45 = String.valueOf(Skins.getProperty("SkinName45", "SkinName"));
+	SKIN_NAME46 = String.valueOf(Skins.getProperty("SkinName46", "SkinName"));
+	
 	SKIN_ITEM_1 = Integer.parseInt(Skins.getProperty("SkinItem1", "0"));
 	SKIN_ITEM_2 = Integer.parseInt(Skins.getProperty("SkinItem2", "0"));
 	SKIN_ITEM_3 = Integer.parseInt(Skins.getProperty("SkinItem3", "0"));
@@ -2411,6 +2570,38 @@ private static final void loadTournament()
 	SKIN_ITEM_13 = Integer.parseInt(Skins.getProperty("SkinItem13", "0"));
 	SKIN_ITEM_14 = Integer.parseInt(Skins.getProperty("SkinItem14", "0"));
 	SKIN_ITEM_15 = Integer.parseInt(Skins.getProperty("SkinItem15", "0"));
+	SKIN_ITEM_16 = Integer.parseInt(Skins.getProperty("SkinItem16", "0"));
+	
+	SKIN_ITEM_17 = Integer.parseInt(Skins.getProperty("SkinItem17", "0"));
+	SKIN_ITEM_18 = Integer.parseInt(Skins.getProperty("SkinItem18", "0"));
+	SKIN_ITEM_19 = Integer.parseInt(Skins.getProperty("SkinItem19", "0"));
+	SKIN_ITEM_20 = Integer.parseInt(Skins.getProperty("SkinItem20", "0"));
+	SKIN_ITEM_21 = Integer.parseInt(Skins.getProperty("SkinItem21", "0"));
+	SKIN_ITEM_22 = Integer.parseInt(Skins.getProperty("SkinItem22", "0"));
+	SKIN_ITEM_23 = Integer.parseInt(Skins.getProperty("SkinItem23", "0"));
+	SKIN_ITEM_24 = Integer.parseInt(Skins.getProperty("SkinItem24", "0"));
+	SKIN_ITEM_25 = Integer.parseInt(Skins.getProperty("SkinItem25", "0"));
+	SKIN_ITEM_26 = Integer.parseInt(Skins.getProperty("SkinItem26", "0"));
+	SKIN_ITEM_27 = Integer.parseInt(Skins.getProperty("SkinItem27", "0"));
+	SKIN_ITEM_28 = Integer.parseInt(Skins.getProperty("SkinItem28", "0"));
+	SKIN_ITEM_29 = Integer.parseInt(Skins.getProperty("SkinItem29", "0"));
+	SKIN_ITEM_30 = Integer.parseInt(Skins.getProperty("SkinItem30", "0"));
+	SKIN_ITEM_31 = Integer.parseInt(Skins.getProperty("SkinItem31", "0"));
+	SKIN_ITEM_32 = Integer.parseInt(Skins.getProperty("SkinItem32", "0"));
+	SKIN_ITEM_33 = Integer.parseInt(Skins.getProperty("SkinItem33", "0"));
+	SKIN_ITEM_34 = Integer.parseInt(Skins.getProperty("SkinItem34", "0"));
+	SKIN_ITEM_35 = Integer.parseInt(Skins.getProperty("SkinItem35", "0"));
+	SKIN_ITEM_36 = Integer.parseInt(Skins.getProperty("SkinItem36", "0"));
+	SKIN_ITEM_37 = Integer.parseInt(Skins.getProperty("SkinItem37", "0"));
+	SKIN_ITEM_38 = Integer.parseInt(Skins.getProperty("SkinItem38", "0"));
+	SKIN_ITEM_39 = Integer.parseInt(Skins.getProperty("SkinItem39", "0"));
+	SKIN_ITEM_40 = Integer.parseInt(Skins.getProperty("SkinItem40", "0"));
+	SKIN_ITEM_41 = Integer.parseInt(Skins.getProperty("SkinItem41", "0"));
+	SKIN_ITEM_42 = Integer.parseInt(Skins.getProperty("SkinItem42", "0"));
+	SKIN_ITEM_43 = Integer.parseInt(Skins.getProperty("SkinItem43", "0"));
+	SKIN_ITEM_44 = Integer.parseInt(Skins.getProperty("SkinItem44", "0"));
+	SKIN_ITEM_45 = Integer.parseInt(Skins.getProperty("SkinItem45", "0"));
+	SKIN_ITEM_46 = Integer.parseInt(Skins.getProperty("SkinItem46", "0"));
 	String temp = Skins.getProperty("DressMeChests", "");
 	String[] temp2 = temp.split(";");
 	for (String s : temp2)
@@ -2418,6 +2609,16 @@ private static final void loadTournament()
 		String[] t = s.split(",");
 		DRESS_ME_CHESTS.put(t[0], Integer.parseInt(t[1]));
 	}
+	
+	temp = Skins.getProperty("DressMeHair", "");
+	temp2 = temp.split(";");
+	for (String s : temp2)
+	{
+		String[] t = s.split(",");
+		DRESS_ME_HELMET.put(t[0], Integer.parseInt(t[1]));
+	}
+	
+	
 	temp = Skins.getProperty("DressMeLegs", "");
 	temp2 = temp.split(";");
 	for (String s : temp2)
@@ -2453,19 +2654,47 @@ private static final void loadTournament()
 	NAME4 = Skins.getProperty("NameArmor4", " Skins Dressme");
 	NAME5 = Skins.getProperty("NameArmor5", " Skins Dressme");
 	NAME6 = Skins.getProperty("NameArmor6", " Skins Dressme");
-	NAME7 = Skins.getProperty("NameWeapon1", " Skins Dressme");
-	NAME8 = Skins.getProperty("NameWeapon2", " Skins Dressme");
-	NAME9 = Skins.getProperty("NameWeapon3", " Skins Dressme");
-	NAME10 = Skins.getProperty("NameWeapon4", " Skins Dressme");
-	NAME11 = Skins.getProperty("NameWeapon5", " Skins Dressme");
-	NAME12 = Skins.getProperty("NameWeapon6", " Skins Dressme");
-	NAME13 = Skins.getProperty("NameWeapon7", " Skins Dressme");
-	NAME14 = Skins.getProperty("NameWeapon8", " Skins Dressme");
-	NAME15 = Skins.getProperty("NameWeapon9", " Skins Dressme");
-	
+	NAME7 = Skins.getProperty("NameArmor7", " Skins Dressme");
+	NAME8 = Skins.getProperty("NameArmor8", " Skins Dressme");
+	NAME9 = Skins.getProperty("NameArmor9", " Skins Dressme");
+	NAME10 = Skins.getProperty("NameArmor10", " Skins Dressme");
+	NAME11 = Skins.getProperty("NameArmor11", " Skins Dressme");
+	NAME12 = Skins.getProperty("NameArmor12", " Skins Dressme");
+	NAME13 = Skins.getProperty("NameArmor13", " Skins Dressme");
+	NAME14 = Skins.getProperty("NameArmor14", " Skins Dressme");
+	NAME15 = Skins.getProperty("NameArmor15", " Skins Dressme");
+	NAME16 = Skins.getProperty("NameArmor16", " Skins Dressme");
+	NAME17 = Skins.getProperty("NameArmor17", " Skins Dressme");
+	NAME18 = Skins.getProperty("NameArmor18", " Skins Dressme");
+	NAME19 = Skins.getProperty("NameWeapon1", " Skins Dressme");
+	NAME20 = Skins.getProperty("NameWeapon2", " Skins Dressme");
+	NAME21 = Skins.getProperty("NameWeapon3", " Skins Dressme");
+	NAME22 = Skins.getProperty("NameWeapon4", " Skins Dressme");
+	NAME23 = Skins.getProperty("NameWeapon5", " Skins Dressme");
+	NAME24 = Skins.getProperty("NameWeapon6", " Skins Dressme");
+	NAME25 = Skins.getProperty("NameWeapon7", " Skins Dressme");
+	NAME26 = Skins.getProperty("NameWeapon8", " Skins Dressme");
+	NAME27 = Skins.getProperty("NameWeapon9", " Skins Dressme");
+	NAME28 = Skins.getProperty("NameWeapon10", " Skins Dressme");
+	NAME29 = Skins.getProperty("NameWeapon11", " Skins Dressme");
+	NAME30 = Skins.getProperty("NameWeapon12", " Skins Dressme");
+	NAME31 = Skins.getProperty("NameWeapon13", " Skins Dressme");
+	NAME32 = Skins.getProperty("NameWeapon14", " Skins Dressme");
+	NAME33 = Skins.getProperty("NameWeapon15", " Skins Dressme");
+	NAME34 = Skins.getProperty("NameWeapon16", " Skins Dressme");
+	NAME35 = Skins.getProperty("NameWeapon17", " Skins Dressme");
+	NAME36 = Skins.getProperty("NameWeapon18", " Skins Dressme");
+	NAME37 = Skins.getProperty("NameWeapon1", " Skins Dressme");
+	NAME38 = Skins.getProperty("NameWeapon2", " Skins Dressme");
+	NAME39 = Skins.getProperty("NameWeapon3", " Skins Dressme");
+	NAME40 = Skins.getProperty("NameWeapon4", " Skins Dressme");
+	NAME41 = Skins.getProperty("NameWeapon5", " Skins Dressme");
+	NAME42 = Skins.getProperty("NameWeapon6", " Skins Dressme");
+	NAME43 = Skins.getProperty("NameWeapon7", " Skins Dressme");
+	NAME44 = Skins.getProperty("NameWeapon8", " Skins Dressme");
+	NAME45 = Skins.getProperty("NameWeapon9", " Skins Dressme");
+	NAME46 = Skins.getProperty("NameWeapon10", " Skins Dressme");
 
-	
-	
 	}
 	
 	/**
@@ -3111,6 +3340,148 @@ private static final void loadTournament()
 
 	}
 	
+	private static final void loadTeamVsTeam()
+	{
+		final ExProperties TeamVsTeam = initProperties(TEAMVSTEAM_FILE);
+		TVT_EVENT_ENABLED = TeamVsTeam.getProperty("TvTEventEnabled", false);
+		TVT_EVENT_INTERVAL = TeamVsTeam.getProperty("TvTEventInterval", 18000);
+		TVT_EVENT_PARTICIPATION_TIME = TeamVsTeam.getProperty("TvTEventParticipationTime", 3600);
+		TVT_EVENT_RUNNING_TIME = TeamVsTeam.getProperty("TvTEventRunningTime", 1800);
+		TVT_EVENT_PARTICIPATION_NPC_ID = TeamVsTeam.getProperty("TvTEventParticipationNpcId", 0);
+		TVT_EVENT_REMOVE_BUFFS = TeamVsTeam.getProperty("TvTEventRemoveBuffs", false);
+		TVT_KILLS_REWARD_ENABLED = TeamVsTeam.getProperty("TvTKillsRewardEnable", false);
+		TVT_EVENT_HEAL_PLAYERS = TeamVsTeam.getProperty("TvTHealPlayersEnable", false);
+		
+		if (TVT_EVENT_PARTICIPATION_NPC_ID == 0)
+		{
+			TVT_EVENT_ENABLED = false;
+			System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcId");
+		}
+		else
+		{
+			String[] propertySplit = TeamVsTeam.getProperty("TvTEventParticipationNpcCoordinates", "0,0,0").split(",");
+			
+			if (propertySplit.length < 3)
+			{
+				TVT_EVENT_ENABLED = false;
+				System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventParticipationNpcCoordinates");
+			}
+			else
+			{
+				TVT_EVENT_BACK_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
+				TVT_EVENT_BACK_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
+				TVT_EVENT_BACK_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
+				
+				TVT_EVENT_MIN_PLAYERS_IN_TEAMS = Integer.parseInt(TeamVsTeam.getProperty("TvTEventMinPlayersInTeams", "1"));
+				TVT_EVENT_MAX_PLAYERS_IN_TEAMS = Integer.parseInt(TeamVsTeam.getProperty("TvTEventMaxPlayersInTeams", "20"));
+				TVT_EVENT_MIN_LVL = (byte) Integer.parseInt(TeamVsTeam.getProperty("TvTEventMinPlayerLevel", "1"));
+				TVT_EVENT_MAX_LVL = (byte) Integer.parseInt(TeamVsTeam.getProperty("TvTEventMaxPlayerLevel", "80"));
+				TVT_EVENT_RESPAWN_TELEPORT_DELAY = Integer.parseInt(TeamVsTeam.getProperty("TvTEventRespawnTeleportDelay", "20"));
+				TVT_EVENT_START_LEAVE_TELEPORT_DELAY = Integer.parseInt(TeamVsTeam.getProperty("TvTEventStartLeaveTeleportDelay", "20"));
+				
+				TVT_EVENT_TEAM_1_NAME = TeamVsTeam.getProperty("TvTEventTeam1Name", "Team1");
+				propertySplit = TeamVsTeam.getProperty("TvTEventTeam1Coordinates", "0,0,0").split(",");
+				
+				if (propertySplit.length < 3)
+				{
+					TVT_EVENT_ENABLED = false;
+					System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam1Coordinates");
+				}
+				else
+				{
+					TVT_EVENT_TEAM_1_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
+					TVT_EVENT_TEAM_1_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
+					TVT_EVENT_TEAM_1_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
+					
+					TVT_EVENT_TEAM_2_NAME = TeamVsTeam.getProperty("TvTEventTeam2Name", "Team2");
+					propertySplit = TeamVsTeam.getProperty("TvTEventTeam2Coordinates", "0,0,0").split(",");
+					
+					if (propertySplit.length < 3)
+					{
+						TVT_EVENT_ENABLED = false;
+						System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventTeam2Coordinates");
+					}
+					else
+					{
+						TVT_EVENT_TEAM_2_COORDINATES[0] = Integer.parseInt(propertySplit[0]);
+						TVT_EVENT_TEAM_2_COORDINATES[1] = Integer.parseInt(propertySplit[1]);
+						TVT_EVENT_TEAM_2_COORDINATES[2] = Integer.parseInt(propertySplit[2]);
+						propertySplit = TeamVsTeam.getProperty("TvTEventReward", "57,100000").split(";");
+						
+						for (String reward : propertySplit)
+						{
+							String[] rewardSplit = reward.split(",");
+							
+							if (rewardSplit.length != 2)
+								System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"" + reward + "\"");
+							else
+							{
+								try
+								{
+									TVT_EVENT_REWARDS.add(new int[]
+									{
+										Integer.valueOf(rewardSplit[0]),
+										Integer.valueOf(rewardSplit[1])
+									});
+								}
+								catch (NumberFormatException nfe)
+								{
+									if (!reward.equals(""))
+										System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"" + reward + "\"");
+								}
+							}
+						}
+						
+						propertySplit = TeamVsTeam.getProperty("TvTKillsReward", "57,100000").split(";");
+						
+						for (String rewardKills : propertySplit)
+						{
+							String[] rewardSplit = rewardKills.split(",");
+							
+							if (rewardSplit.length != 2)
+								System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"" + rewardKills + "\"");
+							else
+							{
+								try
+								{
+									TVT_KILLS_REWARD.add(new int[]
+									{
+										Integer.valueOf(rewardSplit[0]),
+										Integer.valueOf(rewardSplit[1])
+									});
+								}
+								catch (NumberFormatException nfe)
+								{
+									if (!rewardKills.equals(""))
+										System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventReward \"" + rewardKills + "\"");
+								}
+							}
+						}
+						TVT_NPC_LOC_NAME = TeamVsTeam.getProperty("TvTNpcLocName", "Giran Town");
+						
+						TVT_EVENT_TARGET_TEAM_MEMBERS_ALLOWED = Boolean.parseBoolean(TeamVsTeam.getProperty("TvTEventTargetTeamMembersAllowed", "true"));
+						TVT_EVENT_POTIONS_ALLOWED = Boolean.parseBoolean(TeamVsTeam.getProperty("TvTEventPotionsAllowed", "false"));
+						TVT_EVENT_SUMMON_BY_ITEM_ALLOWED = Boolean.parseBoolean(TeamVsTeam.getProperty("TvTEventSummonByItemAllowed", "false"));
+						propertySplit = TeamVsTeam.getProperty("TvTEventDoorsCloseOpenOnStartEnd", "").split(";");
+						
+						for (String door : propertySplit)
+						{
+							try
+							{
+								TVT_EVENT_DOOR_IDS.add(Integer.valueOf(door));
+							}
+							catch (NumberFormatException nfe)
+							{
+								if (!door.equals(""))
+									System.out.println("TvTEventEngine[Config.load()]: invalid config property -> TvTEventDoorsCloseOpenOnStartEnd \"" + door + "\"");
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 
 	
 	/**
@@ -3199,6 +3570,8 @@ private static final void loadTournament()
 		loadWeapon();
 		
 		loadVoteZone();
+		
+		loadTeamVsTeam();
 	}
 	
 	public static final void loadLoginServer()

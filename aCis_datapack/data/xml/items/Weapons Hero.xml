@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+
+   <item id="21097" type="Weapon" name="Infinity - Dagger - Crt. Damage">
+    <set name="icon" val="icon.weapon_angel_slayer_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DAGGER" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="5" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="950" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3572-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="246" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="12" />
+      <sub order="0x10" stat="accCombat" val="3" />
+      <set order="0x08" stat="pAtkSpd" val="433" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+  <item id="21098" type="Weapon" name="Infinity Blade - Focus">
+    <set name="icon" val="icon.weapon_forgotten_blade_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="SWORD" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1300" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3566-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="379" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+     <item id="21099" type="Weapon" name="Infinity Titan- Health">
+    <set name="icon" val="icon.weapon_heavens_divider_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BIGSWORD" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1380" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3013-3" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21100" type="Weapon" name="Infinity Battler - Health">
+    <set name="icon" val="icon.weapon_basalt_battlehammer_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BLUNT" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="20" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1570" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3013-3" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="379" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+	<item id="21101" type="Weapon" name="Infinity - Crt. Stun">
+    <set name="icon" val="icon.weapon_demon_splinter_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUALFIST" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="5" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;32;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1350" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="oncrit_chance" val="27" />
+    <set name="oncrit_skill" val="3571-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+   <item id="21102" type="Weapon" name="Infinity Alacran- Guidance">
+    <set name="icon" val="icon.weapon_saint_spear_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="POLE" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="80" />
+    <set name="damage_range" val="0;0;66;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1800" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3602-9" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <sub order="0x10" stat="accCombat" val="3" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+     <item id="21103" type="Weapon" name="Infinity Bow - Focus">
+    <set name="icon" val="icon.weapon_draconic_bow_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BOW" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="5" />
+    <set name="attack_range" val="500" />
+    <set name="damage_range" val="0;0;10;0" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1650" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="mp_consume" val="11" />
+    <set name="reuse_delay" val="1500" />
+    <set name="item_skill" val="3567-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="581" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="12" />
+      <sub order="0x10" stat="accCombat" val="3" />
+      <set order="0x08" stat="pAtkSpd" val="293" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21104" type="Weapon" name="Infinity Blade - Focus">
+    <set name="icon" val="icon.weapon_forgotten_blade_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="SWORD" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1300" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3566-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="379" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21105" type="Weapon" name="Infinity Zeus - Acumen">
+    <set name="icon" val="icon.weapon_arcana_mace_i01" />
+    <set name="is_magical" val="true" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BLUNT" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="20" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1300" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3047-2" />
+    <for>
+      <set order="0x08" stat="pAtk" val="225" />
+      <set order="0x08" stat="mAtk" val="175" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="379" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+     <item id="21106" type="Weapon" name="Infinity - Empower">
+    <set name="icon" val="icon.weapon_imperial_staff_i01" />
+    <set name="is_magical" val="true" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BIGBLUNT" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="20" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;46;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="910" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3575-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="274" />
+      <set order="0x08" stat="mAtk" val="175" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21107" type="Weapon" name="Infinity Dual Blade">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+
+  <item id="21108" type="Weapon" name="Infinity Dual Dagger">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+   <item id="21109" type="Weapon" name="Infinity Dual Hammer">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+
+</list>

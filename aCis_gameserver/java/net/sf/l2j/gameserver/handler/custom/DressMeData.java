@@ -4,6 +4,7 @@ package net.sf.l2j.gameserver.handler.custom;
 public class DressMeData
 {
 	private int chestId,
+	helmetId,
 	legsId,
 	glovesId,
 	feetId,
@@ -11,11 +12,17 @@ public class DressMeData
 	
 	public DressMeData()
 	{
+		helmetId = 0;
 		chestId = 0;
 		legsId = 0;
 		glovesId = 0;
 		feetId = 0;
 		weapId = 0;
+	}
+	
+	public int getHelmetId()
+	{
+		return helmetId;
 	}
 	
 	public int getChestId()
@@ -41,6 +48,11 @@ public class DressMeData
 	public int getWeapId()
 	{
 		return weapId;
+	}
+	
+	public void setHelmetId(int val)
+	{
+		helmetId = val;
 	}
 	
 	public void setChestId(int val)

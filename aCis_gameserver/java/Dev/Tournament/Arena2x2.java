@@ -62,6 +62,8 @@ public class Arena2x2 implements Runnable
 				player.sendMessage("Tournament: Your partner already registered!");
 				return false;
 			}
+			
+			
 		}
 		return registered.add(new Pair(player, assist));
 	}

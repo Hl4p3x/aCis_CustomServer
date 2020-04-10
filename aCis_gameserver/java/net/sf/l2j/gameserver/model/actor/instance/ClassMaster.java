@@ -52,6 +52,8 @@ public final class ClassMaster extends Folk
 		if (Config.ALLOW_CLASS_MASTERS)
 			filename = "data/html/mods/classmaster/" + getNpcId() + ".htm";
 		
+		broadcastNpcSay("Hello " + player.getName() + " Master Job Class!");
+		
 		final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", getObjectId());

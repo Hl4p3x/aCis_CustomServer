@@ -568,22 +568,22 @@
 		<set name="skillType" val="BUFF" /> <!-- Just Broadcast -->
 		<set name="target" val="TARGET_SELF" />
 	</skill>
-	<skill id="4551" levels="10" name="Hot Springs Rheumatism">
+	
+		<skill id="4551" levels="10" name="Hot Springs Rheumatism">
 		<table name="#pDef"> 1 0.96 0.96 0.96 0.92 0.92 0.92 0.88 0.88 0.85 </table>
 		<table name="#rCrit"> 30 50 80 100 50 0 0 0 0 0 </table>
 		<table name="#stackOrder"> 1 2 3 4 5 6 7 8 9 10 </table>
-		<set name="mpInitialConsume" val="14" />
-		<set name="mpConsume" val="55" />
-		<set name="power" val="100" />
-		<set name="magicLvl" val="75" />
-		<set name="target" val="TARGET_ONE" />
-		<set name="isDebuff" val="true" />
-		<set name="skillType" val="DEBUFF" />
-		<set name="isMagic" val="true" />
-		<set name="operateType" val="OP_ACTIVE" />
-		<set name="castRange" val="600" />
-		<set name="effectRange" val="1100" />
-		<set name="aggroPoints" val="-100" />
+		<set name="mpConsume" val="289"/>
+		<set name="itemConsumeId" val="3031"/>
+		<set name="itemConsumeCount" val="80"/>
+		<set name="hitTime" val="2500"/>
+		<set name="reuseDelay" val="1200000"/>
+		<set name="target" val="TARGET_ALLY"/>
+		<set name="skillRadius" val="900"/>
+		<set name="staticReuse" val="true"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_ACTIVE"/>
+		<set name="isMagic" val="true"/>
 		<for>
 			<effect name="Debuff" time="3600" val="0" stackOrder="#stackOrder" stackType="spa_disease_a" abnormal="poison">
 				<mul stat="pDef" val="#pDef" />
@@ -591,22 +591,22 @@
 			</effect>
 		</for>
 	</skill>
-	<skill id="4552" levels="10" name="Hot Springs Cholera">
+	
+		<skill id="4552" levels="10" name="Hot Springs Cholera">
 		<table name="#rEvas"> 0 3 3 3 5 5 5 8 8 10 </table>
 		<table name="#accCombat"> 3 6 8 10 6 0 0 0 0 0 </table>
 		<table name="#stackOrder"> 1 2 3 4 5 6 7 8 9 10 </table>
-		<set name="mpInitialConsume" val="14" />
-		<set name="mpConsume" val="55" />
-		<set name="power" val="100" />
-		<set name="magicLvl" val="75" />
-		<set name="target" val="TARGET_ONE" />
-		<set name="isDebuff" val="true" />
-		<set name="skillType" val="DEBUFF" />
-		<set name="isMagic" val="true" />
-		<set name="operateType" val="OP_ACTIVE" />
-		<set name="castRange" val="600" />
-		<set name="effectRange" val="1100" />
-		<set name="aggroPoints" val="-100" />
+		<set name="mpConsume" val="289"/>
+		<set name="itemConsumeId" val="3031"/>
+		<set name="itemConsumeCount" val="80"/>
+		<set name="hitTime" val="2500"/>
+		<set name="reuseDelay" val="1200000"/>
+		<set name="target" val="TARGET_ALLY"/>
+		<set name="skillRadius" val="900"/>
+		<set name="staticReuse" val="true"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_ACTIVE"/>
+		<set name="isMagic" val="true"/>
 		<for>
 			<effect name="Debuff" time="3600" val="0" stackOrder="#stackOrder" stackType="spa_disease_b" abnormal="poison">
 				<sub stat="rEvas" val="#rEvas" />
@@ -614,22 +614,22 @@
 			</effect>
 		</for>
 	</skill>
-	<skill id="4553" levels="10" name="Hot Springs Flu">
+	
+			<skill id="4553" levels="10" name="Hot Springs Flu">
 		<table name="#pAtkSpd"> 1.04 1.08 1.12 1.16 1.08 1 1 1 1 1 </table>
 		<table name="#pAtk"> 1 0.96 0.96 0.96 0.92 0.92 0.92 0.88 0.88 0.85 </table>
 		<table name="#stackOrder"> 1 2 3 4 5 6 7 8 9 10 </table>
-		<set name="mpInitialConsume" val="14" />
-		<set name="mpConsume" val="55" />
-		<set name="power" val="100" />
-		<set name="magicLvl" val="75" />
-		<set name="target" val="TARGET_ONE" />
-		<set name="skillType" val="DEBUFF" />
-		<set name="isDebuff" val="true" />
-		<set name="isMagic" val="true" />
-		<set name="operateType" val="OP_ACTIVE" />
-		<set name="castRange" val="600" />
-		<set name="effectRange" val="1100" />
-		<set name="aggroPoints" val="-100" />
+		<set name="mpConsume" val="289"/>
+		<set name="itemConsumeId" val="3031"/>
+		<set name="itemConsumeCount" val="80"/>
+		<set name="hitTime" val="2500"/>
+		<set name="reuseDelay" val="1200000"/>
+		<set name="target" val="TARGET_ALLY"/>
+		<set name="skillRadius" val="900"/>
+		<set name="staticReuse" val="true"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_ACTIVE"/>
+		<set name="isMagic" val="true"/>
 		<for>
 			<effect name="Debuff" time="3600" val="0" stackOrder="#stackOrder" stackType="spa_disease_c" abnormal="poison">
 				<mul stat="pAtkSpd" val="#pAtkSpd" />
@@ -637,22 +637,22 @@
 			</effect>
 		</for>
 	</skill>
+	
 	<skill id="4554" levels="10" name="Hot Spring Malaria">
 		<table name="#mAtkSpd"> 1.04 1.08 1.12 1.16 1.08 1 1 1 1 1 </table>
 		<table name="#MpConsumeRate"> 1 0.96 0.96 0.96 0.92 0.92 0.92 0.88 0.88 0.84 </table>
 		<table name="#stackOrder"> 1 2 3 4 5 6 7 8 9 10 </table>
-		<set name="mpInitialConsume" val="14" />
-		<set name="mpConsume" val="55" />
-		<set name="power" val="100" />
-		<set name="magicLvl" val="75" />
-		<set name="target" val="TARGET_ONE" />
-		<set name="isDebuff" val="true" />
-		<set name="skillType" val="DEBUFF" />
-		<set name="isMagic" val="true" />
-		<set name="operateType" val="OP_ACTIVE" />
-		<set name="castRange" val="600" />
-		<set name="effectRange" val="1100" />
-		<set name="aggroPoints" val="-100" />
+		<set name="mpConsume" val="289"/>
+		<set name="itemConsumeId" val="3031"/>
+		<set name="itemConsumeCount" val="80"/>
+		<set name="hitTime" val="2500"/>
+		<set name="reuseDelay" val="1200000"/>
+		<set name="target" val="TARGET_ALLY"/>
+		<set name="skillRadius" val="900"/>
+		<set name="staticReuse" val="true"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_ACTIVE"/>
+		<set name="isMagic" val="true"/>
 		<for>
 			<effect name="Debuff" time="3600" val="0" stackOrder="#stackOrder" stackType="spa_disease_d" abnormal="poison">
 				<mul stat="mAtkSpd" val="#mAtkSpd" />
@@ -660,6 +660,8 @@
 			</effect>
 		</for>
 	</skill>
+	
+
 	<skill id="4555" levels="1" name="NPC Resist Mutant">
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="OP_PASSIVE" />

@@ -95,60 +95,60 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		// MENU ACIS JUVENIL JUNIOR
 		else if (_command.startsWith("setPartyRefuse"))
 		{
-            if (player.isPartyInvProt())
-            	player.setIsPartyInvProt(false);
-            else
-            	player.setIsPartyInvProt(true);
-            Menu.sendMainWindow(player);
+			if (player.isPartyInvProt())
+				player.setIsPartyInvProt(false);
+			else
+				player.setIsPartyInvProt(true);
+			Menu.sendMainWindow(player);
 		}
 		else if (_command.startsWith("setTradeRefuse"))
 		{
-            if (player.isInTradeProt())
-            	player.setIsInTradeProt(false);
-            else
-            	player.setIsInTradeProt(true);
-            Menu.sendMainWindow(player);
+			if (player.isInTradeProt())
+				player.setIsInTradeProt(false);
+			else
+				player.setIsInTradeProt(true);
+			Menu.sendMainWindow(player);
 		}
 		else if (_command.startsWith("setMessageRefuse"))
 		{
-            if (player.getMessageRefusal())
-            	player.setMessageRefusal(false);
-            else
-            	player.setMessageRefusal(true);
-            Menu.sendMainWindow(player);
+			if (player.getMessageRefusal())
+				player.setMessageRefusal(false);
+			else
+				player.setMessageRefusal(true);
+			Menu.sendMainWindow(player);
 		}
 		else if (_command.startsWith("setbuffsRefuse"))
 		{
-            if (player.isBuffProtected())
-            	player.setisBuffProtected(false);
-            else
-            	player.setisBuffProtected(true);
-            player.sendMessage("Buff protection.");
-            Menu.sendMainWindow(player);
+			if (player.isBuffProtected())
+				player.setisBuffProtected(false);
+			else
+				player.setisBuffProtected(true);
+			player.sendMessage("Buff protection.");
+			Menu.sendMainWindow(player);
 		}
 		else if (_command.startsWith("setxpnot"))
 		{
-            if (player.cantGainXP())
-            	player.cantGainXP(false);
-            else
-            	player.cantGainXP(true);
-            player.sendMessage(" Xp effects.");
-            Menu.sendMainWindow(player);
+			if (player.cantGainXP())
+				player.cantGainXP(false);
+			else
+				player.cantGainXP(true);
+			player.sendMessage(" Xp effects.");
+			Menu.sendMainWindow(player);
 		}
 		else if (_command.startsWith("setSsprot"))
 		{
-            if (player.isSSDisabled())
-            	player.setIsSSDisabled(false);
-            else
-            	player.setIsSSDisabled(true);
-            player.sendMessage("Soulshots effects.");
-            Menu.sendMainWindow(player);
+			if (player.isSSDisabled())
+				player.setIsSSDisabled(false);
+			else
+				player.setIsSSDisabled(true);
+			player.sendMessage("Soulshots effects.");
+			Menu.sendMainWindow(player);
 		}
 		
 		if (_command.startsWith("Heroic_Valor"))
 		{
 			
-
+			
 			L2Skill skill = SkillTable.getInstance().getInfo(1374, 1);
 			skill.getEffects(player, player);
 			
@@ -160,7 +160,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		if (_command.startsWith("P_Attak"))
 		{
-		
+			
 			L2Skill skill = SkillTable.getInstance().getInfo(5154, 10);
 			skill.getEffects(player, player);
 			player.broadcastUserInfo();
@@ -180,7 +180,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		if (_command.startsWith("P_Def"))
 		{
-
+			
 			L2Skill skill = SkillTable.getInstance().getInfo(5158, 10);
 			skill.getEffects(player, player);
 			
@@ -202,10 +202,10 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		if (_command.startsWith("Malaria"))
 		{
-		
+			
 			L2Skill skill = SkillTable.getInstance().getInfo(4554, 4);
 			skill.getEffects(player, player);
-
+			
 			player.broadcastUserInfo();
 			player.sendMessage("Felicitaciones, use buff Malaria!");
 			VipMenu.bypass(player, null, null);
@@ -213,7 +213,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		if (_command.startsWith("Flu"))
 		{
-		
+			
 			L2Skill skill = SkillTable.getInstance().getInfo(4553, 4);
 			skill.getEffects(player, player);
 			player.broadcastUserInfo();
@@ -239,6 +239,20 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			player.broadcastUserInfo();
 			player.sendMessage("Felicitaciones, use buff Salvation!");
 			VipMenu.bypass(player, null, null);
+		}
+		
+		if (_command.startsWith("droplist"))
+		{
+			StringTokenizer st = new StringTokenizer(_command, " ");
+			st.nextToken();
+			
+			int npcId = Integer.parseInt(st.nextToken());
+			int page = st.hasMoreTokens() ? Integer.parseInt(st.nextToken()) : 1;
+			
+			if (st.hasMoreTokens())
+				player.ignored(Integer.parseInt(st.nextToken()));
+			
+			Npc.sendNpcDrop(player, npcId, page);
 		}
 		
 		if (_command.startsWith("aiopanel"))
@@ -467,7 +481,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			
 			Vote.sendMainWindow(player);
 			
-		
+			
 		}
 		
 		
@@ -475,7 +489,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		{
 			String bp = _command.substring(11);
 			StringTokenizer st = new StringTokenizer(bp);
-		
+			
 			String part = st.nextToken();
 			String type = st.nextToken();
 			
@@ -498,16 +512,16 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		
 		else  if (_command.startsWith("mageclass")) {
-            StartupManager.getInstance().MageClasses(_command, player);
-        } else if (_command.startsWith("fighterclass")) {
-            StartupManager.getInstance().FighterClasses(_command, player);
-        } else if (_command.startsWith("lightclass")) {
-            StartupManager.getInstance().LightClasses(_command, player);
-        } else if (_command.startsWith("class")) {
-            StartupManager.getInstance().Classes(_command, player);       
-        }
+			StartupManager.getInstance().MageClasses(_command, player);
+		} else if (_command.startsWith("fighterclass")) {
+			StartupManager.getInstance().FighterClasses(_command, player);
+		} else if (_command.startsWith("lightclass")) {
+			StartupManager.getInstance().LightClasses(_command, player);
+		} else if (_command.startsWith("class")) {
+			StartupManager.getInstance().Classes(_command, player);       
+		}
 		
-
+		
 	}
 	
 	
@@ -519,6 +533,27 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		htm.replace("%part%", part);
 		switch (part)
 		{
+			
+			case "helmet":
+			{
+				if (p.getDressMeData() == null)
+				{
+					htm.replace("%partinfo%", "You have no custom Hair.");
+				}
+				else
+				{
+					htm.replace("%partinfo%", p.getDressMeData().getHelmetId() == 0 ? "You have no custom Hair." : ItemData.getInstance().getTemplate(p.getDressMeData().getHelmetId()).getName());
+				}
+				String temp = "";
+				for (String s : Config.DRESS_ME_HELMET.keySet())
+				{
+					temp += s+";";
+				}
+				htm.replace("%dropboxdata%", temp);
+				break;
+			}
+			
+			
 			case "chest":
 			{
 				if (p.getDressMeData() == null)
@@ -535,11 +570,11 @@ public final class RequestBypassToServer extends L2GameClientPacket
 					temp += s+";";
 				}
 				htm.replace("%dropboxdata%", temp);
-			break;
+				break;
 			}
 			case "legs":
 			{
-			if (p.getDressMeData() == null)
+				if (p.getDressMeData() == null)
 				{
 					htm.replace("%partinfo%", "You have no custom legs.");
 				}
@@ -607,7 +642,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 					temp += s+";";
 				}
 				htm.replace("%dropboxdata%", temp);
-			break;
+				break;
 			}
 		}
 		
@@ -624,6 +659,18 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		switch (part)
 		{
+			
+			case "helmet":
+			{
+				if (Config.DRESS_ME_HELMET.keySet().contains(type))
+				{
+					p.getDressMeData().setHelmetId(Config.DRESS_ME_HELMET.get(type));
+				}
+				
+				break;
+			}
+			
+			
 			case "chest":
 			{
 				if (Config.DRESS_ME_CHESTS.keySet().contains(type))
@@ -668,11 +715,11 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				}
 				
 				break;
-		}
+			}
 		}
 		
 		p.broadcastUserInfo();
-//		sendEditWindow(p, part);
+		//		sendEditWindow(p, part);
 	}
 	
 	public static void stealTarget(Player p, String part)
@@ -695,6 +742,19 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		
 		switch (part)
 		{
+			case "helmet":
+			{
+				if (t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_FACE) == null)
+				{
+					p.getDressMeData().setHelmetId(0);
+				}
+				else
+				{
+					p.getDressMeData().setHelmetId(t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_FACE).getItemId());
+				}
+				break;
+			}
+			
 			case "chest":
 			{
 				if (t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_CHEST) == null)
@@ -757,6 +817,16 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			}
 			case "all":
 			{
+				
+				if (t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_FACE) == null)
+				{
+					p.getDressMeData().setHelmetId(0);
+				}
+				else
+				{
+					p.getDressMeData().setHelmetId(t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_FACE).getItemId());
+				}
+				
 				if (t.getInventory().getPaperdollItem(Inventory.PAPERDOLL_CHEST) == null)
 				{
 					p.getDressMeData().setChestId(0);
@@ -809,5 +879,5 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			Dressme.sendMainWindow(p);
 	}
 	
-
+	
 }

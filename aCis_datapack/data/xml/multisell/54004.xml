@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- S-Grade Jewels -->
+
+<list>
+
+  <!-- Tateossian Necklace -->
+  <item id="1">
+    <ingredient id="57" count="1"/>
+    <production id="920" count="1"/>
+  </item>
+
+  <!-- Tateossian Earring -->
+  <item id="2">
+    <ingredient id="57" count="1"/>
+    <production id="858" count="1"/>
+  </item>
+
+  <!-- Tateossian Ring -->
+  <item id="3">
+    <ingredient id="57" count="1"/>
+    <production id="889" count="1"/>
+  </item>
+  <item id="4">
+    <ingredient id="57" count="1"/>
+    <production id="3481" count="1"/>
+  </item>
+  <item id="5">
+    <ingredient id="57" count="1"/>
+    <production id="6657" count="1"/>
+  </item>
+  <item id="6">
+    <ingredient id="57" count="1"/>
+    <production id="6658" count="1"/>
+  </item>
+  <item id="7">
+    <ingredient id="57" count="1"/>
+    <production id="6660" count="1"/>
+  </item>
+  <item id="8">
+    <ingredient id="57" count="1"/>
+    <production id="6656" count="1"/>
+  </item>
+  <item id="9">
+    <ingredient id="57" count="1"/>
+    <production id="6659" count="1"/>
+  </item>
+  <item id="10">
+    <ingredient id="57" count="1"/>
+    <production id="961" count="1"/>
+  </item>
+  <item id="11">
+    <ingredient id="57" count="1"/>
+    <production id="962" count="1"/>
+  </item>
+  <item id="12">
+    <ingredient id="57" count="1"/>
+    <production id="950" count="1"/>
+  </item>
+  <item id="13">
+    <ingredient id="57" count="1"/>
+    <production id="6577" count="1"/>
+  </item>
+  <item id="14">
+    <ingredient id="57" count="1"/>
+    <production id="6578" count="1"/>
+  </item>
+  <item id="15">
+    <ingredient id="57" count="1"/>
+    <production id="6572" count="1"/>
+  </item>
+  <item id="16">
+    <ingredient id="57" count="1"/>
+    <production id="1538" count="1"/>
+  </item>
+  <item id="17">
+    <ingredient id="57" count="1"/>
+    <production id="2492" count="1"/>
+  </item>
+  <item id="18">
+    <ingredient id="57" count="1"/>
+    <production id="5592" count="1000"/>
+  </item>
+  <item id="19">
+    <ingredient id="57" count="1"/>
+    <production id="8762" count="10"/>
+  </item>
+  <item id="20">
+    <ingredient id="57" count="1"/>
+    <production id="57" count="500000000"/>
+  </item>
+</list>

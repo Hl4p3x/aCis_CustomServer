@@ -41,6 +41,8 @@ import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.GameClient.GameClientState;
 import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 
+import Dev.TeamVsTeam.TvTEvent;
+
 
 /**
  * @author Gabia
@@ -112,16 +114,6 @@ public class PhantomWalker
 	}
 	
 	
-	static int getPrivateBuy()
-	{
-		return Config.LIST_PRIVATE_BUY.get(Rnd.get(Config.LIST_PRIVATE_BUY.size())).intValue();
-	}
-	
-	static int getPrivateSell()
-	{
-		return Config.LIST_PRIVATE_SELL.get(Rnd.get(Config.LIST_PRIVATE_SELL.size())).intValue();
-	}
-	
 
 	@SuppressWarnings("null")
 	static Location getRandomLoc()
@@ -131,14 +123,15 @@ public class PhantomWalker
 		{
 			loc = _PhantomsTownLoc.get(Rnd.get(0, _locsCount));
 		}
+		
+		
 		return loc;
 	}
 	
 	public static void startWalk(Player paramPlayer)
 	{
 		ThreadPool.schedule(new PhantomWalk(paramPlayer), Rnd.get(5200, 48540));
-	}
-	
+	}	
 	
 	@SuppressWarnings("resource")
 	private static void parceArmors()
@@ -403,7 +396,10 @@ public class PhantomWalker
 									PhantomWalker.startWalk(player);
 								else if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
 									PhantomWalker.startWalk(player);
-								
+							
+						        if (TvTEvent.isPlayerParticipant(playerName)) {
+						        	TvTEvent.addParticipant(player);
+						        }
 								PhantomWalker._players.add(player);
 								
 								player.addExpAndSp(Experience.LEVEL[81], 0);

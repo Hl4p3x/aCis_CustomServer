@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+
+	<skill id="7554" levels="1" name="Equipped Shir Dex">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		
+		<for>
+	<add order="0x40" stat="DEX" val="4"/> <!-- DEX +1 -->
+	<add order="0x40" stat="maxCp" val="500"/> <!-- MaxCp. +500 -->
+		</for>
+	</skill>
+	
+		<skill id="7555" levels="1" name="Equipped Shir Con">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+	<add order="0x40" stat="CON" val="4"/> <!-- CON -2 -->
+	<add order="0x40" stat="maxHp" val="1000"/> <!-- MaxHp. +1000 -->
+		</for>
+	</skill>
+	
+		<skill id="7556" levels="1" name="Equipped Shir Srt">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+	<add order="0x40" stat="STR" val="4"/> <!-- STR +1 -->
+	<add order="0x40" stat="maxCp" val="500"/> <!-- MaxCp. +500 -->
+		</for>
+	</skill>
+	
+		<skill id="7557" levels="1" name="Equipped Shir Wit">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+	<add order="0x40" stat="WIT" val="4"/> <!-- WIT. +4 -->
+	<add order="0x40" stat="maxHp" val="2000"/> <!-- MaxCp. +2000 -->
+		</for>
+	</skill>
+	
+		<skill id="7558" levels="1" name="Equipped Shir Int">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+	<add order="0x40" stat="INT" val="4"/> <!-- INT. +4 -->
+	<add order="0x40" stat="maxCp" val="1000"/> <!-- MaxCp. +1000 -->
+		</for>
+	</skill>
+	
+			<skill id="7559" levels="1" name="Equipped Shir Men">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+	<add order="0x40" stat="MEN" val="4"/> <!-- INT. +4 -->
+	<add order="0x40" stat="maxHp" val="2000"/> <!-- MaxCp. +1000 -->
+		</for>
+	</skill>
+	
+</list>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Potions-->
+
+<list>
+
+<!-- Mana Potion -->
+        <item id="21">
+            <production id="728" count="100"/>
+            <ingredient id="57" count="200000"/>
+        </item>
+
+<!-- Healing Potion -->
+        <item id="22">
+            <production id="1539" count="100"/>
+            <ingredient id="57" count="108000"/>
+        </item>
+
+ </list>

@@ -15,6 +15,8 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
+import Dev.TeamVsTeam.TvTEvent;
+
 
 
 
@@ -243,6 +245,12 @@ public class OlympiadManager
 			player.sendPacket(SystemMessageId.ONLY_NOBLESS_CAN_PARTICIPATE_IN_THE_OLYMPIAD);
 			return false;
 		}
+		
+	       if (!TvTEvent.isInactive() && TvTEvent.isPlayerParticipant(player.getName()))
+	       {
+	           player.sendMessage("You can not register in olympiad while registered at TvT.");
+	           return false;
+	       }
 		
 		if (player.isSubClassActive())
 		{

@@ -51,4 +51,41 @@
 	<armorset name="Apella Heavy Set" chest="7861" legs="0" head="7860" gloves="7862" feet="7863" skillId="3608" shield="0" shieldSkillId="0" enchant6Skill="3620"/>
 	<armorset name="Apella Light Set" chest="7864" legs="0" head="7860" gloves="7865" feet="7866" skillId="3609" shield="0" shieldSkillId="0" enchant6Skill="3621"/>
 	<armorset name="Apella Robe Set" chest="7867" legs="0" head="7860" gloves="7868" feet="7869" skillId="3610" shield="0" shieldSkillId="0" enchant6Skill="3622"/>
+
+	<armorset 
+	name="Titanium Heavy Set" 
+	chest="9311" 
+	legs="9312" 
+	head="6378" 
+	gloves="9313" 
+	feet="9314" 
+	skillId="3553" 
+	shield="6377" 
+	shieldSkillId="3554" 
+	enchant6Skill="3623"/>
+	
+	<armorset 
+	name="Titanium Light Set" 
+	chest="9316" 
+	legs="9317" 
+	head="9315" 
+	gloves="9318" 
+	feet="9319" 
+	skillId="3555" 
+	shield="0" 
+	shieldSkillId="0" 
+	enchant6Skill="3624"/>
+	
+	<armorset 
+	name="Titanium Robe Set" 
+	chest="9321" 
+	legs="9322" 
+	head="9320" 
+	gloves="9323" 
+	feet="9324" 
+	skillId="3556" 
+	shield="0" 
+	shieldSkillId="0" 
+	enchant6Skill="3625"/>
+
 </list>

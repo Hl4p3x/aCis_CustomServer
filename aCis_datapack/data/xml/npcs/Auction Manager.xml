@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+
+	<npc id="113" idTemplate="30839" name="Keh" title="Auction Manager">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="7"/>
+		<set name="height" val="23"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="AuctionManager"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	
+</list>

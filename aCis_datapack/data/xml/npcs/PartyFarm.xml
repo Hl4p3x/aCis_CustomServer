@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
 	
-	<npc id="88000" idTemplate="22123" name="Lord Heons" title="Party Farm">
+	<npc id="106" idTemplate="22123" name="Lord Heons" title="Party Farm">
 		<set name="level" val="80"/>
 		<set name="radius" val="13"/>
 		<set name="height" val="37.5"/>

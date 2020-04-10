@@ -154,6 +154,7 @@ public final class Gatekeeper extends Folk
 				PvPZoneManager.getInstance().setVoteZone(playerId, name);
 			}
 			else
+			
 			super.onBypassFeedback(player, command);
 	}
 	

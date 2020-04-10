@@ -55,7 +55,6 @@ public enum FakePlayerManager {
 
 		activeChar.heal();
 		return activeChar;
-		
 	   
 	}
 

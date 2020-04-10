@@ -349,7 +349,7 @@
 	<!-- AI Section -->
 
 	<script path="scripts.ai.L2AttackableAIScript"/>
-
+	<script path="scripts.ai.group.Plagueseeker"/>
 	<script path="scripts.ai.group.CabalBuffers"/>
 	<script path="scripts.ai.group.Chests"/>
 	<script path="scripts.ai.group.FeedableBeasts"/>
@@ -402,6 +402,7 @@
 	<script path="scripts.custom.NpcLocationInfo"/>
 	<script path="scripts.custom.HeroCirclet"/>
 	<script path="scripts.custom.HeroWeapon"/>
+	
 
 	<!-- Events -->
 

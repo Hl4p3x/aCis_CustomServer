@@ -38,14 +38,46 @@ import Dev.ItemSkins.Skin12;
 import Dev.ItemSkins.Skin13;
 import Dev.ItemSkins.Skin14;
 import Dev.ItemSkins.Skin15;
+import Dev.ItemSkins.Skin16;
+import Dev.ItemSkins.Skin17;
+import Dev.ItemSkins.Skin18;
+import Dev.ItemSkins.Skin19;
 import Dev.ItemSkins.Skin2;
+import Dev.ItemSkins.Skin20;
+import Dev.ItemSkins.Skin21;
+import Dev.ItemSkins.Skin22;
+import Dev.ItemSkins.Skin23;
+import Dev.ItemSkins.Skin24;
+import Dev.ItemSkins.Skin25;
+import Dev.ItemSkins.Skin26;
+import Dev.ItemSkins.Skin27;
+import Dev.ItemSkins.Skin28;
+import Dev.ItemSkins.Skin29;
 import Dev.ItemSkins.Skin3;
+import Dev.ItemSkins.Skin30;
+import Dev.ItemSkins.Skin31;
+import Dev.ItemSkins.Skin32;
+import Dev.ItemSkins.Skin33;
+import Dev.ItemSkins.Skin34;
+import Dev.ItemSkins.Skin35;
+import Dev.ItemSkins.Skin36;
+import Dev.ItemSkins.Skin37;
+import Dev.ItemSkins.Skin38;
+import Dev.ItemSkins.Skin39;
 import Dev.ItemSkins.Skin4;
+import Dev.ItemSkins.Skin40;
+import Dev.ItemSkins.Skin41;
+import Dev.ItemSkins.Skin42;
+import Dev.ItemSkins.Skin43;
+import Dev.ItemSkins.Skin44;
+import Dev.ItemSkins.Skin45;
+import Dev.ItemSkins.Skin46;
 import Dev.ItemSkins.Skin5;
 import Dev.ItemSkins.Skin6;
 import Dev.ItemSkins.Skin7;
 import Dev.ItemSkins.Skin8;
 import Dev.ItemSkins.Skin9;
+
 
 public class ItemHandler
 {
@@ -53,7 +85,7 @@ public class ItemHandler
 	
 	protected ItemHandler()
 	{
-		//Skins Custom
+		//Skins Custom Armor
 		registerHandler(new Skin1());
 		registerHandler(new Skin2());
 		registerHandler(new Skin3());
@@ -69,6 +101,38 @@ public class ItemHandler
 		registerHandler(new Skin13());
 		registerHandler(new Skin14());
 		registerHandler(new Skin15());
+		registerHandler(new Skin16());
+		registerHandler(new Skin17());
+		registerHandler(new Skin18());
+		// Skins Weapons
+		registerHandler(new Skin19());
+		registerHandler(new Skin20());
+		registerHandler(new Skin21());
+		registerHandler(new Skin22());
+		registerHandler(new Skin23());
+		registerHandler(new Skin24());
+		registerHandler(new Skin25());
+		registerHandler(new Skin26());
+		registerHandler(new Skin27());
+		registerHandler(new Skin28());
+		registerHandler(new Skin29());
+		registerHandler(new Skin30());
+		registerHandler(new Skin31());
+		registerHandler(new Skin32());
+		registerHandler(new Skin33());
+		registerHandler(new Skin34());
+		registerHandler(new Skin35());
+		registerHandler(new Skin36());
+		registerHandler(new Skin37());
+		registerHandler(new Skin38());
+		registerHandler(new Skin39());
+		registerHandler(new Skin40());
+		registerHandler(new Skin41());
+		registerHandler(new Skin42());
+		registerHandler(new Skin43());
+		registerHandler(new Skin44());
+		registerHandler(new Skin45());
+		registerHandler(new Skin46());
 		
 		registerHandler(new BeastSoulShots());
 		registerHandler(new BeastSpices());

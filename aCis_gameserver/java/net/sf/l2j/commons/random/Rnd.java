@@ -114,4 +114,9 @@ public final class Rnd
 	{
 		return array[get(array.length)];
 	}
+	
+	public static double get(double n)
+	{
+		return ThreadLocalRandom.current().nextDouble(0, n);
+	}
 }

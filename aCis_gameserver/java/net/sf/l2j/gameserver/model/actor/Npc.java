@@ -1,7 +1,9 @@
 package net.sf.l2j.gameserver.model.actor;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.l2j.commons.concurrent.ThreadPool;
@@ -17,6 +19,7 @@ import net.sf.l2j.gameserver.data.sql.ClanTable;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
 import net.sf.l2j.gameserver.data.xml.NewbieBuffData;
+import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.PolymorphData;
 import net.sf.l2j.gameserver.data.xml.PolymorphData.Polymorph;
 import net.sf.l2j.gameserver.data.xml.ScriptData;
@@ -30,6 +33,11 @@ import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminNpc;
 import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.WorldObject;
+import net.sf.l2j.gameserver.model.actor.instance.Chest;
+import net.sf.l2j.gameserver.model.actor.instance.GrandBoss;
+import net.sf.l2j.gameserver.model.actor.instance.Monster;
+import net.sf.l2j.gameserver.model.actor.instance.PartyFarm;
+import net.sf.l2j.gameserver.model.actor.instance.RaidBoss;
 import net.sf.l2j.gameserver.model.actor.stat.NpcStat;
 import net.sf.l2j.gameserver.model.actor.status.NpcStatus;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
@@ -40,6 +48,8 @@ import net.sf.l2j.gameserver.model.clanhall.ClanHall;
 import net.sf.l2j.gameserver.model.clanhall.SiegableHall;
 import net.sf.l2j.gameserver.model.entity.Castle;
 import net.sf.l2j.gameserver.model.holder.NewbieBuffHolder;
+import net.sf.l2j.gameserver.model.item.DropCategory;
+import net.sf.l2j.gameserver.model.item.DropData;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
@@ -250,6 +260,9 @@ public class Npc extends Creature
 		if (player.isGM())
 			AdminNpc.sendGeneralInfos(player, this);
 		
+	      else if (this instanceof Monster || this instanceof RaidBoss || this instanceof PartyFarm || this instanceof GrandBoss || this instanceof Chest)
+	           sendNpcDrop(player, getTemplate().getNpcId(), 1);
+		
 		if (player.getTarget() != this)
 			player.setTarget(this);
 		else
@@ -286,6 +299,109 @@ public class Npc extends Creature
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 		}
 	}
+	
+	   public static void sendNpcDrop(Player player, int npcId, int page)
+	   {
+	       final int ITEMS_PER_LIST = 7;
+	       final NpcTemplate npc = NpcData.getInstance().getTemplate(npcId);
+	       if (npc == null)
+	           return;
+	      
+	       if (npc.getDropData().isEmpty())
+	       {
+	           player.sendMessage("This target have not drop info.");
+	           return;
+	       }
+	      
+	       final List<DropCategory> list = new ArrayList<>();
+	       npc.getDropData().forEach(c -> list.add(c));
+	       Collections.reverse(list);
+	      
+	       int myPage = 1;
+	       int i = 0;
+	       int shown = 0;
+	       boolean hasMore = false;
+	      
+	       final StringBuilder sb = new StringBuilder();
+	       for (DropCategory cat : list)
+	       {
+	           if (shown == ITEMS_PER_LIST)
+	           {
+	               hasMore = true;
+	               break;
+	           }
+	          
+	           for (DropData drop : cat.getAllDrops())
+	           {
+	               double chance = (drop.getItemId() == 57 ? drop.getChance() * Config.RATE_DROP_ADENA : drop.getChance() * Config.RATE_DROP_ITEMS) / 10000;
+	               chance = chance > 100 ? 100 : chance;
+	              
+	               String percent = null;
+	               if (chance <= 0.001)
+	               {
+	                   DecimalFormat df = new DecimalFormat("#.####");
+	                   percent = df.format(chance);
+	               }
+	               else if (chance <= 0.01)
+	               {
+	                   DecimalFormat df = new DecimalFormat("#.###");
+	                   percent = df.format(chance);
+	               }
+	               else
+	               {
+	                   DecimalFormat df = new DecimalFormat("##.##");
+	                   percent = df.format(chance);
+	               }
+	              
+	               Item item = ItemData.getInstance().getTemplate(drop.getItemId());
+	               String name = item.getName();
+	              
+	               if (name.startsWith("Recipe: "))
+	                   name = "R: " + name.substring(8);
+	              
+	               if (name.length() >= 40)
+	                   name = name.substring(0, 37) + "...";
+	              
+	               if (myPage != page)
+	               {
+	                   i++;
+	                   if (i == ITEMS_PER_LIST)
+	                   {
+	                       myPage++;
+	                       i = 0;
+	                   }
+	                   continue;
+	               }
+	              
+	               if (shown == ITEMS_PER_LIST)
+	               {
+	                   hasMore = true;
+	                   break;
+	               }
+	              
+	               String check = player.ignoredDropContain(item.getItemId()) ? "L2UI.CheckBox" : "L2UI.CheckBox_checked";
+	               sb.append("<table width=280 bgcolor=000000><tr>");
+	               sb.append("<td width=44 height=41 align=center><table bgcolor=" + (cat.isSweep() ? "FF00FF" : "FFFFFF") + " cellpadding=6 cellspacing=\"-5\"><tr><td><button width=32 height=32 back=" + item.getIcon() + " fore=" + item.getIcon() + "></td></tr></table></td>");
+	               sb.append("<td width=240>" + (cat.isSweep() ? "<font color=ff00ff>" + name + "</font>" : name) + "<br1><font color=B09878>" + (cat.isSweep() ? "Spoil" : "Drop") + " Chance : " + percent + "%</font></td>");
+	               sb.append("<td width=20><button action=\"bypass droplist " + npcId + " " + page + " " + item.getItemId() + "\" width=12 height=12 back=\"" + check + "\" fore=\"" + check + "\"/></td>");
+	               sb.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
+	               shown++;
+	               }
+	       }
+	       sb.append("<img height=" + (294 - (shown * 42)) + ">");
+	       sb.append("<img height=8><img src=L2UI.SquareGray width=280 height=1>");
+	       sb.append("<table width=280 bgcolor=000000><tr>");
+	       sb.append("<td align=center width=70>" + (page > 1 ? "<button value=\"< PREV\" action=\"bypass droplist " + npcId + " " + (page - 1) + "\" width=65 height=19 back=L2UI_ch3.smallbutton2_over fore=L2UI_ch3.smallbutton2>" : "") + "</td>");
+	       sb.append("<td align=center width=140>Page " + page + "</td>");
+	       sb.append("<td align=center width=70>" + (hasMore ? "<button value=\"NEXT >\" action=\"bypass droplist " + npcId + " " + (page + 1) + "\" width=65 height=19 back=L2UI_ch3.smallbutton2_over fore=L2UI_ch3.smallbutton2>" : "") + "</td>");
+	       sb.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
+	      
+	       final NpcHtmlMessage html = new NpcHtmlMessage(200);
+	       html.setFile("data/html/mods/droplist.htm");
+	       html.replace("%list%", sb.toString());
+	       html.replace("%name%", npc.getName());
+	       player.sendPacket(html);
+	   }
 	
 	@Override
 	protected final void notifyQuestEventSkillFinished(L2Skill skill, WorldObject target)

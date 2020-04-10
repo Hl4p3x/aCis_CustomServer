@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- L2JBan Maker # By BAN -->
+<list maintainEnchantment="true">
+
+
+
+<item id="1">
+<ingredient id="9302" count="100000"/>
+<production id="9305" count="1" enchant="0"/>
+</item>
+
+<item id="2">
+<ingredient id="9302" count="100000"/>
+<production id="9306" count="1" enchant="0"/>
+</item>
+
+
+
+</list>

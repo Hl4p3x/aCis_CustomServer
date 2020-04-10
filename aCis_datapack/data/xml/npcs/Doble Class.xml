@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+	
+	<npc id="109" idTemplate="22123" name="Axtion" title="Doble Basse Base">
+	<set name="usingServerSideName" val="true" />
+	<set name="usingServerSideTitle" val="true" />
+	<set name="level" val="80"/>
+	<set name="radius" val="13"/>
+	<set name="height" val="37.5"/>
+	<set name="rHand" val="1303"/>
+	<set name="lHand" val="0"/>
+	<set name="type" val="DobleClass"/>
+	<set name="exp" val="2981440"/>
+	<set name="sp" val="952059"/>
+	<set name="hp" val="689061.278161977"/>
+	<set name="mp" val="2051.19"/>
+	<set name="hpRegen" val="264.824069962994"/>
+	<set name="mpRegen" val="3.21"/>
+	<set name="pAtk" val="3099.18466694754"/>
+	<set name="pDef" val="1185.643995"/>
+	<set name="mAtk" val="1426.64874503057"/>
+	<set name="mDef" val="578.3992"/>
+	<set name="crit" val="1"/>
+	<set name="atkSpd" val="253"/>
+	<set name="str" val="60"/>
+	<set name="int" val="76"/>
+	<set name="dex" val="73"/>
+	<set name="wit" val="70"/>
+	<set name="con" val="57"/>
+	<set name="men" val="80"/>
+	<set name="corpseTime" val="7"/>
+	<set name="walkSpd" val="25"/>
+	<set name="runSpd" val="190"/>
+	<set name="dropHerbGroup" val="0"/>
+	<set name="attackRange" val="40"/>
+	<ai type="DEFAULT" ssCount="1000" ssRate="100" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	<skills>
+	<skill id="4045" level="1"/>
+	<skill id="4197" level="5"/>
+	<skill id="4273" level="3"/>
+	<skill id="4274" level="1"/>
+	<skill id="4275" level="2"/>
+	<skill id="4278" level="1"/>
+	<skill id="4416" level="1"/>
+	<skill id="4494" level="1"/>
+	<skill id="4964" level="1"/>
+	</skills>
+	</npc>
+
+	
+	
+</list>

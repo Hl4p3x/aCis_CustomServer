@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- S-Grade Jewels -->
+
+<list>
+
+  <!-- Valakas Necklace -->
+  <item id="1">
+    <ingredient id="9302" count="40000"/>
+    <production id="6657" count="1"/>
+  </item>
+
+  <!-- Antharas Earring -->
+  <item id="2">
+    <ingredient id="9302" count="40000"/>
+    <production id="6656" count="1"/>
+  </item>
+
+  <!-- Zaken Ring -->
+  <item id="3">
+    <ingredient id="9302" count="40000"/>
+    <production id="6659" count="1"/>
+  </item>
+  
+  <!-- Baium Ring -->
+  <item id="4">
+    <ingredient id="9302" count="40000"/>
+    <production id="6658" count="1"/>
+  </item>
+  
+  <!--  Queen Ant -->
+  <item id="5">
+    <ingredient id="9302" count="40000"/>
+    <production id="6660" count="1"/>
+  </item>
+  
+   <!--  Frintezza Ant -->
+  <item id="6">
+    <ingredient id="9302" count="40000"/>
+    <production id="8191" count="1"/>
+  </item>
+  
+    <!--  Orfen Ant -->
+  <item id="7">
+    <ingredient id="9302" count="40000"/>
+    <production id="6661" count="1"/>
+  </item>
+  
+    <!--  Core Ant -->
+  <item id="8">
+    <ingredient id="9302" count="40000"/>
+    <production id="6662" count="1"/>
+  </item>
+
+</list>

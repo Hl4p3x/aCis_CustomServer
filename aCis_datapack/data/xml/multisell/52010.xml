@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Consumable-->
+
+<list>
+<!-- Spirit Ore -->
+        <item id="1">
+            <production id="3031" count="1000"/>
+            <ingredient id="57" count="400000"/>
+        </item>
+
+<!-- Soul Ore -->
+        <item id="2">
+            <production id="1785" count="1000"/>
+            <ingredient id="57" count="250000"/>
+        </item>
+
+<!-- Cursed Bone -->
+        <item id="3">
+            <production id="2508" count="1000"/>
+            <ingredient id="57" count="300000"/>
+        </item>
+
+<!-- Wooden Arrow -->
+        <item id="4">
+            <production id="17" count="1000"/>
+            <ingredient id="57" count="2000"/>
+        </item>
+
+<!-- Bone Arrow -->
+        <item id="5">
+            <production id="1341" count="1000"/>
+            <ingredient id="57" count="3000"/>
+        </item>
+
+<!-- Fine Steel Arrow -->
+        <item id="6">
+            <production id="1342" count="1000"/>
+            <ingredient id="57" count="5000"/>
+        </item>
+
+<!-- Silver Arrow -->
+        <item id="7">
+            <production id="1343" count="1000"/>
+            <ingredient id="57" count="10000"/>
+        </item>
+
+<!-- Mithril  Arrow -->
+        <item id="8">
+            <production id="1344" count="1000"/>
+            <ingredient id="57" count="10000"/>
+        </item>
+
+<!-- Shining  Arrow -->
+        <item id="9">
+            <production id="1345" count="1000"/>
+            <ingredient id="57" count="10000"/>
+        </item>
+
+<!-- Einshahed's Holy Water -->
+        <item id="10">
+            <production id="8874" count="100"/>
+            <ingredient id="57" count="1000000"/>
+        </item>
+
+<!-- Phoenix Blood -->
+        <item id="11">
+            <production id="8873" count="100"/>
+            <ingredient id="57" count="1000000"/>
+        </item>
+
+<!-- Scroll Recovery No Grade -->
+        <item id="12">
+            <production id="8594" count="1"/>
+            <ingredient id="57" count="2000"/>
+        </item>
+
+<!-- Scroll Recovery D Grade -->
+        <item id="13">
+            <production id="8595" count="1"/>
+            <ingredient id="57" count="4800"/>
+        </item>
+
+<!-- Scroll Recovery C Grade -->
+        <item id="14">
+            <production id="8596" count="1"/>
+            <ingredient id="57" count="14000"/>
+        </item>
+
+<!-- Scroll Recovery B Grade -->
+        <item id="15">
+            <production id="8597" count="1"/>
+            <ingredient id="57" count="28000"/>
+        </item>
+
+<!-- Scroll Recovery A Grade -->
+        <item id="16">
+            <production id="8598" count="1"/>
+            <ingredient id="57" count="48000"/>
+        </item>
+
+<!-- Scroll Recovery S Grade -->
+        <item id="17">
+            <production id="8599" count="1"/>
+            <ingredient id="57" count="80000"/>
+        </item>
+
+<!-- Gemstones C -->
+        <item id="18">
+            <production id="2131" count="100"/>
+            <ingredient id="57" count="300000"/>
+        </item>
+
+<!-- Energy Stones -->
+        <item id="19">
+            <production id="5589" count="1000"/>
+            <ingredient id="57" count="100000"/>
+        </item>
+
+ </list>

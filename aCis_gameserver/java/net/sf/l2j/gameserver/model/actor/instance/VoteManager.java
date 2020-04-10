@@ -37,6 +37,8 @@ public class VoteManager extends Folk
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{
+		
+		
 		if (command.equals("getReward"))
 		{
 			if (Individual.isAccountTookTheReward(player))

@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+
+	<!-- Heavy Set -->
+	
+		<item id="21022" type="Armor" name="Dark Knight Heavy Helmet">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+	
+	<item id="21023" type="Armor" name="Dark Knight Heavy Armor">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="870" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4950" />
+		<set name="price" val="17400000" />
+		<for>
+			<add order="0x10" stat="pDef" val="249" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+		<item id="21024" type="Armor" name="Dark Knight Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="128" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+	
+	<item id="21025" type="Armor" name="Dark Knight Heavy Gloves">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="21026" type="Armor" name="Dark Knight Heavy Boots">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+
+
+<!-- Light Set -->
+	<item id="21027" type="Armor" name="Dark Knight Leather Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+<item id="21028" type="Armor" name="Dark Knight Leather Armor">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="870" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4950" />
+		<set name="price" val="17400000" />
+		<for>
+			<add order="0x10" stat="pDef" val="249" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+		<item id="21029" type="Armor" name="Dark Knight Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="128" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+	
+	<item id="21030" type="Armor" name="Dark Knight Leather Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="21031" type="Armor" name="Dark Knight Leather Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+
+	
+	
+	
+	<!-- Robe Set -->
+	
+		<item id="21032" type="Armor" name="Dark Knight Robe Helmet">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+	<item id="21033" type="Armor" name="Dark Knight Robe Armor">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="870" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4950" />
+		<set name="price" val="17400000" />
+		<for>
+			<add order="0x10" stat="pDef" val="249" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+		<item id="21034" type="Armor" name="Dark Knight Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="128" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+	
+	<item id="21035" type="Armor" name="Dark Knight Robe Gloves">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="21036" type="Armor" name="Dark Knight Robe Boots">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+
+</list>

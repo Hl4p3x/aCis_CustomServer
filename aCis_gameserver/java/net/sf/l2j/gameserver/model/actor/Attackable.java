@@ -23,6 +23,8 @@ import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.scripting.Quest;
 
+import Dev.EventMoster.ChristmasEvent;
+
 /**
  * This class manages all NPCs which can hold an aggro list. It inherits from {@link Npc}.
  */
@@ -117,6 +119,9 @@ public class Attackable extends Npc
 	
 		if (Config.ANTIBOT_ENABLE && (killer != null) && killer instanceof Player && (killer.getLevel() >= Config.ANTIBOT_MIN_LEVEL))
 			killer.getActingPlayer().antibot();
+		
+		if (ChristmasEvent.getInstance().isEnabled() && killer instanceof Player)
+			ChristmasEvent.getInstance().luckySpawn(this, ((Player) killer));
 					
 		// Test the ON_KILL ScriptEventType.
 		final List<Quest> scripts = getTemplate().getEventQuests(ScriptEventType.ON_KILL);

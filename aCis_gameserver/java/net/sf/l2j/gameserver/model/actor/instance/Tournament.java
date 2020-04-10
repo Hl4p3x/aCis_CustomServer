@@ -35,6 +35,7 @@ public class Tournament extends Folk
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/mods/tournament/9996.htm";
+		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", getObjectId());

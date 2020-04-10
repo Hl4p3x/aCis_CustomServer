@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!-- Heavy Set -->
+	
+		<item id="9310" type="Armor" name="Dynasty Heavy Helmet">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+  <item id="9311" type="Armor" name="Dynasty Heavy Breastplate">
+    <set name="icon" val="ct1icon.armor_t91_u_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="HEAVY" />
+    <set name="bodypart" val="chest" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="715" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="7620" />
+    <set name="price" val="14300000" />
+    <for>
+      <baseadd stat="pDef" val="205" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+  
+  <item id="9312" type="Armor" name="Dynasty Heavy Gaiters">
+    <set name="icon" val="ct1icon.armor_t91_l_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="HEAVY" />
+    <set name="bodypart" val="legs" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="448" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="3260" />
+    <set name="price" val="8960000" />
+    <for>
+      <baseadd stat="pDef" val="128" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+  
+	<item id="9313" type="Armor" name="Dynasty Heavy Gloves">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9314" type="Armor" name="Dynasty Heavy Boots">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+<!-- Light Set -->
+	<item id="9315" type="Armor" name="Dynasty Leather Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+  <item id="9316" type="Armor" name="Dynasty Heavy Breastplate">
+    <set name="icon" val="ct1icon.armor_t91_u_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="LIGHT" />
+    <set name="bodypart" val="chest" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="715" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="7620" />
+    <set name="price" val="14300000" />
+    <for>
+      <baseadd stat="pDef" val="205" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+  
+  <item id="9317" type="Armor" name="Dynasty Heavy Gaiters">
+    <set name="icon" val="ct1icon.armor_t91_l_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="LIGHT" />
+    <set name="bodypart" val="legs" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="448" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="3260" />
+    <set name="price" val="8960000" />
+    <for>
+      <baseadd stat="pDef" val="128" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+	<item id="9318" type="Armor" name="Dynasty Leather Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9319" type="Armor" name="Dynasty Leather Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+
+	
+
+
+
+	<!-- Robe Set -->
+	
+		<item id="9320" type="Armor" name="Dynasty Robe Helmet">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="83" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	
+  <item id="9321" type="Armor" name="Dynasty Robe Breastplate">
+    <set name="icon" val="ct1icon.armor_t91_u_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="MAGIC" />
+    <set name="bodypart" val="chest" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="715" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="7620" />
+    <set name="price" val="14300000" />
+    <for>
+      <baseadd stat="pDef" val="205" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+  
+  <item id="9322" type="Armor" name="Dynasty Robe Gaiters">
+    <set name="icon" val="ct1icon.armor_t91_l_i00" />
+    <set name="default_action" val="equip" />
+    <set name="armor_type" val="MAGIC" />
+    <set name="bodypart" val="legs" />
+    <set name="crystal_type" val="S" />
+    <set name="crystal_count" val="448" />
+    <set name="material" val="SCALE_OF_DRAGON" />
+    <set name="weight" val="3260" />
+    <set name="price" val="8960000" />
+    <for>
+      <baseadd stat="pDef" val="128" />
+      <enchant stat="pDef" val="0" />
+    </for>
+  </item>
+  
+	<item id="9323" type="Armor" name="Dynasty Robe Gloves">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9324" type="Armor" name="Dynasty Robe Boots">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="55" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+
+</list>

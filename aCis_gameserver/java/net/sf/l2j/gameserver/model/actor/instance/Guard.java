@@ -53,6 +53,7 @@ public final class Guard extends Attackable
 			filename = npcId + "-" + val;
 		
 		return "data/html/guard/" + filename + ".htm";
+		
 	}
 	
 	@Override

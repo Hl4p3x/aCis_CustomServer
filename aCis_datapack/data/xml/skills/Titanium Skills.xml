@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+
+<skill id="7250" levels="1" name="Titanium Heavy Armor Set">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<mul order="0x30" stat="pDef" val="1.08"/> <!-- P Def. +8% -->
+			<add order="0x40" stat="maxHp" val="445"/> <!-- Maximum HP +445 -->
+			<addMul order="0x40" stat="sleepVuln" val="70" /> <!-- Sleep Probability -70% -->
+			<addMul order="0x40" stat="rootVuln" val="70" /> <!-- Hold Probability -70% -->
+			<sub order="0x40" stat="DEX" val="2"/> <!-- DEX -2 -->
+			<add order="0x40" stat="STR" val="2"/> <!-- STR +2 -->
+		</for>
+	</skill>
+	<skill id="7251" levels="1" name="Titanium Light Armor Set">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<mul order="0x30" stat="pAtkSpd" val="1.04"/> <!-- Attack Speed +4% -->
+			<mul order="0x30" stat="pAtk" val="1.04"/> <!-- P. Atk +4% -->
+			<add order="0x40" stat="maxMp" val="289"/> <!-- Maximum MP +289 -->
+			<add order="0x40" stat="maxLoad" val="5759"/> <!-- Weight Limit +5759 -->
+			<add order="0x40" stat="DEX" val="1"/> <!-- DEX +1 -->
+			<add order="0x40" stat="STR" val="1"/> <!-- STR +1 -->
+			<sub order="0x40" stat="CON" val="2"/> <!-- CON -2 -->
+		</for>
+	</skill>
+	<skill id="7252" levels="1" name="Titanium Arcana Robe Set">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<mul order="0x30" stat="mAtk" val="1.17"/> <!-- M. Atk +17% -->
+			<add order="0x40" stat="runSpd" val="7"/> <!-- Movement Speed +7 -->
+			<sub order="0x40" stat="cancel" val="50"/> <!-- Casting Cancel Probability -50% -->
+			<add order="0x40" stat="maxLoad" val="5759"/> <!-- Weight Limit +5759 -->
+			<add order="0x40" stat="WIT" val="1"/> <!-- WIT +1 -->
+			<add order="0x40" stat="INT" val="1"/> <!-- INT +1 -->
+			<sub order="0x40" stat="MEN" val="2"/> <!-- MEN -2 -->
+			<addMul order="0x40" stat="stunVuln" val="50" /> <!-- Stun resistance +50% -->
+		</for>
+	</skill>
+	
+		<skill id="7253" levels="1" name="Equipped with infinity Shield">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="80" />
+			<addMul order="0x40" stat="bleedVuln" val="80" />
+		</for>
+	</skill>	
+	
+	<skill id="7260" levels="1" name="Equipped with Dusk Shield">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="80" />
+			<addMul order="0x40" stat="bleedVuln" val="80" />
+		</for>
+	</skill>
+	
+</list>

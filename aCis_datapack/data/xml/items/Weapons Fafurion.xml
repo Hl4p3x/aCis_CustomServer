@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+
+   <item id="21110" type="Weapon" name="Fafurion Hammer Battler - Health">
+    <set name="icon" val="icon.weapon_basalt_battlehammer_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BLUNT" />
+    <set name="bodypart" val="rhand" />
+    <set name="random_damage" val="20" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;40;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1570" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3013-3" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="379" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+      <item id="21111" type="Weapon" name="Fafurion Staff - Empower">
+    <set name="icon" val="icon.weapon_imperial_staff_i01" />
+    <set name="is_magical" val="true" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="BIGBLUNT" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="20" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;46;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="910" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3575-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="274" />
+      <set order="0x08" stat="mAtk" val="175" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+  	<item id="21112" type="Weapon" name="Fafurion Fighter - Crt. Stun">
+    <set name="icon" val="icon.weapon_demon_splinter_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUALFIST" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="5" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;32;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1350" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="oncrit_chance" val="27" />
+    <set name="oncrit_skill" val="3571-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="4" />
+      <add order="0x10" stat="accCombat" val="4" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21113" type="Weapon" name="Fafurion Pole - Guidance">
+    <set name="icon" val="icon.weapon_saint_spear_i01" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="POLE" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="80" />
+    <set name="damage_range" val="0;0;66;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="1800" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="item_skill" val="3602-9" />
+    <for>
+      <set order="0x08" stat="pAtk" val="281" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <sub order="0x10" stat="accCombat" val="3" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+  
+    <item id="21114" type="Weapon" name="Fafurion Dual Hammer">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+
+  <item id="21115" type="Weapon" name="Fafurion Dual Blade">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+   <item id="21116" type="Weapon" name="Fafurion Dual Dagger">
+    <set name="icon" val="icon.weapon_dual_sword_i00" />
+    <set name="default_action" val="equip" />
+    <set name="weapon_type" val="DUAL" />
+    <set name="bodypart" val="lrhand" />
+    <set name="random_damage" val="10" />
+    <set name="attack_range" val="40" />
+    <set name="damage_range" val="0;0;44;120" />
+    <set name="crystal_count" val="2440" />
+    <set name="crystal_type" val="S" />
+    <set name="material" val="ADAMANTAITE" />
+    <set name="weight" val="2080" />
+    <set name="price" val="50" />
+    <set name="soulshots" val="1" />
+    <set name="spiritshots" val="1" />
+    <set name="enchant4_skill" val="3570-1" />
+    <set name="item_skill" val="3552-1" />
+    <for>
+      <set order="0x08" stat="pAtk" val="342" />
+      <set order="0x08" stat="mAtk" val="132" />
+      <set order="0x08" stat="rCrit" val="8" />
+      <set order="0x08" stat="pAtkSpd" val="325" />
+      <enchant val="0" order="0x0C" stat="pAtk" />
+      <enchant val="0" order="0x0C" stat="mAtk" />
+    </for>
+  </item>
+
+
+</list>

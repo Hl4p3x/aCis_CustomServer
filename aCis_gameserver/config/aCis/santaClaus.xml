@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+	<Settings enable="true" mobMinLvL="10" mobMaxLvL="78" despawnSeconds="15" NpcTempates="50010,50011" spawnChance="10"/>
+	
+	<!-- Maximum exp,sp value = 2147483647 -->
+	<Reward>
+		<Exp val="50000000" messageOnReward="$player! Your ExP has increased by $val!"/> 
+		<Sp val="600000000" messageOnReward="$player! Your Sp has increased by $val!"/>
+		<Rec val="144" messageOnReward="$player! Your recs has increased by $val!"/>
+		<Items>
+			<Item id="3470" quantity="5000"/>
+			<Item id="9301" quantity="10"/>
+		</Items>
+	</Reward>
+	
+	<Reward>
+		<Exp val="700000000" messageOnReward="$player! Your ExP has increased by $val!"/> 
+		<Sp val="80000000" messageOnReward="$player! Your Sp has increased by $val!"/>
+		<Rec val="148" messageOnReward="$player! Your recs has increased by $val!"/>
+		<Items>
+			<Item id="3470" quantity="2500"/>
+			<Item id="9302" quantity="8"/>
+		</Items>
+	</Reward>
+</list>

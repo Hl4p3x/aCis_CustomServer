@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- Crystals-->
+
+<list>
+
+<!-- Crystal D-Grade -->
+        <item id="1">
+            <production id="1458" count="100"/>
+            <ingredient id="57" count="10000000"/>
+        </item>
+
+<!-- Crystal C-Grade -->
+        <item id="2">
+            <production id="1459" count="100"/>
+            <ingredient id="57" count="10000000"/>
+        </item>
+
+<!-- Crystal B-Grade -->
+        <item id="3">
+            <production id="1460" count="100"/>
+            <ingredient id="57" count="10000000"/>
+        </item>
+
+<!-- Crystal A-Grade -->
+        <item id="4">
+            <production id="1461" count="100"/>
+            <ingredient id="57" count="10000000"/>
+        </item>
+
+<!-- Crystal S-Grade -->
+        <item id="5">
+            <production id="1462" count="100"/>
+            <ingredient id="57" count="10000000"/>
+        </item>
+
+ </list>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+
+	
+	<item id="9301" type="EtcItem" name="Tournament Gold Battler">
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	</item>
+	
+	<item id="9302" type="EtcItem" name="Gold Treasure">
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	</item>
+
+	<item id="9303" type="EtcItem" name="Ticket Shop">
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	</item>
+
+	<item id="9304" type="EtcItem" name="Raid Bloody">
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	</item>
+	
+	<item id="9316" type="EtcItem" name="Skin 1">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin1"/>
+	</item>
+	
+	<item id="9317" type="EtcItem" name="Skin 2">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin2"/>
+	</item>
+	<item id="9318" type="EtcItem" name="Skin 3">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin3"/>
+	</item>
+	<item id="9319" type="EtcItem" name="Skin 4">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin4"/>
+	</item>
+	<item id="9320" type="EtcItem" name="Skin 5">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin5"/>
+	</item>
+	<item id="9321" type="EtcItem" name="Skin 6">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin6"/>
+	</item>
+	<item id="9322" type="EtcItem" name="Skin 7">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin7"/>
+	</item>
+	<item id="9323" type="EtcItem" name="Skin 8">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin8"/>
+	</item>
+	<item id="9324" type="EtcItem" name="Skin 9">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin9"/>
+	</item>
+	<item id="9325" type="EtcItem" name="Skin 10">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin10"/>
+	</item>
+	<item id="9326" type="EtcItem" name="Skin 11">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin11"/>
+	</item>
+	<item id="9327" type="EtcItem" name="Skin 12">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin12"/>
+	</item>
+	<item id="9328" type="EtcItem" name="Skin 13">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin13"/>
+	</item>
+	<item id="9329" type="EtcItem" name="Skin 14">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin14"/>
+	</item>
+	<item id="9330" type="EtcItem" name="Skin 15">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin15"/>
+	</item>
+	
+	<item id="9331" type="EtcItem" name="Skin Armor 16">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin16"/>
+	</item>
+	
+		<item id="9332" type="EtcItem" name="Skin Armor 17">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin17"/>
+	</item>
+		<item id="9333" type="EtcItem" name="Skin Armor 18">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin18"/>
+	</item>
+		<item id="9334" type="EtcItem" name="Skin Weapon 19">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin19"/>
+	</item>
+		<item id="9335" type="EtcItem" name="Skin Weapon 20">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin20"/>
+	</item>
+		<item id="9336" type="EtcItem" name="Skin Weapon 21">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin21"/>
+	</item>
+		<item id="9337" type="EtcItem" name="Skin Weapon 22">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin22"/>
+	</item>
+		<item id="9338" type="EtcItem" name="Skin Weapon 23">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin23"/>
+	</item>
+		<item id="9339" type="EtcItem" name="Skin Weapon 24">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin24"/>
+	</item>
+		<item id="9340" type="EtcItem" name="Skin Weapon 25">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin25"/>
+	</item>
+		<item id="9341" type="EtcItem" name="Skin Weapon 26">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin26"/>
+	</item>
+		<item id="9342" type="EtcItem" name="Skin Weapon 27">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin27"/>
+	</item>
+		<item id="9343" type="EtcItem" name="Skin Weapon 28">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin28"/>
+	</item>
+		<item id="9344" type="EtcItem" name="Skin Weapon 29">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin29"/>
+	</item>
+		<item id="9345" type="EtcItem" name="Skin Weapon 30">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin30"/>
+	</item>
+		<item id="9346" type="EtcItem" name="Skin Weapon 31">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin31"/>
+	</item>
+		<item id="9347" type="EtcItem" name="Skin Weapon 32">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin32"/>
+	</item>
+		<item id="9348" type="EtcItem" name="Skin Weapon 33">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin33"/>
+	</item>
+		<item id="9349" type="EtcItem" name="Skin Weapon 34">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin34"/>
+	</item>
+		<item id="9350" type="EtcItem" name="Skin Weapon 35">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin35"/>
+	</item>
+		<item id="9351" type="EtcItem" name="Skin Weapon 36">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin36"/>
+	</item>
+		<item id="9352" type="EtcItem" name="Skin Weapon 37">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin37"/>
+	</item>
+		<item id="9353" type="EtcItem" name="Skin Weapon 38">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin38"/>
+	</item>
+		<item id="9354" type="EtcItem" name="Skin Weapon 39">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin39"/>
+	</item>
+		<item id="9355" type="EtcItem" name="Skin Weapon 40">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin40"/>
+	</item>
+		<item id="9356" type="EtcItem" name="Skin Weapon 41">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin41"/>
+	</item>
+		<item id="9357" type="EtcItem" name="Skin Weapon 42">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin42"/>
+	</item>
+		<item id="9358" type="EtcItem" name="Skin Weapon 43">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin43"/>
+	</item>
+		<item id="9359" type="EtcItem" name="Skin Weapon 44">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin44"/>
+	</item>
+		<item id="9360" type="EtcItem" name="Skin Weapon 45">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin45"/>
+	</item>
+		<item id="9361" type="EtcItem" name="Skin Weapon 46">	
+	<set name="material" val="PAPER" />
+	<set name="price" val="10000" />
+	<set name="is_stackable" val="true" />
+	<set name="handler" val="Skin46"/>
+	</item>
+	
+</list>

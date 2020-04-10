@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<zone shape="Cylinder" minZ="-4100" maxZ="-3100" rad="22000"> <!-- Iris -->
+	
+	<stat name="name" val="Iris" />
+	<zoneName name="Iris" />
+		<node x="51972" y="82761" />
+		<spawn x="54864" y="83229" z="-3614" />
+		<spawn x="53764" y="84204" z="-3519" />
+		<spawn x="51688" y="82124" z="-3311" />
+		<spawn x="52113" y="83315" z="-3372" />
+		<spawn x="54994" y="84336" z="-3564" />
+		
+
+	</zone>
+	
+	<zone shape="Cylinder" minZ="-4100" maxZ="-1800" rad="22000"> <!-- Monastery -->
+	
+	
+	<stat name="name" val="Monastery" />
+	<zoneName name="Monastery" />
+		<node x="127740" y="-73266" />
+		<spawn x="127380" y="-73351" z="-3392" />
+		<spawn x="126009" y="-71833" z="-3099" />
+		<spawn x="130586" y="-72277" z="-3507" />
+		<spawn x="126278" y="-75577" z="-2852" />
+		<spawn x="123501" y="-74864" z="-2905" />
+
+	</zone>
+	<zone shape="Cylinder" minZ="-3900" maxZ="-3300" rad="22000"> <!-- Primeval Isle -->
+	<stat name="name" val="Primeval" />
+	
+	<zoneName name="Primeval" />
+		<node x="8473" y="-20739" />
+		<spawn x="10468" y="-24569" z="-3645" />
+		<spawn x="10928" y="-24641" z="-3643" />
+		<spawn x="8480" y="-23706" z="-3727" />
+		<spawn x="9692" y="-22160" z="-3721" />
+		
+
+	</zone>
+	<zone shape="Cylinder" minZ="-4000" maxZ="-3000" rad="22000"> <!-- Obelisk -->
+	
+	<stat name="name" val="Obelisk" />
+	<zoneName name="Obelisk" />
+		<node x="-100054" y="237541" />
+		<spawn x="-101308" y="237834" z="-3601" />
+		<spawn x="-98431" y="237784" z="-3578" />
+		<spawn x="-99718" y="239067" z="-3577" />
+		<spawn x="-100080" y="236125" z="-3473" />
+		
+		
+	
+	</zone>
+	<zone shape="Cylinder" minZ="-3900" maxZ="-3400" rad="20000"> <!-- Valley -->
+	<stat name="name" val="Valley" />
+	<zoneName name="Valley" />
+		<node x="128756" y="114255" />
+		<spawn x="130355" y="114462" z="-3774" />
+		<spawn x="128129" y="113346" z="-3688" />
+		<spawn x="126725" y="116229" z="-3663" />
+		<spawn x="125211" y="115071" z="-3732" />
+		
+		
+	</zone>
+</list>

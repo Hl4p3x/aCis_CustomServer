@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- L2JMultisell Maker # By NalDinHuU -->
+
+<list>
+<item id="1">
+<ingredient id="9303" count="100"/>
+<production id="9316" count="1" enchant="0"/>
+</item>
+<item id="2">
+<ingredient id="9303" count="100"/>
+<production id="9317" count="1" enchant="0"/>
+</item>
+<item id="3">
+<ingredient id="9303" count="100"/>
+<production id="9318" count="1" enchant="0"/>
+</item>
+<item id="4">
+<ingredient id="9303" count="100"/>
+<production id="9319" count="1" enchant="0"/>
+</item>
+<item id="5">
+<ingredient id="9303" count="100"/>
+<production id="9320" count="1" enchant="0"/>
+</item>
+<item id="6">
+<ingredient id="9303" count="100"/>
+<production id="9321" count="1" enchant="0"/>
+</item>
+<item id="7">
+<ingredient id="9303" count="100"/>
+<production id="9322" count="1" enchant="0"/>
+</item>
+<item id="8">
+<ingredient id="9303" count="100"/>
+<production id="9323" count="1" enchant="0"/>
+</item>
+<item id="9">
+<ingredient id="9303" count="100"/>
+<production id="9324" count="1" enchant="0"/>
+</item>
+<item id="10">
+<ingredient id="9303" count="100"/>
+<production id="9325" count="1" enchant="0"/>
+</item>
+<item id="11">
+<ingredient id="9303" count="100"/>
+<production id="9326" count="1" enchant="0"/>
+</item>
+<item id="12">
+<ingredient id="9303" count="100"/>
+<production id="9327" count="1" enchant="0"/>
+</item>
+<item id="13">
+<ingredient id="9303" count="100"/>
+<production id="9328" count="1" enchant="0"/>
+</item>
+<item id="14">
+<ingredient id="9303" count="100"/>
+<production id="9329" count="1" enchant="0"/>
+</item>
+<item id="15">
+<ingredient id="9303" count="100"/>
+<production id="9330" count="1" enchant="0"/>
+</item>
+
+<item id="16">
+<ingredient id="9303" count="100"/>
+<production id="9331" count="1" enchant="0"/>
+</item>
+
+<item id="17">
+<ingredient id="9303" count="100"/>
+<production id="9332" count="1" enchant="0"/>
+</item>
+
+<item id="18">
+<ingredient id="65436" count="5"/>
+<production id="9333" count="1" enchant="0"/>
+</item>
+</list>

@@ -935,7 +935,7 @@ public class PartyFarm extends Attackable
 					for (DropData drop : cat.getAllDrops())
 					{
 						item = calculateRewardItem(drop, levelModifier, true, player);
-						if (item == null)
+						if (item == null || player.ignoredDropContain(item.getId()))
 							continue;
 						
 						getSpoilState().getSweepItems().add(item);
@@ -957,6 +957,8 @@ public class PartyFarm extends Attackable
 				
 				if (item != null)
 				{
+					if (player.ignoredDropContain(item.getId()))
+						continue;
 					// Check if the autoLoot mode is active
 					if ((isRaidBoss() && Config.AUTO_LOOT_RAID) || (!isRaidBoss() && Config.AUTO_LOOT))
 						player.doAutoLoot(this, item);

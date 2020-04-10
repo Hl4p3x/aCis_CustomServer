@@ -77,6 +77,7 @@ public class ChangePassword extends Folk
 		if (val != 0)
 			name = "data/html/mods/ChangePassword/" + getNpcId() + "-" + val + ".htm";
 		
+		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);
 		html.replace("%name%", player.getName());
