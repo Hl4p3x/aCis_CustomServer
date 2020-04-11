@@ -40,7 +40,6 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
-
 /**
  * A monster extends {@link Attackable} class.<br>
  * <br>
@@ -288,8 +287,6 @@ public class Monster extends Attackable
 		if (attacker instanceof Monster)
 			return false;
 		
-
-		
 		return true;
 	}
 	
@@ -328,9 +325,6 @@ public class Monster extends Attackable
 		if (hasMinions())
 			getMinionList().onMasterTeleported();
 	}
-	
-
-	
 	
 	@Override
 	public void deleteMe()
@@ -495,7 +489,7 @@ public class Monster extends Attackable
 	 * @param diff : The difference of level between the attacker and the Monster.
 	 * @param damage : The damages done by the attacker.
 	 * @param totalDamage : The total damage done.
-	 * @param player 
+	 * @param player
 	 * @return an array consisting of xp and sp values.
 	 */
 	private int[] calculateExpAndSp(int diff, int damage, long totalDamage, Player player)
@@ -534,10 +528,10 @@ public class Monster extends Attackable
 			sp = 0;
 		
 		return new int[]
-			{
-				(int) xp,
-				(int) sp
-			};
+		{
+			(int) xp,
+			(int) sp
+		};
 	}
 	
 	public void setMaster(Monster master)
@@ -575,7 +569,7 @@ public class Monster extends Attackable
 	public void teleToMaster()
 	{
 		if (_master == null)
-	
+			
 			return;
 		
 		// Init the position of the Minion and add it in the world as a visible object
@@ -604,7 +598,7 @@ public class Monster extends Attackable
 	 * @param drop The L2DropData count is being calculated for
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop chance)
 	 * @param isSweep if true, use spoil drop chance.
-	 * @param player 
+	 * @param player
 	 * @return the ItemHolder.
 	 */
 	private IntIntHolder calculateRewardItem(DropData drop, int levelModifier, boolean isSweep, Player player)
@@ -688,7 +682,7 @@ public class Monster extends Attackable
 		if (isChampion())
 			if (drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362))
 				itemCount *= Config.CHAMPION_ADENAS_REWARDS;
-		
+			
 		if (itemCount > 0)
 			return new IntIntHolder(drop.getItemId(), itemCount);
 		
@@ -700,14 +694,14 @@ public class Monster extends Attackable
 	 * Only a max of ONE item from a category is allowed to be dropped.
 	 * @param categoryDrops The category to make checks on.
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop chance)
-	 * @param player 
+	 * @param player
 	 * @return the ItemHolder.
 	 */
 	private IntIntHolder calculateCategorizedRewardItem(DropCategory categoryDrops, int levelModifier, Player player)
 	{
 		if (categoryDrops == null)
 			return null;
-		
+			
 		// Get default drop chance for the category (that's the sum of chances for all items in the category)
 		// keep track of the base category chance as it'll be used later, if an item is drop from the category.
 		// for everything else, use the total "categoryDropChance"
@@ -738,7 +732,7 @@ public class Monster extends Attackable
 			DropData drop = categoryDrops.dropOne(isRaidBoss());
 			if (drop == null)
 				return null;
-			
+				
 			// Now decide the quantity to drop based on the rates and penalties. To get this value
 			// simply divide the modified categoryDropChance by the base category chance. This
 			// results in a chance that will dictate the drops amounts: for each amount over 100
@@ -799,7 +793,7 @@ public class Monster extends Attackable
 			if (isChampion())
 				if (drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362))
 					itemCount *= Config.CHAMPION_ADENAS_REWARDS;
-			
+				
 			if (itemCount > 0)
 				return new IntIntHolder(drop.getItemId(), itemCount);
 		}
@@ -820,7 +814,7 @@ public class Monster extends Attackable
 			for (Creature atkChar : getAttackByList())
 				if (atkChar.getLevel() > highestLevel)
 					highestLevel = atkChar.getLevel();
-			
+				
 			// According to official data (Prima), deep blue mobs are 9 or more levels below players
 			if (highestLevel - 9 >= getLevel())
 				return ((highestLevel - (getLevel() + 8)) * 9);
@@ -932,7 +926,7 @@ public class Monster extends Attackable
 	{
 		if (mainDamageDealer == null)
 			return;
-	
+		
 		// Don't drop anything if the last attacker or owner isn't Player
 		final Player player = mainDamageDealer.getActingPlayer();
 		if (player == null)
@@ -990,9 +984,9 @@ public class Monster extends Attackable
 				}
 			}
 		}
-
+		
 		if (Config.GLOBAL_DROP)
-		{		
+		{
 			for (Entry<Integer, List<Integer>> entry : Config.DROP_LIST.entrySet())
 			{
 				int rewardItem = Rnd.get(entry.getValue().get(1), entry.getValue().get(2));
@@ -1116,7 +1110,7 @@ public class Monster extends Attackable
 		// Broadcast message.
 		broadcastPacket(new ExShowScreenMessage(BossInfoType.getBossInfo(getNpcId()).getCcNoRightsMsg(), 10000));
 	}
-
+	
 	/**
 	 * @return
 	 */

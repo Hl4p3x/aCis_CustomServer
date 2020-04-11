@@ -11,7 +11,6 @@ import net.sf.l2j.gameserver.model.actor.Summon;
 
 /**
  * @author COMBATE
- *
  */
 public class TvTEventTeleport implements Runnable
 {

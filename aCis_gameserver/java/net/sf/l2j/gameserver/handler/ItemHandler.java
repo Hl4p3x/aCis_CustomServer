@@ -78,14 +78,13 @@ import Dev.ItemSkins.Skin7;
 import Dev.ItemSkins.Skin8;
 import Dev.ItemSkins.Skin9;
 
-
 public class ItemHandler
 {
 	private final Map<Integer, IItemHandler> _entries = new HashMap<>();
 	
 	protected ItemHandler()
 	{
-		//Skins Custom Armor
+		// Skins Custom Armor
 		registerHandler(new Skin1());
 		registerHandler(new Skin2());
 		registerHandler(new Skin3());

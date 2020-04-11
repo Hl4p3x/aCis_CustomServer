@@ -106,7 +106,7 @@ public final class ClassMaster extends Folk
 		else
 			super.onBypassFeedback(player, command);
 	}
-
+	
 	public static final void onTutorialLink(Player player, String request)
 	{
 		if (!Config.ALTERNATE_CLASS_MASTER || request == null || !request.startsWith("CO"))
@@ -148,7 +148,7 @@ public final class ClassMaster extends Folk
 		
 		player.sendPacket(new TutorialShowQuestionMark(1001));
 	}
-
+	
 	private static final void showTutorialHtml(Player player)
 	{
 		final ClassId currentClassId = player.getClassId();
@@ -318,10 +318,10 @@ public final class ClassMaster extends Folk
 		
 		player.sendPacket(new HennaInfo(player));
 		player.broadcastUserInfo();
-
+		
 		if (Config.CLASS_MASTER_SETTINGS.isAllowed(player.getClassId().level() + 1) && Config.ALTERNATE_CLASS_MASTER && (((player.getClassId().level() == 1) && (player.getLevel() >= 40)) || ((player.getClassId().level() == 2) && (player.getLevel() >= 76))))
 			showQuestionMark(player);
-			
+		
 		return true;
 	}
 	

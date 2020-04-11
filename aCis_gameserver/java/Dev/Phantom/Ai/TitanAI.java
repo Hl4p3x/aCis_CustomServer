@@ -17,7 +17,6 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class TitanAI extends CombatAI
 {
@@ -35,7 +34,7 @@ public class TitanAI extends CombatAI
 		handleShots();
 		selfSupportBuffs();
 		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -45,7 +44,8 @@ public class TitanAI extends CombatAI
 	}
 	
 	@Override
-	protected double changeOfUsingSkill() {
+	protected double changeOfUsingSkill()
+	{
 		return 0.10;
 	}
 	
@@ -62,24 +62,24 @@ public class TitanAI extends CombatAI
 		_offensiveSpells.add(new OffensiveSpell(315, 1));
 		_offensiveSpells.add(new OffensiveSpell(190, 2));
 		_offensiveSpells.add(new OffensiveSpell(362, 3));
-		return _offensiveSpells; 
+		return _offensiveSpells;
 	}
 	
-
-	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		List<SupportSpell> _selfSupportSpells = new ArrayList<>();
 		_selfSupportSpells.add(new SupportSpell(99, 1));
 		_selfSupportSpells.add(new SupportSpell(97, 1));

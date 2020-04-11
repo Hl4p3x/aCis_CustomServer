@@ -23,7 +23,6 @@ import org.w3c.dom.Node;
 
 /**
  * @author COMBATE
- *
  */
 public class ChristmasEvent implements IXmlReader
 {
@@ -62,10 +61,10 @@ public class ChristmasEvent implements IXmlReader
 					maxLvl = Integer.parseInt(attrs.getNamedItem("mobMaxLvL").getNodeValue());
 					despawnTime = Integer.parseInt(attrs.getNamedItem("despawnSeconds").getNodeValue());
 					templates = new int[]
-						{
-							Integer.parseInt(attrs.getNamedItem("NpcTempates").getNodeValue().split(",")[0]),
-							Integer.parseInt(attrs.getNamedItem("NpcTempates").getNodeValue().split(",")[1])
-						};
+					{
+						Integer.parseInt(attrs.getNamedItem("NpcTempates").getNodeValue().split(",")[0]),
+						Integer.parseInt(attrs.getNamedItem("NpcTempates").getNodeValue().split(",")[1])
+					};
 					spawnChance = Double.parseDouble(attrs.getNamedItem("spawnChance").getNodeValue());
 				}
 				else if ("reward".equalsIgnoreCase(cas.getNodeName()))

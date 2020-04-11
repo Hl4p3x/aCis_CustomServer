@@ -9,11 +9,10 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 /**
  * @author Gabia
- *
  */
 public class HeroTaskManager implements Runnable
 {
-private final Map<Player, Long> _players = new ConcurrentHashMap<>();
+	private final Map<Player, Long> _players = new ConcurrentHashMap<>();
 	
 	protected HeroTaskManager()
 	{

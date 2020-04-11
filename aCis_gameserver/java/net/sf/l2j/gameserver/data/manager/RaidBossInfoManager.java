@@ -13,14 +13,13 @@ import net.sf.l2j.L2DatabaseFactory;
 
 /**
  * @author Williams
- *
  */
 public class RaidBossInfoManager
 {
 	private static final CLogger LOGGER = new CLogger(RaidBossInfoManager.class.getName());
 	
 	private final Map<Integer, Long> _raidBosses;
-
+	
 	protected RaidBossInfoManager()
 	{
 		_raidBosses = new ConcurrentHashMap<>();

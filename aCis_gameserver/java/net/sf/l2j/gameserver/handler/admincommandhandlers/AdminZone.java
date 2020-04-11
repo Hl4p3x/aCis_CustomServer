@@ -149,7 +149,7 @@ public class AdminZone implements IAdminCommandHandler
 		
 		return true;
 	}
-
+	
 	private static int calcZ(boolean minZ)
 	{
 		return (savedLocs.stream().mapToInt(loc -> loc.getZ()).sum() / savedLocs.size()) + (minZ ? -zDifference : zDifference);

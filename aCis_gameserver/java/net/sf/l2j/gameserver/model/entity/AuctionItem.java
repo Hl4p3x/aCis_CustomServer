@@ -2,7 +2,6 @@ package net.sf.l2j.gameserver.model.entity;
 
 /**
  * @author Williams
- *
  */
 public class AuctionItem
 {

@@ -16,7 +16,6 @@ import net.sf.l2j.commons.concurrent.ThreadPool;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.L2DatabaseFactory;
-
 import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.World;
@@ -34,7 +33,6 @@ import net.sf.l2j.gameserver.taskmanager.TaskZone;
 public class PvPZoneManager
 {
 	
-	
 	private ScheduledFuture<?> _timer, _leftTime;
 	private Map<ZoneType, Integer> _zones;
 	private static ZoneType _zone;
@@ -42,7 +40,7 @@ public class PvPZoneManager
 	private List<Creature> _character;
 	private List<Integer> _vote;
 	
-	//reward
+	// reward
 	private static Map<Integer, TheHourHolder> _player;
 	private static TheHourHolder _topPlayer;
 	
@@ -52,7 +50,7 @@ public class PvPZoneManager
 		_player = new ConcurrentHashMap<>();
 		_vote = new CopyOnWriteArrayList<>();
 		_character = new ArrayList<>();
-
+		
 		for (ZoneType zone : ZoneManager.getInstance().getAllZones(VoteZone.class))
 		{
 			_zones.put(zone, 0);
@@ -64,12 +62,10 @@ public class PvPZoneManager
 	{
 		ZoneType _newzone = checkZone();
 		int time = Config.announceTimer * 60 * 1000;
-
+		
 		World.announceToOnlinePlayers("PvP Zone vai mudar para " + ((VoteZone) _newzone).getName() + " em " + Config.announceTimer + " Minuto's");
 		_timer = ThreadPool.schedule(new TaskZone(), time);
 	}
-	
-	
 	
 	public static ZoneType getZone()
 	{
@@ -118,7 +114,7 @@ public class PvPZoneManager
 		long time = timer.getDelay(TimeUnit.MILLISECONDS);
 		return String.format("%d mins, %d sec", TimeUnit.MILLISECONDS.toMinutes(time), TimeUnit.MILLISECONDS.toSeconds(time) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(time)));
 	}
-
+	
 	public StringBuilder getMessage(int player, StringBuilder tb)
 	{
 		try
@@ -129,7 +125,7 @@ public class PvPZoneManager
 				tb.append("There are <font color=FFDF00>" + ((VoteZone) getZone()).getCharactersInside().size() + " players inside </font><br1>");
 				
 			}
-
+			
 			if (getNewZone() != null && !getNewZone().equals(getZone()))
 			{
 				tb.append("<br1>Proxima Zone e <font color=FFDF00>" + ((VoteZone) getNewZone()).getName() + "</font><br1>");
@@ -149,22 +145,21 @@ public class PvPZoneManager
 					{
 						String name = ((VoteZone) zone.getKey()).getName();
 						tb.append("<table border=\"0\" width=\"250\" height=\"12\"><tr>");
-
+						
 						if (has)
 							tb.append("<td width=\"60\">" + name + "</td>");
 						else
 							tb.append("<td width=\"60\"><a action=\"bypass -h npc_%objectId%_voteZone " + player + " " + name + " \">" + name + "</a></td>");
-
+						
 						tb.append("<td width=\"60\"><font color=FFDF00>" + zone.getValue() + "</font></td></tr></table>");
 						tb.append("<img src=\"l2ui.squaregray\" width=\"270\" height=\"1s\">");
 					}
 				}
 				tb.append("<br>Vote Time Left <font color=FFDF00>" + timeToLeft(_leftTime) + "</font>");
 				
-			
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			e.getStackTrace();
 		}
@@ -185,7 +180,7 @@ public class PvPZoneManager
 			
 			if (Config.deleteNpc)
 			{
-				if (!_character.isEmpty()) 
+				if (!_character.isEmpty())
 				{
 					for (Creature mob : _character)
 					{
@@ -229,14 +224,14 @@ public class PvPZoneManager
 					World.announceToOnlinePlayers("PvP Zone: King " + _topPlayer.getName() + " Fez " + _topPlayer.getKills() + " PvPs");
 					giveReward(_topPlayer.getObj());
 				}
-
+				
 				resetZonePvp();
-
+				
 				World.announceToOnlinePlayers("PvP Zone: Iniciado, Vote em " + Config.changeZoneTime + " Minutos.");
 			}
 		}
 	}
-
+	
 	public void giveReward(int obj)
 	{
 		Player player = World.getInstance().getPlayer(obj);
@@ -249,7 +244,8 @@ public class PvPZoneManager
 		{
 			ItemInstance item = new ItemInstance(IdFactory.getInstance().getNextId(), Config.rewardId);
 			
-			try (Connection con = L2DatabaseFactory.getInstance().getConnection(); PreparedStatement stm_items = con.prepareStatement("INSERT INTO items (owner_id,item_id,count,loc,loc_data,enchant_level,object_id,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?)"))
+			try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+				PreparedStatement stm_items = con.prepareStatement("INSERT INTO items (owner_id,item_id,count,loc,loc_data,enchant_level,object_id,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?)"))
 			{
 				stm_items.setInt(1, obj);
 				stm_items.setInt(2, item.getItemId());
@@ -271,7 +267,7 @@ public class PvPZoneManager
 			}
 		}
 	}
-
+	
 	public static void addKillsInZone(Player activeChar)
 	{
 		if (!_player.containsKey(activeChar.getObjectId()))

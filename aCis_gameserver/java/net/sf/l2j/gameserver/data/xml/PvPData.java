@@ -13,7 +13,6 @@ import org.w3c.dom.Document;
 
 /**
  * @author Williams
- *
  */
 public class PvPData implements IXmlReader
 {
@@ -64,12 +63,12 @@ public class PvPData implements IXmlReader
 			_spree.add(new SpreeKills(set));
 		}));
 	}
-
+	
 	public List<ColorSystem> getColor()
 	{
 		return _color;
 	}
-
+	
 	public List<RewardSystem> getReward()
 	{
 		return _reward;
@@ -83,11 +82,11 @@ public class PvPData implements IXmlReader
 		{
 			_reward = set.getIntIntHolderList("rewards");
 		}
-
+		
 		public List<IntIntHolder> getReward()
 		{
 			return _reward;
-		}	
+		}
 	}
 	
 	public class ColorSystem
@@ -116,14 +115,14 @@ public class PvPData implements IXmlReader
 		public int getTitleColor()
 		{
 			return _titleColor;
-		}	
+		}
 	}
-
+	
 	public List<SpreeKills> getSpreeKills()
 	{
 		return _spree;
 	}
-
+	
 	public class SpreeKills
 	{
 		private final int _type;
@@ -140,7 +139,7 @@ public class PvPData implements IXmlReader
 			_sound = set.getString("sound");
 			_reward = set.getIntIntHolderList("reward");
 		}
-
+		
 		public int getType()
 		{
 			return _type;
@@ -155,12 +154,12 @@ public class PvPData implements IXmlReader
 		{
 			return _msg;
 		}
-
+		
 		public String getSound()
 		{
 			return _sound;
 		}
-
+		
 		public List<IntIntHolder> getReward()
 		{
 			return _reward;

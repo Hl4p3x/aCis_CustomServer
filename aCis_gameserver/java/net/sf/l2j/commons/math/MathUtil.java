@@ -82,7 +82,6 @@ public class MathUtil
 		return calculateHeadingFrom(obj1.getX(), obj1.getY(), obj2.getX(), obj2.getY());
 	}
 	
-	
 	public static final int calculateHeadingFrom(double dx, double dy)
 	{
 		double angleTarget = Math.toDegrees(Math.atan2(dy, dx));
@@ -91,7 +90,6 @@ public class MathUtil
 		
 		return (int) (angleTarget * 182.04444444444444444444444444444);
 	}
-	
 	
 	public static final double calculateAngleFrom(int obj1X, int obj1Y, int obj2X, int obj2Y)
 	{

@@ -45,18 +45,14 @@ public class BlessedSpiritShots implements IItemHandler
 			return;
 		}
 		
-
-		
-		 // Consume bss if player has enough of them
-		 if (!Config.INFINITY_SS && !player.destroyItemWithoutTrace("Consume", item.getObjectId(), weaponItem.getSpiritShotCount(), null, false))
-		 {
-				if (!player.disableAutoShot(item.getItemId()))
-					player.sendPacket(SystemMessageId.NOT_ENOUGH_SPIRITSHOTS);
-		    
-		     return;
-		 }
-		 
-		 
+		// Consume bss if player has enough of them
+		if (!Config.INFINITY_SS && !player.destroyItemWithoutTrace("Consume", item.getObjectId(), weaponItem.getSpiritShotCount(), null, false))
+		{
+			if (!player.disableAutoShot(item.getItemId()))
+				player.sendPacket(SystemMessageId.NOT_ENOUGH_SPIRITSHOTS);
+			
+			return;
+		}
 		
 		final IntIntHolder[] skills = item.getItem().getSkills();
 		
@@ -64,8 +60,6 @@ public class BlessedSpiritShots implements IItemHandler
 		
 		if (!player.isSSDisabled())
 			player.setChargedShot(ShotType.BLESSED_SPIRITSHOT, true);
-		
-		
 		
 		player.setChargedShot(ShotType.BLESSED_SPIRITSHOT, true);
 		player.broadcastPacketInRadius(new MagicSkillUse(player, player, skills[0].getId(), 1, 0, 0), 600);

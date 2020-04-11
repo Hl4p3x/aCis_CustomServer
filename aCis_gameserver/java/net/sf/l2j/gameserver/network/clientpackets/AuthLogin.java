@@ -35,8 +35,8 @@ public final class AuthLogin extends L2GameClientPacket
 		
 		if (Hwid.isProtectionOn())
 			if (!Hwid.doAuthLogin(getClient(), _data, _loginName))
-			return;
-		
+				return;
+			
 		// Add the client.
 		LoginServerThread.getInstance().addClient(_loginName, getClient());
 	}

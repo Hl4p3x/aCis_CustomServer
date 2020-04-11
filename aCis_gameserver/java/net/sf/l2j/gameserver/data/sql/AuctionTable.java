@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 import net.sf.l2j.commons.logging.CLogger;
 
 import net.sf.l2j.L2DatabaseFactory;
@@ -11,7 +12,6 @@ import net.sf.l2j.gameserver.model.entity.AuctionItem;
 
 /**
  * @author Williams
- *
  */
 public class AuctionTable
 {
@@ -33,7 +33,7 @@ public class AuctionTable
 	{
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement stm = con.prepareStatement(RESTORE_ITEM))
-		{	
+		{
 			try (ResultSet rset = stm.executeQuery())
 			{
 				while (rset.next())
@@ -51,7 +51,7 @@ public class AuctionTable
 			e.printStackTrace();
 		}
 		
-		log.info("AuctionTable: Loaded "+ _items.size() +" items.");
+		log.info("AuctionTable: Loaded " + _items.size() + " items.");
 	}
 	
 	public void addItem(AuctionItem item)

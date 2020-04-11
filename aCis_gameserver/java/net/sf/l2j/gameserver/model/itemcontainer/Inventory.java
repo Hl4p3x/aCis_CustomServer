@@ -27,24 +27,24 @@ import net.sf.l2j.gameserver.model.itemcontainer.listeners.StatsListener;
  */
 public abstract class Inventory extends ItemContainer
 {
-    public static final int PAPERDOLL_UNDER = 0;
-    public static final int PAPERDOLL_LEAR = 1;
-    public static final int PAPERDOLL_REAR = 2;
-    public static final int PAPERDOLL_NECK = 3;
-    public static final int PAPERDOLL_LFINGER = 4;
-    public static final int PAPERDOLL_RFINGER = 5;
-    public static final int PAPERDOLL_HEAD = 6;
-    public static final int PAPERDOLL_RHAND = 7;
-    public static final int PAPERDOLL_LHAND = 8;
-    public static final int PAPERDOLL_GLOVES = 9;
-    public static final int PAPERDOLL_CHEST = 10;
-    public static final int PAPERDOLL_LEGS = 11;
-    public static final int PAPERDOLL_FEET = 12;
-    public static final int PAPERDOLL_BACK = 13;
-    public static final int PAPERDOLL_FACE = 14;
-    public static final int PAPERDOLL_HAIR = 15;
-    public static final int PAPERDOLL_HAIRALL = 16;
-    public static final int PAPERDOLL_TOTALSLOTS = 17;
+	public static final int PAPERDOLL_UNDER = 0;
+	public static final int PAPERDOLL_LEAR = 1;
+	public static final int PAPERDOLL_REAR = 2;
+	public static final int PAPERDOLL_NECK = 3;
+	public static final int PAPERDOLL_LFINGER = 4;
+	public static final int PAPERDOLL_RFINGER = 5;
+	public static final int PAPERDOLL_HEAD = 6;
+	public static final int PAPERDOLL_RHAND = 7;
+	public static final int PAPERDOLL_LHAND = 8;
+	public static final int PAPERDOLL_GLOVES = 9;
+	public static final int PAPERDOLL_CHEST = 10;
+	public static final int PAPERDOLL_LEGS = 11;
+	public static final int PAPERDOLL_FEET = 12;
+	public static final int PAPERDOLL_BACK = 13;
+	public static final int PAPERDOLL_FACE = 14;
+	public static final int PAPERDOLL_HAIR = 15;
+	public static final int PAPERDOLL_HAIRALL = 16;
+	public static final int PAPERDOLL_TOTALSLOTS = 17;
 	
 	private static final String RESTORE_INVENTORY = "SELECT object_id, item_id, count, enchant_level, loc, loc_data, custom_type1, custom_type2, mana_left, time FROM items WHERE owner_id=? AND (loc=? OR loc=?) ORDER BY loc_data";
 	

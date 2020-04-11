@@ -147,7 +147,7 @@ public class BossSpawn
 		
 		// Refresh the database for this particular boss entry.
 		updateOnDb();
-
+		
 		if (Config.LIST_RAID_BOSS_IDS.contains(_spawn.getNpcId()))
 			RaidBossInfoManager.getInstance().updateRaidBossInfo(_spawn.getNpcId(), respawnTime);
 		
@@ -178,7 +178,7 @@ public class BossSpawn
 		
 		// Refresh the database for this particular boss entry.
 		updateOnDb();
-
+		
 		if (Config.LIST_RAID_BOSS_IDS.contains(npc.getNpcId()))
 			RaidBossInfoManager.getInstance().updateRaidBossInfo(npc.getNpcId(), 0);
 		

@@ -23,9 +23,6 @@ import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 import net.sf.l2j.gameserver.network.serverpackets.SetupGauge;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
-
-
-
 public class SummonItems implements IItemHandler
 {
 	@Override
@@ -47,8 +44,6 @@ public class SummonItems implements IItemHandler
 		
 		if (player.isAllSkillsDisabled() || player.isCastingNow())
 			return;
-		
-
 		
 		final IntIntHolder sitem = SummonItemData.getInstance().getSummonItem(item.getItemId());
 		

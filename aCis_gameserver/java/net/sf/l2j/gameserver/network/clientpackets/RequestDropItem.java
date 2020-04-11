@@ -38,7 +38,7 @@ public final class RequestDropItem extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null || player.isDead())
 			return;
-
+		
 		if (player.isGM() && Config.GM_TRADE_RESTRICTED_ITEMS)
 		{
 			player.sendMessage("Drop item disabled for GM by config!");

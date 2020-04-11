@@ -158,7 +158,7 @@ public final class RainbowSpringsChateau extends ClanHallSiege
 	
 	SiegableHall _rainbow;
 	ScheduledFuture<?> _nextSiege;
-
+	
 	ScheduledFuture<?> _siegeEnd;
 	private String _registrationEnds;
 	Spawn[] _gourds = new Spawn[4];

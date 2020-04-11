@@ -16,15 +16,13 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class MysticMuseAI extends CombatAI
 {
 	public MysticMuseAI(FakePlayer character)
 	{
-		super(character);		
+		super(character);
 	}
-	
 	
 	@Override
 	public void thinkAndAct()
@@ -32,9 +30,9 @@ public class MysticMuseAI extends CombatAI
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleShots();		
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -56,23 +54,25 @@ public class MysticMuseAI extends CombatAI
 		_offensiveSpells.add(new OffensiveSpell(1235, 4));
 		_offensiveSpells.add(new OffensiveSpell(1340, 3));
 		_offensiveSpells.add(new OffensiveSpell(1342, 2));
-		_offensiveSpells.add(new OffensiveSpell(1265, 1));	
-		return _offensiveSpells; 
+		_offensiveSpells.add(new OffensiveSpell(1265, 1));
+		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getMageBuffs();
-    }
-
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getMageBuffs();
+	}
+	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

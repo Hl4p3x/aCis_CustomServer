@@ -1,7 +1,5 @@
 package Dev.Phantom.Ai;
 
-
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,23 +15,24 @@ import Dev.Phantom.Model.HealingSpell;
 import Dev.Phantom.Model.OffensiveSpell;
 import Dev.Phantom.Model.SupportSpell;
 
-
-public class DreadnoughtAI extends CombatAI implements IConsumableSpender {
+public class DreadnoughtAI extends CombatAI implements IConsumableSpender
+{
 	
-	public DreadnoughtAI(FakePlayer character) {
+	public DreadnoughtAI(FakePlayer character)
+	{
 		super(character);
 	}
-
-
+	
 	@Override
-	public void thinkAndAct() {		
+	public void thinkAndAct()
+	{
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
 		handleShots();
 		selfSupportBuffs();
 		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -42,19 +41,22 @@ public class DreadnoughtAI extends CombatAI implements IConsumableSpender {
 		
 		setBusyThinking(false);
 	}
-
-	@Override
-	protected ShotType getShotType() {
-		return ShotType.SOULSHOT;
-	}	
 	
 	@Override
-	protected double changeOfUsingSkill() {
+	protected ShotType getShotType()
+	{
+		return ShotType.SOULSHOT;
+	}
+	
+	@Override
+	protected double changeOfUsingSkill()
+	{
 		return 0.33;
 	}
-
+	
 	@Override
-	protected List<OffensiveSpell> getOffensiveSpells() {
+	protected List<OffensiveSpell> getOffensiveSpells()
+	{
 		List<OffensiveSpell> _offensiveSpells = new ArrayList<>();
 		_offensiveSpells.add(new OffensiveSpell(78, 1));
 		_offensiveSpells.add(new OffensiveSpell(121, 6));
@@ -63,19 +65,21 @@ public class DreadnoughtAI extends CombatAI implements IConsumableSpender {
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
-
+	
 }

@@ -110,7 +110,7 @@ public class ItemPassiveSkillsListener implements OnEquipListener
 				final L2Skill enchant4Skill = ((Weapon) it).getEnchant4Skill();
 				if (enchant4Skill != null)
 				{
-					player.removeSkill(enchant4Skill.getId(), false, enchant4Skill.isPassive() || enchant4Skill.isActive()  && Config.DELETE_AUGM_CHANGE_WEAPON || enchant4Skill.isToggle());
+					player.removeSkill(enchant4Skill.getId(), false, enchant4Skill.isPassive() || enchant4Skill.isActive() && Config.DELETE_AUGM_CHANGE_WEAPON || enchant4Skill.isToggle());
 					update = true;
 				}
 			}

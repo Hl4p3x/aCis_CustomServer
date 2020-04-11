@@ -20,10 +20,8 @@ import java.util.logging.Logger;
 import net.sf.l2j.commons.concurrent.ThreadPool;
 import net.sf.l2j.commons.random.Rnd;
 
-
 import net.sf.l2j.Config;
 import net.sf.l2j.L2DatabaseFactory;
-
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.sql.ClanTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
@@ -37,7 +35,6 @@ import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.stat.Experience;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
-
 import net.sf.l2j.gameserver.model.location.Location;
 import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.GameClient.GameClientState;
@@ -47,7 +44,6 @@ import net.sf.l2j.gameserver.network.serverpackets.PrivateStoreMsgSell;
 
 /**
  * @author Gabia
- *
  */
 public class PhantomStore
 {
@@ -112,7 +108,6 @@ public class PhantomStore
 		return Config.LIST_PHANTOM_FACE.get(Rnd.get(Config.LIST_PHANTOM_FACE.size())).intValue();
 	}
 	
-	
 	static int getPrivateBuy()
 	{
 		return Config.LIST_PRIVATE_BUY.get(Rnd.get(Config.LIST_PRIVATE_BUY.size())).intValue();
@@ -138,7 +133,6 @@ public class PhantomStore
 	{
 		ThreadPool.schedule(new PhantomWalk(paramPlayer), Rnd.get(5200, 48540));
 	}
-	
 	
 	@SuppressWarnings("resource")
 	private static void parceArmors()
@@ -255,7 +249,7 @@ public class PhantomStore
 					_phantom.sitDown(false);
 					_phantom.setOperateType(OperateType.SELL);
 					_phantom.setStoreType(Player.StoreType.SELL);
-
+					
 					_phantom.broadcastUserInfo();
 					_phantom.broadcastPacket(new PrivateStoreMsgSell(_phantom));
 				}
@@ -332,17 +326,16 @@ public class PhantomStore
 	}
 	
 	static SimpleDateFormat sdf = new SimpleDateFormat("HH");
-
+	
 	public class FantomTask implements Runnable
 	{
 		public int _task;
-
-
+		
 		public FantomTask(int paramInt)
 		{
 			_task = paramInt;
 		}
-
+		
 		@SuppressWarnings("resource")
 		@Override
 		public void run()
@@ -410,8 +403,6 @@ public class PhantomStore
 								World.getInstance().addPlayer(player);
 								client.setState(GameClient.GameClientState.IN_GAME);
 								
-							
-								
 								client.setAccountName(player.getAccountName());
 								
 								String playerName = FakePlayerNameManager.INSTANCE.getRandomAvailableName();
@@ -419,25 +410,25 @@ public class PhantomStore
 								PlayerInfoTable.getInstance().updatePlayerData(player, false);
 								
 								player.setClan(ClanTable.getInstance().getClan(Config.CLANID));
-
-                                player.getAppearance().setNameColor(Integer.decode("0x" + Config.NAME_COLOR));
-                                player.getAppearance().setTitleColor(Integer.decode("0x" + Config.TITLE_COLOR));
-                                player.getAppearance().setNameColor(Integer.decode("0x" + PhantomStore.getNameColor()));
-                                player.getAppearance().setTitleColor(Integer.decode("0x" + PhantomStore.getTitleColor()));
- 
-                                
-                                if (Rnd.get(100) < Config.PHANTOM_CHANCE_HERO) {
-                                    player.setHero(true);
-                                    player.isHero();
-                                    player.broadcastUserInfo();
-                                }
+								
+								player.getAppearance().setNameColor(Integer.decode("0x" + Config.NAME_COLOR));
+								player.getAppearance().setTitleColor(Integer.decode("0x" + Config.TITLE_COLOR));
+								player.getAppearance().setNameColor(Integer.decode("0x" + PhantomStore.getNameColor()));
+								player.getAppearance().setTitleColor(Integer.decode("0x" + PhantomStore.getTitleColor()));
+								
+								if (Rnd.get(100) < Config.PHANTOM_CHANCE_HERO)
+								{
+									player.setHero(true);
+									player.isHero();
+									player.broadcastUserInfo();
+								}
 								
 								player.addExpAndSp(Experience.LEVEL[81], 0);
 								player.rewardSkills();
 								player.broadcastUserInfo();
 								
 								String playertitle = FakePlayerTitleManager.INSTANCE.getRandomAvailableName();
-								player.setTitle(playertitle);	
+								player.setTitle(playertitle);
 								player.broadcastTitleInfo();
 								
 								player.getInventory().equipItemAndRecord(localL2ItemInstance1);
@@ -566,12 +557,12 @@ public class PhantomStore
 	public class Disconnection implements Runnable
 	{
 		private final Player _activeChar;
-
+		
 		public Disconnection(Player activeChar)
 		{
 			_activeChar = activeChar;
 		}
-
+		
 		@Override
 		public void run()
 		{
@@ -587,7 +578,7 @@ public class PhantomStore
 				client.setState(GameClientState.AUTHED);
 			}
 		}
-
+		
 	}
 	
 	@SuppressWarnings("resource")
@@ -649,7 +640,6 @@ public class PhantomStore
 	
 	static final List<String> list_msg_buy = new ArrayList<>();
 	static final List<String> list_msg_sell = new ArrayList<>();
-	
 	
 	@SuppressWarnings("null")
 	static String getPrivateBuy_Title()
@@ -721,13 +711,14 @@ public class PhantomStore
 		return msg;
 	}
 	
-    static String getNameColor() {
-        return Config.PHANTOM_PLAYERS_NAME_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_NAME_CLOLORS.size()));
-    }
-
-    static String getTitleColor() {
-        return Config.PHANTOM_PLAYERS_TITLE_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_TITLE_CLOLORS.size()));
-    }
-    
-
+	static String getNameColor()
+	{
+		return Config.PHANTOM_PLAYERS_NAME_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_NAME_CLOLORS.size()));
+	}
+	
+	static String getTitleColor()
+	{
+		return Config.PHANTOM_PLAYERS_TITLE_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_TITLE_CLOLORS.size()));
+	}
+	
 }

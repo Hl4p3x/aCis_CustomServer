@@ -13,46 +13,44 @@ import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 
-
 /**
  * @author Gabia
- *
  */
 
 public enum FakePlayerTitleManager
 {
 	INSTANCE;
-
+	
 	public static final Logger _log = Logger.getLogger(FakePlayerTitleManager.class.getName());
 	private List<String> _fakePlayerTitle;
-
+	
 	public void initialise()
 	{
 		loadWordlist();
 	}
-
+	
 	public String getRandomAvailableName()
 	{
 		String name = getRandomNameFromWordlist();
-
+		
 		while (nameAlreadyExists(name))
 		{
 			name = getRandomNameFromWordlist();
 		}
-
+		
 		return name;
 	}
-
+	
 	private String getRandomNameFromWordlist()
 	{
 		return _fakePlayerTitle.get(Rnd.get(0, _fakePlayerTitle.size() - 1));
 	}
-
+	
 	public List<String> getFakePlayerNames()
 	{
 		return _fakePlayerTitle;
 	}
-
+	
 	private void loadWordlist()
 	{
 		try (LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/aCis/Phantom/Faketitle.txt"))));)
@@ -73,7 +71,7 @@ public enum FakePlayerTitleManager
 			e.printStackTrace();
 		}
 	}
-
+	
 	private static boolean nameAlreadyExists(String name)
 	{
 		return PlayerInfoTable.getInstance().getPlayerObjectId(name) > 0;

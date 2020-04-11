@@ -48,15 +48,11 @@ import net.sf.l2j.gameserver.skills.conditions.Condition;
 import net.sf.l2j.gameserver.skills.effects.EffectTemplate;
 import net.sf.l2j.gameserver.taskmanager.DecayTaskManager;
 
-
-
 public abstract class L2Skill implements IChanceSkillTrigger
 {
 	protected static final Logger _log = Logger.getLogger(L2Skill.class.getName());
 	
 	private static final WorldObject[] _emptyTargetList = new WorldObject[0];
-	
-	
 	
 	public static final int SKILL_LUCKY = 194;
 	public static final int SKILL_EXPERTISE = 239;
@@ -1081,7 +1077,7 @@ public abstract class L2Skill implements IChanceSkillTrigger
 	{
 		return _isHeroSkill;
 	}
-
+	
 	public final int getNumCharges()
 	{
 		return _numCharges;
@@ -2055,7 +2051,6 @@ public abstract class L2Skill implements IChanceSkillTrigger
 					return false;
 			}
 			
-			
 			if (!sourceInArena && !(targetPlayer.isInsideZone(ZoneId.PVP) && !targetPlayer.isInsideZone(ZoneId.SIEGE)))
 			{
 				if (player.getAllyId() != 0 && player.getAllyId() == targetPlayer.getAllyId())
@@ -2411,10 +2406,10 @@ public abstract class L2Skill implements IChanceSkillTrigger
 		return false;
 	}
 	
-	   public void setHitTime(int value)
-	      {
-	          _hitTime = value;
-	     }
+	public void setHitTime(int value)
+	{
+		_hitTime = value;
+	}
 	
 	@Override
 	public String toString()

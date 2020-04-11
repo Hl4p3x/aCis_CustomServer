@@ -29,7 +29,6 @@ import net.sf.l2j.gameserver.network.serverpackets.ServerClose;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 import net.sf.l2j.gameserver.taskmanager.ItemsOnGroundTaskManager;
 
-
 /**
  * This class provides functions for shutting down and restarting the server. It closes all client connections and saves data.
  */
@@ -117,7 +116,6 @@ public class Shutdown extends Thread
 			RaidBossManager.getInstance().cleanUp(true);
 			LOGGER.info("Raid Bosses data has been saved.");
 			
-			
 			// Save grandbosses status
 			GrandBossManager.getInstance().cleanUp();
 			LOGGER.info("World Bosses data has been saved.");
@@ -141,7 +139,7 @@ public class Shutdown extends Thread
 			// Schemes save.
 			BufferManager.getInstance().saveSchemes();
 			LOGGER.info("BufferTable data has been saved.");
-
+			
 			if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.RESTORE_OFFLINERS)
 				OfflineTradersTable.storeOffliners();
 			

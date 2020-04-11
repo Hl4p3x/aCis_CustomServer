@@ -48,9 +48,6 @@ public abstract class ZoneType
 	
 	protected abstract void onExit(Creature character);
 	
-
-	
-	
 	@Override
 	public String toString()
 	{
@@ -60,7 +57,7 @@ public abstract class ZoneType
 	public int getId()
 	{
 		return _id;
-	
+		
 	}
 	
 	public int getCountCharactersInside()
@@ -79,7 +76,6 @@ public abstract class ZoneType
 	{
 		return _characterList;
 	}
-	
 	
 	public ZoneForm getZone()
 	{

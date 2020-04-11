@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
-
 import java.util.StringTokenizer;
 import java.util.logging.Logger;
 
@@ -22,7 +21,6 @@ import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.instance.OlympiadManagerNpc;
-
 import net.sf.l2j.gameserver.model.itemcontainer.Inventory;
 import net.sf.l2j.gameserver.model.olympiad.OlympiadManager;
 import net.sf.l2j.gameserver.network.FloodProtectors;
@@ -148,7 +146,6 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		if (_command.startsWith("Heroic_Valor"))
 		{
 			
-			
 			L2Skill skill = SkillTable.getInstance().getInfo(1374, 1);
 			skill.getEffects(player, player);
 			
@@ -263,7 +260,6 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			
 			AioMenu.bypass(player, command, st);
 		}
-		
 		
 		else if (_command.startsWith("player_help "))
 		{
@@ -409,13 +405,13 @@ public final class RequestBypassToServer extends L2GameClientPacket
 					case "Quests":
 						break;
 					case "Other":
-						break;		
+						break;
 				}
 				
 				REPORT_LOG.info("Character Info: " + info + "\r\nBug Type: " + type + "\r\nMessage: " + msg);
 				player.sendMessage("Relatério enviado. Os Gms irão verifica-la em breve, obrigado.");
 				AdminData.getInstance();
-				AdminData.broadcastMessageToGMs("Report Manager: "+ player.getName() + " enviou um relatório de bug.");
+				AdminData.broadcastMessageToGMs("Report Manager: " + player.getName() + " enviou um relatório de bug.");
 			}
 			catch (Exception e)
 			{
@@ -448,19 +444,17 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			}
 			
 			Dressme.sendMainWindow(player);
-		}	
+		}
 		else if (_command.startsWith("bp_editWindow"))
 		{
 			String bp = _command.substring(14);
 			StringTokenizer st = new StringTokenizer(bp);
 			
 			sendEditWindow(player, st.nextToken());
-		}	
+		}
 		
 		else if (_command.startsWith("bp_getReward"))
 		{
-			
-			
 			
 			if (Individual.isAccountTookTheReward(player))
 			{
@@ -473,17 +467,14 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				return;
 			}
 			
-			Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?",System.currentTimeMillis(), player.getObjectId());
-			
+			Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?", System.currentTimeMillis(), player.getObjectId());
 			
 			Individual.giveReward(player);
 			player.sendMessage("Thank you for voting.");
 			
 			Vote.sendMainWindow(player);
 			
-			
 		}
-		
 		
 		else if (_command.startsWith("bp_setpart"))
 		{
@@ -494,7 +485,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			String type = st.nextToken();
 			
 			setPart(player, part, type);
-		}		
+		}
 		else if (_command.startsWith("bp_gettarget"))
 		{
 			String bp = _command.substring(13);
@@ -503,28 +494,30 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			String part = st.nextToken();
 			
 			stealTarget(player, part);
-		}		
+		}
 		else if (_command.equals("bp_main"))
 		{
 			Dressme.sendMainWindow(player);
 		}
 		
-		
-		
-		else  if (_command.startsWith("mageclass")) {
+		else if (_command.startsWith("mageclass"))
+		{
 			StartupManager.getInstance().MageClasses(_command, player);
-		} else if (_command.startsWith("fighterclass")) {
+		}
+		else if (_command.startsWith("fighterclass"))
+		{
 			StartupManager.getInstance().FighterClasses(_command, player);
-		} else if (_command.startsWith("lightclass")) {
+		}
+		else if (_command.startsWith("lightclass"))
+		{
 			StartupManager.getInstance().LightClasses(_command, player);
-		} else if (_command.startsWith("class")) {
-			StartupManager.getInstance().Classes(_command, player);       
+		}
+		else if (_command.startsWith("class"))
+		{
+			StartupManager.getInstance().Classes(_command, player);
 		}
 		
-		
 	}
-	
-	
 	
 	public static void sendEditWindow(Player p, String part)
 	{
@@ -547,12 +540,11 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_HELMET.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
 			}
-			
 			
 			case "chest":
 			{
@@ -567,7 +559,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_CHESTS.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
@@ -585,7 +577,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_LEGS.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
@@ -603,7 +595,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_GLOVES.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
@@ -621,7 +613,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_BOOTS.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
@@ -639,7 +631,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				String temp = "";
 				for (String s : Config.DRESS_ME_WEAPONS.keySet())
 				{
-					temp += s+";";
+					temp += s + ";";
 				}
 				htm.replace("%dropboxdata%", temp);
 				break;
@@ -669,7 +661,6 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				
 				break;
 			}
-			
 			
 			case "chest":
 			{
@@ -719,7 +710,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		}
 		
 		p.broadcastUserInfo();
-		//		sendEditWindow(p, part);
+		// sendEditWindow(p, part);
 	}
 	
 	public static void stealTarget(Player p, String part)
@@ -730,7 +721,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			return;
 		}
 		
-		Player t = (Player)p.getTarget();
+		Player t = (Player) p.getTarget();
 		
 		if (p.getDressMeData() == null)
 		{
@@ -878,6 +869,5 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		else
 			Dressme.sendMainWindow(p);
 	}
-	
 	
 }

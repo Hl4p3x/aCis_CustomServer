@@ -5,7 +5,6 @@ import java.util.logging.FileHandler;
 
 /**
  * @author Williams
- *
  */
 public class DonateAuditLogHandler extends FileHandler
 {

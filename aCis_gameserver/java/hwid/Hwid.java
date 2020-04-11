@@ -1,10 +1,5 @@
 package hwid;
 
-import hwid.crypt.Manager;
-import hwid.hwidmanager.HWIDBan;
-import hwid.hwidmanager.HWIDManager;
-import hwid.utils.Util;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,13 +10,18 @@ import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.serverpackets.ServerClose;
 import net.sf.l2j.loginserver.crypt.BlowfishEngine;
 
+import hwid.crypt.Manager;
+import hwid.hwidmanager.HWIDBan;
+import hwid.hwidmanager.HWIDManager;
+import hwid.utils.Util;
+
 public class Hwid
 {
 	protected static Logger _log = Logger.getLogger(Hwid.class.getName());
 	private static byte[] _key = new byte[16];
 	static byte version = 11;
 	protected static ConcurrentHashMap<String, Manager.InfoSet> _objects = new ConcurrentHashMap<>();
-
+	
 	public static void Init()
 	{
 		HwidConfig.load();
@@ -32,14 +32,14 @@ public class Hwid
 			Manager.getInstance();
 		}
 	}
-
+	
 	public static boolean isProtectionOn()
 	{
 		if (HwidConfig.ALLOW_GUARD_SYSTEM)
 			return true;
 		return false;
 	}
-
+	
 	public static byte[] getKey(byte[] key)
 	{
 		// byte[] bfkey = FirstKey.SKBOX;
@@ -194,12 +194,12 @@ public class Hwid
 			// Log.add("HWID:" + HWID + "|is empty, account:" + client.getLoginName() + "|IP: " + client.toString(), _logFile);
 			if (HwidConfig.PROTECT_KICK_WITH_EMPTY_HWID)
 				resultHWID = true;
-		
+			
 		if (LastError1 != 0)
 			// Log.add("LastError(HWID):" + LastError1 + "|" + Util.LastErrorConvertion(Integer.valueOf(LastError1)) + "|isn\'t empty, " + client.toString(), _logFile);
 			if (HwidConfig.PROTECT_KICK_WITH_LASTERROR_HWID)
 				resultLastError = true;
-		
+			
 		return resultHWID || resultLastError;
 	}
 	
@@ -238,7 +238,7 @@ public class Hwid
 			client.close(ServerClose.STATIC_PACKET);
 			return false;
 		}
-
+		
 		int LastError1 = ByteBuffer.wrap(data, 16, 4).getInt();
 		if (CheckHWIDs(client, LastError1, 0))
 		{
@@ -267,7 +267,7 @@ public class Hwid
 	{
 		if (!isProtectionOn())
 			return true;
-
+		
 		client.setPlayerName(playerName);
 		client.setPlayerId(playerID);
 		
@@ -283,9 +283,9 @@ public class Hwid
 		}
 		addPlayer(client);
 		return true;
-
+		
 	}
-
+	
 	public static void nopath(GameClient client)
 	{
 		_log.info("Client " + client + " is no have path kick: " + client.getHWID() + " IP: " + client.toString());

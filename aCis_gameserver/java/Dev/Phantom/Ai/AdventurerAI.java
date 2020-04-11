@@ -14,56 +14,59 @@ import Dev.Phantom.Model.HealingSpell;
 import Dev.Phantom.Model.OffensiveSpell;
 import Dev.Phantom.Model.SupportSpell;
 
-
-
 public class AdventurerAI extends CombatAI
 {
-    public AdventurerAI(final FakePlayer character) {
-        super(character);
-    }
-    
+	public AdventurerAI(final FakePlayer character)
+	{
+		super(character);
+	}
+	
 	@Override
 	public void thinkAndAct()
 	{
 		
 		super.thinkAndAct();
-		setBusyThinking(true);		
+		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleShots();			
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
 		tryAttackingUsingFighterOffensiveSkill();
 		
-		
 		setBusyThinking(false);
 	}
-    
-    @Override
-    protected ShotType getShotType() {
-        return ShotType.SOULSHOT;
-    }
-    
-    @Override
-    protected List<OffensiveSpell> getOffensiveSpells() {
-        return Collections.emptyList();
-    }
-    
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
-    
-    @Override
-    protected List<HealingSpell> getHealingSpells() {
-        return Collections.emptyList();
-    }
-    
-    @Override
-    protected List<SupportSpell> getSelfSupportSpells() {
-        final List<SupportSpell> _selfSupportSpells = new ArrayList<>();
-        return _selfSupportSpells;
-    }
+	
+	@Override
+	protected ShotType getShotType()
+	{
+		return ShotType.SOULSHOT;
+	}
+	
+	@Override
+	protected List<OffensiveSpell> getOffensiveSpells()
+	{
+		return Collections.emptyList();
+	}
+	
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
+	
+	@Override
+	protected List<HealingSpell> getHealingSpells()
+	{
+		return Collections.emptyList();
+	}
+	
+	@Override
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
+		final List<SupportSpell> _selfSupportSpells = new ArrayList<>();
+		return _selfSupportSpells;
+	}
 }

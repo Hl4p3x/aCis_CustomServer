@@ -55,7 +55,7 @@ public class PlayerStatus extends PlayableStatus
 	{
 		if (getActiveChar().isDead())
 			return;
-
+		
 		// If OFFLINE_MODE_NO_DAMAGE is enabled and player is offline and he is in store/craft mode, no damage is taken.
 		if (Config.OFFLINE_MODE_NO_DAMAGE && (getActiveChar().getClient() != null) && getActiveChar().getClient().isDetached() && ((Config.OFFLINE_TRADE_ENABLE && ((getActiveChar().getOperateType() == OperateType.SELL) || (getActiveChar().getOperateType() == OperateType.BUY))) || (Config.OFFLINE_CRAFT_ENABLE && (getActiveChar().isCrafting() || (getActiveChar().getOperateType() == OperateType.MANUFACTURE)))))
 			return;

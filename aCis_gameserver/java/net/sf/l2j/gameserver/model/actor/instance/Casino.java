@@ -15,7 +15,6 @@ import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
 
 /**
  * @author Williams
- *
  */
 public class Casino extends Folk
 {
@@ -49,7 +48,7 @@ public class Casino extends Folk
 	public static void displayCongrats(Player player)
 	{
 		player.broadcastPacket(new SocialAction(player, 3));
-		MagicSkillUse  MSU = new MagicSkillUse(player, player, 2024, 1, 1, 0);
+		MagicSkillUse MSU = new MagicSkillUse(player, player, 2024, 1, 1, 0);
 		player.broadcastPacket(MSU);
 		player.sendMessage("Congratulations! you won");
 	}
@@ -137,33 +136,35 @@ public class Casino extends Folk
 	static class Casino2 implements Runnable
 	{
 		private Player _player;
+		
 		Casino2(Player player)
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(3);
 			
-			if(_player.getInventory().getInventoryItemCount(9142, 0) >= 4)
+			if (_player.getInventory().getInventoryItemCount(9142, 0) >= 4)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 9142, 4, _player, null);
 				}
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 4, _player, null);
 				}
-				if(chance == 2)
+				if (chance == 2)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 4, _player, null);
@@ -190,33 +191,35 @@ public class Casino extends Folk
 	static class Casino3 implements Runnable
 	{
 		private Player _player;
+		
 		Casino3(Player player)
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(3);
 			
-			if(_player.getInventory().getInventoryItemCount(9142, 0) >= 8)
+			if (_player.getInventory().getInventoryItemCount(9142, 0) >= 8)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 9142, 8, _player, null);
 				}
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 8, _player, null);
 				}
-				if(chance == 2)
+				if (chance == 2)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 8, _player, null);
@@ -243,33 +246,35 @@ public class Casino extends Folk
 	static class Casino4 implements Runnable
 	{
 		private Player _player;
+		
 		Casino4(Player player)
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(3);
 			
-			if(_player.getInventory().getInventoryItemCount(9142, 0) >= 16)
+			if (_player.getInventory().getInventoryItemCount(9142, 0) >= 16)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 9142, 16, _player, null);
 				}
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 16, _player, null);
 				}
-				if(chance == 2)
+				if (chance == 2)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 9142, 16, _player, null);
@@ -296,28 +301,30 @@ public class Casino extends Folk
 	static class Casino5 implements Runnable
 	{
 		private Player _player;
+		
 		Casino5(Player player)
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(2);
 			
-			if(_player.getInventory().getInventoryItemCount(57, 0) >= 500000)
+			if (_player.getInventory().getInventoryItemCount(57, 0) >= 500000)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 57, 500000, _player, null);
 				}
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 57, 500000, _player, null);
@@ -329,7 +336,7 @@ public class Casino extends Folk
 	}
 	
 	public static void Casino6(Player player)
-	{  
+	{
 		player.setTarget(player);
 		player.getAI().setIntention(IntentionType.IDLE);
 		player.disableAllSkills();
@@ -344,33 +351,35 @@ public class Casino extends Folk
 	static class Casino6 implements Runnable
 	{
 		private Player _player;
+		
 		Casino6(Player player)
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(3);
 			
-			if(_player.getInventory().getInventoryItemCount(57, 0) >= 1000000)
+			if (_player.getInventory().getInventoryItemCount(57, 0) >= 1000000)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 57, 1000000, _player, null);
 				}
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 57, 1000000, _player, null);
 				}
-				if(chance == 2)
+				if (chance == 2)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 57, 1000000, _player, null);
@@ -402,31 +411,32 @@ public class Casino extends Folk
 		{
 			_player = player;
 		}
+		
 		@Override
 		public void run()
 		{
-			if(_player.isDead())
+			if (_player.isDead())
 				return;
 			
 			_player.setIsIn7sDungeon(false);
 			_player.enableAllSkills();
 			int chance = Rnd.get(3);
 			
-			if(_player.getInventory().getInventoryItemCount(57, 0) >= 10000000)
+			if (_player.getInventory().getInventoryItemCount(57, 0) >= 10000000)
 			{
-				if(chance == 0)
+				if (chance == 0)
 				{
 					displayCongrats(_player);
 					_player.getInventory().addItem("Adena", 57, 10000000, _player, null);
 				}
 				
-				if(chance == 1)
+				if (chance == 1)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 57, 10000000, _player, null);
 				}
 				
-				if(chance == 2)
+				if (chance == 2)
 				{
 					_player.sendMessage("You lost the bet");
 					_player.getInventory().destroyItemByItemId("Adena", 57, 10000000, _player, null);

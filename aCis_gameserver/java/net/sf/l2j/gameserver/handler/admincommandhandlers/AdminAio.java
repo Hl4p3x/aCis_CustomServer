@@ -12,7 +12,6 @@ import net.sf.l2j.gameserver.taskmanager.AioTaskManager;
 
 /**
  * @author Williams
- *
  */
 public class AdminAio implements IAdminCommandHandler
 {
@@ -80,7 +79,7 @@ public class AdminAio implements IAdminCommandHandler
 			if (target != null)
 			{
 				if (target.isAio())
-			{
+				{
 					target.setAio(false);
 					activeChar.sendMessage(target.getName() + " seu Aio foi removido.");
 				}

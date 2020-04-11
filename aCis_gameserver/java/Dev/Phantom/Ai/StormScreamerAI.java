@@ -16,13 +16,12 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class StormScreamerAI extends CombatAI
 {
 	public StormScreamerAI(FakePlayer character)
 	{
-		super(character);		
+		super(character);
 	}
 	
 	@Override
@@ -33,7 +32,7 @@ public class StormScreamerAI extends CombatAI
 		applyDefaultBuffs();
 		handleShots();
 		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -56,22 +55,24 @@ public class StormScreamerAI extends CombatAI
 		_offensiveSpells.add(new OffensiveSpell(1343, 2));
 		_offensiveSpells.add(new OffensiveSpell(1234, 3));
 		_offensiveSpells.add(new OffensiveSpell(1239, 4));
-		return _offensiveSpells; 
+		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getMageBuffs();
-    }
-
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getMageBuffs();
+	}
+	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

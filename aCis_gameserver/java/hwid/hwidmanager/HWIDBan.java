@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import net.sf.l2j.L2DatabaseFactory;
 import net.sf.l2j.gameserver.network.GameClient;
 
-
 public class HWIDBan
 {
 	protected static Logger _log = Logger.getLogger(HWIDBan.class.getName());
@@ -63,13 +62,13 @@ public class HWIDBan
 				if (con != null)
 					if (localThrowable2 != null)
 						try
-				{
+						{
 							con.close();
-				}
-				catch (Throwable x2)
-				{
-					localThrowable2.addSuppressed(x2);
-				}
+						}
+						catch (Throwable x2)
+						{
+							localThrowable2.addSuppressed(x2);
+						}
 					else
 						con.close();
 			}
@@ -128,13 +127,13 @@ public class HWIDBan
 				if (con != null)
 					if (localThrowable2 != null)
 						try
-				{
+						{
 							con.close();
-				}
-				catch (Throwable x2)
-				{
-					localThrowable2.addSuppressed(x2);
-				}
+						}
+						catch (Throwable x2)
+						{
+							localThrowable2.addSuppressed(x2);
+						}
 					else
 						con.close();
 			}

@@ -182,7 +182,7 @@ public class TradeList
 		
 		if (count <= 0 || count > item.getCount())
 			return null;
-
+		
 		if ((getOwner().isGM() && Config.GM_TRADE_RESTRICTED_ITEMS))
 			return null;
 		

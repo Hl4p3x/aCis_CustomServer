@@ -3,13 +3,11 @@ package net.sf.l2j.gameserver.model.actor.instance;
 import java.util.StringTokenizer;
 
 import net.sf.l2j.Config;
-
-
-
-import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
-import net.sf.l2j.gameserver.model.group.Party;
 import net.sf.l2j.gameserver.data.xml.PlayerData;
 import net.sf.l2j.gameserver.enums.actors.ClassId;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
+import net.sf.l2j.gameserver.model.group.Party;
 import net.sf.l2j.gameserver.model.olympiad.OlympiadManager;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
@@ -20,8 +18,6 @@ import Dev.Tournament.Arena2x2;
 import Dev.Tournament.Arena4x4;
 import Dev.Tournament.Arena9x9;
 
-import net.sf.l2j.gameserver.model.actor.Player;
-
 public class Tournament extends Folk
 {
 	
@@ -29,7 +25,7 @@ public class Tournament extends Folk
 	{
 		super(objectId, template);
 	}
-
+	
 	@Override
 	public void showChatWindow(Player player)
 	{
@@ -39,84 +35,92 @@ public class Tournament extends Folk
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", getObjectId());
-
-		   if (Arena2x2.registered.size() == 0) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-	        }
-	        else if (Arena2x2.registered.size() == 1) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
-	        }
-	        else if (Arena2x2.registered.size() == 2) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
-	        }
-	        else if (Arena2x2.registered.size() == 3) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
-	        }
-	        else if (Arena2x2.registered.size() == 4) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
-	        }
-	        else if (Arena2x2.registered.size() == 5) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
-	        }
-	        else if (Arena2x2.registered.size() == 6) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
-	        }
-	        else if (Arena2x2.registered.size() == 7) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
-	        }
-	        else if (Arena2x2.registered.size() == 8) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
-	        }
-	        else if (Arena2x2.registered.size() >= 9) {
-	            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
-	        }
-		   
-			if (Arena2x2.registered.size() == 0)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 1)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 2)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 3)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 4)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 5)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 6)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 7)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 8)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() >= 9)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
 		
-			if (Arena2x2.registered.size() == 0)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 1)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 2)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 3)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 4)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 5)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 6)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 7)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() == 8)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena2x2.registered.size() >= 9)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		if (Arena2x2.registered.size() == 0)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena2x2.registered.size() == 1)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
+		}
+		else if (Arena2x2.registered.size() == 2)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
+		}
+		else if (Arena2x2.registered.size() == 3)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
+		}
+		else if (Arena2x2.registered.size() == 4)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
+		}
+		else if (Arena2x2.registered.size() == 5)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
+		}
+		else if (Arena2x2.registered.size() == 6)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
+		}
+		else if (Arena2x2.registered.size() == 7)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
+		}
+		else if (Arena2x2.registered.size() == 8)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
+		}
+		else if (Arena2x2.registered.size() >= 9)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
+		}
 		
-	
-	        player.sendPacket(html);
-	    }
-	
+		if (Arena2x2.registered.size() == 0)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 1)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 2)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 3)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 4)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 5)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 6)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 7)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 8)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() >= 9)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		
+		if (Arena2x2.registered.size() == 0)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 1)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 2)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 3)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 4)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 5)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 6)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 7)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() == 8)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena2x2.registered.size() >= 9)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		
+		player.sendPacket(html);
+	}
 	
 	public void showChatWindow1(Player player)
 	{
@@ -125,86 +129,92 @@ public class Tournament extends Folk
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", getObjectId());
-
-
-	
-			if (Arena4x4.registered.size() == 0)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 1)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
-			else if (Arena4x4.registered.size() == 2)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
-			else if (Arena4x4.registered.size() == 3)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
-			else if (Arena4x4.registered.size() == 4)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
-			else if (Arena4x4.registered.size() == 5)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
-			else if (Arena4x4.registered.size() == 6)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
-			else if (Arena4x4.registered.size() == 7)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
-			else if (Arena4x4.registered.size() == 8)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
-			else if (Arena4x4.registered.size() >= 9)
-				html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
 		
-			   if (Arena4x4.registered.size() == 0) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 1) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 2) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 3) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 4) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 5) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 6) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 7) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() == 8) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena4x4.registered.size() >= 9) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-			   
-			   
-			if (Arena4x4.registered.size() == 0)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 1)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 2)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 3)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 4)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 5)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 6)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 7)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() == 8)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena4x4.registered.size() >= 9)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		if (Arena4x4.registered.size() == 0)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 1)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
+		else if (Arena4x4.registered.size() == 2)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
+		else if (Arena4x4.registered.size() == 3)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
+		else if (Arena4x4.registered.size() == 4)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
+		else if (Arena4x4.registered.size() == 5)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
+		else if (Arena4x4.registered.size() == 6)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
+		else if (Arena4x4.registered.size() == 7)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
+		else if (Arena4x4.registered.size() == 8)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
+		else if (Arena4x4.registered.size() >= 9)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
 		
-	
-	        player.sendPacket(html);
-	    }
+		if (Arena4x4.registered.size() == 0)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 1)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 2)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 3)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 4)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 5)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 6)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 7)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() == 8)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena4x4.registered.size() >= 9)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		
+		if (Arena4x4.registered.size() == 0)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 1)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 2)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 3)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 4)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 5)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 6)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 7)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() == 8)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena4x4.registered.size() >= 9)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		
+		player.sendPacket(html);
+	}
 	
 	public void showChatWindow2(Player player)
 	{
@@ -213,88 +223,93 @@ public class Tournament extends Folk
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", getObjectId());
-
-
-	
-			if (Arena9x9.registered.size() == 0)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			else if (Arena9x9.registered.size() == 1)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
-			else if (Arena9x9.registered.size() == 2)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
-			else if (Arena9x9.registered.size() == 3)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
-			else if (Arena9x9.registered.size() == 4)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
-			else if (Arena9x9.registered.size() == 5)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
-			else if (Arena9x9.registered.size() == 6)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
-			else if (Arena9x9.registered.size() == 7)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
-			else if (Arena9x9.registered.size() == 8)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
-			else if (Arena9x9.registered.size() >= 9)
-				html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
 		
-			   if (Arena9x9.registered.size() == 0) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 1) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 2) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 3) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 4) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 5) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 6) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 7) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() == 8) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-		        else if (Arena9x9.registered.size() >= 9) {
-		            html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-		        }
-			   
-				if (Arena9x9.registered.size() == 0)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 1)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 2)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 3)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 4)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 5)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 6)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 7)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() == 8)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-				else if (Arena9x9.registered.size() >= 9)
-					html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
-			
+		if (Arena9x9.registered.size() == 0)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 1)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_1_over\" fore=\"L2UI_CH3.calculate1_1\">");
+		else if (Arena9x9.registered.size() == 2)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_2_over\" fore=\"L2UI_CH3.calculate1_2\">");
+		else if (Arena9x9.registered.size() == 3)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_3_over\" fore=\"L2UI_CH3.calculate1_3\">");
+		else if (Arena9x9.registered.size() == 4)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_4_over\" fore=\"L2UI_CH3.calculate1_4\">");
+		else if (Arena9x9.registered.size() == 5)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_5_over\" fore=\"L2UI_CH3.calculate1_5\">");
+		else if (Arena9x9.registered.size() == 6)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_6_over\" fore=\"L2UI_CH3.calculate1_6\">");
+		else if (Arena9x9.registered.size() == 7)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_7_over\" fore=\"L2UI_CH3.calculate1_7\">");
+		else if (Arena9x9.registered.size() == 8)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_8_over\" fore=\"L2UI_CH3.calculate1_8\">");
+		else if (Arena9x9.registered.size() >= 9)
+			html.replace("%9x9%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_9_over\" fore=\"L2UI_CH3.calculate1_9\">");
+		
+		if (Arena9x9.registered.size() == 0)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 1)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 2)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 3)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 4)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 5)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 6)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 7)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() == 8)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		else if (Arena9x9.registered.size() >= 9)
+		{
+			html.replace("%2x2%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		}
+		
+		if (Arena9x9.registered.size() == 0)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 1)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 2)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 3)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 4)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 5)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 6)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 7)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() == 8)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		else if (Arena9x9.registered.size() >= 9)
+			html.replace("%4x4%", "<button value=\"\" action=\"\" width=32 height=32 back=\"L2UI_CH3.calculate1_0_over\" fore=\"L2UI_CH3.calculate1_0\">");
+		
+		player.sendPacket(html);
+	}
 	
-	        player.sendPacket(html);
-	    }
-	
-	
-
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{
@@ -306,8 +321,8 @@ public class Tournament extends Folk
 				player.sendPacket(SystemMessageId.ACADEMY_LIST_HEADER);
 				return;
 			}
-
-			if (player.isArena2x2() || player.isArena4x4() || player.isArena9x9() ||player.isArenaProtection())
+			
+			if (player.isArena2x2() || player.isArena4x4() || player.isArena9x9() || player.isArenaProtection())
 			{
 				player.sendMessage("Tournament: You already registered!");
 				return;
@@ -334,14 +349,12 @@ public class Tournament extends Folk
 				player.sendPacket(new ExShowScreenMessage("Your Party can not have more than 2 members", 6000));
 				return;
 			}
-
+			
 			Player assist = player.getParty().getMembers().get(1);
 			
 			className = PlayerData.getInstance().getClassNameById(player.getClassId().getId());
 			String assist_className = PlayerData.getInstance().getClassNameById(assist.getClassId().getId());
-
-
-
+			
 			if ((player.getClassId() == ClassId.GLADIATOR || player.getClassId() == ClassId.DUELIST || player.getClassId() == ClassId.GRAND_KHAVATARI || player.getClassId() == ClassId.TYRANT) && (assist.getClassId() == ClassId.GLADIATOR || assist.getClassId() == ClassId.DUELIST || assist.getClassId() == ClassId.GRAND_KHAVATARI || assist.getClassId() == ClassId.TYRANT))
 			{
 				player.sendMessage("Tournament: Only 1 " + (String) className + " / " + assist_className + " allowed per party.");
@@ -390,8 +403,7 @@ public class Tournament extends Folk
 				assist.sendMessage("Tournament: You or your member is registered in the Olympiad.");
 				return;
 			}
-
-
+			
 			if (Arena2x2.getInstance().register(player, assist))
 			{
 				player.sendMessage("Tournament: Your participation has been approved.");
@@ -403,21 +415,21 @@ public class Tournament extends Folk
 				showChatWindow(player);
 			}
 			
-
 			else
 				player.sendMessage("Tournament: You or your member does not have the necessary requirements.");
-		}else
+		}
+		else
 		{
 			Object assist2;
 			if (command.startsWith("4x4"))
 			{
-
+				
 				if (!Config.ALLOW_4X4_REGISTER)
 				{
 					player.sendPacket(SystemMessageId.ACADEMY_LIST_HEADER);
 					return;
 				}
-
+				
 				if (player.isArena2x2() || player.isArena4x4() || player.isArena9x9() || player.isArenaProtection())
 				{
 					player.sendMessage("Tournament: You already registered!");
@@ -445,11 +457,11 @@ public class Tournament extends Folk
 					player.sendPacket(new ExShowScreenMessage("Your Party can not have more than 4 members", 6000));
 					return;
 				}
-
+				
 				Player assist = player.getParty().getMembers().get(1);
 				assist2 = player.getParty().getMembers().get(2);
 				Player assist3 = player.getParty().getMembers().get(3);
-
+				
 				if (player.isCursedWeaponEquipped() || assist.isCursedWeaponEquipped() || ((Player) assist2).isCursedWeaponEquipped() || assist3.isCursedWeaponEquipped() || player.isInStoreMode() || assist.isInStoreMode() || ((Player) assist2).isInStoreMode() || assist3.isInStoreMode() || player.getKarma() > 0 || assist.getKarma() > 0 || ((Player) assist2).getKarma() > 0 || assist3.getKarma() > 0)
 				{
 					player.sendMessage("Tournament: You or your member does not have the necessary requirements.");
@@ -466,11 +478,9 @@ public class Tournament extends Folk
 					assist3.sendMessage("Tournament: You or your member is registered in the Olympiad.");
 					return;
 				}
-
-
-
+				
 				ClasseCheck(player);
-
+				
 				if (player.duelist_cont > Config.duelist_COUNT_4X4)
 				{
 					player.sendMessage("Tournament: Only " + Config.duelist_COUNT_4X4 + " Duelist's or " + Config.duelist_COUNT_4X4 + " Grand Khauatari's allowed per party.");
@@ -561,12 +571,12 @@ public class Tournament extends Folk
 					assist.sendMessage("Tournament: Your participation has been approved.");
 					((Player) assist2).sendMessage("Tournament: Your participation has been approved.");
 					assist3.sendMessage("Tournament: Your participation has been approved.");
-
+					
 					player.setArenaProtection(true);
 					assist.setArenaProtection(true);
 					((Player) assist2).setArenaProtection(true);
 					assist3.setArenaProtection(true);
-
+					
 					player.setArena4x4(true);
 					assist.setArena4x4(true);
 					((Player) assist2).setArena4x4(true);
@@ -579,13 +589,13 @@ public class Tournament extends Folk
 			}
 			else if (command.startsWith("9x9"))
 			{
-
+				
 				if (!Config.ALLOW_9X9_REGISTER)
 				{
 					player.sendPacket(SystemMessageId.ACADEMY_LIST_HEADER);
 					return;
 				}
-
+				
 				if (player.isArena2x2() || player.isArena4x4() || player.isArena9x9() || player.isArenaProtection())
 				{
 					player.sendMessage("Tournament: You already registered!");
@@ -613,7 +623,7 @@ public class Tournament extends Folk
 					player.sendPacket(new ExShowScreenMessage("Your Party can not have more than 9 members", 6000));
 					return;
 				}
-
+				
 				Player assist = player.getParty().getMembers().get(1);
 				Player assist21 = player.getParty().getMembers().get(2);
 				Player assist3 = player.getParty().getMembers().get(3);
@@ -622,7 +632,7 @@ public class Tournament extends Folk
 				Player assist6 = player.getParty().getMembers().get(6);
 				Player assist7 = player.getParty().getMembers().get(7);
 				Player assist8 = player.getParty().getMembers().get(8);
-
+				
 				if (player.isCursedWeaponEquipped() || assist.isCursedWeaponEquipped() || assist21.isCursedWeaponEquipped() || assist3.isCursedWeaponEquipped() || assist4.isCursedWeaponEquipped() || assist5.isCursedWeaponEquipped() || assist6.isCursedWeaponEquipped() || assist7.isCursedWeaponEquipped() || assist8.isCursedWeaponEquipped() || player.isInStoreMode() || assist.isInStoreMode() || assist21.isInStoreMode() || assist3.isInStoreMode() || assist4.isInStoreMode() || assist5.isInStoreMode() || assist6.isInStoreMode() || assist7.isInStoreMode() || assist8.isInStoreMode() || player.getKarma() > 0 || assist.getKarma() > 0 || assist21.getKarma() > 0 || assist3.getKarma() > 0 || assist4.getKarma() > 0 || assist5.getKarma() > 0 || assist6.getKarma() > 0 || assist7.getKarma() > 0 || assist8.getKarma() > 0)
 				{
 					player.sendMessage("Tournament: You or your member does not have the necessary requirements.");
@@ -649,11 +659,9 @@ public class Tournament extends Folk
 					assist8.sendMessage("Tournament: You or your member is registered in the Olympiad.");
 					return;
 				}
-
-
-	
+				
 				ClasseCheck(player);
-
+				
 				if (player.duelist_cont > Config.duelist_COUNT_9X9)
 				{
 					player.sendMessage("Tournament: Only " + Config.duelist_COUNT_9X9 + " Duelist's or " + Config.duelist_COUNT_9X9 + " Grand Khauatari's allowed per party.");
@@ -749,7 +757,7 @@ public class Tournament extends Folk
 					assist6.sendMessage("Tournament: Your participation has been approved.");
 					assist7.sendMessage("Tournament: Your participation has been approved.");
 					assist8.sendMessage("Tournament: Your participation has been approved.");
-
+					
 					player.setArenaProtection(true);
 					assist.setArenaProtection(true);
 					assist21.setArenaProtection(true);
@@ -759,7 +767,7 @@ public class Tournament extends Folk
 					assist6.setArenaProtection(true);
 					assist7.setArenaProtection(true);
 					assist8.setArenaProtection(true);
-
+					
 					player.setArena9x9(true);
 					assist.setArena9x9(true);
 					assist21.setArena9x9(true);
@@ -787,12 +795,12 @@ public class Tournament extends Folk
 					player.sendMessage("Tournament: You are not the party leader!");
 					return;
 				}
-
+				
 				Arena2x2.getInstance().remove(player);
 				Arena9x9.getInstance().remove(player);
 				Arena4x4.getInstance().remove(player);
 				showChatWindow(player);
-
+				
 			}
 			else if (command.startsWith("observe_list"))
 			{
@@ -807,23 +815,23 @@ public class Tournament extends Folk
 				showChatWindow(player);
 			else if (command.startsWith("tournament_observe"))
 			{
-
+				
 				StringTokenizer st = new StringTokenizer(command);
 				st.nextToken();
-
+				
 				int x = Integer.parseInt(st.nextToken());
 				int y = Integer.parseInt(st.nextToken());
 				int z = Integer.parseInt(st.nextToken());
-
+				
 				player.setArenaObserv(true);
 				player.enterObserverMode(x, y, z);
 			}
 			else
 				super.onBypassFeedback(player, command);
 		}
+		
+	}
 	
-}
-
 	public void ClasseCheck(Player activeChar)
 	{
 		Party plparty = activeChar.getParty();
@@ -857,7 +865,7 @@ public class Tournament extends Folk
 						activeChar.dominator_cont += 1;
 				}
 	}
-
+	
 	public void clean(Player player)
 	{
 		player.duelist_cont = 0;

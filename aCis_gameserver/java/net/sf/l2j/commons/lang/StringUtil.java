@@ -48,7 +48,7 @@ public final class StringUtil
 		final StringBuilder sbString = new StringBuilder();
 		for (final String string : strings)
 			sbString.append(string);
-
+		
 		return sbString.toString();
 	}
 	

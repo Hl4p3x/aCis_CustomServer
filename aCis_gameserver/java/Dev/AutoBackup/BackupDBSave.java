@@ -22,14 +22,8 @@ import net.sf.l2j.Config;
 import net.sf.l2j.L2DatabaseFactory;
 import net.sf.l2j.util.Mysql;
 
-
 /**
- * @author DevKatara
- * 
- * note to RESTORE
- * Unzip the file
- * Then go to database via navicat and run Execute SQL File
- * Then declick the option "Run multiple queries in each execution" to avoid conflict with locks of tables 
+ * @author DevKatara note to RESTORE Unzip the file Then go to database via navicat and run Execute SQL File Then declick the option "Run multiple queries in each execution" to avoid conflict with locks of tables
  */
 public class BackupDBSave
 {
@@ -44,7 +38,7 @@ public class BackupDBSave
 		
 		System.out.println("Database Backup Manager: Loaded");
 	}
-
+	
 	public void BackupDBToSql()
 	{
 		String pathOfMysql = "\"";
@@ -82,7 +76,8 @@ public class BackupDBSave
 		// Give the specific path (pathOfMysql out = C:\Program Files\MySQL\MySQL Server 5.7\)
 		pathOfMysql += "bin\\mysqldump" + "\"";
 		
-		if(DEBUG_SYSTEM) System.out.println("Path of mysql: " + pathOfMysql);
+		if (DEBUG_SYSTEM)
+			System.out.println("Path of mysql: " + pathOfMysql);
 		
 		// Initialize code for backup
 		try
@@ -92,7 +87,7 @@ public class BackupDBSave
 			File applicationRootPath = new File(applicationRootPathURL.getPath());
 			File myFile = new File(applicationRootPath.getParent());
 			File lastMyFile = new File(myFile.getParent());
-
+			
 			String dbUser = Config.DATABASE_LOGIN;
 			String dbPass = Config.DATABASE_PASSWORD;
 			
@@ -109,10 +104,10 @@ public class BackupDBSave
 			/* NOTE: Creating Path Constraints for backup saving */
 			/* NOTE: Here the backup is saved in a folder called backup with the name backup.sql */
 			String pathUntilDirectory = (lastMyFile.getAbsolutePath() + "\\backup\\").replaceAll("%20", " ");
-			String savePath = ("\""+pathUntilDirectory + "backup.sql\"").replaceAll("%20", " ");
-
+			String savePath = ("\"" + pathUntilDirectory + "backup.sql\"").replaceAll("%20", " ");
+			
 			/* NOTE: Used to create a cmd command */
-			String commandToExecute = "cmd /c "+ pathOfMysql + commandOfMysqlDump + savePath;
+			String commandToExecute = "cmd /c " + pathOfMysql + commandOfMysqlDump + savePath;
 			
 			if (DEBUG_SYSTEM)
 			{
@@ -121,7 +116,12 @@ public class BackupDBSave
 			}
 			
 			/* NOTE: Executing the command here */
-			Process runtimeProcess = Runtime.getRuntime().exec(new String[] {"cmd", "/c", commandToExecute });
+			Process runtimeProcess = Runtime.getRuntime().exec(new String[]
+			{
+				"cmd",
+				"/c",
+				commandToExecute
+			});
 			
 			if (DEBUG_SYSTEM)
 			{
@@ -131,13 +131,15 @@ public class BackupDBSave
 				// read the output from the command
 				System.out.println("Here is the standard output of the command:\n");
 				String s = null;
-				while ((s = stdInput.readLine()) != null) {
+				while ((s = stdInput.readLine()) != null)
+				{
 					System.out.println(s);
 				}
 				
 				// read any errors from the attempted command
 				System.out.println("Here is the standard error of the command (if any):\n");
-				while ((s = stdError.readLine()) != null) {
+				while ((s = stdError.readLine()) != null)
+				{
 					System.out.println(s);
 				}
 			}
@@ -174,9 +176,9 @@ public class BackupDBSave
 		try
 		{
 			DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
-            Date date = new Date();
+			Date date = new Date();
 			
-			FileOutputStream fos = new FileOutputStream(pathToSave + "Backup_"+dateFormat.format(date)+".zip");
+			FileOutputStream fos = new FileOutputStream(pathToSave + "Backup_" + dateFormat.format(date) + ".zip");
 			ZipOutputStream zos = new ZipOutputStream(fos);
 			ZipEntry ze = new ZipEntry("backup.sql");
 			zos.putNextEntry(ze);
@@ -204,18 +206,22 @@ public class BackupDBSave
 		
 	}
 	
-	private static void deleteAFile(String path) {
-		try{
-    		File file = new File(path);
-    		System.out.println(file.delete() ? (file.getName() + " is deleted!") : ("Delete operation is failed."));
-    		
-    	}catch(Exception e){
-
-    		e.printStackTrace();
-
-    	}
+	private static void deleteAFile(String path)
+	{
+		try
+		{
+			File file = new File(path);
+			System.out.println(file.delete() ? (file.getName() + " is deleted!") : ("Delete operation is failed."));
+			
+		}
+		catch (Exception e)
+		{
+			
+			e.printStackTrace();
+			
+		}
 	}
-
+	
 	public static BackupDBSave getInstance()
 	{
 		return SingletonHolder._instance;

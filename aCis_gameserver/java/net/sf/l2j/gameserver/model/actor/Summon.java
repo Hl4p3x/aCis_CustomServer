@@ -554,15 +554,15 @@ public abstract class Summon extends Playable
 				return false;
 			}
 			
-			 if (target instanceof Npc && Config.DISABLE_ATTACK_NPC_TYPE)
-			 {
-			     String mobtype = ((Npc) target).getTemplate().getType();
-			     if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype))
-			     {
-			         sendPacket(SystemMessage.getSystemMessage(SystemMessageId.INCORRECT_TARGET));
-			         return false;
-			     }
-			 }
+			if (target instanceof Npc && Config.DISABLE_ATTACK_NPC_TYPE)
+			{
+				String mobtype = ((Npc) target).getTemplate().getType();
+				if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype))
+				{
+					sendPacket(SystemMessage.getSystemMessage(SystemMessageId.INCORRECT_TARGET));
+					return false;
+				}
+			}
 			
 			// Check if the target is attackable
 			if (target instanceof Door)

@@ -7,15 +7,15 @@ public class VMPC implements ProtectionCrypt
 	private byte _n = 0;
 	private final byte[] _P = new byte[256];
 	private byte _s = 0;
-
+	
 	@Override
 	public void setup(byte[] key, byte[] iv)
 	{
 		_s = 0;
-
+		
 		for (int i = 0; i < 256; i++)
 			_P[i] = (byte) (i & 0xFF);
-
+		
 		for (int m = 0; m < 768; m++)
 		{
 			_s = _P[_s + _P[m & 0xFF] + key[m % 64] & 0xFF];
@@ -23,7 +23,7 @@ public class VMPC implements ProtectionCrypt
 			_P[m & 0xFF] = _P[_s & 0xFF];
 			_P[_s & 0xFF] = temp;
 		}
-
+		
 		for (int m = 0; m < 768; m++)
 		{
 			_s = _P[_s + _P[m & 0xFF] + iv[m % 64] & 0xFF];
@@ -31,7 +31,7 @@ public class VMPC implements ProtectionCrypt
 			_P[m & 0xFF] = _P[_s & 0xFF];
 			_P[_s & 0xFF] = temp;
 		}
-
+		
 		for (int m = 0; m < 768; m++)
 		{
 			_s = _P[_s + _P[m & 0xFF] + key[m % 64] & 0xFF];
@@ -39,10 +39,10 @@ public class VMPC implements ProtectionCrypt
 			_P[m & 0xFF] = _P[_s & 0xFF];
 			_P[_s & 0xFF] = temp;
 		}
-
+		
 		_n = 0;
 	}
-
+	
 	@Override
 	public void crypt(byte[] raw, int offset, int size)
 	{

@@ -77,7 +77,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 				StatsSet playerStat = Olympiad.getInstance().getNobleStats(target.getObjectId());
 				if (playerStat == null)
 				{
-					activeChar.sendMessage("Desculpe mais "+ target.getName() + " ainda não tem registro nas Olimpídas");
+					activeChar.sendMessage("Desculpe mais " + target.getName() + " ainda não tem registro nas Olimpídas");
 					return false;
 				}
 				
@@ -106,7 +106,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 				StatsSet playerStat = Olympiad.getInstance().getNobleStats(target.getObjectId());
 				if (playerStat == null)
 				{
-					activeChar.sendMessage("Desculpe mais "+ target.getName() + " ainda não tem registro nas Olimpídas");
+					activeChar.sendMessage("Desculpe mais " + target.getName() + " ainda não tem registro nas Olimpídas");
 					return false;
 				}
 				int oldpoints = Olympiad.getInstance().getNoblePoints(target.getObjectId());
@@ -172,7 +172,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 	{
 		target.setHero(true);
 		HeroTaskManager.getInstance().add(target);
-
+		
 		long remainingTime = target.getMemos().getLong("heroTime", 0);
 		if (remainingTime > 0)
 		{

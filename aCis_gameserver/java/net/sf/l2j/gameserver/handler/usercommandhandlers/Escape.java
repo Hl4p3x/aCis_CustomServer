@@ -31,18 +31,18 @@ public class Escape implements IUserCommandHandler
 			player.doCast(SkillTable.getInstance().getInfo(2100, 1));
 		else
 		{
-		    player.sendPacket(new PlaySound("systemmsg_e.809"));
-		    int unstuckTimer = Config.UNSTUCK_TIME * 1000;
-		   
-		    L2Skill skill = SkillTable.getInstance().getInfo(2099, 1);
-		    skill.setHitTime(unstuckTimer);
-		    player.doCast(skill);
-
-		    if (unstuckTimer < 60000)
-		        player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_S2).addString("You will unstuck in " + unstuckTimer / 1000 + " seconds."));
-		    else
-		        player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_S2).addString("You will unstuck i " + unstuckTimer / 60000 + " minutes."));
-
+			player.sendPacket(new PlaySound("systemmsg_e.809"));
+			int unstuckTimer = Config.UNSTUCK_TIME * 1000;
+			
+			L2Skill skill = SkillTable.getInstance().getInfo(2099, 1);
+			skill.setHitTime(unstuckTimer);
+			player.doCast(skill);
+			
+			if (unstuckTimer < 60000)
+				player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_S2).addString("You will unstuck in " + unstuckTimer / 1000 + " seconds."));
+			else
+				player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_S2).addString("You will unstuck i " + unstuckTimer / 60000 + " minutes."));
+			
 		}
 	}
 	

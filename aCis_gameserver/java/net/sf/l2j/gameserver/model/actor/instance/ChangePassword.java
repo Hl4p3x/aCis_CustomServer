@@ -16,7 +16,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
  * @author williams
- *
  */
 public class ChangePassword extends Folk
 {
@@ -51,7 +50,7 @@ public class ChangePassword extends Folk
 				return;
 			}
 			
-			try (Connection con = L2DatabaseFactory.getInstance().getConnection(); 
+			try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement ps = con.prepareStatement("UPDATE accounts SET password=? WHERE login=?"))
 			{
 				byte[] newPassword = MessageDigest.getInstance("SHA").digest(newPass.getBytes("UTF-8"));
@@ -69,14 +68,13 @@ public class ChangePassword extends Folk
 			}
 		}
 	}
-
+	
 	@Override
 	public void showChatWindow(Player player, int val)
 	{
 		String name = "data/html/mods/ChangePassword/" + getNpcId() + ".htm";
 		if (val != 0)
 			name = "data/html/mods/ChangePassword/" + getNpcId() + "-" + val + ".htm";
-		
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);

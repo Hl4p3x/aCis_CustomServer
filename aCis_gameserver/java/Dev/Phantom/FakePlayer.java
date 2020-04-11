@@ -1,9 +1,9 @@
 package Dev.Phantom;
 
-
 import java.util.logging.Level;
 
 import net.sf.l2j.gameserver.data.SkillTable.FrequentSkill;
+import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.manager.SevenSignsManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
@@ -15,7 +15,6 @@ import net.sf.l2j.gameserver.enums.SiegeSide;
 import net.sf.l2j.gameserver.enums.ZoneId;
 import net.sf.l2j.gameserver.enums.skills.L2SkillType;
 import net.sf.l2j.gameserver.geoengine.GeoEngine;
-import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.model.L2Effect;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.model.L2Skill.SkillTargetType;
@@ -24,13 +23,12 @@ import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Attackable;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Playable;
+import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.actor.container.player.Appearance;
 import net.sf.l2j.gameserver.model.actor.instance.Door;
 import net.sf.l2j.gameserver.model.actor.instance.Monster;
 import net.sf.l2j.gameserver.model.actor.instance.StaticObject;
-
 import net.sf.l2j.gameserver.model.actor.template.PlayerTemplate;
-import net.sf.l2j.gameserver.model.actor.Player;
-import net.sf.l2j.gameserver.model.actor.container.player.Appearance;
 import net.sf.l2j.gameserver.model.entity.Siege;
 import net.sf.l2j.gameserver.model.location.Location;
 import net.sf.l2j.gameserver.model.olympiad.OlympiadManager;
@@ -45,27 +43,27 @@ import Dev.Phantom.Helpers.FakeHelpers;
 
 /**
  * @author Rouxy
- *
  */
 public class FakePlayer extends Player
 {
-	private FakePlayerAI _fakeAi;	
+	private FakePlayerAI _fakeAi;
 	private boolean _underControl = true;
 	
-	public boolean isUnderControl() {
+	public boolean isUnderControl()
+	{
 		return _underControl;
 	}
 	
-	public void setUnderControl(boolean underControl) {
+	public void setUnderControl(boolean underControl)
+	{
 		_underControl = underControl;
 	}
-	
 	
 	public FakePlayer(int objectId, PlayerTemplate template, String accountName, Appearance app)
 	{
 		super(objectId, template, accountName, app);
 	}
-		
+	
 	public FakePlayerAI getFakeAi()
 	{
 		return _fakeAi;
@@ -76,17 +74,21 @@ public class FakePlayer extends Player
 		this._fakeAi = _fakeAi;
 	}
 	
-	public void assignDefaultAI(boolean b) {
-		try {
+	public void assignDefaultAI(boolean b)
+	{
+		try
+		{
 			setFakeAi(FakeHelpers.getAIbyClassId(getClassId()).getConstructor(FakePlayer.class).newInstance(this));
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
 	
 	public boolean checkUseMagicConditions(L2Skill skill, boolean forceUse, boolean dontMove)
 	{
-		if(skill == null)
+		if (skill == null)
 			return false;
 		
 		if (isDead() || isOutOfControl())
@@ -95,7 +97,7 @@ public class FakePlayer extends Player
 			return false;
 		}
 		
-		if(isSkillDisabled(skill))
+		if (isSkillDisabled(skill))
 			return false;
 		
 		L2SkillType sklType = skill.getSkillType();
@@ -104,7 +106,6 @@ public class FakePlayer extends Player
 		{
 			return false;
 		}
-		
 		
 		if (isSitting())
 		{
@@ -116,7 +117,7 @@ public class FakePlayer extends Player
 					effect.exit();
 					return false;
 				}
-			}			
+			}
 			return false;
 		}
 		
@@ -209,7 +210,7 @@ public class FakePlayer extends Player
 				}
 			}
 			// ************************************* Check skill availability *******************************************
-
+			
 			// Siege summon checks. Both checks send a message to the player if it return false.
 			if (skill.isSiegeSummonSkill())
 			{
@@ -219,7 +220,7 @@ public class FakePlayer extends Player
 					sendPacket(SystemMessage.getSystemMessage(SystemMessageId.NOT_CALL_PET_FROM_THIS_LOCATION));
 					return false;
 				}
-
+				
 				if (SevenSignsManager.getInstance().isSealValidationPeriod() && SevenSignsManager.getInstance().getSealOwner(SealType.STRIFE) == CabalType.DAWN && SevenSignsManager.getInstance().getPlayerCabal(getObjectId()) == CabalType.DUSK)
 				{
 					sendPacket(SystemMessageId.SEAL_OF_STRIFE_FORBIDS_SUMMONING);
@@ -438,43 +439,38 @@ public class FakePlayer extends Player
 				}
 		}
 		
-
-		
-		
 		// finally, after passing all conditions
 		return true;
 	}
 	
-
-
 	public void forceAutoAttack(Creature creature)
 	{
 		if (getTarget() == null)
 			return;
-
+		
 		if (isInsidePeaceZone(getTarget()))
 			return;
-
+		
 		if (isInOlympiadMode() && getTarget() != null && getTarget() instanceof Playable)
 		{
 			Player target = getTarget().getActingPlayer();
 			if (target == null || target.isInOlympiadMode() && (!isOlympiadStart() || getOlympiadGameId() != target.getOlympiadGameId()))
 				return;
 		}
-
+		
 		if (getTarget() != null && !getTarget().isAttackable() && !getAccessLevel().allowPeaceAttack())
 			return;
-
+		
 		if (isConfused())
 			return;
 		
 		// GeoData Los Check or dz > 1000
-		if (!GeoEngine.getInstance().canSeeTarget(this,getTarget()))
+		if (!GeoEngine.getInstance().canSeeTarget(this, getTarget()))
 		{
 			return;
 		}
 		
-		getAI().setIntention(IntentionType.ACTIVE);	
+		getAI().setIntention(IntentionType.ACTIVE);
 	}
 	
 	public synchronized void despawnPlayer()
@@ -494,8 +490,6 @@ public class FakePlayer extends Player
 			
 			if (isFlying())
 				removeSkill(FrequentSkill.WYVERN_BREATH.getSkill().getId(), false);
-			
-	
 			
 			// Cancel the cast of eventual fusion skill users on this target.
 			for (Creature character : getKnownType(Creature.class))
@@ -517,8 +511,8 @@ public class FakePlayer extends Player
 					case SIGNET_EFFECT:
 						effect.exit();
 						break;
-				default:
-					break;
+					default:
+						break;
 				}
 			}
 			
@@ -528,7 +522,6 @@ public class FakePlayer extends Player
 			// If a party is in progress, leave it
 			if (getParty() != null)
 				getParty().removePartyMember(this, MessageType.DISCONNECTED);
-
 			
 			// Handle removal from olympiad game
 			if (OlympiadManager.getInstance().isRegistered(this) || getOlympiadGameId() != -1)
@@ -556,10 +549,9 @@ public class FakePlayer extends Player
 				AdminData.deleteGm(this);
 			}
 			
-			
 			// Oust player from boat
-			//if (getVehicle() != null)
-				//getVehicle().oustPlayer(this, true, Location.DUMMY_LOC);
+			// if (getVehicle() != null)
+			// getVehicle().oustPlayer(this, true, Location.DUMMY_LOC);
 			
 			// Update inventory and remove them from the world
 			getInventory().deleteMe();
@@ -584,9 +576,7 @@ public class FakePlayer extends Player
 					((StaticObject) object).setBusy(false);
 			}
 			
-			
-			
-			//World.getInstance().removePlayer(this); // force remove in case of crash during teleport
+			// World.getInstance().removePlayer(this); // force remove in case of crash during teleport
 			
 			// friends & blocklist update
 			notifyFriends(false);
@@ -597,15 +587,12 @@ public class FakePlayer extends Player
 			LOGGER.info(Level.WARNING, "Exception on deleteMe()" + e.getMessage(), e);
 		}
 	}
-
-	public void heal() {
+	
+	public void heal()
+	{
 		setCurrentCp(getMaxCp());
 		setCurrentHp(getMaxHp());
 		setCurrentMp(getMaxMp());
 	}
 	
-	
-
-
-  
 }

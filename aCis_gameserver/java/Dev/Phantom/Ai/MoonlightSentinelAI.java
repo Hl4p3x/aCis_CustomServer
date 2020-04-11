@@ -17,16 +17,14 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class MoonlightSentinelAI extends CombatAI implements IConsumableSpender
 {
-
+	
 	public MoonlightSentinelAI(FakePlayer character)
 	{
 		super(character);
 	}
-	
 	
 	@Override
 	public void thinkAndAct()
@@ -36,9 +34,9 @@ public class MoonlightSentinelAI extends CombatAI implements IConsumableSpender
 		applyDefaultBuffs();
 		handleConsumable(_fakePlayer, getArrowId());
 		selfSupportBuffs();
-		handleShots();		
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -74,24 +72,25 @@ public class MoonlightSentinelAI extends CombatAI implements IConsumableSpender
 		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		List<SupportSpell> _selfSupportSpells = new ArrayList<>();
 		_selfSupportSpells.add(new SupportSpell(99, 1));
 		_selfSupportSpells.add(new SupportSpell(97, 1));
 		return _selfSupportSpells;
 	}
 	
-
 }

@@ -81,8 +81,6 @@ public class MoveBackwardToLocation extends L2GameClientPacket
 			return;
 		}
 		
-		
-		
 		// Correcting targetZ from floor level to head level
 		_targetZ += player.getCollisionHeight();
 		
@@ -96,13 +94,13 @@ public class MoveBackwardToLocation extends L2GameClientPacket
 			return;
 		}
 		
-		if(player.isControllingFakePlayer()) {
+		if (player.isControllingFakePlayer())
+		{
 			FakePlayer fakePlayer = player.getPlayerUnderControl();
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			fakePlayer.getAI().setIntention(IntentionType.MOVE_TO, new Location(_targetX, _targetY, _targetZ));
 			return;
 		}
-		
 		
 		double dx = _targetX - _originX;
 		double dy = _targetY - _originY;

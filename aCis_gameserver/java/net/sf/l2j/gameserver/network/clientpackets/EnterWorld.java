@@ -94,21 +94,22 @@ public class EnterWorld extends L2GameClientPacket
 			getClient().closeNow();
 			return;
 		}
-	
-        switch (player.getClassId().getId()) {
-            case 0: 
-            case 10: 
-            case 18: 
-            case 25: 
-            case 31: 
-            case 38: 
-            case 44: 
-            case 49: 
-            case 53: {
-                Player.doNewChar(player, 1);
-            }
-        }
 		
+		switch (player.getClassId().getId())
+		{
+			case 0:
+			case 10:
+			case 18:
+			case 25:
+			case 31:
+			case 38:
+			case 44:
+			case 49:
+			case 53:
+			{
+				Player.doNewChar(player, 1);
+			}
+		}
 		
 		getClient().setState(GameClientState.IN_GAME);
 		
@@ -121,7 +122,7 @@ public class EnterWorld extends L2GameClientPacket
 			
 			if (Config.GM_STARTUP_INVISIBLE && AdminData.getInstance().hasAccess("admin_hide", player.getAccessLevel()))
 				player.getAppearance().setVisible(false);
-
+			
 			if (Config.GM_STARTUP_SPEED && AdminData.getInstance().hasAccess("admin_gmspeed", player.getAccessLevel()))
 				player.doCast(SkillTable.getInstance().getInfo(7029, 4));
 			
@@ -139,7 +140,6 @@ public class EnterWorld extends L2GameClientPacket
 				AdminData.addGm(player, true);
 			}
 		}
-		
 		
 		// Set dead status if applies
 		if (player.getCurrentHp() < 0.5 && player.isMortal())
@@ -268,9 +268,6 @@ public class EnterWorld extends L2GameClientPacket
 		player.sendPacket(SystemMessageId.WELCOME_TO_LINEAGE);
 		player.sendPacket(SevenSignsManager.getInstance().getCurrentPeriod().getMessageId());
 		
-		
-		
-		
 		AnnouncementData.getInstance().showAnnouncements(player, false);
 		
 		Menu.sendMainWindow(player);
@@ -280,16 +277,13 @@ public class EnterWorld extends L2GameClientPacket
 			VipMenu.bypass(player, null, null);
 			player.sendMessage("" + player.getName() + "Use Command Vip Buffer /vip");
 		}
-
 		
 		if (ArenaTask.is_started() && Config.ARENA_MESSAGE_ENABLED)
 			player.sendPacket(new ExShowScreenMessage(Config.ARENA_MESSAGE_TEXT, Config.ARENA_MESSAGE_TIME, 2, true));
-
-	
 		
 		if (PartyFarm.is_started() && Config.PARTY_FARM_BY_TIME_OF_DAY)
 			player.sendPacket(new ExShowScreenMessage(Config.PARTY_FARM_MESSAGE_TEXT, 2));
-
+		
 		// if player is DE, check for shadow sense skill at night
 		if (player.getRace() == ClassRace.DARK_ELF && player.hasSkill(L2Skill.SKILL_SHADOW_SENSE))
 			player.sendPacket(SystemMessage.getSystemMessage((GameTimeTaskManager.getInstance().isNight()) ? SystemMessageId.NIGHT_S1_EFFECT_APPLIES : SystemMessageId.DAY_S1_EFFECT_DISAPPEARS).addSkillName(L2Skill.SKILL_SHADOW_SENSE));
@@ -380,8 +374,6 @@ public class EnterWorld extends L2GameClientPacket
 			sendPacket(html);
 		}
 		
-		
-		
 		PetitionManager.getInstance().checkPetitionMessages(player);
 		player.onPlayerEnter();
 		
@@ -400,28 +392,28 @@ public class EnterWorld extends L2GameClientPacket
 		// Attacker or spectator logging into a siege zone will be ported at town.
 		if (!player.isGM() && (!player.isInSiege() || player.getSiegeState() < 2) && player.isInsideZone(ZoneId.SIEGE))
 			player.teleportTo(TeleportType.TOWN);
-
+		
 		// Announce Top PvP
 		if (Config.ANNOUNCE_TOP && player.getPvpKills() > 0)
 		{
 			try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement ps = con.prepareStatement("SELECT char_name, pvpkills FROM characters WHERE accesslevel=0 ORDER BY pvpkills DESC LIMIT 1"))
-			{ 
-				try (ResultSet rset = ps.executeQuery()) 
-				{ 
+			{
+				try (ResultSet rset = ps.executeQuery())
+				{
 					while (rset.next())
 					{
 						int pvpkills = rset.getInt("pvpkills");
-						String name = rset.getString("char_name"); 
-						if (player.getName().equals(name)) 
+						String name = rset.getString("char_name");
+						if (player.getName().equals(name))
 							World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_TOP_PVP_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", name).replace("%pvpkills%", String.valueOf(pvpkills)).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_TOP_PVP_ENTER_BY_PLAYER_MSG.replace("%player%", name).replace("%pvpkills%", String.valueOf(pvpkills)), true);
-					} 
+					}
 				}
-			} 
+			}
 			catch (Exception e)
 			{
 				LOGGER.error("Couldn't announce top pvp.", e);
-			}      
+			}
 		}
 		
 		if (player.getSkill(9999) != null)
@@ -432,23 +424,23 @@ public class EnterWorld extends L2GameClientPacket
 		{
 			try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 				PreparedStatement ps = con.prepareStatement("SELECT char_name, pkkills FROM characters WHERE accesslevel=0 ORDER BY pkkills DESC LIMIT 1"))
-			{ 
-				try (ResultSet rset = ps.executeQuery()) 
-				{ 
+			{
+				try (ResultSet rset = ps.executeQuery())
+				{
 					while (rset.next())
 					{
 						int pkkills = rset.getInt("pkkills");
-						String name = rset.getString("char_name"); 
+						String name = rset.getString("char_name");
 						if (player.getName().equals(name))
 							World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_TOP_PK_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", name).replace("%pkkills%", String.valueOf(pkkills)).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG.replace("%player%", name).replace("%pkkills%", String.valueOf(pkkills)), true);
-					} 
+					}
 				}
-			} 
+			}
 			catch (Exception e)
 			{
 				LOGGER.error("Couldn't announce top pk.", e);
-			}    
-		}     
+			}
+		}
 		
 		// Announce Castle Lords
 		if (Config.ANNOUNCE_CASTLE_LORDS)
@@ -466,14 +458,11 @@ public class EnterWorld extends L2GameClientPacket
 		// announce hero
 		if (player.getActiveClass() == player.getBaseClass() && player.isHero() && Config.ANNOUNCE_HERO_ONLY_BASECLASS)
 			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_HERO_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()).replace("%classe%", player.setClassName(player.getBaseClass())) : Config.ANNOUNCE_HERO_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()).replace("%classe%", player.setClassName(player.getBaseClass())), true);
-
+		
 		if (Config.PCB_INTERVAL > 0)
 			player.sendPacket(new ExPCCafePointInfo(player.getPcCafePoints(), 0, PcCafeType.NORMAL));
 		
-		
-		
-		
-		if (player.getMemos().getLong("aioTime", 0) > 0)	
+		if (player.getMemos().getLong("aioTime", 0) > 0)
 		{
 			long now = Calendar.getInstance().getTimeInMillis();
 			long endDay = player.getMemos().getLong("aioTime");
@@ -502,8 +491,8 @@ public class EnterWorld extends L2GameClientPacket
 				HeroMenu.mainHtml(player, 0);
 			}
 		}
- 		
-		if (player.getMemos().getLong("vipTime", 0) > 0)	
+		
+		if (player.getMemos().getLong("vipTime", 0) > 0)
 		{
 			long now = Calendar.getInstance().getTimeInMillis();
 			long endDay = player.getMemos().getLong("vipTime");
@@ -517,7 +506,7 @@ public class EnterWorld extends L2GameClientPacket
 				player.sendMessage("Seu Vip terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("vipTime", 0))) + ".");
 			}
 		}
-	    
+		
 		if (player.getMemos().getLong("newEndTime", 0) > 0)
 			onEnterNewChar(player);
 		
@@ -529,15 +518,10 @@ public class EnterWorld extends L2GameClientPacket
 			StartupManager.onEnterWepEquip(player);
 		if (player.getMemos().getLong("buffEndTime", 0) > 0)
 			StartupManager.onEnterBuff(player);
-
-        
-
-	    
+		
 		onCheckNewbieStep(player);
 		
 		ClassMaster.showQuestionMark(player);
-		
-
 		
 		if (player.isVip() && Config.ANNOUNCE_VIP_ENTER)
 			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()), true);
@@ -558,18 +542,17 @@ public class EnterWorld extends L2GameClientPacket
 			player.broadcastUserInfo();
 		}
 	}
-    
+	
 	private static void onCheckNewbieStep(Player player)
 	{
 		
 		if (Config.ENABLE_STARTUP)
 			if (player.getOnlineTime() == 0)
 			{
-		StartupManager.Welcome(player);
-
+				StartupManager.Welcome(player);
+				
 			}
 		
-
 	}
 	
 	@Override

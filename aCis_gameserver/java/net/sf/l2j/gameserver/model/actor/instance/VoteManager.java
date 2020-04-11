@@ -23,7 +23,6 @@ import net.sf.l2j.util.Mysql;
 
 import Dev.VoteEngine.Individual;
 
-
 /**
  * @author Anarchy
  */
@@ -38,7 +37,6 @@ public class VoteManager extends Folk
 	public void onBypassFeedback(Player player, String command)
 	{
 		
-		
 		if (command.equals("getReward"))
 		{
 			if (Individual.isAccountTookTheReward(player))
@@ -48,9 +46,9 @@ public class VoteManager extends Folk
 			}
 			
 			// DO NOT CHECK SITES (Fast Fix)
-			if(Config.ALLOW_GIVE_ITEM_WITHOUT_CHECK_OF_TOPSITES)
+			if (Config.ALLOW_GIVE_ITEM_WITHOUT_CHECK_OF_TOPSITES)
 			{
-				Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?",System.currentTimeMillis(),player.getObjectId());
+				Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?", System.currentTimeMillis(), player.getObjectId());
 				Individual.giveReward(player);
 				player.sendMessage("Thank you for voting.");
 				return;
@@ -62,43 +60,43 @@ public class VoteManager extends Folk
 				return;
 			}
 			
-			//player.getMemos().set("lastVoteReward", System.currentTimeMillis());
-			//player.getMemos().storeMe();
-			Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?",System.currentTimeMillis(),player.getObjectId());
+			// player.getMemos().set("lastVoteReward", System.currentTimeMillis());
+			// player.getMemos().storeMe();
+			Mysql.set("UPDATE characters SET lastVoteReward=? WHERE obj_Id=?", System.currentTimeMillis(), player.getObjectId());
 			Individual.giveReward(player);
 			player.sendMessage("Thank you for voting.");
 		}
 		else if (command.equals("vote"))
 		{
-			player.sendPacket(new OpenUrl("https://l2topzone.com/vote/id/"+Config.TOPZONE_SERVER_ID));
+			player.sendPacket(new OpenUrl("https://l2topzone.com/vote/id/" + Config.TOPZONE_SERVER_ID));
 			player.sendPacket(new OpenUrl("https://l2network.eu/index.php?a=in&u=L2Eola"));
-			//player.sendPacket(new OpenUrl("http://l2top.co/vote/server/L2Eola"));
+			// player.sendPacket(new OpenUrl("http://l2top.co/vote/server/L2Eola"));
 			player.sendPacket(new OpenUrl("https://top.l2jbrasil.com/index.php?a=in&u=L2EolaValzerothx500"));
 		}
 		else
 			super.onBypassFeedback(player, command);
 	}
-
+	
 	@Override
 	public void showChatWindow(Player player, int val)
 	{
 		NpcHtmlMessage htm = new NpcHtmlMessage(getObjectId());
-		htm.setFile("data/html/mods/votemanager/"+getNpcId()+(val == 0 ? "" : "-"+val)+".htm");
+		htm.setFile("data/html/mods/votemanager/" + getNpcId() + (val == 0 ? "" : "-" + val) + ".htm");
 		String status = Individual.cdInTopList(player, "lastVoteReward") ? Individual.Cd(player, "lastVoteReward", false) : "You can vote";
 		htm.replace("%status%", status);
-		htm.replace("%objectId%", getObjectId()+"");
+		htm.replace("%objectId%", getObjectId() + "");
 		player.sendPacket(htm);
 	}
 	
-    @Override
+	@Override
 	public String getHtmlPath(int npcId, int val)
-    {
-        String pom = "";
-        if (val == 0)
-            pom = "" + npcId;
-        else
-            pom = npcId + "-" + val;
-                
-        return "data/html/mods/votemanager/" + pom + ".htm";
-    }
+	{
+		String pom = "";
+		if (val == 0)
+			pom = "" + npcId;
+		else
+			pom = npcId + "-" + val;
+		
+		return "data/html/mods/votemanager/" + pom + ".htm";
+	}
 }

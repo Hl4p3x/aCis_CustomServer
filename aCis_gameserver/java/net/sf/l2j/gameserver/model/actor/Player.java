@@ -272,24 +272,23 @@ import Dev.VoteGatekkeper.PvPZoneManager;
 public class Player extends Playable
 
 {
-
+	
 	private FakePlayer _fakePlayerUnderControl = null;
-
+	
 	public boolean isControllingFakePlayer()
 	{
 		return _fakePlayerUnderControl != null;
 	}
-
+	
 	public FakePlayer getPlayerUnderControl()
 	{
 		return _fakePlayerUnderControl;
 	}
-
+	
 	public void setPlayerUnderControl(FakePlayer fakePlayer)
 	{
 		_fakePlayerUnderControl = fakePlayer;
 	}
-
 	
 	private static final String RESTORE_SKILLS_FOR_CHAR = "SELECT skill_id,skill_level FROM character_skills WHERE char_obj_id=? AND class_index=?";
 	private static final String ADD_OR_UPDATE_SKILL = "INSERT INTO character_skills (char_obj_id,skill_id,skill_level,class_index) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE skill_level=VALUES(skill_level)";
@@ -328,14 +327,13 @@ public class Player extends Playable
 	
 	private static final Comparator<GeneralSkillNode> COMPARE_SKILLS_BY_MIN_LVL = Comparator.comparing(GeneralSkillNode::getMinLvl);
 	private static final Comparator<GeneralSkillNode> COMPARE_SKILLS_BY_LVL = Comparator.comparing(GeneralSkillNode::getValue);
-
+	
 	private boolean _cantGainXP = false;
 	private boolean _isPartyInvProt = false;
 	private boolean _isInTradeProt = false;
 	private boolean _isSSDisabled = false;
 	
 	private boolean _isBuffProtected = false;
-	
 	
 	private String _code = "";
 	private int _attempt = 0;
@@ -536,7 +534,6 @@ public class Player extends Playable
 	private final List<String> _validBypass2 = new ArrayList<>();
 	
 	private Forum _forumMemo;
-	
 	
 	private boolean _isInSiege;
 	private boolean _isInSiegableHallSiege;
@@ -2928,8 +2925,6 @@ public class Player extends Playable
 	public void onAction(Player player)
 	{
 		
-
-		
 		// Set the target of the player
 		if (player.getTarget() != this)
 			player.setTarget(this);
@@ -3205,11 +3200,11 @@ public class Player extends Playable
 				case PACKAGE_SELL:
 					sendPacket(new PrivateStoreListSell(this, temp));
 					break;
-					
+				
 				case BUY:
 					sendPacket(new PrivateStoreListBuy(this, temp));
 					break;
-					
+				
 				case MANUFACTURE:
 					sendPacket(new RecipeShopSellList(this, temp));
 					break;
@@ -3394,7 +3389,7 @@ public class Player extends Playable
 		{
 			if (oldTarget.equals(newTarget))
 				return; // no target change
-			
+				
 			// Remove the Player from the _statusListener of the old target if it was a Creature
 			if (oldTarget instanceof Creature)
 				((Creature) oldTarget).removeStatusListener(this);
@@ -3484,7 +3479,7 @@ public class Player extends Playable
 		final ItemInstance armor = getInventory().getPaperdollItem((type == ArmorType.SHIELD) ? Inventory.PAPERDOLL_LHAND : Inventory.PAPERDOLL_CHEST);
 		if (armor == null)
 			return type == ArmorType.NONE; // Return true if not equipped and the check was based on NONE ArmorType.
-		
+			
 		// Test if the equipped item is an armor, then finally compare both ArmorType.
 		return armor.getItemType() instanceof ArmorType && armor.getItemType() == type;
 	}
@@ -3581,7 +3576,7 @@ public class Player extends Playable
 		if (!super.doDie(killer))
 			return false;
 		
-		_spreeKills = 0; 
+		_spreeKills = 0;
 		_tvtkills = 0;
 		_killCount = 0;
 		
@@ -3593,8 +3588,6 @@ public class Player extends Playable
 			if (isFakeDeath())
 				stopFakeDeath(true);
 		}
-		
-	
 		
 		if (killer != null)
 		{
@@ -3655,7 +3648,7 @@ public class Player extends Playable
 		for (Creature character : getKnownType(Creature.class))
 			if (character.getFusionSkill() != null && character.getFusionSkill().getTarget() == this)
 				character.abortCast();
-		
+			
 		// calculate death penalty buff
 		calculateDeathPenaltyBuffLevel(killer);
 		
@@ -3674,6 +3667,7 @@ public class Player extends Playable
 	{
 		return (atEvent || (ArenaTask.is_started() && !isGM()));
 	}
+	
 	private void onDieDropItem(Creature killer)
 	{
 		if (killer == null)
@@ -3730,7 +3724,7 @@ public class Player extends Playable
 					}
 					else
 						itemDropPercent = dropItem; // Item in inventory
-					
+						
 					// NOTE: Each time an item is dropped, the chance of another item being dropped gets lesser (dropCount * 2)
 					if (Rnd.get(100) < itemDropPercent)
 					{
@@ -3784,8 +3778,6 @@ public class Player extends Playable
 		// If in duel and you kill (only can kill l2summon), do nothing
 		if (isInDuel() && targetPlayer.isInDuel())
 			return;
-		
-	
 		
 		// If in pvp zone, do nothing.
 		if (isInsideZone(ZoneId.PVP) && targetPlayer.isInsideZone(ZoneId.PVP))
@@ -5600,9 +5592,9 @@ public class Player extends Playable
 			}
 			else
 			{
-                ps.setInt(13, _observerMode ? _savedLocation.getX() : this.getX());
-                ps.setInt(14, _observerMode ? _savedLocation.getY() : this.getY());
-                ps.setInt(15, _observerMode ? _savedLocation.getZ() : this.getZ());
+				ps.setInt(13, _observerMode ? _savedLocation.getX() : this.getX());
+				ps.setInt(14, _observerMode ? _savedLocation.getY() : this.getY());
+				ps.setInt(15, _observerMode ? _savedLocation.getZ() : this.getZ());
 			}
 			
 			ps.setLong(16, exp);
@@ -6284,7 +6276,7 @@ public class Player extends Playable
 			case TARGET_AURA_UNDEAD:
 				target = this;
 				break;
-				
+			
 			default: // Get the first target of the list
 				target = skill.getFirstOfTargetList(this);
 				break;
@@ -6415,16 +6407,16 @@ public class Player extends Playable
 			}
 		}
 		
-		 if (target instanceof Npc && Config.DISABLE_ATTACK_NPC_TYPE)
-		 {
-		     String mobtype = ((Npc) target).getTemplate().getType();
-		     if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype) && skill.isOffensive())
-		     {
-		         sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-		         sendPacket(ActionFailed.STATIC_PACKET);
-		         return false;
-		     }
-		 }
+		if (target instanceof Npc && Config.DISABLE_ATTACK_NPC_TYPE)
+		{
+			String mobtype = ((Npc) target).getTemplate().getType();
+			if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype) && skill.isOffensive())
+			{
+				sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+				sendPacket(ActionFailed.STATIC_PACKET);
+				return false;
+			}
+		}
 		
 		// Are the target and the player in the same duel?
 		if (isInDuel())
@@ -6903,7 +6895,7 @@ public class Player extends Playable
 			case 1:
 				getMove().removeMoveType(MoveType.FLY);
 				break;
-				
+			
 			case 2: // Flying Wyvern
 				addSkill(FrequentSkill.WYVERN_BREATH.getSkill(), false);
 				getMove().addMoveType(MoveType.FLY);
@@ -7289,8 +7281,6 @@ public class Player extends Playable
 		// Delete any form of cubics
 		stopCubics();
 	}
-	
-
 	
 	public void enterOlympiadObserverMode(int id)
 	{
@@ -7679,7 +7669,7 @@ public class Player extends Playable
 		else
 			for (L2Skill skill : SkillTable.getNobleSkills())
 				removeSkill(skill.getId(), false);
-		
+			
 		_isNoble = val;
 		
 		sendSkillList();
@@ -7965,7 +7955,7 @@ public class Player extends Playable
 			for (Creature character : getKnownType(Creature.class))
 				if (character.getFusionSkill() != null && character.getFusionSkill().getTarget() == this)
 					character.abortCast();
-			
+				
 			store();
 			_reuseTimeStamps.clear();
 			
@@ -8276,7 +8266,6 @@ public class Player extends Playable
 			((SummonAI) _summon.getAI()).setStartFollowController(true);
 			_summon.setFollowStatus(true);
 			
-		
 		}
 	}
 	
@@ -8506,7 +8495,7 @@ public class Player extends Playable
 			for (Creature character : getKnownType(Creature.class))
 				if (character.getFusionSkill() != null && character.getFusionSkill().getTarget() == this)
 					character.abortCast();
-			
+				
 			// Stop signets & toggles effects.
 			for (L2Effect effect : getAllEffects())
 			{
@@ -8550,8 +8539,6 @@ public class Player extends Playable
 				setActiveRequester(null);
 				cancelActiveTrade();
 			}
-			
-			
 			
 			// If the Player is a GM, remove it from the GM List
 			if (isGM())
@@ -9175,7 +9162,6 @@ public class Player extends Playable
 			return false;
 		}
 		
-		
 		return true;
 	}
 	
@@ -9226,8 +9212,6 @@ public class Player extends Playable
 			sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_IN_SUMMON_BLOCKING_AREA).addCharName(player));
 			return false;
 		}
-		
-
 		
 		return true;
 	}
@@ -9469,11 +9453,11 @@ public class Player extends Playable
 			case PACKAGE_SELL:
 				player.sendPacket(new PrivateStoreMsgSell(this));
 				break;
-				
+			
 			case BUY:
 				player.sendPacket(new PrivateStoreMsgBuy(this));
 				break;
-				
+			
 			case MANUFACTURE:
 				player.sendPacket(new RecipeShopMsg(this));
 				break;
@@ -9743,9 +9727,11 @@ public class Player extends Playable
 			statement.setLong(11, 0);
 			statement.executeUpdate();
 		}
-		catch (Exception e){}
+		catch (Exception e)
+		{
+		}
 	}
-
+	
 	public void antibot()
 	{
 		increaseMobsDead();
@@ -9775,7 +9761,7 @@ public class Player extends Playable
 			startAbnormalEffect(AbnormalEffect.DANCE_STUNNED);
 			sendPacket(new ExShowScreenMessage("[AntiBot]: You have " + Config.ANTIBOT_TIME_VOTE + " to confirm the Captcha!", 10000));
 			sendPacket(new CreatureSay(0, SayType.CRITICAL_ANNOUNCE, "[AntiBot]:", "You have " + Config.ANTIBOT_TIME_VOTE + " to confirm the Catpcha."));
-
+			
 			NpcHtmlMessage html = new NpcHtmlMessage(0);
 			html.setFile("data/html/start.htm");
 			
@@ -9785,11 +9771,11 @@ public class Player extends Playable
 			
 			String random = new String();
 			
-			for(int x = 0; x<maxR; x++)
-				random += Integer.toString(Rnd.get(0,9));
+			for (int x = 0; x < maxR; x++)
+				random += Integer.toString(Rnd.get(0, 9));
 			
 			html.replace("%code1%", num2img(Integer.parseInt(random)));
-					
+			
 			setCode(String.valueOf(Integer.parseInt(random)));
 			sendPacket(html);
 		}
@@ -9819,13 +9805,13 @@ public class Player extends Playable
 		}
 	}
 	
-	public String num2img(int numero) 
+	public String num2img(int numero)
 	{
 		String num = Integer.toString(numero);
 		char[] digitos = num.toCharArray();
 		
 		String tmp = "";
-		for(int x=0;x<num.length();x++) 
+		for (int x = 0; x < num.length(); x++)
 		{
 			int dig = Integer.parseInt(Character.toString(digitos[x]));
 			final int it = AntiBotData.getInstance().getAntiBotClientID(dig);
@@ -9912,441 +9898,478 @@ public class Player extends Playable
 	}
 	
 	private boolean _observerMode;
-    private boolean _isNewbies;
-    private boolean _isPreview;
-    private boolean _isEquip;
-    private boolean _isWepEquip;
-    private boolean _isBuff;
+	private boolean _isNewbies;
+	private boolean _isPreview;
+	private boolean _isEquip;
+	private boolean _isWepEquip;
+	private boolean _isBuff;
 	
-	  public void enterObserverMode(int x, int y, int z) {
-	        this._savedLocation.set(this.getX(), this.getY(), this.getZ());
-	        this._observerMode = true;
-	        this.standUp();
-	        this.dropAllSummons();
-	        this.setTarget(null);
-	        this.setIsInvul(true);
-	        this.setIsParalyzed(true);
-	        this.setNewbies(true);
-	        this.setPreview(true);
-	        this.getAppearance().isVisible();
-	        this.sendPacket(new ObservationMode(x, y, z));
-	        this.setXYZ(x, y, z);
-	        this.broadcastUserInfo();
-	    }
-
-	    public void enterNewMode(int x, int y, int z) {
-	        this._savedLocation.set(this.getX(), this.getY(), this.getZ());
-	        this._observerMode = true;
-	        this.standUp();
-	        this.dropAllSummons();
-	        this.setTarget(null);
-	        this.setIsInvul(true);
-	        this.setIsParalyzed(true);
-	        this.setNewbies(true);
-	        this.setPreview(true);
-	        this.getAppearance().isVisible();
-	        this.sendPacket(new ObservationMode(x, y, z));
-	        this.setXYZ(x, y, z);
-	        this.broadcastUserInfo();
-	    }    
-
-	    
-	    public boolean isNewbies() {
-	        return this._isNewbies;
-	    }
-
-	    public void setNewbies(boolean b) {
-	        this._isNewbies = b;
-	    }
-
-	    public boolean isPreview() {
-	        return this._isPreview;
-	    }
-
-	    public void setPreview(boolean b) {
-	        this._isPreview = b;
-	    }
-
-	    public boolean isEquip() {
-	        return this._isEquip;
-	    }
-
-	    public void setEquip(boolean b) {
-	        this._isEquip = b;
-	    }
-
-	    public boolean isWepEquip() {
-	        return this._isWepEquip;
-	    }
-
-	    public void setWepEquip(boolean b) {
-	        this._isWepEquip = b;
-	    }
-
-	    public boolean isBuff() {
-	        return this._isBuff;
-	    }
-
-	    public void setBuff(boolean b) {
-	        this._isBuff = b;
-	    }
-	    
-	    private boolean _isnewChar;
-	    
-	    public boolean isNewChar() {
-	        return this._isnewChar;
-	    }
-	    
-	    public void setNewChar(boolean b) {
-	        this._isnewChar = b;
-	    }
-	    
-	    public static void doNewChar(Player player, int time) {
-	        player.setNewChar(true);
-	        NewCharTaskManager.getInstance().add(player);
-	        long remainingTime = player.getMemos().getLong("newEndTime", 0L);
-	        if (remainingTime > 0L) {
-	            player.getMemos().set("newEndTime", remainingTime + TimeUnit.MINUTES.toMillis(time));
-	        } else {
-	            player.getMemos().set("newEndTime", System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(time));
-	            player.broadcastUserInfo();
-	        }
-	    }
-	    
-	    public static void removeNewChar(Player player) {
-	        NewCharTaskManager.getInstance().remove(player);
-	        player.getMemos().set("newEndTime", 0);
-	        player.setNewChar(false);
-	        player.broadcastUserInfo();
-	    }
-	    
-	    private String _hwid = "";
-
-	    public final String getHWID()
-	    {
-	        return _hwid;
-	    }
-	   
-	    public void setHWID(String hwid)
-	    {
-	        _hwid = hwid;
-	    }
-	   
-	    /**
-	     * This is a multitype HWID function it worked with L2JGuard, catsguard and used in all scoria pack. some here - simple
-	     * @return
-	     */
-	    public String gethwid()
-	    { // cats reflect method
-	        if (getClient().getHWID() != null)
-	            return getClient().getHWID();
-	        else if (getClient().getHWID() != null)
-	            return getClient().getHWID();
-	        else
-	            return null;
-	    }
-
-	    public String getHWid()
-	    {
-	        return getClient().getHWID();
-	    }
-	    
-		private DressMeData _dressmedata = null;
-		private boolean _dressed = false;
-		
-		
-		public DressMeData getDressMeData()
+	public void enterObserverMode(int x, int y, int z)
+	{
+		this._savedLocation.set(this.getX(), this.getY(), this.getZ());
+		this._observerMode = true;
+		this.standUp();
+		this.dropAllSummons();
+		this.setTarget(null);
+		this.setIsInvul(true);
+		this.setIsParalyzed(true);
+		this.setNewbies(true);
+		this.setPreview(true);
+		this.getAppearance().isVisible();
+		this.sendPacket(new ObservationMode(x, y, z));
+		this.setXYZ(x, y, z);
+		this.broadcastUserInfo();
+	}
+	
+	public void enterNewMode(int x, int y, int z)
+	{
+		this._savedLocation.set(this.getX(), this.getY(), this.getZ());
+		this._observerMode = true;
+		this.standUp();
+		this.dropAllSummons();
+		this.setTarget(null);
+		this.setIsInvul(true);
+		this.setIsParalyzed(true);
+		this.setNewbies(true);
+		this.setPreview(true);
+		this.getAppearance().isVisible();
+		this.sendPacket(new ObservationMode(x, y, z));
+		this.setXYZ(x, y, z);
+		this.broadcastUserInfo();
+	}
+	
+	public boolean isNewbies()
+	{
+		return this._isNewbies;
+	}
+	
+	public void setNewbies(boolean b)
+	{
+		this._isNewbies = b;
+	}
+	
+	public boolean isPreview()
+	{
+		return this._isPreview;
+	}
+	
+	public void setPreview(boolean b)
+	{
+		this._isPreview = b;
+	}
+	
+	public boolean isEquip()
+	{
+		return this._isEquip;
+	}
+	
+	public void setEquip(boolean b)
+	{
+		this._isEquip = b;
+	}
+	
+	public boolean isWepEquip()
+	{
+		return this._isWepEquip;
+	}
+	
+	public void setWepEquip(boolean b)
+	{
+		this._isWepEquip = b;
+	}
+	
+	public boolean isBuff()
+	{
+		return this._isBuff;
+	}
+	
+	public void setBuff(boolean b)
+	{
+		this._isBuff = b;
+	}
+	
+	private boolean _isnewChar;
+	
+	public boolean isNewChar()
+	{
+		return this._isnewChar;
+	}
+	
+	public void setNewChar(boolean b)
+	{
+		this._isnewChar = b;
+	}
+	
+	public static void doNewChar(Player player, int time)
+	{
+		player.setNewChar(true);
+		NewCharTaskManager.getInstance().add(player);
+		long remainingTime = player.getMemos().getLong("newEndTime", 0L);
+		if (remainingTime > 0L)
 		{
-			return _dressmedata;
+			player.getMemos().set("newEndTime", remainingTime + TimeUnit.MINUTES.toMillis(time));
 		}
-		
-		public void setDressMeData(DressMeData val)
+		else
 		{
-			_dressmedata = val;
+			player.getMemos().set("newEndTime", System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(time));
+			player.broadcastUserInfo();
 		}
-		
-		public boolean isDressMeEnabled()
+	}
+	
+	public static void removeNewChar(Player player)
+	{
+		NewCharTaskManager.getInstance().remove(player);
+		player.getMemos().set("newEndTime", 0);
+		player.setNewChar(false);
+		player.broadcastUserInfo();
+	}
+	
+	private String _hwid = "";
+	
+	public final String getHWID()
+	{
+		return _hwid;
+	}
+	
+	public void setHWID(String hwid)
+	{
+		_hwid = hwid;
+	}
+	
+	/**
+	 * This is a multitype HWID function it worked with L2JGuard, catsguard and used in all scoria pack. some here - simple
+	 * @return
+	 */
+	public String gethwid()
+	{ // cats reflect method
+		if (getClient().getHWID() != null)
+			return getClient().getHWID();
+		else if (getClient().getHWID() != null)
+			return getClient().getHWID();
+		else
+			return null;
+	}
+	
+	public String getHWid()
+	{
+		return getClient().getHWID();
+	}
+	
+	private DressMeData _dressmedata = null;
+	private boolean _dressed = false;
+	
+	public DressMeData getDressMeData()
+	{
+		return _dressmedata;
+	}
+	
+	public void setDressMeData(DressMeData val)
+	{
+		_dressmedata = val;
+	}
+	
+	public boolean isDressMeEnabled()
+	{
+		return _dressed;
+	}
+	
+	public void setDressMeEnabled(boolean val)
+	{
+		_dressed = val;
+	}
+	
+	public int _lastX;
+	public int _lastY;
+	public int _lastZ;
+	
+	public int getLastX()
+	{
+		return _lastX;
+	}
+	
+	public int getLastY()
+	{
+		return _lastY;
+	}
+	
+	public int getLastZ()
+	{
+		return _lastZ;
+	}
+	
+	public void setLastCords(int x, int y, int z)
+	{
+		_lastX = x;
+		_lastY = y;
+		_lastZ = z;
+	}
+	
+	private boolean _TournamentTeleport;
+	public int _originalTitleColorTournament = 0;
+	public String _originalTitleTournament;
+	public int duelist_cont = 0;
+	public int dreadnought_cont = 0;
+	public int tanker_cont = 0;
+	public int dagger_cont = 0;
+	public int archer_cont = 0;
+	public int bs_cont = 0;
+	public int archmage_cont = 0;
+	public int soultaker_cont = 0;
+	public int mysticMuse_cont = 0;
+	public int stormScreamer_cont = 0;
+	public int titan_cont = 0;
+	public int grandKhauatari_cont = 0;
+	public int dominator_cont = 0;
+	public int doomcryer_cont = 0;
+	
+	public void enteredNoLanding(int delay)
+	{
+		_dismountTask = ThreadPool.schedule(new Runnable()
 		{
-			return _dressed;
-		}
-		
-		public void setDressMeEnabled(boolean val)
-		{
-			_dressed = val;
-		}
-		
-		public int _lastX;
-		public int _lastY;
-		public int _lastZ;
-
-		public int getLastX()
-		{
-			return _lastX;
-		}
-
-		public int getLastY()
-		{
-			return _lastY;
-		}
-
-		public int getLastZ()
-		{
-			return _lastZ;
-		}
-
-		public void setLastCords(int x, int y, int z)
-		{
-			_lastX = x;
-			_lastY = y;
-			_lastZ = z;
-		}
-		
-		private boolean _TournamentTeleport;
-		public int _originalTitleColorTournament = 0;
-		public String _originalTitleTournament;
-		public int duelist_cont = 0;
-		public int dreadnought_cont = 0;
-		public int tanker_cont = 0;
-		public int dagger_cont = 0;
-		public int archer_cont = 0;
-		public int bs_cont = 0;
-		public int archmage_cont = 0;
-		public int soultaker_cont = 0;
-		public int mysticMuse_cont = 0;
-		public int stormScreamer_cont = 0;
-		public int titan_cont = 0;
-		public int grandKhauatari_cont = 0;
-		public int dominator_cont = 0;
-		public int doomcryer_cont = 0;
-		
-		public void enteredNoLanding(int delay)
-		{
-			_dismountTask = ThreadPool.schedule(new Runnable()
+			@Override
+			public void run()
 			{
-				@Override
-				public void run()
-				{
-					dismount();
-				}
-			}, delay * 1000);
-		}
-		
-		public void exitedNoLanding()
+				dismount();
+			}
+		}, delay * 1000);
+	}
+	
+	public void exitedNoLanding()
+	{
+		if (_dismountTask != null)
 		{
-			if (_dismountTask != null)
+			_dismountTask.cancel(true);
+			_dismountTask = null;
+		}
+	}
+	
+	public void setTournamentTeleport(boolean comm)
+	{
+		_TournamentTeleport = comm;
+	}
+	
+	public boolean isTournamentTeleport()
+	{
+		return _TournamentTeleport;
+	}
+	
+	private Map<AutoPotionTask, ScheduledFuture<?>> autoPotionTasks = new HashMap<>();
+	
+	public void stopAutoPotion(int itemId)
+	{
+		AutoPotionTask temp = null;
+		for (AutoPotionTask atp : autoPotionTasks.keySet())
+		{
+			if (atp.getItemId() == itemId)
 			{
-				_dismountTask.cancel(true);
-				_dismountTask = null;
+				temp = atp;
+				break;
 			}
 		}
-			
-	    public void setTournamentTeleport(boolean comm) {
-	        _TournamentTeleport = comm;
-	    }
-
-	    public boolean isTournamentTeleport() {
-	        return _TournamentTeleport;
-	    }
-	    
-		private Map<AutoPotionTask, ScheduledFuture<?>> autoPotionTasks = new HashMap<>();
-
-		public void stopAutoPotion(int itemId)
-		{
-			AutoPotionTask temp = null;
-			for (AutoPotionTask atp : autoPotionTasks.keySet())
-			{
-				if (atp.getItemId() == itemId)
-				{
-					temp = atp;
-					break;
-				}
-			}
-			
-			if (temp == null)
+		
+		if (temp == null)
+			return;
+		
+		autoPotionTasks.get(temp).cancel(true);
+		autoPotionTasks.remove(temp);
+		sendPacket(new ExAutoSoulShot(itemId, 0));
+		sendMessage("The automatic use of " + ItemData.getInstance().getTemplate(itemId).getName() + " has been deactivated.");
+	}
+	
+	public void startAutoPotion(int itemId)
+	{
+		for (AutoPotionTask atp : autoPotionTasks.keySet())
+			if (atp.getItemId() == itemId)
 				return;
 			
-			autoPotionTasks.get(temp).cancel(true);
-			autoPotionTasks.remove(temp);
-			sendPacket(new ExAutoSoulShot(itemId, 0));
-			sendMessage("The automatic use of "+ItemData.getInstance().getTemplate(itemId).getName()+" has been deactivated.");
-		}
+		AutoPotionTask atp = new AutoPotionTask(itemId, this);
+		autoPotionTasks.put(atp, ThreadPool.scheduleAtFixedRate(atp, Config.AUTO_POTIONS.get(itemId) * 1000, Config.AUTO_POTIONS.get(itemId) * 1000));
+		sendPacket(new ExAutoSoulShot(itemId, 1));
+		sendMessage("You have activated the automatic use of " + ItemData.getInstance().getTemplate(itemId).getName() + ".");
+	}
+	
+	public String getIP()
+	{
+		if (getClient().getConnection() == null)
+			return "N/A IP";
 		
-		public void startAutoPotion(int itemId)
+		return getClient().getConnection().getInetAddress().getHostAddress();
+	}
+	
+	public enum StoreType
+	{
+		NONE(0),
+		SELL(1),
+		SELL_MANAGE(2),
+		BUY(3),
+		BUY_MANAGE(4),
+		MANUFACTURE(5),
+		PACKAGE_SELL(8);
+		
+		private int _id;
+		
+		private StoreType(int id)
 		{
-			for (AutoPotionTask atp : autoPotionTasks.keySet())
-				if (atp.getItemId() == itemId)
-					return;
-			
-			AutoPotionTask atp = new AutoPotionTask(itemId, this);
-			autoPotionTasks.put(atp, ThreadPool.scheduleAtFixedRate(atp, Config.AUTO_POTIONS.get(itemId)*1000, Config.AUTO_POTIONS.get(itemId)*1000));
-			sendPacket(new ExAutoSoulShot(itemId, 1));
-			sendMessage("You have activated the automatic use of "+ItemData.getInstance().getTemplate(itemId).getName()+".");
+			_id = id;
 		}
 		
-		public String getIP()
+		public int getId()
 		{
-			if(getClient().getConnection() == null)
-				return "N/A IP";
-			
-			return getClient().getConnection().getInetAddress().getHostAddress();
+			return _id;
 		}
 		
-		
-		
-		public enum StoreType
+		public static StoreType findById(int id)
 		{
-			NONE(0),
-			SELL(1),
-			SELL_MANAGE(2),
-			BUY(3),
-			BUY_MANAGE(4),
-			MANUFACTURE(5),
-			PACKAGE_SELL(8);
-
-			private int _id;
-
-			private StoreType(int id)
+			for (StoreType privateStoreType : values())
 			{
-				_id = id;
+				if (privateStoreType.getId() == id)
+					return privateStoreType;
 			}
-
-			public int getId()
-			{
-				return _id;
-			}
-
-			public static StoreType findById(int id)
-			{
-				for (StoreType privateStoreType : values())
-				{
-					if (privateStoreType.getId() == id)
-						return privateStoreType;
-				}
-				return null;
-			}
+			return null;
 		}
-		
-		 public static Player loadPhantom(final int paramInt1, final int paramInt2, final int paramInt3, final boolean paramBoolean) {
-		        Player localPlayer = null;
-		        final int[] classes = { 0, 18, 31, 44, 10, 25, 38, 49, 53, 114 };
-		        int i = classes[Rnd.get(classes.length)];
-		        if (paramInt3 > 0) {
-		            i = paramInt3;
-		        }
-		        Sex sex;
-		        if (Rnd.get(100) < 70) {
-		            sex = Sex.MALE;
-		        }
-		        else {
-		            sex = Sex.FEMALE;
-		        }
-		        final PlayerTemplate localL2PcTemplate = PlayerData.getInstance().getTemplate(i);
-		        final byte b = (byte)Rnd.get(3);
-		        final Appearance localPcAppearance = new Appearance(b, b, b, sex);
-		        if (paramBoolean) {
-		            localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
-		        }
-		        else {
-		            localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
-		        }
-		        localPlayer.setAccessLevel(0);
-		        localPlayer.setHero(false);
-		        localPlayer.setClassId(i);
-				
-		        localPlayer.getStat().addExp(Experience.LEVEL[81]);
-		        return localPlayer;
-		    }
-		
-		public void rndWalk()
+	}
+	
+	public static Player loadPhantom(final int paramInt1, final int paramInt2, final int paramInt3, final boolean paramBoolean)
+	{
+		Player localPlayer = null;
+		final int[] classes =
 		{
-			int x = getX();
-			int y = getY();
-			int z = getZ();
-			switch (Rnd.get(1, 7))
-			{
-				case 1:
-					x = getLastX();
-					y = getLastY();
-					z = getLastZ();
-					break;
-				case 2:
-					x += 200;
-					y -= 60;
-					break;
-				case 3:
-					x += 400;
-					y -= 60;
-					break;
-				case 4:
-					x = getLastX();
-					y = getLastY();
-					z = getLastZ();
-					break;
-				case 5:
-					x -= 200;
-					y += 60;
-					break;
-				case 6:
-					x -= 400;
-					y += 60;
-					break;
-				case 7:
-					x = getLastX();
-					y = getLastY();
-					z = getLastZ();
-			}
-			setRunning();
-			if (GeoEngine.getInstance().canMoveToTarget(getX(), getY(), getZ(), x, y, z))
-				getAI().setIntention(IntentionType.MOVE_TO, new Location(x, y, z), _isOnline);
+			0,
+			18,
+			31,
+			44,
+			10,
+			25,
+			38,
+			49,
+			53,
+			114
+		};
+		int i = classes[Rnd.get(classes.length)];
+		if (paramInt3 > 0)
+		{
+			i = paramInt3;
 		}
-
-	    public void setStoreType(StoreType type) {
-	        _storeType = type;
-	    }
-
-	    public StoreType getStoreType() {
-	    	return _storeType;
-	    }
-	    
-	    public boolean isInTradeProt()
-	    {
-	        return _isInTradeProt;
-	    }
-	        
-	    public void setIsInTradeProt(boolean value)
-	    {
-	        _isInTradeProt = value;
-	    }
-	        
-	    public boolean isSSDisabled()
-	    {
-	        return _isSSDisabled;
-	    }
-	        
-	    public void setIsSSDisabled(boolean value)
-	    {
-	        _isSSDisabled = value;
-	    }
-	        
-	    public boolean isPartyInvProt()
-	    {
-	        return _isPartyInvProt;
-	    }
-	        
-	    public void setIsPartyInvProt(boolean value)
-	    {
-	        _isPartyInvProt = value;
-	    }
-	        
-	    public void cantGainXP(boolean b)
-	    {
-	        _cantGainXP = b;
-	    }
-	        
-	    public boolean cantGainXP()
-	    {
-	        return _cantGainXP;
-	    }
+		Sex sex;
+		if (Rnd.get(100) < 70)
+		{
+			sex = Sex.MALE;
+		}
+		else
+		{
+			sex = Sex.FEMALE;
+		}
+		final PlayerTemplate localL2PcTemplate = PlayerData.getInstance().getTemplate(i);
+		final byte b = (byte) Rnd.get(3);
+		final Appearance localPcAppearance = new Appearance(b, b, b, sex);
+		if (paramBoolean)
+		{
+			localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
+		}
+		else
+		{
+			localPlayer = new Player(paramInt1, localL2PcTemplate, "JuvenilAmaro", localPcAppearance);
+		}
+		localPlayer.setAccessLevel(0);
+		localPlayer.setHero(false);
+		localPlayer.setClassId(i);
+		
+		localPlayer.getStat().addExp(Experience.LEVEL[81]);
+		return localPlayer;
+	}
+	
+	public void rndWalk()
+	{
+		int x = getX();
+		int y = getY();
+		int z = getZ();
+		switch (Rnd.get(1, 7))
+		{
+			case 1:
+				x = getLastX();
+				y = getLastY();
+				z = getLastZ();
+				break;
+			case 2:
+				x += 200;
+				y -= 60;
+				break;
+			case 3:
+				x += 400;
+				y -= 60;
+				break;
+			case 4:
+				x = getLastX();
+				y = getLastY();
+				z = getLastZ();
+				break;
+			case 5:
+				x -= 200;
+				y += 60;
+				break;
+			case 6:
+				x -= 400;
+				y += 60;
+				break;
+			case 7:
+				x = getLastX();
+				y = getLastY();
+				z = getLastZ();
+		}
+		setRunning();
+		if (GeoEngine.getInstance().canMoveToTarget(getX(), getY(), getZ(), x, y, z))
+			getAI().setIntention(IntentionType.MOVE_TO, new Location(x, y, z), _isOnline);
+	}
+	
+	public void setStoreType(StoreType type)
+	{
+		_storeType = type;
+	}
+	
+	public StoreType getStoreType()
+	{
+		return _storeType;
+	}
+	
+	public boolean isInTradeProt()
+	{
+		return _isInTradeProt;
+	}
+	
+	public void setIsInTradeProt(boolean value)
+	{
+		_isInTradeProt = value;
+	}
+	
+	public boolean isSSDisabled()
+	{
+		return _isSSDisabled;
+	}
+	
+	public void setIsSSDisabled(boolean value)
+	{
+		_isSSDisabled = value;
+	}
+	
+	public boolean isPartyInvProt()
+	{
+		return _isPartyInvProt;
+	}
+	
+	public void setIsPartyInvProt(boolean value)
+	{
+		_isPartyInvProt = value;
+	}
+	
+	public void cantGainXP(boolean b)
+	{
+		_cantGainXP = b;
+	}
+	
+	public boolean cantGainXP()
+	{
+		return _cantGainXP;
+	}
 	
 	/**
 	 * Gets the message refusal.
@@ -10367,46 +10390,46 @@ public class Player extends Playable
 		sendPacket(new EtcStatusUpdate(this));
 	}
 	
-    @Override
+	@Override
 	public boolean isBuffProtected()
-    {
-        return _isBuffProtected;
-    }
-        
-    public void setisBuffProtected(boolean value)
-    {
-    	_isBuffProtected = value;
-    }
-    
-    private List<Integer> _ignored = new ArrayList<>();
-
-       public void ignored(Integer itemId)
-       {
-           if (_ignored.contains(itemId))
-               _ignored.remove(itemId);
-           else
-               _ignored.add(itemId);
-       }
-      
-       public boolean ignoredDropContain(int itemId)
-       {
-           return _ignored.contains(itemId);
-       } 
-       
-   	private int _team1;
+	{
+		return _isBuffProtected;
+	}
 	
-   	public void setTeam(int team1)
-   	{
-   		_team1 = team1;
-   	}
-   	
-   	public int getTeam1()
-   	{
-   		return _team1;
-   	}
-   	
-
+	public void setisBuffProtected(boolean value)
+	{
+		_isBuffProtected = value;
+	}
+	
+	private List<Integer> _ignored = new ArrayList<>();
+	
+	public void ignored(Integer itemId)
+	{
+		if (_ignored.contains(itemId))
+			_ignored.remove(itemId);
+		else
+			_ignored.add(itemId);
+	}
+	
+	public boolean ignoredDropContain(int itemId)
+	{
+		return _ignored.contains(itemId);
+	}
+	
+	private int _team1;
+	
+	public void setTeam(int team1)
+	{
+		_team1 = team1;
+	}
+	
+	public int getTeam1()
+	{
+		return _team1;
+	}
+	
 	private int _eventPoints = 0;
+	
 	public int getPointScore()
 	{
 		return _eventPoints;
@@ -10418,11 +10441,14 @@ public class Player extends Playable
 	}
 	
 	private boolean _isAttackP;
-    public void setAttackP(final boolean value) {
-        this._isAttackP = value;
-    }
-    
-    public boolean isAttackP() {
-        return this._isAttackP;
-    }
+	
+	public void setAttackP(final boolean value)
+	{
+		this._isAttackP = value;
+	}
+	
+	public boolean isAttackP()
+	{
+		return this._isAttackP;
+	}
 }

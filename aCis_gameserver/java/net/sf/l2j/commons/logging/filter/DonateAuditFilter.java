@@ -5,7 +5,6 @@ import java.util.logging.LogRecord;
 
 /**
  * @author Williams
- *
  */
 public class DonateAuditFilter implements Filter
 {

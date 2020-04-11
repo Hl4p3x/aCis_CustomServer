@@ -29,7 +29,6 @@ import java.util.List;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.L2DatabaseFactory;
-
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
@@ -41,20 +40,10 @@ public class Individual
 		player.getInventory().addItem("DelayItem", 6673, 25, player, null);
 		player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.EARNED_S2_S1_S).addItemName(6673).addNumber(25));
 		
-
-		/*if (!player.getMemos().containsKey("lastVoteReward"))
-		{
-			player.removeSkill(9999, false);
-			return;
-		}
-		if (System.currentTimeMillis() - player.getMemos().getLong("lastVoteReward") > 12*1000*60*60)
-		{
-			player.removeSkill(9999, false);
-			return;
-		}
-		
-		player.addSkill(SkillTable.getInstance().getInfo(9999, 1), false);
-		ThreadPool.schedule(() -> player.removeSkill(9999, false), player.getMemos().getLong("lastVoteReward") + (12*1000*60*60) - System.currentTimeMillis());*/
+		/*
+		 * if (!player.getMemos().containsKey("lastVoteReward")) { player.removeSkill(9999, false); return; } if (System.currentTimeMillis() - player.getMemos().getLong("lastVoteReward") > 12*1000*60*60) { player.removeSkill(9999, false); return; }
+		 * player.addSkill(SkillTable.getInstance().getInfo(9999, 1), false); ThreadPool.schedule(() -> player.removeSkill(9999, false), player.getMemos().getLong("lastVoteReward") + (12*1000*60*60) - System.currentTimeMillis());
+		 */
 	}
 	
 	public static synchronized boolean hasVotedTopzone(Player player)
@@ -80,10 +69,10 @@ public class Individual
 						sb.append(inputLine);
 					}
 				}
-
-				for(String splitted : sb.toString().split(":"))
+				
+				for (String splitted : sb.toString().split(":"))
 				{
-					if(splitted.contains("isVoted") && splitted.contains("true"))
+					if (splitted.contains("isVoted") && splitted.contains("true"))
 						return true;
 				}
 				
@@ -94,7 +83,7 @@ public class Individual
 		}
 		catch (Exception e)
 		{
-			System.out.println("There was a problem on getting vote status on Topzone for player: "	+	player.getName());
+			System.out.println("There was a problem on getting vote status on Topzone for player: " + player.getName());
 			return false;
 		}
 		
@@ -130,7 +119,7 @@ public class Individual
 		}
 		catch (Exception e)
 		{
-			System.out.println("There was a problem on getting vote status on Hopzone for player: "+player.getName());
+			System.out.println("There was a problem on getting vote status on Hopzone for player: " + player.getName());
 		}
 		
 		return false;
@@ -163,11 +152,10 @@ public class Individual
 		}
 		catch (Exception e)
 		{
-			System.out.println("There was a problem on getting vote status on NetWork for player: "+player.getName());
+			System.out.println("There was a problem on getting vote status on NetWork for player: " + player.getName());
 		}
 		return false;
 	}
-	
 	
 	private static String substringBetween(final String str, final String open, final String close)
 	{
@@ -189,33 +177,33 @@ public class Individual
 	{
 		// Time restriction
 		long lastVoteReward = getLastVoteReward(player);
-		if(System.currentTimeMillis() - lastVoteReward < (1000*60*60*12))
+		if (System.currentTimeMillis() - lastVoteReward < (1000 * 60 * 60 * 12))
 			return true;
 		
 		List<Long> _accountCharacters = new ArrayList<>();
 		getLastVoteRewardsOfPlayerCharacters(player, _accountCharacters);
-		for(long lastVoteRewardFromCharAccount : _accountCharacters)
+		for (long lastVoteRewardFromCharAccount : _accountCharacters)
 		{
-			if(System.currentTimeMillis() - lastVoteRewardFromCharAccount < (1000*60*60*12))
+			if (System.currentTimeMillis() - lastVoteRewardFromCharAccount < (1000 * 60 * 60 * 12))
 				return true;
 		}
 		
 		List<Long> _IPCharacters = new ArrayList<>();
 		getLastVoteRewardsOfPlayerIP(player, _IPCharacters);
-		for(long lastVoteRewardFromIPChar : _IPCharacters)
+		for (long lastVoteRewardFromIPChar : _IPCharacters)
 		{
-			if(System.currentTimeMillis() - lastVoteRewardFromIPChar < (1000*60*60*12))
+			if (System.currentTimeMillis() - lastVoteRewardFromIPChar < (1000 * 60 * 60 * 12))
 				return true;
 		}
 		
 		List<Long> _HWIDCharacters = new ArrayList<>();
 		getLastVoteRewardsOfPlayerHWID(player, _HWIDCharacters);
-		for(long lastVoteRewardFromHWIDChar : _HWIDCharacters)
+		for (long lastVoteRewardFromHWIDChar : _HWIDCharacters)
 		{
-			if(System.currentTimeMillis() - lastVoteRewardFromHWIDChar < (1000*60*60*12))
+			if (System.currentTimeMillis() - lastVoteRewardFromHWIDChar < (1000 * 60 * 60 * 12))
 				return true;
 		}
-
+		
 		return false;
 	}
 	
@@ -227,12 +215,13 @@ public class Individual
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection())
 		{
 			PreparedStatement stm = con.prepareStatement("SELECT lastVoteReward FROM characters WHERE obj_Id=?");
-    		stm.setInt(1, activeChar.getObjectId());
-    		ResultSet rset = stm.executeQuery();
-    		
-    		if(rset.next()) {
-    			lastVoteReward = rset.getLong("lastVoteReward");
-    		}
+			stm.setInt(1, activeChar.getObjectId());
+			ResultSet rset = stm.executeQuery();
+			
+			if (rset.next())
+			{
+				lastVoteReward = rset.getLong("lastVoteReward");
+			}
 			
 			rset.close();
 			stm.close();
@@ -255,12 +244,13 @@ public class Individual
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection())
 		{
 			PreparedStatement stm = con.prepareStatement("SELECT lastVoteReward FROM characters WHERE lastip=?");
-    		stm.setString(1, activeChar.getIP());
-    		ResultSet rset = stm.executeQuery();
-    		
-    		while(rset.next()) {
-    			_test.add(rset.getLong("lastVoteReward"));
-    		}
+			stm.setString(1, activeChar.getIP());
+			ResultSet rset = stm.executeQuery();
+			
+			while (rset.next())
+			{
+				_test.add(rset.getLong("lastVoteReward"));
+			}
 			
 			rset.close();
 			stm.close();
@@ -281,12 +271,13 @@ public class Individual
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection())
 		{
 			PreparedStatement stm = con.prepareStatement("SELECT lastVoteReward FROM characters WHERE lasthwid=?");
-    		stm.setString(1, activeChar.getHWID());
-    		ResultSet rset = stm.executeQuery();
-    		
-    		while(rset.next()) {
-    			_test.add(rset.getLong("lastVoteReward"));
-    		}
+			stm.setString(1, activeChar.getHWID());
+			ResultSet rset = stm.executeQuery();
+			
+			while (rset.next())
+			{
+				_test.add(rset.getLong("lastVoteReward"));
+			}
 			
 			rset.close();
 			stm.close();
@@ -304,17 +295,18 @@ public class Individual
 	@SuppressWarnings("resource")
 	private static void getLastVoteRewardsOfPlayerCharacters(Player activeChar, List<Long> _test)
 	{
-		for(int _objectId : activeChar.getAccountChars().keySet())
+		for (int _objectId : activeChar.getAccountChars().keySet())
 		{
 			try (Connection con = L2DatabaseFactory.getInstance().getConnection())
 			{
 				PreparedStatement stm = con.prepareStatement("SELECT lastVoteReward FROM characters WHERE obj_Id=?");
-	    		stm.setInt(1, _objectId);
-	    		ResultSet rset = stm.executeQuery();
-	    		
-	    		while(rset.next()) {
-	    			_test.add(rset.getLong("lastVoteReward"));
-	    		}
+				stm.setInt(1, _objectId);
+				ResultSet rset = stm.executeQuery();
+				
+				while (rset.next())
+				{
+					_test.add(rset.getLong("lastVoteReward"));
+				}
 				
 				rset.close();
 				stm.close();
@@ -344,7 +336,7 @@ public class Individual
 		PreparedStatement statement = null;
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection())
 		{
-			statement = con.prepareStatement("SELECT "+variable+" FROM characters WHERE obj_Id=?");
+			statement = con.prepareStatement("SELECT " + variable + " FROM characters WHERE obj_Id=?");
 			statement.setInt(1, player.getObjectId());
 			
 			ResultSet rset = statement.executeQuery();
@@ -354,7 +346,7 @@ public class Individual
 				CdMs = rset.getLong(variable);
 			}
 			
-			if((CdMs + voteDelay) < System.currentTimeMillis())
+			if ((CdMs + voteDelay) < System.currentTimeMillis())
 				CdMs = System.currentTimeMillis() - voteDelay;
 			
 			rset.close();
@@ -367,7 +359,7 @@ public class Individual
 		{
 			try
 			{
-				if(statement != null)
+				if (statement != null)
 					statement.close();
 			}
 			catch (SQLException e)
@@ -378,8 +370,8 @@ public class Individual
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
 		
-		if(returnInTimestamp)
-			return String.valueOf(CdMs+voteDelay);
+		if (returnInTimestamp)
+			return String.valueOf(CdMs + voteDelay);
 		
 		Date resultdate = new Date(CdMs + voteDelay);
 		return sdf.format(resultdate);

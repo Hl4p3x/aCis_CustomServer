@@ -8,13 +8,13 @@ import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 
 /**
  * @author Williams
- *
  */
 public class GoldCoin implements IUserCommandHandler
 {
 	private static final int[] COMMAND_IDS =
 	{
-		115, 116
+		115,
+		116
 	};
 	
 	@Override
@@ -30,7 +30,7 @@ public class GoldCoin implements IUserCommandHandler
 					activeChar.addItem("Gold Coin", gold.getId(), gold.getValue(), activeChar, true);
 				}
 				else
-					activeChar.sendMessage("Você não tem Adena suficiente para converter para "+  ItemData.getInstance().getTemplate(gold.getId()).getName() +"(s), você precisa de " + Config.BANKING_SYSTEM_ADENA + " Adena.");
+					activeChar.sendMessage("Você não tem Adena suficiente para converter para " + ItemData.getInstance().getTemplate(gold.getId()).getName() + "(s), você precisa de " + Config.BANKING_SYSTEM_ADENA + " Adena.");
 			}
 		}
 		else if (id == 119)
@@ -43,7 +43,7 @@ public class GoldCoin implements IUserCommandHandler
 				activeChar.sendMessage("Você não tem espaço suficiente para toda a adena no inventário!");
 				return;
 			}
-						
+			
 			for (IntIntHolder gold : Config.BANKING_SYSTEM_GOLDCOIN)
 			{
 				if (activeChar.getInventory().getInventoryItemCount(gold.getId(), 0) >= gold.getValue())
@@ -52,7 +52,7 @@ public class GoldCoin implements IUserCommandHandler
 					activeChar.addAdena("Adena", Config.BANKING_SYSTEM_ADENA, activeChar, true);
 				}
 				else
-					activeChar.sendMessage("Você não tem nenhum "+ ItemData.getInstance().getTemplate(gold.getId()).getName() +" para trocar por " + Config.BANKING_SYSTEM_ADENA + " de Adena.");
+					activeChar.sendMessage("Você não tem nenhum " + ItemData.getInstance().getTemplate(gold.getId()).getName() + " para trocar por " + Config.BANKING_SYSTEM_ADENA + " de Adena.");
 			}
 		}
 		

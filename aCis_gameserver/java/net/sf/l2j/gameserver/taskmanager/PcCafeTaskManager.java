@@ -8,7 +8,6 @@ import net.sf.l2j.gameserver.model.World;
 
 /**
  * @author Williams
- *
  */
 public class PcCafeTaskManager implements Runnable
 {
@@ -21,7 +20,7 @@ public class PcCafeTaskManager implements Runnable
 	public void run()
 	{
 		World.getInstance().getPlayers().stream().filter(player -> player.getLevel() >= Config.PCB_MIN_LEVEL && !player.getClient().isDetached()).forEach(player ->
-		{	
+		{
 			if (!player.isAFK())
 				player.increasePcCafePoints(Rnd.get(Config.PCB_POINT_MIN, Config.PCB_POINT_MAX), Rnd.get(100) <= Config.PCB_CHANCE_DUAL_POINT);
 		});
@@ -35,5 +34,5 @@ public class PcCafeTaskManager implements Runnable
 	private static class SingletonHolder
 	{
 		protected static final PcCafeTaskManager INSTANCE = new PcCafeTaskManager();
-	}	
+	}
 }

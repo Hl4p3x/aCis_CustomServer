@@ -551,7 +551,7 @@ public class StartupManager
 				@Override
 				public void run()
 				{
-					player.sendMessage("DROP"+ " COINS+ LS, BOG");
+					player.sendMessage("DROP" + " COINS+ LS, BOG");
 				}
 			}, 1000 * 2);
 		}
@@ -565,7 +565,7 @@ public class StartupManager
 				@Override
 				public void run()
 				{
-					player.sendMessage("PVP ZONE"	+ " BE READY FOR PVP!");
+					player.sendMessage("PVP ZONE" + " BE READY FOR PVP!");
 				}
 			}, 1000 * 2);
 		}
@@ -1026,8 +1026,7 @@ public class StartupManager
 			StartupManager.WeaponsPage1(player);
 		else if (params.startsWith("page2"))
 			StartupManager.WeaponsPage2(player);
-
-
+		
 	}
 	
 	public static void HtmlView(Player player)
@@ -1086,8 +1085,6 @@ public class StartupManager
 		player.sendPacket(html);
 	}
 	
-
-	
 	public static void Teleport(Player player)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -1095,7 +1092,7 @@ public class StartupManager
 		player.getAppearance().isVisible();
 		player.setIsParalyzed(false);
 		player.setIsInvul(false);
-		player.sendPacket(new ExShowScreenMessage(Config.SERVER_NAME + " "	+  Config.SERVER_TEX, 6000, SMPOS.TOP_CENTER, true));
+		player.sendPacket(new ExShowScreenMessage(Config.SERVER_NAME + " " + Config.SERVER_TEX, 6000, SMPOS.TOP_CENTER, true));
 		removePreview(player);
 		removeBuff(player);
 		removeEquip(player);

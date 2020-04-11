@@ -307,7 +307,7 @@ public class VillageMaster extends Folk
 				player.sendPacket(SystemMessageId.SUBCLASS_NO_CHANGE_OR_CREATE_WHILE_SKILL_IN_USE);
 				return;
 			}
-
+			
 			if (player.isAio())
 			{
 				player.sendPacket(SystemMessageId.YOU_ARE_NOT_AUTHORIZED_TO_DO_THAT);

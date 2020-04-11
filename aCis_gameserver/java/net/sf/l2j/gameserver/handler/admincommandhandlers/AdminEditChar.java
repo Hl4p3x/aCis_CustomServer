@@ -265,7 +265,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				for (ClassId classid : ClassId.VALUES)
 					if (classidval == classid.getId())
 						valid = true;
-				
+					
 				if (valid && (player.getClassId().getId() != classidval))
 				{
 					player.setClassId(classidval);
@@ -801,7 +801,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		html.replace("%account%", player.getAccountName());
 		html.replace("%ip%", (player.getClient().isDetached()) ? "Disconnected" : player.getClient().getConnection().getInetAddress().getHostAddress());
 		html.replace("%ai%", player.getAI().getDesire().getIntention().name());
-
+		
 		// olympiad info player
 		html.replace("%match%", Olympiad.getInstance().getCompetitionDone(player.getObjectId()));
 		html.replace("%wins%", Olympiad.getInstance().getCompetitionWon(player.getObjectId()));

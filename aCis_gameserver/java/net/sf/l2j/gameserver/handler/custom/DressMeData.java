@@ -1,14 +1,8 @@
 package net.sf.l2j.gameserver.handler.custom;
 
-
 public class DressMeData
 {
-	private int chestId,
-	helmetId,
-	legsId,
-	glovesId,
-	feetId,
-	weapId;
+	private int chestId, helmetId, legsId, glovesId, feetId, weapId;
 	
 	public DressMeData()
 	{

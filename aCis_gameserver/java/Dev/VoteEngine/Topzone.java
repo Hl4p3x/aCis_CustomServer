@@ -24,7 +24,6 @@ import net.sf.l2j.Config;
 
 /**
  * @author Anarchy
- *
  */
 public class Topzone extends VoteSystem
 {
@@ -38,7 +37,7 @@ public class Topzone extends VoteSystem
 	{
 		reward();
 	}
-
+	
 	@Override
 	public int getVotes()
 	{
@@ -75,7 +74,7 @@ public class Topzone extends VoteSystem
 		
 		return votes;
 	}
-
+	
 	@Override
 	public String getSiteName()
 	{

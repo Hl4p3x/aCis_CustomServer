@@ -7,13 +7,12 @@ import net.sf.l2j.gameserver.model.World;
 
 /**
  * @author Williams
- *
  */
 public class DoubleRatesTaskManager implements Runnable
 {
 	public DoubleRatesTaskManager()
 	{
-		ThreadPool.scheduleAtFixedRate(this, Config.TIME_DOUBLE_RATES * 1000 * 60, Config.TIME_DOUBLE_RATES * 1000 * 60);	
+		ThreadPool.scheduleAtFixedRate(this, Config.TIME_DOUBLE_RATES * 1000 * 60, Config.TIME_DOUBLE_RATES * 1000 * 60);
 	}
 	
 	@Override
@@ -29,7 +28,7 @@ public class DoubleRatesTaskManager implements Runnable
 			e.printStackTrace();
 		}
 		DoubleRates(false);
-	}	
+	}
 	
 	public void DoubleRates(boolean rates)
 	{
@@ -40,7 +39,7 @@ public class DoubleRatesTaskManager implements Runnable
 			Config.RATE_DROP_ITEMS = Config.RATE_MULTIPLER * Config.RATE_DROP_ITEMS;
 			Config.RATE_DROP_ITEMS_BY_RAID = Config.RATE_MULTIPLER * Config.RATE_DROP_ITEMS_BY_RAID;
 			Config.RATE_DROP_ADENA = Config.RATE_MULTIPLER * Config.RATE_DROP_ADENA;
-			World.announceToOnlinePlayers("The Dobro de Rates started you have " + Config.TIME_DOUBLE_RATES + " minutes to release. The rates were multiplied by " + Config.RATE_MULTIPLER);	
+			World.announceToOnlinePlayers("The Dobro de Rates started you have " + Config.TIME_DOUBLE_RATES + " minutes to release. The rates were multiplied by " + Config.RATE_MULTIPLER);
 		}
 		else
 		{
@@ -61,5 +60,5 @@ public class DoubleRatesTaskManager implements Runnable
 	private static class SingletonHolder
 	{
 		protected static final DoubleRatesTaskManager INSTANCE = new DoubleRatesTaskManager();
-	}	
+	}
 }

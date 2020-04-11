@@ -35,15 +35,15 @@ public final class DlgAnswer extends L2GameClientPacket
 			
 			if ((Announcements.isSummoning == true) && (_answer == 1))
 				player.teleportTo(ArenaTask.loc1x(), ArenaTask.loc1y(), ArenaTask.loc1z(), 125);
-
-		{   
-			if (_answer == 1) 
+			
+		{
+			if (_answer == 1)
 			{
 				for (Player allsplayer : World.getInstance().getPlayers())
 					player.teleportTo(allsplayer.getX(), allsplayer.getY(), allsplayer.getZ(), 100);
 			}
 			else
-				player.teleportAnswer(_answer, _requesterId);		         
+				player.teleportAnswer(_answer, _requesterId);
 		}
 		if (_messageId == 1983 && Config.ALLOW_WEDDING)
 			player.engageAnswer(_answer);

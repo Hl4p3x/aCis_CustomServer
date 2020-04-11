@@ -12,8 +12,6 @@ import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 
-
-
 public class ScrollsOfResurrection implements IItemHandler
 {
 	@Override
@@ -21,7 +19,6 @@ public class ScrollsOfResurrection implements IItemHandler
 	{
 		if (!(playable instanceof Player))
 			return;
-		
 		
 		final Player player = (Player) playable;
 		if (player.isSitting())

@@ -92,8 +92,6 @@ public class Heal implements ISkillHandler
 			if (target instanceof Door || target instanceof SiegeFlag)
 				continue;
 			
-
-			
 			// Player holding a cursed weapon can't be healed and can't heal
 			if (target != activeChar)
 			{
@@ -111,7 +109,7 @@ public class Heal implements ISkillHandler
 				default:
 					hp = power;
 					hp *= target.calcStat(Stats.HEAL_EFFECTIVNESS, 100, null, null) / 100;
-
+					
 					if (Config.PROTECTION_HEAL)
 					{
 						if (activeChar instanceof Player && ((Player) activeChar).getPvpFlag() != 0 || activeChar instanceof Player && ((Player) activeChar).getKarma() != 0)

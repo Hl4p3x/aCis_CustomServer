@@ -43,8 +43,6 @@ public final class RequestPetUseItem extends L2GameClientPacket
 		final ItemInstance item = pet.getInventory().getItemByObjectId(_objectId);
 		if (item == null)
 			return;
-
-
 		
 		if (player.isAlikeDead() || pet.isDead())
 		{

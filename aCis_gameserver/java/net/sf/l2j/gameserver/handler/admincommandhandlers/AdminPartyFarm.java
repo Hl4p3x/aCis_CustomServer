@@ -9,25 +9,23 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 import Dev.PartyFarm.PartyFarm;
 
-
-public class AdminPartyFarm implements IAdminCommandHandler 
+public class AdminPartyFarm implements IAdminCommandHandler
 {
 	
 	private static final String[] ADMIN_COMMANDS =
 	{
 		"admin_ptfarm"
-
+	
 	};
 	
 	protected static final Logger _log = Logger.getLogger(AdminPartyFarm.class.getName());
 	public static boolean _bestfarm_manual = false;
 	public static boolean _arena_manual = false;
-
+	
 	@Override
 	public boolean useAdminCommand(String command, Player activeChar)
 	{
-
-
+		
 		if (command.equals("admin_ptfarm"))
 			if (PartyFarm._started)
 			{
@@ -36,7 +34,7 @@ public class AdminPartyFarm implements IAdminCommandHandler
 				_log.info("----------------------------------------------------------------------------");
 				PartyFarm._aborted = true;
 				finishEventPartyFarm();
-
+				
 				activeChar.sendMessage("SYS: Voce Finalizou o Party Farm Manualmente..");
 			}
 			else
@@ -50,10 +48,7 @@ public class AdminPartyFarm implements IAdminCommandHandler
 			}
 		return true;
 	}
-
-
-
-
+	
 	private static void initEventPartyFarm()
 	{
 		ThreadPool.schedule(new Runnable()
@@ -61,12 +56,12 @@ public class AdminPartyFarm implements IAdminCommandHandler
 			@Override
 			public void run()
 			{
-
+				
 				PartyFarm.bossSpawnMonster();
 			}
 		}, 1L);
 	}
-
+	
 	private static void finishEventPartyFarm()
 	{
 		ThreadPool.schedule(new Runnable()
@@ -74,13 +69,13 @@ public class AdminPartyFarm implements IAdminCommandHandler
 			@Override
 			public void run()
 			{
-
+				
 				PartyFarm.Finish_Event();
-
+				
 			}
 		}, 1L);
 	}
-
+	
 	@Override
 	public String[] getAdminCommandList()
 	{

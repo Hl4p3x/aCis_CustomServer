@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
-
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
@@ -16,7 +15,6 @@ import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 public final class Say2 extends L2GameClientPacket
 {
 	public static final Logger CHAT_LOG = Logger.getLogger("chat");
-
 	
 	private static final String[] WALKER_COMMAND_LIST =
 	{
@@ -60,7 +58,6 @@ public final class Say2 extends L2GameClientPacket
 	private String _text;
 	private int _id;
 	private String _target;
-
 	
 	@Override
 	protected void readImpl()
@@ -76,7 +73,7 @@ public final class Say2 extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
-
+		
 		player.updateLastAction();
 		
 		if (_id < 0 || _id >= SayType.VALUES.length)

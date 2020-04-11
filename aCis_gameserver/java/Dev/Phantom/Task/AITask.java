@@ -13,16 +13,13 @@ public class AITask implements Runnable
 	private final int _from;
 	private int _to;
 	
-	
-
 	public AITask(int from, int to)
 	{
 		_from = from;
 		_to = to;
 		
-	
 	}
-
+	
 	@Override
 	public void run()
 	{
@@ -36,7 +33,7 @@ public class AITask implements Runnable
 		{
 			ex.printStackTrace();
 		}
-
+		
 	}
 	
 	private void adjustPotentialIndexOutOfBounds()

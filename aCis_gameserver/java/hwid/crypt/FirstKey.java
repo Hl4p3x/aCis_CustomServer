@@ -1,8 +1,8 @@
 package hwid.crypt;
 
-import hwid.HwidConfig;
-
 import java.util.logging.Logger;
+
+import hwid.HwidConfig;
 
 public class FirstKey
 {
@@ -549,18 +549,18 @@ public class FirstKey
 	public static byte[] expandKey(byte[] key, int size)
 	{
 		byte[] P = new byte[64];
-
+		
 		for (int i = 0; i < 64; i++)
 			P[i] = key[i % size];
-
+		
 		for (int i = 0; i < 256; i++)
 		{
 			byte t = P[i % 64];
 			byte m = (byte) (MGBOX[MGBOX[t & 0xFF] & 0xFF] & 0xFF ^ TKBOX[TKBOX[i] & 0xFF] & 0xFF);
 			P[i % 64] = TKBOX[m & 0xFF];
 		}
-
+		
 		return P;
 	}
-
+	
 }

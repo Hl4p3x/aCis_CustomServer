@@ -12,7 +12,6 @@ import Dev.TeamVsTeam.TvTEvent;
 
 /**
  * @author COMBATE
- *
  */
 public class TvTEventNpc extends Npc
 {

@@ -6,7 +6,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
  * @author Williams
- *
  */
 public class Report implements IUserCommandHandler
 {
@@ -29,5 +28,5 @@ public class Report implements IUserCommandHandler
 	public int[] getUserCommandList()
 	{
 		return COMMAND_IDS;
-	}	
+	}
 }

@@ -98,7 +98,6 @@ import net.sf.l2j.gameserver.skills.funcs.FuncPDefMod;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 import net.sf.l2j.gameserver.taskmanager.MovementTaskManager;
 
-
 /**
  * An instance type extending {@link WorldObject} which represents the mother class of all character objects of the world such as players, NPCs and monsters.
  */
@@ -375,7 +374,7 @@ public abstract class Creature extends WorldObject
 	{
 		// default implementation
 	}
-
+	
 	/**
 	 * Instantly teleport this {@link Creature} to defined coordinates X/Y/Z.<br>
 	 * <br>
@@ -541,9 +540,9 @@ public abstract class Creature extends WorldObject
 		
 		if (target instanceof Npc && Config.DISABLE_ATTACK_NPC_TYPE)
 		{
-		    String mobtype = ((Npc) target).getTemplate().getType();
-		    if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype))
-		        return;
+			String mobtype = ((Npc) target).getTemplate().getType();
+			if (!Config.LIST_ALLOWED_NPC_TYPES.contains(mobtype))
+				return;
 		}
 		
 		// Checking if target has moved to peace zone
@@ -759,12 +758,9 @@ public abstract class Creature extends WorldObject
 		// Calculate if hit is missed or not
 		boolean miss1 = Formulas.calcHitMiss(this, target);
 		
-		
 		// Consume arrows
 		if (!Config.INFINITY_ARROWS)
-		 reduceArrowCount();
-		
-
+			reduceArrowCount();
 		
 		// Check if hit isn't missed
 		if (!miss1)
@@ -1499,8 +1495,6 @@ public abstract class Creature extends WorldObject
 		// Notify Creature AI
 		if (hasAI())
 			getAI().notifyEvent(AiEventType.DEAD, null);
-
-
 		
 		return true;
 	}
@@ -1529,8 +1523,7 @@ public abstract class Creature extends WorldObject
 		setIsDead(false);
 		
 		_status.setCurrentHp(getMaxHp() * Config.RESPAWN_RESTORE_HP);
-
-
+		
 		// Start broadcast status
 		broadcastPacket(new Revive(this));
 	}
@@ -3359,12 +3352,12 @@ public abstract class Creature extends WorldObject
 	 */
 	public int calculateTimeBetweenAttacks(Creature target, WeaponType weaponType)
 	{
-	    switch (weaponType)
-	    {
-	        case BOW:
-	            return Config.ANTI_SS_BUG_2 * 345 / getStat().getPAtkSpd();
-	    }
-	    return Formulas.calcPAtkSpd(this, target, getStat().getPAtkSpd());
+		switch (weaponType)
+		{
+			case BOW:
+				return Config.ANTI_SS_BUG_2 * 345 / getStat().getPAtkSpd();
+		}
+		return Formulas.calcPAtkSpd(this, target, getStat().getPAtkSpd());
 	}
 	
 	public ChanceSkillList getChanceSkills()
@@ -4610,36 +4603,36 @@ public abstract class Creature extends WorldObject
 	}
 	
 	private boolean inArenaEvent = false;
-
+	
 	public void setInArenaEvent(boolean val)
 	{
 		inArenaEvent = val;
 	}
-
+	
 	public boolean isInArenaEvent()
 	{
 		return inArenaEvent;
 	}
-
+	
 	public boolean isArenaAttack()
 	{
 		return _ArenaAttack;
 	}
-
+	
 	private boolean _ArenaAttack;
-
+	
 	public void setArenaAttack(boolean comm)
 	{
 		_ArenaAttack = comm;
 	}
-
+	
 	private boolean _ArenaProtection;
-
+	
 	public void setArenaProtection(boolean comm)
 	{
 		_ArenaProtection = comm;
 	}
-
+	
 	public boolean isArenaProtection()
 	{
 		return _ArenaProtection;
@@ -4649,63 +4642,63 @@ public abstract class Creature extends WorldObject
 	{
 		sendPacket(new CreatureSay(objectId, messageType, charName, text));
 	}
-
+	
 	private boolean _Arena9x9;
 	private boolean _Arena4x4;
 	private boolean _Arena2x2;
 	private boolean _isStopMov = false;
 	private boolean _ArenaObserv;
-
+	
 	public void setArena9x9(boolean comm)
 	{
 		_Arena9x9 = comm;
 	}
-
+	
 	public boolean isArena9x9()
 	{
 		return _Arena9x9;
 	}
-
+	
 	public void setArena4x4(boolean comm)
 	{
 		_Arena4x4 = comm;
 	}
-
+	
 	public boolean isArena4x4()
 	{
 		return _Arena4x4;
 	}
-
+	
 	public void setArena2x2(boolean comm)
 	{
 		_Arena2x2 = comm;
 	}
-
+	
 	public boolean isArena2x2()
 	{
 		return _Arena2x2;
 	}
-
+	
 	public void setArenaObserv(boolean comm)
 	{
 		_ArenaObserv = comm;
 	}
-
+	
 	public boolean isArenaObserv()
 	{
 		return _ArenaObserv;
 	}
-
+	
 	public boolean isStopArena()
 	{
 		return _isStopMov;
 	}
-
+	
 	public void setStopArena(boolean value)
 	{
 		_isStopMov = value;
 	}
-
+	
 	/**
 	 * Sets the checks if is buff protected.
 	 * @param value the new checks if is buff protected
@@ -4723,7 +4716,9 @@ public abstract class Creature extends WorldObject
 	{
 		return _isBuffProtected;
 	}
+	
 	protected MoveData _move1;
+	
 	public final boolean isOnGeodataPath()
 	{
 		MoveData m = _move1;
@@ -5085,14 +5080,13 @@ public abstract class Creature extends WorldObject
 		
 		return (distFraction > 1);
 	}
-
+	
 	/**
 	 * @param spawnLoc
 	 * @param i
 	 */
 	public void teleToLocation(Object spawnLoc, int i)
 	{
-
 		
 	}
 }

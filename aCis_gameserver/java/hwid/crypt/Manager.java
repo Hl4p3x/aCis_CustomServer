@@ -14,8 +14,6 @@
  */
 package hwid.crypt;
 
-import hwid.hwidmanager.HWIDManager;
-
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
@@ -23,6 +21,8 @@ import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.network.GameClient;
+
+import hwid.hwidmanager.HWIDManager;
 
 /**
  * @author Flack
@@ -77,7 +77,7 @@ public final class Manager
 		HWIDManager.updateHWIDInfo(client, i++);
 		_objects.put(client.getPlayerName(), new Manager.InfoSet(client.getPlayerName(), client.getHWID()));
 	}
-
+	
 	public static void removePlayer(String name)
 	{
 		if (!_objects.containsKey(name))
@@ -97,11 +97,11 @@ public final class Manager
 		while (var3.hasNext())
 		{
 			Manager.InfoSet object = var3.next();
-
+			
 			if (object._HWID.equals(HWID))
 				++result;
 		}
-
+		
 		return result;
 	}
 	

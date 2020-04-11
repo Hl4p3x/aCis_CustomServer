@@ -10,10 +10,6 @@ import net.sf.l2j.gameserver.network.serverpackets.CharSelectInfo;
 import net.sf.l2j.gameserver.network.serverpackets.RestartResponse;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 
-
-
-
-
 public final class RequestRestart extends L2GameClientPacket
 {
 	@Override
@@ -47,8 +43,6 @@ public final class RequestRestart extends L2GameClientPacket
 			sendPacket(RestartResponse.valueOf(false));
 			return;
 		}
-		
-
 		
 		if (player.isFestivalParticipant() && FestivalOfDarknessManager.getInstance().isFestivalInitialized())
 		{

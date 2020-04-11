@@ -15,19 +15,17 @@ import Dev.Phantom.Model.HealingSpell;
 import Dev.Phantom.Model.OffensiveSpell;
 import Dev.Phantom.Model.SupportSpell;
 
-
 /**
  * @author Rouxy
- *
  */
 public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 {
-
+	
 	public GhostSentinelAI(FakePlayer character)
 	{
 		super(character);
 	}
-		
+	
 	@Override
 	public void thinkAndAct()
 	{
@@ -36,9 +34,9 @@ public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 		applyDefaultBuffs();
 		handleConsumable(_fakePlayer, getArrowId());
 		selfSupportBuffs();
-		handleShots();		
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -46,7 +44,6 @@ public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 		
 		setBusyThinking(false);
 	}
-	
 	
 	@Override
 	protected double changeOfUsingSkill()
@@ -61,7 +58,7 @@ public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 	}
 	
 	@Override
-	protected List<OffensiveSpell> getOffensiveSpells() 
+	protected List<OffensiveSpell> getOffensiveSpells()
 	{
 		List<OffensiveSpell> _offensiveSpells = new ArrayList<>();
 		_offensiveSpells.add(new OffensiveSpell(1047, 1));
@@ -73,19 +70,17 @@ public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
-	
-
-
 	
 	@Override
 	protected List<SupportSpell> getSelfSupportSpells()
@@ -95,6 +90,4 @@ public class GhostSentinelAI extends CombatAI implements IConsumableSpender
 		return _selfSupportSpells;
 	}
 	
-
-
 }

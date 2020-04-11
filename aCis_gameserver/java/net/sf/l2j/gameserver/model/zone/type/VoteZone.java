@@ -14,7 +14,6 @@
  */
 package net.sf.l2j.gameserver.model.zone.type;
 
-
 import net.sf.l2j.commons.concurrent.ThreadPool;
 
 import net.sf.l2j.gameserver.data.SkillTable;
@@ -30,7 +29,6 @@ import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 
-
 public class VoteZone extends SpawnZoneType
 {
 	L2Skill noblesse = SkillTable.getInstance().getInfo(1323, 1);
@@ -44,28 +42,28 @@ public class VoteZone extends SpawnZoneType
 	public VoteZone(int id)
 	{
 		super(id);
-	}   
-	   
+	}
+	
 	public void active(boolean give)
 	{
 		if (give)
 		{
-		
+			
 		}
 		_isActive = give;
 	}
 	
-	   @Override
-	   public void setParameter(String name, String value)
-	   {
-	       if (name.equals("name"))
-	           _name = value;
-	       else if (name.equals("zoneName"))
-	    	   _newzone = value;
-	       else
-	           super.setParameter(name, value);
-	   }
-	   
+	@Override
+	public void setParameter(String name, String value)
+	{
+		if (name.equals("name"))
+			_name = value;
+		else if (name.equals("zoneName"))
+			_newzone = value;
+		else
+			super.setParameter(name, value);
+	}
+	
 	@Override
 	protected void onEnter(Creature character)
 	{
@@ -105,7 +103,6 @@ public class VoteZone extends SpawnZoneType
 		}
 		
 	}
-
 	
 	@Override
 	protected void onExit(Creature character)
@@ -153,11 +150,11 @@ public class VoteZone extends SpawnZoneType
 		return _newzone;
 	}
 	
-	
 	public int addId(int id)
 	{
 		return _id = id;
 	}
+	
 	@Override
 	public int getId()
 	{

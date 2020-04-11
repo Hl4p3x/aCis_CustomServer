@@ -11,7 +11,6 @@ import org.w3c.dom.Document;
 
 /**
  * @author Williams
- *
  */
 public class PolymorphData implements IXmlReader
 {
@@ -21,7 +20,7 @@ public class PolymorphData implements IXmlReader
 	{
 		load();
 	}
-
+	
 	public void reload()
 	{
 		_fakePcs.clear();
@@ -82,7 +81,7 @@ public class PolymorphData implements IXmlReader
 		
 		protected Polymorph(StatsSet set)
 		{
-			//aparnce fake
+			// aparnce fake
 			_name = set.getString("name", null);
 			_title = set.getString("title", null);
 			_nameColor = Integer.decode("0x" + set.getString("nameColor", "FFFFFF"));
@@ -120,12 +119,12 @@ public class PolymorphData implements IXmlReader
 		{
 			return _name;
 		}
-
+		
 		public final String getTitle()
 		{
 			return _title;
 		}
-
+		
 		public final int getNameColor()
 		{
 			return _nameColor;
@@ -140,7 +139,7 @@ public class PolymorphData implements IXmlReader
 		{
 			return _radius;
 		}
-
+		
 		public final double getHeight()
 		{
 			return _height;
@@ -150,113 +149,113 @@ public class PolymorphData implements IXmlReader
 		{
 			return _race;
 		}
-
+		
 		public final int getSex()
 		{
 			return _sex;
 		}
-
+		
 		public final int getClassId()
 		{
 			return _classId;
 		}
-
+		
 		public final int getHairStyle()
 		{
 			return _hairStyle;
 		}
-
+		
 		public final int getHairColor()
 		{
 			return _hairColor;
 		}
-
+		
 		public final int getFace()
 		{
 			return _face;
 		}
-
+		
 		public final byte getHero()
 		{
 			return _hero;
 		}
-
+		
 		public final int getEnchant()
 		{
 			return _enchant;
 		}
-
+		
 		public final int getRightHand()
 		{
 			return _rightHand;
 		}
-
+		
 		public final int getLeftHand()
 		{
 			return _leftHand;
 		}
-
+		
 		public final int getChest()
 		{
 			return _chest;
 		}
-
+		
 		public final int getLegs()
 		{
 			return _legs;
 		}
-
+		
 		public final int getGloves()
 		{
 			return _gloves;
 		}
-
+		
 		public final int getFeet()
 		{
 			return _feet;
 		}
-
+		
 		public final int getHair()
 		{
 			return _hair;
 		}
-
+		
 		public final int getHair2()
 		{
 			return _hair2;
 		}
-
+		
 		public final int getClanId()
 		{
 			return _clanId;
 		}
-
+		
 		public final int getClanCrest()
 		{
 			return _clanCrest;
 		}
-
+		
 		public final int getAllyId()
 		{
 			return _allyId;
 		}
-
+		
 		public final int getAllyCrest()
 		{
 			return _allyCrest;
 		}
-
+		
 		public final int getPledge()
 		{
 			return _pledge;
 		}
 	}
-
+	
 	public Polymorph getFakePc(int npcId)
 	{
 		return _fakePcs.get(npcId);
 	}
-
+	
 	public static PolymorphData getInstance()
 	{
 		return SingletonHolder._instance;

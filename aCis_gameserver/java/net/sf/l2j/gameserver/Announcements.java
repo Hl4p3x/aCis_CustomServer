@@ -15,14 +15,10 @@ import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 
 /**
  * @author Gabia
- *
  */
 public class Announcements
 {
 	private static Announcements _instance;
-	
-
-	
 	
 	public static Announcements getInstance()
 	{
@@ -48,8 +44,6 @@ public class Announcements
 	{
 		isSummoning = true;
 		
-		
-		
 		for (Player player : World.getInstance().getPlayers())
 		{
 			if ((player != null) && (player.isOnline()))
@@ -58,7 +52,7 @@ public class Announcements
 			}
 			if (Config.ARENA_MESSAGE_ENABLED)
 			{
-				if ((!player.isInsideZone(ZoneId.ARENA_EVENT)) && (!player.isDead()) && (!player.isInArenaEvent()) && (!player.isInStoreMode()) && (!player.isRooted()) && (player.getKarma() <= 0) && (!player.isInOlympiadMode())  && (!player.isFestivalParticipant()) && (Config.TOURNAMENT_EVENT_SUMMON))
+				if ((!player.isInsideZone(ZoneId.ARENA_EVENT)) && (!player.isDead()) && (!player.isInArenaEvent()) && (!player.isInStoreMode()) && (!player.isRooted()) && (player.getKarma() <= 0) && (!player.isInOlympiadMode()) && (!player.isFestivalParticipant()) && (Config.TOURNAMENT_EVENT_SUMMON))
 				{
 					ThreadPool.schedule(new Runnable()
 					{

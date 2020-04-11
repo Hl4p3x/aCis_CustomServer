@@ -2,7 +2,6 @@ package net.sf.l2j.gameserver.network.serverpackets;
 
 /**
  * @author Williams
- *
  */
 public class PledgeImage extends L2GameServerPacket
 {

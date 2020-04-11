@@ -8,7 +8,6 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 /**
  * @author COMBATE
- *
  */
 public class TvTEventTeams
 {

@@ -13,7 +13,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
  * @author Gabia
- *
  */
 public class HeroMenu implements IUserCommandHandler
 {
@@ -23,13 +22,12 @@ public class HeroMenu implements IUserCommandHandler
 	};
 	
 	@Override
-
+	
 	public void useUserCommand(int command, Player activeChar)
 	{
 		mainHtml(activeChar, 0);
 		return;
 	}
-
 	
 	public static void mainHtml(Player activeChar, int time)
 	{
@@ -89,7 +87,7 @@ public class HeroMenu implements IUserCommandHandler
 	{
 		player.getMemos().set("heroEndTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
 	}
-
+	
 	public static void bypass(Player activeChar, String command, StringTokenizer st)
 	{
 		if (command.equals("panelteleport"))
@@ -143,7 +141,7 @@ public class HeroMenu implements IUserCommandHandler
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 		}
 		else if (command.equals("color"))
-			
+		
 		{
 			NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 			StringBuilder html = new StringBuilder("");
@@ -152,7 +150,7 @@ public class HeroMenu implements IUserCommandHandler
 			switch (type)
 			{
 				case "Green":
-
+					
 					activeChar.getAppearance().setNameColor(0x009900);
 					activeChar.broadcastUserInfo();
 					activeChar.sendMessage("Your color name has changed!");
@@ -160,7 +158,7 @@ public class HeroMenu implements IUserCommandHandler
 					activeChar.sendPacket(nhm);
 					break;
 				case "Blue":
-
+					
 					activeChar.getAppearance().setNameColor(0xff7f00);
 					activeChar.broadcastUserInfo();
 					activeChar.sendMessage("Your color name has changed!");
@@ -168,7 +166,7 @@ public class HeroMenu implements IUserCommandHandler
 					activeChar.sendPacket(nhm);
 					break;
 				case "Purple":
-			
+					
 					activeChar.getAppearance().setNameColor(0x800080);
 					activeChar.broadcastUserInfo();
 					activeChar.sendMessage("Your color name has changed!");
@@ -176,7 +174,7 @@ public class HeroMenu implements IUserCommandHandler
 					activeChar.sendPacket(nhm);
 					break;
 				case "Yellow":
-				
+					
 					activeChar.getAppearance().setNameColor(0x00ffff);
 					activeChar.broadcastUserInfo();
 					activeChar.sendMessage("Your color name has changed!");
@@ -184,7 +182,7 @@ public class HeroMenu implements IUserCommandHandler
 					activeChar.sendPacket(nhm);
 					break;
 				case "Gold":
-				
+					
 					activeChar.getAppearance().setNameColor(0x0099ff);
 					activeChar.broadcastUserInfo();
 					activeChar.sendMessage("Your color name has changed!");
@@ -194,7 +192,6 @@ public class HeroMenu implements IUserCommandHandler
 			}
 		}
 	}
-		
 	
 	@Override
 	public int[] getUserCommandList()

@@ -17,28 +17,26 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class SaggitariusAI extends CombatAI implements IConsumableSpender
 {
-
+	
 	public SaggitariusAI(FakePlayer character)
 	{
 		super(character);
 	}
 	
-	
 	@Override
 	public void thinkAndAct()
-	{		
+	{
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
 		selfSupportBuffs();
 		handleConsumable(_fakePlayer, getArrowId());
-		handleShots();		
+		handleShots();
 		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -68,24 +66,25 @@ public class SaggitariusAI extends CombatAI implements IConsumableSpender
 		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		List<SupportSpell> _selfSupportSpells = new ArrayList<>();
 		_selfSupportSpells.add(new SupportSpell(99, 1));
 		_selfSupportSpells.add(new SupportSpell(97, 1));
 		return _selfSupportSpells;
 	}
 	
-
 }

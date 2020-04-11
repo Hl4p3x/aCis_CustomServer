@@ -26,7 +26,7 @@ public class BlowfishEngine
 		0x8979FB1B
 	
 	}, KS0 =
-{
+	{
 		0xD1310BA6,
 		0x98DFB5AC,
 		0x2FFD72DB,
@@ -283,8 +283,8 @@ public class BlowfishEngine
 		0xA99F8FA1,
 		0x08BA4799,
 		0x6E85076A
-}, KS1 =
-{
+	}, KS1 =
+	{
 		0x4B7A70E9,
 		0xB5B32944,
 		0xDB75092E,
@@ -541,8 +541,8 @@ public class BlowfishEngine
 		0x8FB03D4A,
 		0xE6E39F2B,
 		0xDB83ADF7
-}, KS2 =
-{
+	}, KS2 =
+	{
 		0xE93D5A68,
 		0x948140F7,
 		0xF64C261C,
@@ -799,8 +799,8 @@ public class BlowfishEngine
 		0x92638212,
 		0x670EFA8E,
 		0x406000E0
-}, KS3 =
-{
+	}, KS3 =
+	{
 		0x3A39CE37,
 		0xD3FAF5CF,
 		0xABC27737,
@@ -1057,8 +1057,8 @@ public class BlowfishEngine
 		0xCE77E25B,
 		0x578FDFE3,
 		0x3AC372E6
-};
-
+	};
+	
 	private static final int ROUNDS = 16;
 	private static final int BLOCK_SIZE = 8;
 	private static final int SBOX_SK = 256;
@@ -1067,7 +1067,7 @@ public class BlowfishEngine
 	private final int[] P;
 	private boolean encrypting = false;
 	private byte[] workingKey = null;
-
+	
 	public BlowfishEngine()
 	{
 		S0 = new int[SBOX_SK];
@@ -1076,19 +1076,19 @@ public class BlowfishEngine
 		S3 = new int[SBOX_SK];
 		P = new int[P_SZ];
 	}
-
+	
 	public void init(boolean pEncrypting, byte[] key)
 	{
 		encrypting = pEncrypting;
 		workingKey = key;
 		setKey(workingKey);
 	}
-
+	
 	public String getAlgorithmName()
 	{
 		return "Blowfish";
 	}
-
+	
 	public final int processBlock(byte[] in, int inOff, byte[] out, int outOff) throws IOException
 	{
 		if (workingKey == null)
@@ -1103,21 +1103,21 @@ public class BlowfishEngine
 			decryptBlock(in, inOff, out, outOff);
 		return BLOCK_SIZE;
 	}
-
+	
 	public void reset()
 	{
 	}
-
+	
 	public int getBlockSize()
 	{
 		return BLOCK_SIZE;
 	}
-
+	
 	private int F(int x)
 	{
 		return (S0[x >>> 24] + S1[x >>> 16 & 0xff] ^ S2[x >>> 8 & 0xff]) + S3[x & 0xff];
 	}
-
+	
 	private void processTable(int xl, int xr, int[] table)
 	{
 		int size = table.length;
@@ -1136,7 +1136,7 @@ public class BlowfishEngine
 			xl = table[s];
 		}
 	}
-
+	
 	private void setKey(byte[] key)
 	{
 		System.arraycopy(KS0, 0, S0, 0, SBOX_SK);
@@ -1144,7 +1144,7 @@ public class BlowfishEngine
 		System.arraycopy(KS2, 0, S2, 0, SBOX_SK);
 		System.arraycopy(KS3, 0, S3, 0, SBOX_SK);
 		System.arraycopy(KP, 0, P, 0, P_SZ);
-
+		
 		int keyLength = key.length;
 		int keyIndex = 0;
 		for (int i = 0; i < P_SZ; i++)
@@ -1164,7 +1164,7 @@ public class BlowfishEngine
 		processTable(S1[SBOX_SK - 2], S1[SBOX_SK - 1], S2);
 		processTable(S2[SBOX_SK - 2], S2[SBOX_SK - 1], S3);
 	}
-
+	
 	public void encryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex)
 	{
 		int xl = BytesTo32bits(src, srcIndex);
@@ -1179,7 +1179,7 @@ public class BlowfishEngine
 		Bits32ToBytes(xr, dst, dstIndex);
 		Bits32ToBytes(xl, dst, dstIndex + 4);
 	}
-
+	
 	public void decryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex)
 	{
 		int xl = BytesTo32bits(src, srcIndex);
@@ -1194,12 +1194,12 @@ public class BlowfishEngine
 		Bits32ToBytes(xr, dst, dstIndex);
 		Bits32ToBytes(xl, dst, dstIndex + 4);
 	}
-
+	
 	private static int BytesTo32bits(byte[] b, int i)
 	{
 		return (b[i + 3] & 0xff) << 24 | (b[i + 2] & 0xff) << 16 | (b[i + 1] & 0xff) << 8 | b[i] & 0xff;
 	}
-
+	
 	private static void Bits32ToBytes(int in, byte[] b, int offset)
 	{
 		b[offset] = (byte) in;

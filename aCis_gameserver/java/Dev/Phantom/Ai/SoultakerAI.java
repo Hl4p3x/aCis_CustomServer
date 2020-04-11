@@ -17,7 +17,6 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class SoultakerAI extends CombatAI implements IConsumableSpender
 {
@@ -25,7 +24,7 @@ public class SoultakerAI extends CombatAI implements IConsumableSpender
 	
 	public SoultakerAI(FakePlayer character)
 	{
-		super(character);		
+		super(character);
 	}
 	
 	@Override
@@ -34,10 +33,10 @@ public class SoultakerAI extends CombatAI implements IConsumableSpender
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleConsumable(_fakePlayer, boneId);		
-		handleShots();		
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleConsumable(_fakePlayer, boneId);
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -59,22 +58,24 @@ public class SoultakerAI extends CombatAI implements IConsumableSpender
 		_offensiveSpells.add(new OffensiveSpell(1234, 1));
 		_offensiveSpells.add(new OffensiveSpell(1148, 2));
 		_offensiveSpells.add(new OffensiveSpell(1343, 3));
-		return _offensiveSpells; 
+		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getMageBuffs();
-    }
-
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getMageBuffs();
+	}
+	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

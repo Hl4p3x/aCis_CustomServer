@@ -109,7 +109,6 @@ public class DamageZone extends CastleZoneType
 		}
 	}
 	
-	
 	private void stopTask()
 	{
 		if (_task != null)

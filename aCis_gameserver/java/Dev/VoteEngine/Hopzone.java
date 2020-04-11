@@ -24,7 +24,6 @@ import net.sf.l2j.Config;
 
 /**
  * @author Anarchy
- *
  */
 public class Hopzone extends VoteSystem
 {
@@ -72,7 +71,6 @@ public class Hopzone extends VoteSystem
 		return votes;
 	}
 	
-
 	@Override
 	public String getSiteName()
 	{

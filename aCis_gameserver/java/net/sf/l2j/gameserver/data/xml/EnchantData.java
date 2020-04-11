@@ -17,7 +17,6 @@ import org.w3c.dom.Document;
 
 /**
  * @author Williams
- *
  */
 public class EnchantData implements IXmlReader
 {
@@ -131,8 +130,8 @@ public class EnchantData implements IXmlReader
 			
 			if (_chance == ArraysUtil.EMPTY_INT_ARRAY && item.getItem().getType2() == Item.TYPE2_WEAPON && isWeapon() && item.isWeapon())
 				return ((Weapon) item.getItem()).isMagical() ? level >= _chanceM.length ? 0 : _chanceM[level] : level >= _chanceF.length ? 0 : _chanceF[level];
-				
-				return level >= _chance.length ? 0 : _chance[level];
+			
+			return level >= _chance.length ? 0 : _chance[level];
 		}
 		
 		public final String getAnnounceMessage()
@@ -166,13 +165,13 @@ public class EnchantData implements IXmlReader
 					if (!isWeapon())
 						return false;
 					break;
-					
+				
 				case Item.TYPE2_SHIELD_ARMOR:
 				case Item.TYPE2_ACCESSORY:
 					if (isWeapon())
 						return false;
 					break;
-					
+				
 				default:
 					return false;
 			}

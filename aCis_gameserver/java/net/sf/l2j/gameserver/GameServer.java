@@ -131,9 +131,6 @@ import Dev.VoteGatekkeper.PvPZoneManager;
 import Dev.announcerTopPlayer.AnnounceOnlinePlayers;
 import hwid.Hwid;
 
-
-
-
 public class GameServer
 {
 	private static final CLogger LOGGER = new CLogger(GameServer.class.getName());
@@ -184,7 +181,6 @@ public class GameServer
 		AnnouncementData.getInstance();
 		ServerMemoTable.getInstance();
 		AntiBotData.getInstance();
-
 		
 		StringUtil.printSection("Skills");
 		SkillTable.getInstance();
@@ -307,19 +303,19 @@ public class GameServer
 		StringUtil.printSection("Events");
 		DerbyTrackManager.getInstance();
 		LotteryManager.getInstance();
-
+		
 		if (Config.CKM_ENABLED)
 			CharacterKillingManager.getInstance().init();
-
+		
 		if (Config.ALLOW_WEDDING)
 			CoupleManager.getInstance();
-	
+		
 		if (Config.TIME_DOUBLE_RATES > 0)
 			DoubleRatesTaskManager.getInstance();
-
+		
 		if (Config.PCB_INTERVAL > 0)
 			PcCafeTaskManager.getInstance();
-
+		
 		if (Config.ALT_FISH_CHAMPIONSHIP_ENABLED)
 			FishingChampionshipManager.getInstance();
 		
@@ -334,19 +330,22 @@ public class GameServer
 		
 		StringUtil.printSection("Hwid Manager");
 		Hwid.Init();
-
-        StringUtil.printSection("Party Farm Event");
-        LOGGER.info("Evento Party Farm");
-        if (Config.PARTY_FARM_BY_TIME_OF_DAY && !Config.START_PARTY) {
-            InitialPartyFarm.getInstance().StartCalculationOfNextEventTime();
-            LOGGER.info("[Party Farm Time]: Enabled");
-        } else if (Config.START_PARTY && !Config.PARTY_FARM_BY_TIME_OF_DAY) {
-            LOGGER.info("[Start Spawn Party Farm]: Enabled");
-            ThreadPool.schedule(new SpawnMonsters(), Config.NPC_SERVER_DELAY * 1000L);
-        }
-        
-        StringUtil.printSection("Tournament Event");
-        
+		
+		StringUtil.printSection("Party Farm Event");
+		LOGGER.info("Evento Party Farm");
+		if (Config.PARTY_FARM_BY_TIME_OF_DAY && !Config.START_PARTY)
+		{
+			InitialPartyFarm.getInstance().StartCalculationOfNextEventTime();
+			LOGGER.info("[Party Farm Time]: Enabled");
+		}
+		else if (Config.START_PARTY && !Config.PARTY_FARM_BY_TIME_OF_DAY)
+		{
+			LOGGER.info("[Start Spawn Party Farm]: Enabled");
+			ThreadPool.schedule(new SpawnMonsters(), Config.NPC_SERVER_DELAY * 1000L);
+		}
+		
+		StringUtil.printSection("Tournament Event");
+		
 		ThreadPool.schedule(Arena2x2.getInstance(), 5000L);
 		ThreadPool.schedule(Arena9x9.getInstance(), 5000L);
 		ThreadPool.schedule(Arena4x4.getInstance(), 5000L);
@@ -367,7 +366,7 @@ public class GameServer
 		VoteSystem.initialize();
 		FakePlayerManager.initialise();
 		StringUtil.printSection("Phantom Store");
-
+		
 		if (Config.ALLOW_PHANTOM_STORE)
 		{
 			PhantomStore.init();
@@ -378,9 +377,8 @@ public class GameServer
 			LOGGER.info("Phantom Store Desatived");
 		}
 		
-		
 		StringUtil.printSection("Phantom Walker");
-
+		
 		if (Config.ALLOW_PHANTOM_PLAYERS)
 		{
 			PhantomWalker.init();
@@ -395,19 +393,21 @@ public class GameServer
 			AnnounceOnlinePlayers.getInstance();
 		
 		StringUtil.printSection("DataBase Auto Save");
-        if (Config.ENABLE_BACKUP_BOOLEAN) {
-        	BackupDBSave.getInstance();
-            LOGGER.info("[DataBase Auto Save]: Enabled");
-        }else
+		if (Config.ENABLE_BACKUP_BOOLEAN)
+		{
+			BackupDBSave.getInstance();
+			LOGGER.info("[DataBase Auto Save]: Enabled");
+		}
+		else
 		{
 			LOGGER.info("[DataBase Auto Save]: Desatived");
 		}
-        
-        StringUtil.printSection("Team Vs Team");
-        TvTEventManager.getInstance();
-        
-        StringUtil.printSection("Christmas Event");
-        LOGGER.info("Loaded " + ChristmasEvent.getInstance().rewardsSize() + " Rewards!");
+		
+		StringUtil.printSection("Team Vs Team");
+		TvTEventManager.getInstance();
+		
+		StringUtil.printSection("Christmas Event");
+		LOGGER.info("Loaded " + ChristmasEvent.getInstance().rewardsSize() + " Rewards!");
 		
 		StringUtil.printSection("Handlers");
 		LOGGER.info("Loaded {} admin command handlers.", AdminCommandHandler.getInstance().size());
@@ -495,19 +495,18 @@ public class GameServer
 		}, 3600 * 1000);
 	}
 	
-	
 	public class SpawnMonsters implements Runnable
 	{
 		public SpawnMonsters()
 		{
 		}
-
+		
 		@Override
 		public void run()
 		{
 			PartyFarm._aborted = false;
 			PartyFarm._started = true;
-
+			
 			PartyFarm.spawnMonsters();
 		}
 	}

@@ -155,17 +155,17 @@ public class MultiSellChoose extends L2GameClientPacket
 					
 					newIng = false;
 					
-					 // If there is a maintainIngredient, then we do not need to check the enchantment parameter
-
-					 //  as the enchant level will be checked elsewhere
-
-					 if (maintainItemFound && e.getMaintainIngredient())
-
-					 {
-
-					 maintainItemFound = true;
-
-					 }
+					// If there is a maintainIngredient, then we do not need to check the enchantment parameter
+					
+					// as the enchant level will be checked elsewhere
+					
+					if (maintainItemFound && e.getMaintainIngredient())
+					
+					{
+						
+						maintainItemFound = true;
+						
+					}
 					break;
 				}
 			}
@@ -224,23 +224,23 @@ public class MultiSellChoose extends L2GameClientPacket
 			}
 		}
 		
-		 // If there is no maintainIngredient, then we must make sure that the 
-
-		 //  enchantment is not kept from the client packet, as it may have been forged
-
-		 if (!maintainItemFound)
-
-		 {
-
-		 for (Ingredient product : entry.getProducts())
-
-		 {
-
-		 product.setEnchantLevel(0);
-
-		 }
-
-		 }
+		// If there is no maintainIngredient, then we must make sure that the
+		
+		// enchantment is not kept from the client packet, as it may have been forged
+		
+		if (!maintainItemFound)
+		
+		{
+			
+			for (Ingredient product : entry.getProducts())
+			
+			{
+				
+				product.setEnchantLevel(0);
+				
+			}
+			
+		}
 		
 		List<Augmentation> augmentation = new ArrayList<>();
 		

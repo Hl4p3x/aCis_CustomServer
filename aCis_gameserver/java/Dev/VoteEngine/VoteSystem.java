@@ -30,10 +30,8 @@ import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 
 import hwid.HwidConfig;
 
-
 /**
  * @author Anarchy
- *
  */
 public abstract class VoteSystem implements Runnable
 {
@@ -54,7 +52,7 @@ public abstract class VoteSystem implements Runnable
 			voteSystems.add(new Topzone(Config.TOPZONE_VOTES_DIFFERENCE, HwidConfig.PROTECT_WINDOWS_COUNT, Config.TOPZONE_REWARD, Config.TOPZONE_REWARD_CHECK_TIME));
 		if (Config.ALLOW_HOPZONE_VOTE_REWARD)
 			voteSystems.add(new Hopzone(Config.HOPZONE_VOTES_DIFFERENCE, HwidConfig.PROTECT_WINDOWS_COUNT, Config.HOPZONE_REWARD, Config.HOPZONE_REWARD_CHECK_TIME));
-		if(Config.ALLOW_NETWORK_VOTE_REWARD)
+		if (Config.ALLOW_NETWORK_VOTE_REWARD)
 			voteSystems.add(new NetWorkzone(Config.NETWORK_VOTES_DIFFERENCE, HwidConfig.PROTECT_WINDOWS_COUNT, Config.NETWORK_REWARD, Config.NETWORK_REWARD_CHECK_TIME));
 	}
 	
@@ -63,7 +61,7 @@ public abstract class VoteSystem implements Runnable
 		for (VoteSystem vs : voteSystems)
 			if (vs.getSiteName().equals(name))
 				return vs;
-		
+			
 		return null;
 	}
 	
@@ -76,7 +74,7 @@ public abstract class VoteSystem implements Runnable
 		
 		lastVotes = getVotes();
 		
-		ThreadPool.scheduleAtFixedRate(this, checkMins*1000*60, checkMins*1000*60);
+		ThreadPool.scheduleAtFixedRate(this, checkMins * 1000 * 60, checkMins * 1000 * 60);
 	}
 	
 	protected void reward()
@@ -85,24 +83,24 @@ public abstract class VoteSystem implements Runnable
 		
 		if (currentVotes == -1)
 		{
-			System.out.println("There was a problem on getting server votes from "+getSiteName());
+			System.out.println("There was a problem on getting server votes from " + getSiteName());
 			return;
 		}
 		
 		if (lastVotes == 0)
 		{
 			lastVotes = currentVotes;
-			announce(getSiteName()+": Current vote count is "+currentVotes+". We need "+((lastVotes+votesDiff)-currentVotes)+" vote(s) for reward.");
+			announce(getSiteName() + ": Current vote count is " + currentVotes + ". We need " + ((lastVotes + votesDiff) - currentVotes) + " vote(s) for reward.");
 			
 			return;
 		}
 		
-		if (currentVotes >= lastVotes+votesDiff)
+		if (currentVotes >= lastVotes + votesDiff)
 		{
 			Collection<Player> pls = World.getInstance().getPlayers();
 			
-			announce(getSiteName()+": Everyone has been rewarded! Thanks for voting.");
-			announce(getSiteName()+": Current vote count is "+currentVotes+". We need "+votesDiff+" vote(s) for the next reward.");
+			announce(getSiteName() + ": Everyone has been rewarded! Thanks for voting.");
+			announce(getSiteName() + ": Current vote count is " + currentVotes + ". We need " + votesDiff + " vote(s) for the next reward.");
 			for (Player p : pls)
 			{
 				if (p.getClient() == null || p.getClient().isDetached()) // offline shops protection
@@ -116,7 +114,7 @@ public abstract class VoteSystem implements Runnable
 					if (count < boxes)
 					{
 						playerIps.remove(pIp);
-						playerIps.put(pIp, count+1);
+						playerIps.put(pIp, count + 1);
 						canReward = true;
 					}
 				}
@@ -126,10 +124,10 @@ public abstract class VoteSystem implements Runnable
 					playerIps.put(pIp, 1);
 				}
 				if (canReward)
-					for (int i : rewards.keySet()) {
+					for (int i : rewards.keySet())
+					{
 						p.addItem("Vote reward.", i, rewards.get(i), p, true);
 						
-
 					}
 			}
 			playerIps.clear();
@@ -137,16 +135,16 @@ public abstract class VoteSystem implements Runnable
 			lastVotes = currentVotes;
 		}
 		else
-			announce(getSiteName()+": Current vote count is "+currentVotes+". We need "+((lastVotes+votesDiff)-currentVotes)+" vote(s) for reward.");
+			announce(getSiteName() + ": Current vote count is " + currentVotes + ". We need " + ((lastVotes + votesDiff) - currentVotes) + " vote(s) for reward.");
 	}
 	
 	private static void announce(String msg)
 	{
 		new CreatureSay(SayType.CRITICAL_ANNOUNCE, null, "" + msg);
-
-
+		
 	}
 	
 	public abstract int getVotes();
+	
 	public abstract String getSiteName();
 }

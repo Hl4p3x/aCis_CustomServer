@@ -323,7 +323,6 @@ public abstract class L2Effect
 	{
 		if (_abnormalEffect != AbnormalEffect.NULL)
 			getEffected().startAbnormalEffect(_abnormalEffect);
-	
 		
 		return true;
 	}

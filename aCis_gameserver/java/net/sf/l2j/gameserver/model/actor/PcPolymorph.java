@@ -15,7 +15,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcInfoPolymorph;
 
 /**
  * @author Williams
- *
  */
 public class PcPolymorph extends Npc
 {
@@ -93,7 +92,7 @@ public class PcPolymorph extends Npc
 		
 		activeChar.sendPacket(new NpcInfoPolymorph(this));
 	}
-
+	
 	@Override
 	public void showChatWindow(Player player, int val)
 	{

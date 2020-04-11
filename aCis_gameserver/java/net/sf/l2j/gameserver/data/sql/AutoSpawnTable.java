@@ -292,7 +292,6 @@ public class AutoSpawnTable
 			_objectId = objectId;
 		}
 		
-
 		@Override
 		public void run()
 		{

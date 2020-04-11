@@ -6,7 +6,6 @@ import net.sf.l2j.commons.logging.MasterFormatter;
 
 /**
  * @author Williams
- *
  */
 public class DonateAuditFormatter extends MasterFormatter
 {

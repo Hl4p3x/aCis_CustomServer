@@ -310,7 +310,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			_summonAnimation = val;
 			if (_summon.isShowSummonAnimation())
 				_summonAnimation = 2; // override for spawn
-			
+				
 			_isAttackable = _summon.isAutoAttackable(attacker);
 			_rhand = _summon.getWeapon();
 			_lhand = 0;

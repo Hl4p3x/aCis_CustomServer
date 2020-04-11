@@ -36,7 +36,8 @@ public class MapRegionData implements IXmlReader
 		CASTLE,
 		CLAN_HALL,
 		SIEGE_FLAG,
-		TOWN, CHANGE_PVP_ZONE
+		TOWN,
+		CHANGE_PVP_ZONE
 	}
 	
 	private static final int REGIONS_X = 11;
@@ -223,8 +224,6 @@ public class MapRegionData implements IXmlReader
 		// The player is in MDT, move him out.
 		if (player.isInsideZone(ZoneId.MONSTER_TRACK))
 			return MDT_LOCATION;
-		
-		
 		
 		if (teleportType != TeleportType.TOWN && player.getClan() != null)
 		{

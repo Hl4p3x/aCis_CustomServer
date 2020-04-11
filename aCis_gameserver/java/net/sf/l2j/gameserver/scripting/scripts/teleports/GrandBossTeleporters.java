@@ -143,11 +143,11 @@ public class GrandBossTeleporters extends Quest
 			case 29055:
 				htmltext = "29055-01.htm";
 				break;
-				
+			
 			case 29061:
 				player.teleportTo(150037 + Rnd.get(500), -57720 + Rnd.get(500), -2976, 0);
 				break;
-				
+			
 			case 31862:
 				final int status = GrandBossManager.getInstance().getBossStatus(29020);
 				if (status == Baium.AWAKE)
@@ -200,11 +200,11 @@ public class GrandBossTeleporters extends Quest
 						htmltext = "13001-03.htm";
 				}
 				break;
-				
+			
 			case 31859:
 				player.teleportTo(79800 + Rnd.get(600), 151200 + Rnd.get(1100), -3534, 0);
 				break;
-				
+			
 			case 31385:
 				status = GrandBossManager.getInstance().getBossStatus(Valakas.VALAKAS);
 				if (status == 0 || status == 1)
@@ -234,19 +234,19 @@ public class GrandBossTeleporters extends Quest
 				else
 					htmltext = "31385-01.htm";
 				break;
-				
+			
 			case 31384:
 				DoorData.getInstance().getDoor(24210004).openMe();
 				break;
-				
+			
 			case 31686:
 				DoorData.getInstance().getDoor(24210006).openMe();
 				break;
-				
+			
 			case 31687:
 				DoorData.getInstance().getDoor(24210005).openMe();
 				break;
-				
+			
 			case 31540:
 				if (_valakasPlayersCount < 50)
 					htmltext = "31540-01.htm";
@@ -259,11 +259,11 @@ public class GrandBossTeleporters extends Quest
 				else
 					htmltext = "31540-05.htm";
 				break;
-				
+			
 			case 31759:
 				player.teleportTo(150037, -57720, -2976, 250);
 				break;
-				
+			
 			case 32011:
 				if (!player.isInParty() || !player.getParty().isLeader(player) || player.getParty().getCommandChannel() == null || player.getParty().getCommandChannel().getLeader() != player)
 					htmltext = "32011-01.htm";
@@ -317,11 +317,11 @@ public class GrandBossTeleporters extends Quest
 						htmltext = "32011-02.htm";
 				}
 				break;
-				
+			
 			case 32107:
 				player.teleportTo(Rnd.get(SAILREN_OUT), 100);
 				break;
-				
+			
 			case 32109:
 				if (!player.isInParty())
 					htmltext = "32109-03.htm";

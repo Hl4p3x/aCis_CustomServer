@@ -1,12 +1,12 @@
 package hwid;
 
-import hwid.crypt.FirstKey;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Logger;
+
+import hwid.crypt.FirstKey;
 
 public class HwidConfig
 {
@@ -36,55 +36,51 @@ public class HwidConfig
 	public static long TIME_SEND_GG_REPLY;
 	public static boolean PROTECT_KICK_WITH_EMPTY_HWID;
 	public static boolean PROTECT_KICK_WITH_LASTERROR_HWID;
-
+	
 	public static String MESSAGE_GOOD;
 	public static String MESSAGE_ERROR;
 	
-
-	
-	
-
 	@SuppressWarnings("resource")
 	public static final void load()
 	{
 		File fp = new File(D_GUARD_FILE);
 		ALLOW_GUARD_SYSTEM = fp.exists();
-
+		
 		if (ALLOW_GUARD_SYSTEM)
 			try
-		{
+			{
 				Properties guardSettings = new Properties();
 				InputStream is = new FileInputStream(fp);
 				guardSettings.load(is);
 				is.close();
-
+				
 				_log.info("- Loading Protection Configs");
 				ALLOW_GUARD_SYSTEM = getBooleanProperty(guardSettings, "AllowGuardSystem", true);
 				PROTECT_WINDOWS_COUNT = getIntProperty(guardSettings, "AllowedWindowsCount", 1);
 				NPROTECT_USERNAME = guardSettings.getProperty("UserName", "");
 				SITE_01 = getIntProperty(guardSettings, "Prtctn", 1);
-
+				
 				FST_KEY = getByteProperty(guardSettings, "FstKey", 110);
 				SCN_KEY = getByteProperty(guardSettings, "ScnKey", 36);
 				ANP_KEY = getByteProperty(guardSettings, "AnpKey", -5);
 				ULT_KEY = getByteProperty(guardSettings, "UltKey", 12);
-
+				
 				GET_CLIENT_HWID = getIntProperty(guardSettings, "UseClientHWID", 2);
 				ENABLE_CONSOLE_LOG = getBooleanProperty(guardSettings, "EnableConsoleLog", false);
 				PROTECT_KICK_WITH_EMPTY_HWID = getBooleanProperty(guardSettings, "KickWithEmptyHWID", false);
 				PROTECT_KICK_WITH_LASTERROR_HWID = getBooleanProperty(guardSettings, "KickWithLastErrorHWID", false);
-
+				
 				MESSAGE_GOOD = guardSettings.getProperty("ServerKey", "");
 				MESSAGE_ERROR = guardSettings.getProperty("ClientKey", "");
-
+				
 				String key_client = "GOGX2_RB(]Slnjt15~EgyqTv%[$YR]!1E~ayK?$9[R%%m4{zoMF$D?f:zvS2q&>~";
 				String key_server = "b*qR43<9J1pD>Q4Uns6FsKao~VbU0H]y`A0ytTveiWn)SuSYsM?m*eblL!pwza!t";
 				byte[] keyS = key_server.getBytes();
 				byte[] tmpS = new byte[32];
-
+				
 				byte[] keyC = key_client.getBytes();
 				byte[] tmpC = new byte[32];
-
+				
 				System.arraycopy(keyC, 0, tmpC, 0, 32);
 				GUARD_CLIENT_CRYPT_KEY = FirstKey.expandKey(tmpC, 32);
 				System.arraycopy(keyC, 32, tmpC, 0, 32);
@@ -94,13 +90,13 @@ public class HwidConfig
 				GUARD_SERVER_CRYPT_KEY = FirstKey.expandKey(tmpS, 32);
 				System.arraycopy(keyS, 32, tmpS, 0, 32);
 				GUARD_SERVER_CRYPT = FirstKey.expandKey(tmpS, 32);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 	}
-
+	
 	@SuppressWarnings("resource")
 	protected static Properties getSettings(String CONFIGURATION_FILE) throws Exception
 	{
@@ -110,12 +106,12 @@ public class HwidConfig
 		is.close();
 		return serverSettings;
 	}
-
+	
 	protected static String getProperty(Properties prop, String name)
 	{
 		return prop.getProperty(name.trim(), null);
 	}
-
+	
 	protected static String getProperty(Properties prop, String name, String _default)
 	{
 		String s = getProperty(prop, name);
@@ -138,7 +134,7 @@ public class HwidConfig
 		String s = getProperty(prop, name);
 		return s == null ? _default : Long.parseLong(s.trim());
 	}
-
+	
 	protected static long getLongHexProperty(Properties prop, String name, long _default)
 	{
 		String s = getProperty(prop, name);
@@ -201,20 +197,20 @@ public class HwidConfig
 		String s = getProperty(prop, name);
 		return s == null ? _default : s.split(delimiter);
 	}
-
+	
 	protected static String[] getStringArray(Properties prop, String name, String[] _default)
 	{
 		return getStringArray(prop, name, _default, ",");
 	}
-
+	
 	protected static float[] parseCommaSeparatedFloatArray(String s)
 	{
 		if (s.isEmpty())
 			return new float[0];
-
+		
 		String[] tmp = s.replaceAll(",", ";").split(";");
 		float[] ret = new float[tmp.length];
-
+		
 		for (int i = 0; i < tmp.length; i++)
 			ret[i] = Float.parseFloat(tmp[i]);
 		return ret;
@@ -224,12 +220,12 @@ public class HwidConfig
 	{
 		if (s.isEmpty())
 			return new int[0];
-
+		
 		String[] tmp = s.replaceAll(",", ";").split(";");
 		int[] ret = new int[tmp.length];
 		for (int i = 0; i < tmp.length; i++)
 			ret[i] = Integer.parseInt(tmp[i]);
-
+		
 		return ret;
 	}
 }

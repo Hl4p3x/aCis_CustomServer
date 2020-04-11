@@ -49,21 +49,21 @@ public class Blow implements ISkillHandler
 			else if (activeChar.isInFrontOfTarget())
 				_successChance = FRONT;
 			
-			 if (skill.getName().equals("Backstab"))
-			 {
-			 if (activeChar.isBehindTarget())
-			     _successChance = (byte) Config.BACKSTAB_ATTACK_BEHIND;
-			 else if (activeChar.isInFrontOfTarget())
-			     _successChance = (byte) Config.BACKSTAB_ATTACK_FRONT;
-			 else
-			     _successChance = (byte) Config.BACKSTAB_ATTACK_SIDE;
-			 }
-			 else if (activeChar.isBehindTarget())
-			     _successChance = (byte) Config.BLOW_ATTACK_BEHIND;
-			 else if (activeChar.isInFrontOfTarget())
-			     _successChance = (byte) Config.BLOW_ATTACK_FRONT;
-			 else
-			 _successChance = (byte) Config.BLOW_ATTACK_SIDE;
+			if (skill.getName().equals("Backstab"))
+			{
+				if (activeChar.isBehindTarget())
+					_successChance = (byte) Config.BACKSTAB_ATTACK_BEHIND;
+				else if (activeChar.isInFrontOfTarget())
+					_successChance = (byte) Config.BACKSTAB_ATTACK_FRONT;
+				else
+					_successChance = (byte) Config.BACKSTAB_ATTACK_SIDE;
+			}
+			else if (activeChar.isBehindTarget())
+				_successChance = (byte) Config.BLOW_ATTACK_BEHIND;
+			else if (activeChar.isInFrontOfTarget())
+				_successChance = (byte) Config.BLOW_ATTACK_FRONT;
+			else
+				_successChance = (byte) Config.BLOW_ATTACK_SIDE;
 			
 			// If skill requires Crit or skill requires behind, calculate chance based on DEX, Position and on self BUFF
 			boolean success = true;

@@ -82,56 +82,56 @@ public class BossZone extends ZoneType
 	{
 		if (_enabled)
 		{
-		character.setInsideZone(ZoneId.BOSS, true);
-		
-		if (character instanceof Player)
-		{
-			// Get player and set zone info.
-			final Player player = (Player) character;
-			player.setInsideZone(ZoneId.NO_SUMMON_FRIEND, true);
+			character.setInsideZone(ZoneId.BOSS, true);
 			
-			// Enable/Disable Flag.
-			if (Config.FLAG_RB)
-				player.updatePvPFlag(1);
-			
-			// Skip other checks for GM or if no invade time is set.
-			if (player.isGM() || _invadeTime == 0 || Config.ENTER_ZONE_BOSS)
-				return;
-			
-			// Get player object id.
-			final int id = player.getObjectId();
-			
-			if (_allowedPlayers.contains(id))
+			if (character instanceof Player)
 			{
-				// Get and remove the entry expiration time (once entered, can not enter enymore, unless specified).
-				final long entryTime = _allowedPlayersEntryTime.remove(id);
-				if (entryTime > System.currentTimeMillis())
+				// Get player and set zone info.
+				final Player player = (Player) character;
+				player.setInsideZone(ZoneId.NO_SUMMON_FRIEND, true);
+				
+				// Enable/Disable Flag.
+				if (Config.FLAG_RB)
+					player.updatePvPFlag(1);
+				
+				// Skip other checks for GM or if no invade time is set.
+				if (player.isGM() || _invadeTime == 0 || Config.ENTER_ZONE_BOSS)
 					return;
 				
-				// Player trying to join after expiration, remove from allowed list.
-				_allowedPlayers.remove(Integer.valueOf(id));
+				// Get player object id.
+				final int id = player.getObjectId();
+				
+				if (_allowedPlayers.contains(id))
+				{
+					// Get and remove the entry expiration time (once entered, can not enter enymore, unless specified).
+					final long entryTime = _allowedPlayersEntryTime.remove(id);
+					if (entryTime > System.currentTimeMillis())
+						return;
+					
+					// Player trying to join after expiration, remove from allowed list.
+					_allowedPlayers.remove(Integer.valueOf(id));
+				}
+				
+				// Teleport out player, who attempt "illegal" (re-)entry.
+				if (_oustLoc[0] != 0 && _oustLoc[1] != 0 && _oustLoc[2] != 0)
+					player.teleportTo(_oustLoc[0], _oustLoc[1], _oustLoc[2], 0);
+				else
+					player.teleportTo(TeleportType.TOWN);
 			}
-			
-			// Teleport out player, who attempt "illegal" (re-)entry.
-			if (_oustLoc[0] != 0 && _oustLoc[1] != 0 && _oustLoc[2] != 0)
-				player.teleportTo(_oustLoc[0], _oustLoc[1], _oustLoc[2], 0);
-			else
-				player.teleportTo(TeleportType.TOWN);
-		}
-		else if (character instanceof Summon)
-		{
-			final Player player = ((Summon) character).getOwner();
-			if (player != null)
+			else if (character instanceof Summon)
 			{
-				if (_allowedPlayers.contains(player.getObjectId()) || player.isGM() || _invadeTime == 0)
-					return;
-				
-				// Remove summon.
-				((Summon) character).unSummon(player);
+				final Player player = ((Summon) character).getOwner();
+				if (player != null)
+				{
+					if (_allowedPlayers.contains(player.getObjectId()) || player.isGM() || _invadeTime == 0)
+						return;
+					
+					// Remove summon.
+					((Summon) character).unSummon(player);
+				}
 			}
 		}
 	}
-}
 	
 	@Override
 	protected void onExit(Creature character)
@@ -143,11 +143,8 @@ public class BossZone extends ZoneType
 			Player player = (Player) character;
 			if (!player.isInObserverMode())
 				PvpFlagTaskManager.getInstance().add(player, 20000L);
-
+			
 		}
-
-	
-
 		
 		if (character instanceof Playable)
 		{

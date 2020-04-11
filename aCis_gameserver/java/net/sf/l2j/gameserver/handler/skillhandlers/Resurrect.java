@@ -11,9 +11,6 @@ import net.sf.l2j.gameserver.model.actor.instance.Pet;
 import net.sf.l2j.gameserver.skills.Formulas;
 import net.sf.l2j.gameserver.taskmanager.DecayTaskManager;
 
-
-
-
 public class Resurrect implements ISkillHandler
 {
 	private static final L2SkillType[] SKILL_IDS =
@@ -24,8 +21,6 @@ public class Resurrect implements ISkillHandler
 	@Override
 	public void useSkill(Creature activeChar, L2Skill skill, WorldObject[] targets)
 	{
-		
-
 		
 		for (WorldObject cha : targets)
 		{

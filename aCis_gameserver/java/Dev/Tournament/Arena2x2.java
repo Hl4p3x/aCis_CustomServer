@@ -10,12 +10,12 @@ import net.sf.l2j.commons.concurrent.ThreadPool;
 import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.enums.ZoneId;
+import net.sf.l2j.gameserver.enums.actors.ClassId;
 import net.sf.l2j.gameserver.model.L2Effect;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.Summon;
 import net.sf.l2j.gameserver.model.actor.instance.Pet;
-import net.sf.l2j.gameserver.enums.actors.ClassId;
-import net.sf.l2j.gameserver.enums.ZoneId;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
@@ -23,31 +23,31 @@ import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
 public class Arena2x2 implements Runnable
 {
 	protected static final Logger _log = Logger.getLogger(Arena2x2.class.getName());
-
+	
 	public static List<Pair> registered;
-
+	
 	int free = Config.ARENA_EVENT_COUNT;
-
+	
 	Arena[] arenas = new Arena[Config.ARENA_EVENT_COUNT];
-
+	
 	Map<Integer, String> fights = new HashMap<>(Config.ARENA_EVENT_COUNT);
-
+	
 	public Arena2x2()
 	{
 		registered = new ArrayList<>();
-
+		
 		for (int i = 0; i < Config.ARENA_EVENT_COUNT; i++)
 		{
 			int[] coord = Config.ARENA_EVENT_LOCS[i];
 			arenas[i] = new Arena(i, coord[0], coord[1], coord[2]);
 		}
 	}
-
+	
 	public static Arena2x2 getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
-
+	
 	public boolean register(Player player, Player assist)
 	{
 		for (Pair p : registered)
@@ -63,11 +63,10 @@ public class Arena2x2 implements Runnable
 				return false;
 			}
 			
-			
 		}
 		return registered.add(new Pair(player, assist));
 	}
-
+	
 	public boolean isRegistered(Player player)
 	{
 		for (Pair p : registered)
@@ -75,12 +74,12 @@ public class Arena2x2 implements Runnable
 				return true;
 		return false;
 	}
-
+	
 	public Map<Integer, String> getFights()
 	{
 		return fights;
 	}
-
+	
 	public boolean remove(Player player)
 	{
 		for (Pair p : registered)
@@ -92,20 +91,20 @@ public class Arena2x2 implements Runnable
 			}
 		return false;
 	}
-
+	
 	@Override
 	public synchronized void run()
 	{
 		for (;;)
 			if (registered.size() < 2 || free == 0)
 				try
-		{
+				{
 					Thread.sleep(Config.ARENA_CALL_INTERVAL * 1000);
-
-		}
-		catch (InterruptedException localInterruptedException)
-		{
-		}
+					
+				}
+				catch (InterruptedException localInterruptedException)
+				{
+				}
 			else
 			{
 				List<Pair> opponents = selectOpponents();
@@ -115,7 +114,7 @@ public class Arena2x2 implements Runnable
 					T.setDaemon(true);
 					T.start();
 				}
-
+				
 				try
 				{
 					Thread.sleep(Config.ARENA_CALL_INTERVAL * 1000);
@@ -125,7 +124,7 @@ public class Arena2x2 implements Runnable
 				}
 			}
 	}
-
+	
 	@SuppressWarnings("null")
 	private List<Pair> selectOpponents()
 	{
@@ -155,7 +154,7 @@ public class Arena2x2 implements Runnable
 					return null;
 				}
 			}
-
+			
 			if (pairTwo == null)
 			{
 				second = Rnd.get(getRegisteredCount());
@@ -172,7 +171,7 @@ public class Arena2x2 implements Runnable
 					return null;
 				}
 			}
-
+			
 			if (pairOne != null && pairTwo != null)
 				break;
 			tries--;
@@ -180,33 +179,33 @@ public class Arena2x2 implements Runnable
 		while (tries > 0);
 		return opponents;
 	}
-
+	
 	public int getRegisteredCount()
 	{
 		return registered.size();
 	}
-
+	
 	private class Pair
 	{
 		Player leader;
 		Player assist;
-
+		
 		public Pair(Player leader, Player assist)
 		{
 			this.leader = leader;
 			this.assist = assist;
 		}
-
+		
 		public Player getAssist()
 		{
 			return assist;
 		}
-
+		
 		public Player getLeader()
 		{
 			return leader;
 		}
-
+		
 		public boolean check()
 		{
 			if ((leader == null || !leader.isOnline()) && (assist != null || assist.isOnline()))
@@ -221,10 +220,9 @@ public class Arena2x2 implements Runnable
 			}
 			return true;
 		}
-
+		
 		public boolean isDead()
 		{
-
 			
 			if ((leader == null || leader.isDead() || !leader.isOnline() || !leader.isInsideZone(ZoneId.ARENA_EVENT) || !leader.isArenaAttack()) && (assist == null || assist.isDead() || !assist.isOnline() || !assist.isInsideZone(ZoneId.ARENA_EVENT) || !assist.isArenaAttack()))
 				return false;
@@ -232,8 +230,6 @@ public class Arena2x2 implements Runnable
 			
 		}
 		
-		
-
 		public boolean isAlive()
 		{
 			
@@ -241,35 +237,33 @@ public class Arena2x2 implements Runnable
 				return false;
 			return !leader.isDead() || !assist.isDead();
 			
-			
 		}
-
+		
 		public void teleportTo(int x, int y, int z)
 		{
 			if (leader != null && leader.isOnline())
 			{
-
+				
 				leader.setCurrentCp(leader.getMaxCp());
 				leader.setCurrentHp(leader.getMaxHp());
 				leader.setCurrentMp(leader.getMaxMp());
-
+				
 				if (leader.isInObserverMode())
 				{
 					leader.setLastCords(x, y, z);
 					leader.leaveOlympiadObserverMode();
-				}	
+				}
 				else
 					leader.teleportTo(x, y, z, 0);
 				leader.broadcastUserInfo();
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setCurrentCp(assist.getMaxCp());
 				assist.setCurrentHp(assist.getMaxHp());
 				assist.setCurrentMp(assist.getMaxMp());
 				
-
 				if (assist.isInObserverMode())
 				{
 					assist.setLastCords(x, y + 50, z);
@@ -280,7 +274,7 @@ public class Arena2x2 implements Runnable
 				assist.broadcastUserInfo();
 			}
 		}
-
+		
 		public void EventTitle(String title, String color)
 		{
 			if (leader != null && leader.isOnline())
@@ -290,7 +284,7 @@ public class Arena2x2 implements Runnable
 				leader.broadcastUserInfo();
 				leader.broadcastTitleInfo();
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setTitle(title);
@@ -299,7 +293,7 @@ public class Arena2x2 implements Runnable
 				assist.broadcastTitleInfo();
 			}
 		}
-
+		
 		public void saveTitle()
 		{
 			if (leader != null && leader.isOnline())
@@ -307,14 +301,14 @@ public class Arena2x2 implements Runnable
 				leader._originalTitleColorTournament = leader.getAppearance().getTitleColor();
 				leader._originalTitleTournament = leader.getTitle();
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist._originalTitleColorTournament = assist.getAppearance().getTitleColor();
 				assist._originalTitleTournament = assist.getTitle();
 			}
 		}
-
+		
 		public void backTitle()
 		{
 			if (leader != null && leader.isOnline())
@@ -324,7 +318,7 @@ public class Arena2x2 implements Runnable
 				leader.broadcastUserInfo();
 				leader.broadcastTitleInfo();
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setTitle(assist._originalTitleTournament);
@@ -333,19 +327,19 @@ public class Arena2x2 implements Runnable
 				assist.broadcastTitleInfo();
 			}
 		}
-
+		
 		public void rewards()
 		{
 			if (leader != null && leader.isOnline())
-
-					leader.addItem("Arena_Event", Config.ARENA_REWARD_ID, Config.ARENA_WIN_REWARD_COUNT, leader, true);
-
+				
+				leader.addItem("Arena_Event", Config.ARENA_REWARD_ID, Config.ARENA_WIN_REWARD_COUNT, leader, true);
+			
 			if (assist != null && assist.isOnline())
-					assist.addItem("Arena_Event", Config.ARENA_REWARD_ID, Config.ARENA_WIN_REWARD_COUNT, assist, true);
-
+				assist.addItem("Arena_Event", Config.ARENA_REWARD_ID, Config.ARENA_WIN_REWARD_COUNT, assist, true);
+			
 			sendPacket("Congratulations, your team won the event!", 5);
 		}
-
+		
 		public void rewardsLost()
 		{
 			if (leader != null && leader.isOnline())
@@ -354,7 +348,7 @@ public class Arena2x2 implements Runnable
 				assist.addItem("Arena_Event", Config.ARENA_REWARD_ID, Config.ARENA_LOST_REWARD_COUNT, assist, true);
 			sendPacket("your team lost the event! =(", 5);
 		}
-
+		
 		public void setInTournamentEvent(boolean val)
 		{
 			if (leader != null && leader.isOnline())
@@ -362,7 +356,7 @@ public class Arena2x2 implements Runnable
 			if (assist != null && assist.isOnline())
 				assist.setInArenaEvent(val);
 		}
-
+		
 		public void removeMessage()
 		{
 			if (leader != null && leader.isOnline())
@@ -371,7 +365,7 @@ public class Arena2x2 implements Runnable
 				leader.setArenaProtection(false);
 				leader.setArena2x2(false);
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.sendMessage("Tournament: Your participation has been removed.");
@@ -379,7 +373,7 @@ public class Arena2x2 implements Runnable
 				leader.setArena2x2(false);
 			}
 		}
-
+		
 		public void setArenaProtection(boolean val)
 		{
 			if (leader != null && leader.isOnline())
@@ -387,14 +381,14 @@ public class Arena2x2 implements Runnable
 				leader.setArenaProtection(val);
 				leader.setArena2x2(val);
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setArenaProtection(val);
 				leader.setArena2x2(val);
 			}
 		}
-
+		
 		public void revive()
 		{
 			if (leader != null && leader.isOnline() && leader.isDead())
@@ -402,7 +396,7 @@ public class Arena2x2 implements Runnable
 			if (assist != null && assist.isOnline() && assist.isDead())
 				assist.doRevive();
 		}
-
+		
 		public void setImobilised(boolean val)
 		{
 			if (leader != null && leader.isOnline())
@@ -410,14 +404,14 @@ public class Arena2x2 implements Runnable
 				leader.setIsInvul(val);
 				leader.setStopArena(val);
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setIsInvul(val);
 				assist.setStopArena(val);
 			}
 		}
-
+		
 		public void setArenaAttack(boolean val)
 		{
 			if (leader != null && leader.isOnline())
@@ -425,20 +419,19 @@ public class Arena2x2 implements Runnable
 				leader.setArenaAttack(val);
 				leader.broadcastUserInfo();
 			}
-
+			
 			if (assist != null && assist.isOnline())
 			{
 				assist.setArenaAttack(val);
 				assist.broadcastUserInfo();
 			}
 		}
-
-
+		
 		public void removePet()
 		{
 			if (leader != null && leader.isOnline())
 			{
-
+				
 				if (leader.getSummon() != null)
 				{
 					Summon summon = leader.getSummon();
@@ -452,7 +445,7 @@ public class Arena2x2 implements Runnable
 			}
 			if (assist != null && assist.isOnline())
 			{
-
+				
 				if (assist.getSummon() != null)
 				{
 					Summon summon = assist.getSummon();
@@ -464,11 +457,9 @@ public class Arena2x2 implements Runnable
 				if (assist.getMountType() == 1 || assist.getMountType() == 2)
 					assist.dismount();
 			}
-
-	
+			
 		}
 		
-
 		public void removeSkills()
 		{
 			for (L2Effect effect : leader.getAllEffects())
@@ -477,14 +468,14 @@ public class Arena2x2 implements Runnable
 					leader.stopSkillEffects(effect.getSkill().getId());
 					leader.enableSkill(effect.getSkill());
 				}
-
+			
 			for (L2Effect effect : assist.getAllEffects())
 				if (effect.getSkill().getId() == 406 || effect.getSkill().getId() == 139 || effect.getSkill().getId() == 176 || effect.getSkill().getId() == 420)
 				{
 					assist.stopSkillEffects(effect.getSkill().getId());
 					assist.enableSkill(effect.getSkill());
 				}
-
+			
 			if (Config.ARENA_SKILL_PROTECT)
 				if (leader != null && leader.isOnline())
 				{
@@ -497,7 +488,7 @@ public class Arena2x2 implements Runnable
 						leader.enteredNoLanding(5);
 					}
 				}
-
+			
 			if (Config.ARENA_SKILL_PROTECT)
 				if (assist != null && assist.isOnline())
 				{
@@ -511,7 +502,7 @@ public class Arena2x2 implements Runnable
 					}
 				}
 		}
-
+		
 		public void sendPacket(String message, int duration)
 		{
 			if (leader != null && leader.isOnline())
@@ -519,7 +510,7 @@ public class Arena2x2 implements Runnable
 			if (assist != null && assist.isOnline())
 				assist.sendPacket(new ExShowScreenMessage(message, duration * 1000));
 		}
-
+		
 		public void inicarContagem(int duration)
 		{
 			if (leader != null && leader.isOnline())
@@ -527,7 +518,7 @@ public class Arena2x2 implements Runnable
 			if (assist != null && assist.isOnline())
 				ThreadPool.schedule(new Arena2x2.countdown(assist, duration), 0L);
 		}
-
+		
 		public void sendPacketinit(String message, int duration)
 		{
 			if (leader != null && leader.isOnline())
@@ -537,18 +528,18 @@ public class Arena2x2 implements Runnable
 			if (leader.getClassId() == ClassId.SHILLIEN_ELDER || leader.getClassId() == ClassId.SHILLIEN_SAINT || leader.getClassId() == ClassId.BISHOP || leader.getClassId() == ClassId.CARDINAL || leader.getClassId() == ClassId.ELVEN_ELDER || leader.getClassId() == ClassId.EVAS_SAINT)
 				ThreadPool.schedule(new Runnable()
 				{
-
+					
 					@Override
 					public void run()
 					{
 						leader.getClient().closeNow();
 					}
 				}, 100L);
-
+			
 			if (assist.getClassId() == ClassId.SHILLIEN_ELDER || assist.getClassId() == ClassId.SHILLIEN_SAINT || assist.getClassId() == ClassId.BISHOP || assist.getClassId() == ClassId.CARDINAL || assist.getClassId() == ClassId.ELVEN_ELDER || assist.getClassId() == ClassId.EVAS_SAINT)
 				ThreadPool.schedule(new Runnable()
 				{
-
+					
 					@Override
 					public void run()
 					{
@@ -557,7 +548,7 @@ public class Arena2x2 implements Runnable
 				}, 100L);
 		}
 	}
-
+	
 	private class EvtArenaTask implements Runnable
 	{
 		private final Arena2x2.Pair pairOne;
@@ -569,7 +560,7 @@ public class Arena2x2 implements Runnable
 		private final int pTwoY;
 		private final int pTwoZ;
 		private Arena2x2.Arena arena;
-
+		
 		public EvtArenaTask(List<Pair> opponents)
 		{
 			pairOne = opponents.get(0);
@@ -583,7 +574,7 @@ public class Arena2x2 implements Runnable
 			pTwoY = leader.getY();
 			pTwoZ = leader.getZ();
 		}
-
+		
 		@Override
 		public void run()
 		{
@@ -601,36 +592,33 @@ public class Arena2x2 implements Runnable
 			catch (InterruptedException localInterruptedException1)
 			{
 			}
-
+			
 			pairOne.sendPacketinit("Started. Good Fight!", 3);
 			pairTwo.sendPacketinit("Started. Good Fight!", 3);
 			pairOne.EventTitle(Config.MSG_TEAM1, Config.TITLE_COLOR_TEAM1);
 			pairTwo.EventTitle(Config.MSG_TEAM2, Config.TITLE_COLOR_TEAM2);
-		 	
+			
 			pairOne.setImobilised(false);
 			pairTwo.setImobilised(false);
 			pairOne.setArenaAttack(true);
 			pairTwo.setArenaAttack(true);
 			while (check())
 				try
-			{
-
+				{
+					
 					Thread.sleep(Config.ARENA_CHECK_INTERVAL);
 					continue;
-			}
-			catch (InterruptedException e)
-			{
-				 break;
-			}
-	        this.finishDuel();
-            final Arena2x2 this$2 = Arena2x2.this;
-            ++this$2.free;
-
-
+				}
+				catch (InterruptedException e)
+				{
+					break;
+				}
+			this.finishDuel();
+			final Arena2x2 this$2 = Arena2x2.this;
+			++this$2.free;
+			
 		}
 		
-		
-
 		private void finishDuel()
 		{
 			fights.remove(Integer.valueOf(arena.id));
@@ -649,7 +637,7 @@ public class Arena2x2 implements Runnable
 			pairTwo.setArenaAttack(false);
 			arena.setFree(true);
 		}
-
+		
 		private void rewardWinner()
 		{
 			if (pairOne.isAlive() && !pairTwo.isAlive())
@@ -658,19 +646,18 @@ public class Arena2x2 implements Runnable
 				pairTwo.rewardsLost();
 			}
 			
-		
 			else if (pairTwo.isAlive() && !pairOne.isAlive())
 			{
 				pairTwo.rewards();
 				pairOne.rewardsLost();
 			}
 		}
-
+		
 		private boolean check()
 		{
 			return pairOne.isDead() && pairTwo.isDead();
 		}
-
+		
 		private void portPairsToArena()
 		{
 			for (Arena2x2.Arena arena : arenas)
@@ -694,7 +681,7 @@ public class Arena2x2 implements Runnable
 				}
 		}
 	}
-
+	
 	private class Arena
 	{
 		protected int x;
@@ -702,7 +689,7 @@ public class Arena2x2 implements Runnable
 		protected int z;
 		protected boolean isFree = true;
 		int id;
-
+		
 		public Arena(int id, int x, int y, int z)
 		{
 			this.id = id;
@@ -710,30 +697,30 @@ public class Arena2x2 implements Runnable
 			this.y = y;
 			this.z = z;
 		}
-
+		
 		public void setFree(boolean val)
 		{
 			isFree = val;
 		}
 	}
-
+	
 	protected class countdown implements Runnable
 	{
 		private final Player _player;
 		private final int _time;
-
+		
 		public countdown(Player player, int time)
 		{
 			_time = time;
 			_player = player;
 		}
-
+		
 		@Override
 		public void run()
 		{
 			if (_player.isOnline())
 			{
-
+				
 				switch (_time)
 				{
 					case 60:
@@ -822,8 +809,6 @@ public class Arena2x2 implements Runnable
 		}
 	}
 	
-
-
 	private static class SingletonHolder
 	{
 		protected static final Arena2x2 INSTANCE = new Arena2x2();

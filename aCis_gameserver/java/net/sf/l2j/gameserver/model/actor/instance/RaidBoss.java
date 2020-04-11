@@ -144,7 +144,7 @@ public class RaidBoss extends Monster
 					if (player.isNoble())
 						HeroManager.getInstance().setRBkilled(player.getObjectId(), getNpcId());
 				}
-
+				
 				if (Config.ENABLE_BOSS_DEFEATED_MSG)
 					World.announceToOnlinePlayers(player.getClan() != null ? Config.RAID_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG.replace("%raidboss%", getName()).replace("%player%", killer.getName()).replace("%clan%", player.getClan().getName()) : Config.RAID_BOSS_DEFEATED_BY_PLAYER_MSG.replace("%raidboss%", getName()).replace("%player%", killer.getName()), true);
 			}

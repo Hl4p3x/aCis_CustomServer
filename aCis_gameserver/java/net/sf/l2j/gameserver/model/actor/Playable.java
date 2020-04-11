@@ -17,8 +17,6 @@ import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.Revive;
 import net.sf.l2j.gameserver.scripting.QuestState;
 
-
-
 /**
  * This class represents all Playable characters in the world.<BR>
  * <BR>
@@ -72,7 +70,6 @@ public abstract class Playable extends Creature
 	@Override
 	public void onActionShift(Player player)
 	{
-		
 		
 		if (player.getTarget() != this)
 			player.setTarget(this);
@@ -128,8 +125,7 @@ public abstract class Playable extends Creature
 				stopCharmOfLuck(null);
 		}
 		if (Config.LEAVE_BUFFS_ON_DIE)
-				stopAllEffectsExceptThoseThatLastThroughDeath();
-		
+			stopAllEffectsExceptThoseThatLastThroughDeath();
 		
 		// Send the Server->Client packet StatusUpdate with current HP and MP to all other Player to inform
 		broadcastStatusUpdate();
@@ -169,7 +165,6 @@ public abstract class Playable extends Creature
 		}
 		else
 			getStatus().setCurrentHp(getMaxHp() * Config.RESPAWN_RESTORE_HP);
-		
 		
 		// Start broadcast status
 		broadcastPacket(new Revive(this));

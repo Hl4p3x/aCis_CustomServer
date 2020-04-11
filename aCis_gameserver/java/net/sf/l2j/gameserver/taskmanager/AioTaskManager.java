@@ -9,7 +9,6 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 /**
  * @author Williams
- *
  */
 public class AioTaskManager implements Runnable
 {

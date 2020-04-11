@@ -12,7 +12,6 @@ import net.sf.l2j.gameserver.taskmanager.VipTaskManager;
 
 /**
  * @author Williams
- *
  */
 public class AdminVip implements IAdminCommandHandler
 {

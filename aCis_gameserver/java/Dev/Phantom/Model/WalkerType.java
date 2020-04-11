@@ -1,6 +1,7 @@
 package Dev.Phantom.Model;
 
-public enum WalkerType {
+public enum WalkerType
+{
 	LINEAR,
 	RANDOM,
 	STORE

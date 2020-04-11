@@ -41,7 +41,6 @@ public class VipMenu implements IUserCommandHandler
 		return;
 	}
 	
-	
 	public static void mainHtml(Player activeChar, int time)
 	{
 		
@@ -63,7 +62,9 @@ public class VipMenu implements IUserCommandHandler
 				activeChar.setVip(true);
 			}
 			activeChar.sendPacket(html);
-		}else{
+		}
+		else
+		{
 			NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 			StringBuilder html1 = new StringBuilder("");
 			html1.append("<html><head><title>Vip Menu</title></head><body><center>");
@@ -89,7 +90,6 @@ public class VipMenu implements IUserCommandHandler
 	{
 		player.getMemos().set("vipEndTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
 		
-		
 	}
 	
 	public static void bypass(Player activeChar, String command, StringTokenizer st)
@@ -113,7 +113,9 @@ public class VipMenu implements IUserCommandHandler
 				activeChar.setVip(true);
 			}
 			activeChar.sendPacket(html);
-		}else{
+		}
+		else
+		{
 			NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 			StringBuilder html1 = new StringBuilder("");
 			html1.append("<html><head><title>Vip Menu</title></head><body><center>");
@@ -132,7 +134,6 @@ public class VipMenu implements IUserCommandHandler
 			nhm.setHtml(html1.toString());
 			activeChar.sendPacket(nhm);
 		}
-		
 		
 	}
 	

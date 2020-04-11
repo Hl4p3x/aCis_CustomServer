@@ -11,12 +11,12 @@ public class GameCrypt
 	private ProtectionCrypt _server;
 	private boolean _isEnabled = false;
 	private boolean _isProtected = false;
-
+	
 	public void setProtected(boolean state)
 	{
 		_isProtected = state;
 	}
-
+	
 	public void setKey(byte[] key)
 	{
 		if (_isProtected)
@@ -36,13 +36,13 @@ public class GameCrypt
 			_server.setup(key, null);
 		}
 	}
-
+	
 	public void decrypt(byte[] raw, int offset, int size)
 	{
 		if (_isEnabled)
 			_client.crypt(raw, offset, size);
 	}
-
+	
 	public void encrypt(byte[] raw, int offset, int size)
 	{
 		if (_isEnabled)

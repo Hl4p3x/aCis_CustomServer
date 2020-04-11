@@ -288,7 +288,7 @@ public abstract class Item
 	{
 		return _name;
 	}
-
+	
 	/**
 	 * @return String the icon of the item
 	 */
@@ -296,7 +296,7 @@ public abstract class Item
 	{
 		return _icon;
 	}
-
+	
 	/**
 	 * @return int the part of the body used with the item.
 	 */

@@ -29,8 +29,6 @@ public class SchemeBuffer extends Folk
 		super(objectId, template);
 	}
 	
-  
-	
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{
@@ -44,41 +42,48 @@ public class SchemeBuffer extends Folk
 			html.replace("%objectId%", getObjectId());
 			player.sendPacket(html);
 		}
-        if (currentCommand.equalsIgnoreCase("bufflist")) {
-            SchemeBuffer.autoBuffFunction(player, st.nextToken());
-        }
-		else if (currentCommand.equalsIgnoreCase("openlist")) {
-            String category = st.nextToken();
-            String htmfile = st.nextToken();
-            NpcHtmlMessage html = new NpcHtmlMessage(this.getObjectId());
-            if (category.equalsIgnoreCase("null")) {
-                html.setFile("data/html/mods/buffer/" + htmfile + ".htm");
-                if (htmfile.equals("index")) {
-                    html.replace("%name%", player.getName());
-                    html.replace("%buffcount%", "You have " + player.getBuffCount() + "/" + player.getMaxBuffCount() + " buffs.");
-                }
-            } else {
-                html.setFile("data/html/mods/buffer/" + category + "/" + htmfile + ".htm");
-            }
-            html.replace("%objectId%", String.valueOf(this.getObjectId()));
-            player.sendPacket(html);
-        }
-		else if (currentCommand.equalsIgnoreCase("dobuff")) {
-            int buffid = Integer.valueOf(st.nextToken());
-            int bufflevel = Integer.valueOf(st.nextToken());
-            String category = st.nextToken();
-            String windowhtml = st.nextToken();
-            Player target = player;
-            MagicSkillUse mgc = new MagicSkillUse(this, target, buffid, bufflevel, 1150, 0);
-            player.sendPacket(mgc);
-            player.broadcastPacket(mgc);
-            SkillTable.getInstance().getInfo(buffid, bufflevel).getEffects(this, target);
-            NpcHtmlMessage html = new NpcHtmlMessage(this.getObjectId());
-            html.setFile("data/html/mods/buffer/" + category + "/" + windowhtml + ".htm");
-            html.replace("%objectId%", String.valueOf(this.getObjectId()));
-            html.replace("%name%", player.getName());
-            player.sendPacket(html);
-        }
+		if (currentCommand.equalsIgnoreCase("bufflist"))
+		{
+			SchemeBuffer.autoBuffFunction(player, st.nextToken());
+		}
+		else if (currentCommand.equalsIgnoreCase("openlist"))
+		{
+			String category = st.nextToken();
+			String htmfile = st.nextToken();
+			NpcHtmlMessage html = new NpcHtmlMessage(this.getObjectId());
+			if (category.equalsIgnoreCase("null"))
+			{
+				html.setFile("data/html/mods/buffer/" + htmfile + ".htm");
+				if (htmfile.equals("index"))
+				{
+					html.replace("%name%", player.getName());
+					html.replace("%buffcount%", "You have " + player.getBuffCount() + "/" + player.getMaxBuffCount() + " buffs.");
+				}
+			}
+			else
+			{
+				html.setFile("data/html/mods/buffer/" + category + "/" + htmfile + ".htm");
+			}
+			html.replace("%objectId%", String.valueOf(this.getObjectId()));
+			player.sendPacket(html);
+		}
+		else if (currentCommand.equalsIgnoreCase("dobuff"))
+		{
+			int buffid = Integer.valueOf(st.nextToken());
+			int bufflevel = Integer.valueOf(st.nextToken());
+			String category = st.nextToken();
+			String windowhtml = st.nextToken();
+			Player target = player;
+			MagicSkillUse mgc = new MagicSkillUse(this, target, buffid, bufflevel, 1150, 0);
+			player.sendPacket(mgc);
+			player.broadcastPacket(mgc);
+			SkillTable.getInstance().getInfo(buffid, bufflevel).getEffects(this, target);
+			NpcHtmlMessage html = new NpcHtmlMessage(this.getObjectId());
+			html.setFile("data/html/mods/buffer/" + category + "/" + windowhtml + ".htm");
+			html.replace("%objectId%", String.valueOf(this.getObjectId()));
+			html.replace("%name%", player.getName());
+			player.sendPacket(html);
+		}
 		else if (currentCommand.startsWith("cleanup"))
 		{
 			player.stopAllEffectsExceptThoseThatLastThroughDeath();
@@ -215,28 +220,36 @@ public class SchemeBuffer extends Folk
 		super.onBypassFeedback(player, command);
 	}
 	
-    private static void autoBuffFunction(Player player, String bufflist) {
-        ArrayList<L2Skill> skills_to_buff = new ArrayList<>();
-        List<Integer> list = null;
-        if (bufflist.equalsIgnoreCase("fighter")) {
-            list = Config.FIGHTER_SKILL_LIST;
-        } else if (bufflist.equalsIgnoreCase("mage")) {
-            list = Config.MAGE_SKILL_LIST;
-        }
-        if (list != null) {
-            for (int skillId : list) {
-                L2Skill skill = SkillTable.getInstance().getInfo(skillId, SkillTable.getInstance().getMaxLevel(skillId));
-                if (skill == null) continue;
-                skills_to_buff.add(skill);
-            }
-            for (L2Skill sk : skills_to_buff) {
-                sk.getEffects(player, player);
-            }
-            player.updateEffectIcons();
-            list = null;
-        }
-        skills_to_buff.clear();
-    }
+	private static void autoBuffFunction(Player player, String bufflist)
+	{
+		ArrayList<L2Skill> skills_to_buff = new ArrayList<>();
+		List<Integer> list = null;
+		if (bufflist.equalsIgnoreCase("fighter"))
+		{
+			list = Config.FIGHTER_SKILL_LIST;
+		}
+		else if (bufflist.equalsIgnoreCase("mage"))
+		{
+			list = Config.MAGE_SKILL_LIST;
+		}
+		if (list != null)
+		{
+			for (int skillId : list)
+			{
+				L2Skill skill = SkillTable.getInstance().getInfo(skillId, SkillTable.getInstance().getMaxLevel(skillId));
+				if (skill == null)
+					continue;
+				skills_to_buff.add(skill);
+			}
+			for (L2Skill sk : skills_to_buff)
+			{
+				sk.getEffects(player, player);
+			}
+			player.updateEffectIcons();
+			list = null;
+		}
+		skills_to_buff.clear();
+	}
 	
 	@Override
 	public String getHtmlPath(int npcId, int val)
@@ -332,7 +345,7 @@ public class SchemeBuffer extends Folk
 		for (int skillId : skills)
 		{
 			final String icon = (skillId == 4699 || skillId == 4700 ? "icon.skill1331" : skillId == 4702 || skillId == 4703 ? "icon.skill1332" : (skillId < 100) ? "icon.skill00" + skillId : (skillId < 1000) ? "icon.skill0" + skillId : "icon.skill" + skillId);
-
+			
 			sb.append(((row % 2) == 0 ? "<table width=\"280\" bgcolor=\"000000\"><tr>" : "<table width=\"280\"><tr>"));
 			
 			if (schemeSkills.contains(skillId))

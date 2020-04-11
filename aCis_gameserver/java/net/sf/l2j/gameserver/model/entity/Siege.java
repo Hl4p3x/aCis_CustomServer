@@ -174,15 +174,15 @@ public class Siege implements Siegable
 						for (IntIntHolder reward : Config.LEADER_REWARD_WINNER_SIEGE_CLAN)
 						{
 							if (reward.getId() > 0)
-								player.addItem("", reward.getId(), reward.getValue(), player, true);  
+								player.addItem("", reward.getId(), reward.getValue(), player, true);
 						}
 					}
 					else
 					{
-						for (IntIntHolder reward : Config.REWARD_WINNER_SIEGE_CLAN) 
+						for (IntIntHolder reward : Config.REWARD_WINNER_SIEGE_CLAN)
 						{
 							if (reward.getId() > 0)
-								player.addItem("", reward.getId(), reward.getValue(), player, true);     
+								player.addItem("", reward.getId(), reward.getValue(), player, true);
 						}
 					}
 				}
@@ -739,16 +739,16 @@ public class Siege implements Siegable
 			sm = SystemMessage.getSystemMessage(SystemMessageId.ONLY_CLAN_LEVEL_4_ABOVE_MAY_SIEGE);
 		else if (player.getClan().hasCastle())
 			sm = (player.getClan().getClanId() == _castle.getOwnerId()) ? SystemMessage.getSystemMessage(SystemMessageId.CLAN_THAT_OWNS_CASTLE_IS_AUTOMATICALLY_REGISTERED_DEFENDING) : SystemMessage.getSystemMessage(SystemMessageId.CLAN_THAT_OWNS_CASTLE_CANNOT_PARTICIPATE_OTHER_SIEGE);
-			else if (player.getClan().isRegisteredOnSiege())
-				sm = SystemMessage.getSystemMessage(SystemMessageId.ALREADY_REQUESTED_SIEGE_BATTLE);
-			else if (checkIfAlreadyRegisteredForSameDay(player.getClan()))
-				sm = SystemMessage.getSystemMessage(SystemMessageId.APPLICATION_DENIED_BECAUSE_ALREADY_SUBMITTED_A_REQUEST_FOR_ANOTHER_SIEGE_BATTLE);
-			else if (type == SiegeSide.ATTACKER && getAttackerClans().size() >= Config.MAX_ATTACKERS_NUMBER)
-				sm = SystemMessage.getSystemMessage(SystemMessageId.ATTACKER_SIDE_FULL);
-			else if ((type == SiegeSide.DEFENDER || type == SiegeSide.PENDING || type == SiegeSide.OWNER) && (getDefenderClans().size() + getPendingClans().size() >= Config.MAX_DEFENDERS_NUMBER))
-				sm = SystemMessage.getSystemMessage(SystemMessageId.DEFENDER_SIDE_FULL);
-			else
-				return true;
+		else if (player.getClan().isRegisteredOnSiege())
+			sm = SystemMessage.getSystemMessage(SystemMessageId.ALREADY_REQUESTED_SIEGE_BATTLE);
+		else if (checkIfAlreadyRegisteredForSameDay(player.getClan()))
+			sm = SystemMessage.getSystemMessage(SystemMessageId.APPLICATION_DENIED_BECAUSE_ALREADY_SUBMITTED_A_REQUEST_FOR_ANOTHER_SIEGE_BATTLE);
+		else if (type == SiegeSide.ATTACKER && getAttackerClans().size() >= Config.MAX_ATTACKERS_NUMBER)
+			sm = SystemMessage.getSystemMessage(SystemMessageId.ATTACKER_SIDE_FULL);
+		else if ((type == SiegeSide.DEFENDER || type == SiegeSide.PENDING || type == SiegeSide.OWNER) && (getDefenderClans().size() + getPendingClans().size() >= Config.MAX_DEFENDERS_NUMBER))
+			sm = SystemMessage.getSystemMessage(SystemMessageId.DEFENDER_SIDE_FULL);
+		else
+			return true;
 		
 		player.sendPacket(sm);
 		return false;
@@ -854,7 +854,7 @@ public class Siege implements Siegable
 				if (getDefenderClans().size() + getPendingClans().size() >= Config.MAX_DEFENDERS_NUMBER)
 					return;
 				break;
-				
+			
 			default:
 				if (getAttackerClans().size() >= Config.MAX_ATTACKERS_NUMBER)
 					return;
@@ -894,7 +894,7 @@ public class Siege implements Siegable
 			case 7:
 				siegeDate.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 				break;
-				
+			
 			default:
 				siegeDate.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 				break;

@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.handler.itemhandlers;
 
-
 import net.sf.l2j.gameserver.enums.items.ShotType;
 import net.sf.l2j.gameserver.enums.items.WeaponType;
 import net.sf.l2j.gameserver.handler.IItemHandler;
@@ -48,8 +47,6 @@ public class FishShots implements IItemHandler
 		
 		if (!player.isSSDisabled())
 			player.setChargedShot(ShotType.FISH_SOULSHOT, true);
-		
-		
 		
 		player.setChargedShot(ShotType.FISH_SOULSHOT, true);
 		player.broadcastPacket(new MagicSkillUse(player, skills[0].getId(), 1, 0, 0));

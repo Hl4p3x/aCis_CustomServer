@@ -11,12 +11,11 @@ import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 public class ArenaEventZone extends SpawnZoneType
 {
 	
-	
 	public ArenaEventZone(int id)
 	{
 		super(id);
 	}
-
+	
 	@Override
 	protected void onEnter(Creature character)
 	{
@@ -35,8 +34,7 @@ public class ArenaEventZone extends SpawnZoneType
 			player.sendPacket(new SystemMessage(SystemMessageId.ENTERED_COMBAT_ZONE));
 		}
 	}
-
-
+	
 	@Override
 	protected void onExit(Creature character)
 	{
@@ -45,13 +43,12 @@ public class ArenaEventZone extends SpawnZoneType
 		if (character instanceof Player)
 		{
 			Player player = (Player) character;
-
+			
 			player.updatePvPFlag(0);
 			player.broadcastUserInfo();
-
+			
 			player.sendPacket(new SystemMessage(SystemMessageId.LEFT_COMBAT_ZONE));
 		}
 	}
-	
 	
 }

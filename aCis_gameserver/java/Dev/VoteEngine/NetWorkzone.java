@@ -24,7 +24,6 @@ import net.sf.l2j.Config;
 
 /**
  * @author Anarchy
- *
  */
 public class NetWorkzone extends VoteSystem
 {
@@ -38,7 +37,7 @@ public class NetWorkzone extends VoteSystem
 	{
 		reward();
 	}
-
+	
 	@Override
 	public int getVotes()
 	{

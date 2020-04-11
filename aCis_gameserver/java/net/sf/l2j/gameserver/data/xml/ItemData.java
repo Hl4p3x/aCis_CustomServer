@@ -6,7 +6,6 @@ import java.util.Map;
 
 import net.sf.l2j.commons.logging.CLogger;
 
-
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.EtcItem;
@@ -22,8 +21,6 @@ public class ItemData
 	private static final CLogger LOGGER = new CLogger(ItemData.class.getName());
 	
 	private Item[] _templates;
-
-
 	
 	protected ItemData()
 	{
@@ -77,7 +74,7 @@ public class ItemData
 		
 		LOGGER.info("Loaded items.");
 	}
-
+	
 	/**
 	 * @return the list of all {@link Item} templates.
 	 */
@@ -118,6 +115,5 @@ public class ItemData
 	{
 		protected static final ItemData INSTANCE = new ItemData();
 	}
-
-
+	
 }

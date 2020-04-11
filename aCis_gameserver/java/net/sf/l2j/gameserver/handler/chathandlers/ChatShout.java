@@ -24,7 +24,7 @@ public class ChatShout implements IChatHandler
 	{
 		if (!FloodProtectors.performAction(activeChar.getClient(), Action.GLOBAL_CHAT))
 			return;
-
+		
 		if (Config.TRADE_RESTRICTION_TYPE == RestrictionType.PVP && activeChar.getPvpKills() < Config.TRADE_RESTRICTION_VALUE)
 		{
 			activeChar.sendMessage("Você só pode usar o chat com " + Config.TRADE_RESTRICTION_VALUE + " (PVP).");
@@ -36,7 +36,7 @@ public class ChatShout implements IChatHandler
 			activeChar.sendMessage("Você só pode usar o chat no level " + Config.TRADE_RESTRICTION_VALUE + ".");
 			return;
 		}
-			
+		
 		final CreatureSay cs = new CreatureSay(activeChar.getObjectId(), type, activeChar.getName(), text);
 		final int region = MapRegionData.getInstance().getMapRegion(activeChar.getX(), activeChar.getY());
 		

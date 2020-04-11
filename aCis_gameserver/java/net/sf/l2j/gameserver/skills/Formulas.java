@@ -818,12 +818,12 @@ public final class Formulas
 	 * @param rate
 	 * @return delay in ms.
 	 */
-	 public static final int calcPAtkSpd(Creature attacker, Creature target, double rate)
-	 {
-	     if (rate < 2.0D)
-	         return Config.ANTI_SS_BUG_1;
-	     return (int) (Config.ANTI_SS_BUG_3 / rate);
-	 }
+	public static final int calcPAtkSpd(Creature attacker, Creature target, double rate)
+	{
+		if (rate < 2.0D)
+			return Config.ANTI_SS_BUG_1;
+		return (int) (Config.ANTI_SS_BUG_3 / rate);
+	}
 	
 	/**
 	 * Calculate delay (in milliseconds) for skills cast.

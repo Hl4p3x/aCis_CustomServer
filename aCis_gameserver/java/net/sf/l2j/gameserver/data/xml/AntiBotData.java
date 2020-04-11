@@ -18,7 +18,6 @@ import net.sf.l2j.gameserver.network.serverpackets.PledgeImage;
 
 /**
  * @author Williams
- *
  */
 public class AntiBotData
 {
@@ -29,7 +28,16 @@ public class AntiBotData
 	
 	public final static int[] img_antibot_id =
 	{
-		7000, 7001, 7002, 7003, 7004, 7005, 7006, 7007, 7008, 7009
+		7000,
+		7001,
+		7002,
+		7003,
+		7004,
+		7005,
+		7006,
+		7007,
+		7008,
+		7009
 	};
 	
 	public AntiBotData()
@@ -93,7 +101,7 @@ public class AntiBotData
 		
 		for (Entry<Integer, antiBotData> entrySet : _imageAntiBotClient.entrySet())
 		{
-			int numeroImage = entrySet.getKey().intValue(); 
+			int numeroImage = entrySet.getKey().intValue();
 			
 			if (pos == numeroImage)
 			{

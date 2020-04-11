@@ -5,7 +5,7 @@ import java.util.Random;
 public class Rnd
 {
 	private static final Random random = new Random();
-
+	
 	public static int nextInt(int n)
 	{
 		if (n < 0)
@@ -14,7 +14,7 @@ public class Rnd
 			return 0;
 		return random.nextInt(n);
 	}
-
+	
 	public static byte[] nextBytes(byte[] array)
 	{
 		random.nextBytes(array);

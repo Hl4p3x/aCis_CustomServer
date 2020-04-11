@@ -47,7 +47,6 @@ public final class EffectDeflectBuff extends L2Effect
 		return false;
 	}
 	
-
 	@Override
 	public boolean onStart()
 	{

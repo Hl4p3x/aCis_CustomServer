@@ -6,7 +6,6 @@ import net.sf.l2j.commons.random.Rnd;
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
-import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.PlayerData;
 import net.sf.l2j.gameserver.data.xml.PlayerLevelData;
@@ -23,11 +22,9 @@ import net.sf.l2j.gameserver.model.actor.template.PlayerTemplate;
 import net.sf.l2j.gameserver.model.holder.ItemTemplateHolder;
 import net.sf.l2j.gameserver.model.holder.skillnode.GeneralSkillNode;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
-import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.CharCreateFail;
 import net.sf.l2j.gameserver.network.serverpackets.CharCreateOk;
 import net.sf.l2j.gameserver.network.serverpackets.CharSelectInfo;
-import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.scripting.Quest;
 
 @SuppressWarnings("unused")
@@ -157,22 +154,20 @@ public final class RequestCharacterCreate extends L2GameClientPacket
 		
 		// Start Title
 		player.setTitle(template.getTitle());
-
+		
 		// Start Lvl and Sp
 		player.getStat().addExpAndSp(PlayerLevelData.getInstance().getPlayerLevel(template.getLevel()).getRequiredExpToLevelUp(), template.getSp());
-
+		
 		// Start buffs
 		for (int buffId : template.getBuffIds())
 		{
 			if (template.isBuffIds())
 				SkillTable.getInstance().getInfo(buffId, SkillTable.getInstance().getMaxLevel(buffId)).getEffects(player, player);
 		}
-
+		
 		// Add vip
 		if (template.getVip() > 0)
 			AdminVip.doVip(player, template.getVip());
-
-
 		
 		// Register shortcuts.
 		player.getShortcutList().addShortcut(new Shortcut(0, 0, ShortcutType.ACTION, 2, -1, 1)); // attack shortcut
@@ -187,7 +182,7 @@ public final class RequestCharacterCreate extends L2GameClientPacket
 			// Tutorial book shortcut.
 			if (holder.getId() == 5588)
 				player.getShortcutList().addShortcut(new Shortcut(11, 0, ShortcutType.ITEM, item.getObjectId(), -1, 1));
-
+			
 			if (item.isEquipable() && holder.isEquipped() && holder.getEnchant() > 0)
 			{
 				player.getInventory().equipItemAndRecord(item);

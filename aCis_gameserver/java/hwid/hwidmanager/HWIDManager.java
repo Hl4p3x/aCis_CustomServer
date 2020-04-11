@@ -16,7 +16,7 @@ public class HWIDManager
 	private static HWIDManager _instance;
 	public static Map<Integer, HWIDInfoList> _listHWID;
 	public static Map<Integer, Integer> _sessions;
-
+	
 	public HWIDManager()
 	{
 		_listHWID = new HashMap<>();
@@ -28,7 +28,7 @@ public class HWIDManager
 	{
 		if (_instance == null)
 			_instance = new HWIDManager();
-
+		
 		return _instance;
 	}
 	
@@ -66,13 +66,13 @@ public class HWIDManager
 				if (con != null)
 					if (localThrowable2 != null)
 						try
-				{
+						{
 							con.close();
-				}
-				catch (Throwable x2)
-				{
-					localThrowable2.addSuppressed(x2);
-				}
+						}
+						catch (Throwable x2)
+						{
+							localThrowable2.addSuppressed(x2);
+						}
 					else
 						con.close();
 			}
@@ -87,7 +87,7 @@ public class HWIDManager
 	{
 		if (_listHWID.size() == 0)
 			return -1;
-
+		
 		for (int i = 0; i < _listHWID.size(); i++)
 			if (_listHWID.get(i).getHWID().equals(pi.getHWID()))
 			{
@@ -108,18 +108,18 @@ public class HWIDManager
 	{
 		updateHWIDInfo(client, windowscount, HWIDInfoList.LockType.NONE);
 	}
-
+	
 	public static void updateHwidInfo(final GameClient client, final HWIDInfoList.LockType lockType)
 	{
 		updateHWIDInfo(client, 1, lockType);
 	}
-
+	
 	@SuppressWarnings("resource")
 	public static void updateHWIDInfo(GameClient client, int windowsCount, HWIDInfoList.LockType lockType)
 	{
 		int counterHwidInfo = _listHWID.size();
 		boolean isFound = false;
-
+		
 		for (int i = 0; i < _listHWID.size(); i++)
 			if (_listHWID.get(i).getHWID().equals(client.getHWID()))
 			{
@@ -127,7 +127,7 @@ public class HWIDManager
 				counterHwidInfo = i;
 				break;
 			}
-
+		
 		final HWIDInfoList hInfo = new HWIDInfoList(counterHwidInfo);
 		hInfo.setHwids(client.getHWID());
 		hInfo.setCount(windowsCount);
@@ -135,10 +135,10 @@ public class HWIDManager
 		hInfo.setPlayerID(client.getPlayerId());
 		hInfo.setLockType(lockType);
 		_listHWID.put(Integer.valueOf(counterHwidInfo), hInfo);
-
+		
 		if (isFound)
 			try
-		{
+			{
 				Connection con = L2DatabaseFactory.getInstance().getConnection();
 				Throwable localThrowable3 = null;
 				try
@@ -161,24 +161,24 @@ public class HWIDManager
 					if (con != null)
 						if (localThrowable3 != null)
 							try
-					{
+							{
 								con.close();
-					}
-					catch (Throwable x2)
-					{
-						localThrowable3.addSuppressed(x2);
-					}
+							}
+							catch (Throwable x2)
+							{
+								localThrowable3.addSuppressed(x2);
+							}
 						else
 							con.close();
 				}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 		else
 			try
-		{
+			{
 				Connection con = L2DatabaseFactory.getInstance().getConnection();
 				Throwable localThrowable3 = null;
 				try
@@ -201,21 +201,21 @@ public class HWIDManager
 					if (con != null)
 						if (localThrowable3 != null)
 							try
-					{
+							{
 								con.close();
-					}
-					catch (Throwable x2)
-					{
-						localThrowable3.addSuppressed(x2);
-					}
+							}
+							catch (Throwable x2)
+							{
+								localThrowable3.addSuppressed(x2);
+							}
 						else
 							con.close();
 				}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 	}
 	
 	public static void updateHWIDInfo(GameClient client, HWIDInfoList.LockType lockType)

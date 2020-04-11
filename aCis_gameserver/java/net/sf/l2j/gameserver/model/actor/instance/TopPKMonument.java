@@ -7,7 +7,6 @@ import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 
 /**
  * @author Williams
- *
  */
 public class TopPKMonument extends PcPolymorph
 {

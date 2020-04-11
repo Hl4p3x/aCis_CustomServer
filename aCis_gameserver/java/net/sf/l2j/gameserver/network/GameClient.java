@@ -23,7 +23,6 @@ import net.sf.l2j.gameserver.data.sql.ClanTable;
 import net.sf.l2j.gameserver.data.sql.OfflineTradersTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 import net.sf.l2j.gameserver.enums.MessageType;
-
 import net.sf.l2j.gameserver.model.CharSelectInfoPackage;
 import net.sf.l2j.gameserver.model.CharSelectSlot;
 import net.sf.l2j.gameserver.model.World;
@@ -213,9 +212,7 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 			Player player = getActiveChar();
 			if (player != null)
 			{
-
-
-
+				
 				if (player.isArenaProtection())
 				{
 					player.setXYZ(ArenaTask.loc1x(), ArenaTask.loc1y(), ArenaTask.loc1z());
@@ -227,9 +224,8 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 						player.broadcastTitleInfo();
 					}
 				}
-
+				
 			}
-			
 			
 			ThreadPool.execute(() ->
 			{
@@ -238,8 +234,6 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 				{
 					setDetached(true);
 					
-					
-
 					if (OfflineTradersTable.offlineMode(getPlayer()))
 					{
 						if (getPlayer().getParty() != null)
@@ -284,9 +278,8 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 		_crypt.setKey(key);
 		
 		if (Hwid.isProtectionOn())
-		key = Hwid.getKey(key);
-
-
+			key = Hwid.getKey(key);
+		
 		return key;
 	}
 	
@@ -691,7 +684,7 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 			// Cancel the auto save task.
 			if (_autoSaveInDB != null)
 				_autoSaveInDB.cancel(true);
-
+			
 			Player player = getActiveChar();
 			if (player != null)
 				if (player.isArenaProtection())
@@ -705,8 +698,6 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 						player.broadcastTitleInfo();
 					}
 				}
-			
-			
 			
 			// This should only happen on connection loss.
 			if (getPlayer() != null)
@@ -896,7 +887,6 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 	{
 		_activeChar = pActiveChar;
 	}
-	
 	
 	private CharSelectInfoPackage[] _charSlotMapping = null;
 	

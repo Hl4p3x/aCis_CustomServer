@@ -12,7 +12,6 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ConfirmDlg;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
-
 public class SummonFriend implements ISkillHandler
 {
 	private static final L2SkillType[] SKILL_IDS =
@@ -31,8 +30,6 @@ public class SummonFriend implements ISkillHandler
 		// Check player status.
 		if (!player.checkSummonerStatus())
 			return;
-		
-
 		
 		for (WorldObject obj : targets)
 		{

@@ -116,13 +116,13 @@ public class Attackable extends Npc
 	{
 		if (!super.doDie(killer))
 			return false;
-	
+		
 		if (Config.ANTIBOT_ENABLE && (killer != null) && killer instanceof Player && (killer.getLevel() >= Config.ANTIBOT_MIN_LEVEL))
 			killer.getActingPlayer().antibot();
 		
 		if (ChristmasEvent.getInstance().isEnabled() && killer instanceof Player)
 			ChristmasEvent.getInstance().luckySpawn(this, ((Player) killer));
-					
+		
 		// Test the ON_KILL ScriptEventType.
 		final List<Quest> scripts = getTemplate().getEventQuests(ScriptEventType.ON_KILL);
 		if (scripts != null)
@@ -533,7 +533,6 @@ public class Attackable extends Npc
 	{
 		_isRaid = isRaid;
 	}
-	
 	
 	public boolean isRaidMinion()
 	{

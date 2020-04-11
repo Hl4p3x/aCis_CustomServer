@@ -166,7 +166,7 @@ public class PlayerTemplate extends CreatureTemplate
 	{
 		return _cpTable[level - 1];
 	}
-
+	
 	public final String getTitle()
 	{
 		return _title;
@@ -176,31 +176,32 @@ public class PlayerTemplate extends CreatureTemplate
 	{
 		return _level;
 	}
-
+	
 	public final int getSp()
 	{
 		return _sp;
 	}
-
+	
 	public final int getVip()
 	{
 		return _vip;
 	}
+	
 	public final int[] getBuffIds()
 	{
 		return _buffs;
 	}
- 	
+	
 	public final boolean isBuffIds()
- 	{
+	{
 		return _isbuffs;
- 	}
-
+	}
+	
 	public final boolean isShow()
- 	{
+	{
 		return _isShow;
- 	}
-
+	}
+	
 	/**
 	 * @return the {@link List} of {@link ItemTemplateHolder}s holding the starter equipment informations for this {@link PlayerTemplate}.
 	 */

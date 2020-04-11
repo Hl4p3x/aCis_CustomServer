@@ -20,7 +20,7 @@ public class RequestTutorialQuestionMark extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
-
+		
 		ClassMaster.onTutorialQuestionMark(player, _number);
 		
 		final QuestState qs = player.getQuestState("Tutorial");

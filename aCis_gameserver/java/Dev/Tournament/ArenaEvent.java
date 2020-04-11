@@ -14,21 +14,21 @@ public class ArenaEvent
 	protected static final Logger _log = Logger.getLogger(ArenaEvent.class.getName());
 	private Calendar NextEvent;
 	private final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-
+	
 	public static ArenaEvent getInstance()
 	{
 		if (_instance == null)
 			_instance = new ArenaEvent();
 		return _instance;
 	}
-
+	
 	public String getNextTime()
 	{
 		if (NextEvent.getTime() != null)
 			return format.format(NextEvent.getTime());
 		return "Erro";
 	}
-
+	
 	public void StartCalculationOfNextEventTime()
 	{
 		try
@@ -69,13 +69,13 @@ public class ArenaEvent
 			System.out.println("[Tournament]: " + e);
 		}
 	}
-
+	
 	class StartEventTask implements Runnable
 	{
 		StartEventTask()
 		{
 		}
-
+		
 		@Override
 		public void run()
 		{

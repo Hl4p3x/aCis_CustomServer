@@ -46,7 +46,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 			player.setActiveEnchantItem(null);
 			return;
 		}
-
+		
 		if (player.isProcessingTransaction() || player.isOperating())
 		{
 			player.sendPacket(SystemMessageId.CANNOT_ENCHANT_WHILE_STORE);
@@ -54,7 +54,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 			player.sendPacket(EnchantResult.CANCELLED);
 			return;
 		}
-
+		
 		if (player.getActiveTradeList() != null)
 		{
 			player.cancelActiveTrade();
@@ -116,7 +116,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 				}
 				sm.addItemName(item.getItemId());
 				player.sendPacket(sm);
-				 				
+				
 				item.setEnchantLevel(item.getEnchantLevel() + 1);
 				item.updateDatabase();
 				
@@ -269,7 +269,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 			player.setActiveEnchantItem(null);
 		}
 	}
-
+	
 	/**
 	 * @param item The instance of item to make checks on.
 	 * @return true if item can be enchanted.

@@ -11,11 +11,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import net.sf.l2j.Config;
-import net.sf.l2j.L2DatabaseFactory;
-
 import net.sf.l2j.commons.concurrent.ThreadPool;
 
+import net.sf.l2j.Config;
+import net.sf.l2j.L2DatabaseFactory;
 import net.sf.l2j.gameserver.model.CharSelectSlot;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.PcPolymorph;
@@ -45,7 +44,7 @@ public final class CharacterKillingManager
 	private List<PcPolymorph> pkMorphListeners = new CopyOnWriteArrayList<>();
 	
 	public synchronized void init()
-	{	
+	{
 		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
 			PreparedStatement st = con.prepareStatement("SELECT cycle, cycle_start, winner_pvpkills, winner_pvpkills_count, winner_pkkills, winner_pkkills_count FROM character_kills_info ORDER BY cycle_start DESC LIMIT 1"))
 		{
@@ -133,7 +132,7 @@ public final class CharacterKillingManager
 					_winnerPvPKillsCount = kills;
 				}
 				
-				if(_winnerPvPKills == 0)
+				if (_winnerPvPKills == 0)
 					addReward(_winnerPvPKills, true);
 				else
 					addReward(_winnerPvPKills, false);
@@ -163,7 +162,7 @@ public final class CharacterKillingManager
 					_winnerPKKills = rs.getInt(1);
 					_winnerPKKillsCount = kills;
 				}
-				if(_winnerPKKills == 0)
+				if (_winnerPKKills == 0)
 					addReward(_winnerPKKills, true);
 				else
 					addReward(_winnerPKKills, false);

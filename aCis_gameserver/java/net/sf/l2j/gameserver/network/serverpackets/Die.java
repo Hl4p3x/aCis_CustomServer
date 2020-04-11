@@ -32,7 +32,6 @@ public class Die extends L2GameServerPacket
 			_allowFixedRes = player.getAccessLevel().allowFixedRes() || player.isInsideZone(ZoneId.RANDOM);
 			_clan = player.getClan();
 			_funEvent = !player.isInFunEvent();
-
 			
 		}
 		else if (creature instanceof Monster)

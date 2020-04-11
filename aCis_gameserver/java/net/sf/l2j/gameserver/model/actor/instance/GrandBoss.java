@@ -62,7 +62,7 @@ public final class GrandBoss extends Monster
 				if (player.isNoble())
 					HeroManager.getInstance().setRBkilled(player.getObjectId(), getNpcId());
 			}
-
+			
 			if (Config.ENABLE_BOSS_DEFEATED_MSG)
 				World.announceToOnlinePlayers(player.getClan() != null ? Config.GRAND_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG.replace("%grandboss%", getName()).replace("%player%", killer.getName()).replace("%clan%", player.getClan().getName()) : Config.GRAND_BOSS_DEFEATED_BY_PLAYER_MSG.replace("%grandboss%", getName()).replace("%player%", killer.getName()));
 		}

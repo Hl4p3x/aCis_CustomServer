@@ -14,21 +14,21 @@ public class InitialPartyFarm
 	protected static final Logger _log = Logger.getLogger(InitialPartyFarm.class.getName());
 	private Calendar NextEvent;
 	private final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-
+	
 	public static InitialPartyFarm getInstance()
 	{
 		if (_instance == null)
 			_instance = new InitialPartyFarm();
 		return _instance;
 	}
-
+	
 	public String getRestartNextTime()
 	{
 		if (NextEvent.getTime() != null)
 			return format.format(NextEvent.getTime());
 		return "Erro";
 	}
-
+	
 	public void StartCalculationOfNextEventTime()
 	{
 		try
@@ -69,13 +69,13 @@ public class InitialPartyFarm
 			System.out.println("[Party Farm]: Algum erro nas config foi encontrado!");
 		}
 	}
-
+	
 	class StartEventTask implements Runnable
 	{
 		StartEventTask()
 		{
 		}
-
+		
 		@Override
 		public void run()
 		{

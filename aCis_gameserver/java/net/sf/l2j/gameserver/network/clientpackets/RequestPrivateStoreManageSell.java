@@ -17,7 +17,7 @@ public final class RequestPrivateStoreManageSell extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
-
+		
 		if (player.isGM() && Config.GM_TRADE_RESTRICTED_ITEMS)
 		{
 			player.sendMessage("Gm private store disabled by config!");

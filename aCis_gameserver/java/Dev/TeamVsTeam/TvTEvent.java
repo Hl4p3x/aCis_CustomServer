@@ -31,7 +31,6 @@ import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
 /**
  * @author COMBATE
- *
  */
 public class TvTEvent
 {
@@ -414,12 +413,12 @@ public class TvTEvent
 	{
 		if ((playerInstance == null) || (!isStarting() && !isStarted()))
 			return;
-
+		
 		byte teamId = getParticipantTeamId(playerInstance.getObjectId());
-
+		
 		if (teamId == -1)
 			return;
-
+		
 		_teams[teamId].addPlayer(playerInstance);
 		new TvTEventTeleport(playerInstance, _teams[teamId].getCoordinates(), true, false);
 	}
@@ -433,7 +432,7 @@ public class TvTEvent
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	public static void waiter(int seconds)
 	{
 		try
@@ -598,7 +597,7 @@ public class TvTEvent
 		}
 		else
 			killerPlayerInstance = (Player) killerCharacter;
-				
+		
 		String playerName = killerPlayerInstance.getName();
 		byte killerTeamId = getParticipantTeamId(playerName);
 		

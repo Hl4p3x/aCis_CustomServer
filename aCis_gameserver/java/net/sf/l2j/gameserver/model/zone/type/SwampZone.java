@@ -48,8 +48,6 @@ public class SwampZone extends CastleZoneType
 			((Player) character).broadcastUserInfo();
 	}
 	
-
-	
 	public int getMoveBonus()
 	{
 		return _moveBonus;

@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
-
 import net.sf.l2j.gameserver.model.CharSelectInfoPackage;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.network.FloodProtectors;
@@ -34,8 +33,6 @@ public final class CharacterRestore extends L2GameClientPacket
 		_unk4 = readD();
 	}
 	
-
-	
 	@Override
 	protected void runImpl()
 	{
@@ -46,7 +43,7 @@ public final class CharacterRestore extends L2GameClientPacket
 		// we should always be able to acquire the lock but if we cant lock then nothing should be done (ie repeated packet)
 		if (client.getActiveCharLock().tryLock())
 			try
-		{
+			{
 				// should always be null but if not then this is repeated packet and nothing should be done here
 				if (client.getActiveChar() == null)
 				{
@@ -74,11 +71,11 @@ public final class CharacterRestore extends L2GameClientPacket
 					sendPacket(csi);
 					getClient().setCharSelectSlot(csi.getCharacterSlots());
 				}
-		}
+			}
 			
 			finally
-		{
-			client.getActiveCharLock().unlock();
-		}
+			{
+				client.getActiveCharLock().unlock();
+			}
 	}
 }

@@ -6,19 +6,23 @@ import Dev.Phantom.FakePlayer;
 import Dev.Phantom.Model.WalkNode;
 import Dev.Phantom.Model.WalkerType;
 
-public class GoddardWalkerAI extends WalkerAI {
+public class GoddardWalkerAI extends WalkerAI
+{
 	
-	public GoddardWalkerAI(FakePlayer character) {
+	public GoddardWalkerAI(FakePlayer character)
+	{
 		super(character);
 	}
 	
 	@Override
-	protected WalkerType getWalkerType() {
+	protected WalkerType getWalkerType()
+	{
 		return WalkerType.RANDOM;
 	}
 	
 	@Override
-	protected void setWalkNodes() {
+	protected void setWalkNodes()
+	{
 		_walkNodes.add(new WalkNode(147704, -56968, -2776, Rnd.get(1, 900)));
 		_walkNodes.add(new WalkNode(146792, -55672, -2776, Rnd.get(1, 900)));
 		_walkNodes.add(new WalkNode(146664, -55688, -2776, Rnd.get(1, 900)));

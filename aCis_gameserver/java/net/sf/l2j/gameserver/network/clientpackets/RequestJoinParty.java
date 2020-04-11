@@ -49,8 +49,8 @@ public final class RequestJoinParty extends L2GameClientPacket
 		
 		if (target.isPartyInvProt())
 		{
-		    requestor.sendMessage("The player you tried to invite is in offline Party mode.");
-		    return;
+			requestor.sendMessage("The player you tried to invite is in offline Party mode.");
+			return;
 		}
 		
 		if (target.isInParty())
@@ -85,8 +85,6 @@ public final class RequestJoinParty extends L2GameClientPacket
 			requestor.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_IS_BUSY_TRY_LATER).addCharName(target));
 			return;
 		}
-		
-		
 		
 		final Party party = requestor.getParty();
 		if (party != null)

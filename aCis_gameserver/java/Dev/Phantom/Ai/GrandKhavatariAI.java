@@ -15,7 +15,6 @@ import Dev.Phantom.Model.OffensiveSpell;
 import Dev.Phantom.Model.SpellUsageCondition;
 import Dev.Phantom.Model.SupportSpell;
 
-
 public class GrandKhavatariAI extends CombatAI
 {
 	public GrandKhavatariAI(FakePlayer character)
@@ -23,16 +22,15 @@ public class GrandKhavatariAI extends CombatAI
 		super(character);
 	}
 	
-	
 	@Override
 	public void thinkAndAct()
 	{
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleShots();			
-		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());	
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		handleShots();
+		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -42,7 +40,8 @@ public class GrandKhavatariAI extends CombatAI
 	}
 	
 	@Override
-	protected double changeOfUsingSkill() {
+	protected double changeOfUsingSkill()
+	{
 		return 0.5;
 	}
 	
@@ -59,24 +58,26 @@ public class GrandKhavatariAI extends CombatAI
 		_offensiveSpells.add(new OffensiveSpell(284, 1));
 		_offensiveSpells.add(new OffensiveSpell(281, 2));
 		_offensiveSpells.add(new OffensiveSpell(280, 3));
-		_offensiveSpells.add(new OffensiveSpell(54, 4));		
+		_offensiveSpells.add(new OffensiveSpell(54, 4));
 		_offensiveSpells.add(new OffensiveSpell(346, 5));
-		return _offensiveSpells; 
+		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		List<SupportSpell> _selfSupportSpells = new ArrayList<>();
 		_selfSupportSpells.add(new SupportSpell(99, 1));
 		_selfSupportSpells.add(new SupportSpell(440, SpellUsageCondition.MISSINGCP, 1000, 1));

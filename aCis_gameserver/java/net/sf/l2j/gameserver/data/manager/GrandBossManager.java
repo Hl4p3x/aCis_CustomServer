@@ -108,7 +108,7 @@ public class GrandBossManager
 	{
 		_storedInfo.put(bossId, info);
 		updateDb(bossId, false);
-
+		
 		if (Config.LIST_RAID_BOSS_IDS.contains(bossId))
 			RaidBossInfoManager.getInstance().updateRaidBossInfo(bossId, info.getLong("respawn_time"));
 	}

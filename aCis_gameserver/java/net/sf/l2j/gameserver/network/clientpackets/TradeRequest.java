@@ -27,7 +27,7 @@ public final class TradeRequest extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
-
+		
 		player.updateLastAction();
 		
 		if (!player.getAccessLevel().allowTransaction())
@@ -51,8 +51,8 @@ public final class TradeRequest extends L2GameClientPacket
 		
 		if (target.isInTradeProt())
 		{
-		    player.sendMessage(player.getName() + " You cannot trade in offline trade.");
-		    return;
+			player.sendMessage(player.getName() + " You cannot trade in offline trade.");
+			return;
 		}
 		
 		// Alt game - Karma punishment

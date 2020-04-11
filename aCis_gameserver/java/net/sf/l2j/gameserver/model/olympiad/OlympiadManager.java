@@ -17,9 +17,6 @@ import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
 import Dev.TeamVsTeam.TvTEvent;
 
-
-
-
 public class OlympiadManager
 {
 	private final List<Integer> _nonClassBasedRegisters = new CopyOnWriteArrayList<>();
@@ -135,7 +132,7 @@ public class OlympiadManager
 			player.sendPacket(SystemMessageId.GAME_REQUEST_CANNOT_BE_MADE);
 			return false;
 		}
-
+		
 		if (player.isAio())
 		{
 			player.sendPacket(SystemMessageId.YOU_ARE_NOT_AUTHORIZED_TO_DO_THAT);
@@ -246,11 +243,11 @@ public class OlympiadManager
 			return false;
 		}
 		
-	       if (!TvTEvent.isInactive() && TvTEvent.isPlayerParticipant(player.getName()))
-	       {
-	           player.sendMessage("You can not register in olympiad while registered at TvT.");
-	           return false;
-	       }
+		if (!TvTEvent.isInactive() && TvTEvent.isPlayerParticipant(player.getName()))
+		{
+			player.sendMessage("You can not register in olympiad while registered at TvT.");
+			return false;
+		}
 		
 		if (player.isSubClassActive())
 		{

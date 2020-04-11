@@ -51,7 +51,6 @@ public final class Gatekeeper extends Folk
 		StringTokenizer st = new StringTokenizer(command, " ");
 		String actualCommand = st.nextToken(); // Get actual command
 		
-		
 		if (command.startsWith("goto"))
 		{
 			
@@ -142,24 +141,21 @@ public final class Gatekeeper extends Folk
 			}
 			showChatWindow(player, val);
 		}
-			else if (command.startsWith("change_zone"))
-			{
-				showChangeWindow(player);
-			}
-			
-			else if (command.startsWith("voteZone"))
-			{
-				int playerId = Integer.parseInt(st.nextToken());
-				String name = st.nextToken();
-				PvPZoneManager.getInstance().setVoteZone(playerId, name);
-			}
-			else
+		else if (command.startsWith("change_zone"))
+		{
+			showChangeWindow(player);
+		}
+		
+		else if (command.startsWith("voteZone"))
+		{
+			int playerId = Integer.parseInt(st.nextToken());
+			String name = st.nextToken();
+			PvPZoneManager.getInstance().setVoteZone(playerId, name);
+		}
+		else
 			
 			super.onBypassFeedback(player, command);
 	}
-	
-	
-
 	
 	public void showChangeWindow(Player player)
 	{

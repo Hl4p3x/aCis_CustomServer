@@ -7,8 +7,6 @@ import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 
-
-
 public final class Logout extends L2GameClientPacket
 {
 	@Override

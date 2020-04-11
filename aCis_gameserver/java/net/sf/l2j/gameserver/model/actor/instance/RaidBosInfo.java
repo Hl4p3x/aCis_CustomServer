@@ -23,7 +23,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
  * @author Williams
- *
  */
 public class RaidBosInfo extends Folk
 {

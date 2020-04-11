@@ -57,9 +57,10 @@ public class UserInfo extends L2GameServerPacket
 		writeD(_player.getMaxLoad());
 		writeD(_player.getActiveWeaponItem() != null ? 40 : 20);
 		
-		if (!_player.isDressMeEnabled()) {
+		if (!_player.isDressMeEnabled())
+		{
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIRALL) : (_player.getDressMeData().getHelmetId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIRALL) : _player.getDressMeData().getHelmetId()));
-
+			
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_REAR));
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_LEAR));
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_NECK));
@@ -94,10 +95,11 @@ public class UserInfo extends L2GameServerPacket
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_RHAND) : (_player.getDressMeData().getWeapId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_RHAND) : _player.getDressMeData().getWeapId()));
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIR) : (_player.getDressMeData().getHelmetId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIR) : _player.getDressMeData().getHelmetId()));
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_FACE) : (_player.getDressMeData().getHelmetId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_FACE) : _player.getDressMeData().getHelmetId()));
-
-		}else {
-
-		
+			
+		}
+		else
+		{
+			
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_HAIRALL));
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_REAR));
 			writeD(_player.getInventory().getPaperdollObjectId(Inventory.PAPERDOLL_LEAR));
@@ -133,7 +135,7 @@ public class UserInfo extends L2GameServerPacket
 			writeD(_player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
 			writeD(_player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
 			writeD(_player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_FACE));
-		
+			
 		}
 		writeH(0x00);
 		writeH(0x00);

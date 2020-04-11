@@ -306,7 +306,7 @@ public abstract class AbstractOlympiadGame
 			for (L2Skill skill : SkillTable.getHeroSkills())
 				player.removeSkill(skill.getId(), false);
 		}
-
+		
 		// Remove Vip Skills
 		if (player.isVip())
 		{
@@ -470,7 +470,7 @@ public abstract class AbstractOlympiadGame
 			for (L2Skill skill : SkillTable.getHeroSkills())
 				player.addSkill(skill, false);
 		}
-
+		
 		// Add Vip Skills
 		if (player.isVip())
 		{

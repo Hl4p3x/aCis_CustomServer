@@ -477,7 +477,7 @@ public class PartyFarm extends Attackable
 	 * @param diff : The difference of level between the attacker and the Monster.
 	 * @param damage : The damages done by the attacker.
 	 * @param totalDamage : The total damage done.
-	 * @param player 
+	 * @param player
 	 * @return an array consisting of xp and sp values.
 	 */
 	private int[] calculateExpAndSp(int diff, int damage, long totalDamage, Player player)
@@ -516,10 +516,10 @@ public class PartyFarm extends Attackable
 			sp = 0;
 		
 		return new int[]
-			{
-				(int) xp,
-				(int) sp
-			};
+		{
+			(int) xp,
+			(int) sp
+		};
 	}
 	
 	public void setMaster(PartyFarm master)
@@ -585,7 +585,7 @@ public class PartyFarm extends Attackable
 	 * @param drop The L2DropData count is being calculated for
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop chance)
 	 * @param isSweep if true, use spoil drop chance.
-	 * @param player 
+	 * @param player
 	 * @return the ItemHolder.
 	 */
 	private IntIntHolder calculateRewardItem(DropData drop, int levelModifier, boolean isSweep, Player player)
@@ -669,7 +669,7 @@ public class PartyFarm extends Attackable
 		if (isChampion())
 			if (drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362))
 				itemCount *= Config.CHAMPION_ADENAS_REWARDS;
-		
+			
 		if (itemCount > 0)
 			return new IntIntHolder(drop.getItemId(), itemCount);
 		
@@ -681,14 +681,14 @@ public class PartyFarm extends Attackable
 	 * Only a max of ONE item from a category is allowed to be dropped.
 	 * @param categoryDrops The category to make checks on.
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop chance)
-	 * @param player 
+	 * @param player
 	 * @return the ItemHolder.
 	 */
 	private IntIntHolder calculateCategorizedRewardItem(DropCategory categoryDrops, int levelModifier, Player player)
 	{
 		if (categoryDrops == null)
 			return null;
-		
+			
 		// Get default drop chance for the category (that's the sum of chances for all items in the category)
 		// keep track of the base category chance as it'll be used later, if an item is drop from the category.
 		// for everything else, use the total "categoryDropChance"
@@ -719,7 +719,7 @@ public class PartyFarm extends Attackable
 			DropData drop = categoryDrops.dropOne(isRaidBoss());
 			if (drop == null)
 				return null;
-			
+				
 			// Now decide the quantity to drop based on the rates and penalties. To get this value
 			// simply divide the modified categoryDropChance by the base category chance. This
 			// results in a chance that will dictate the drops amounts: for each amount over 100
@@ -780,7 +780,7 @@ public class PartyFarm extends Attackable
 			if (isChampion())
 				if (drop.getItemId() == 57 || (drop.getItemId() >= 6360 && drop.getItemId() <= 6362))
 					itemCount *= Config.CHAMPION_ADENAS_REWARDS;
-			
+				
 			if (itemCount > 0)
 				return new IntIntHolder(drop.getItemId(), itemCount);
 		}
@@ -801,7 +801,7 @@ public class PartyFarm extends Attackable
 			for (Creature atkChar : getAttackByList())
 				if (atkChar.getLevel() > highestLevel)
 					highestLevel = atkChar.getLevel();
-			
+				
 			// According to official data (Prima), deep blue mobs are 9 or more levels below players
 			if (highestLevel - 9 >= getLevel())
 				return ((highestLevel - (getLevel() + 8)) * 9);
@@ -971,9 +971,9 @@ public class PartyFarm extends Attackable
 				}
 			}
 		}
-
+		
 		if (Config.ENABLE_DROP_PARTYFARM)
-		{		
+		{
 			for (Entry<Integer, List<Integer>> entry : Config.PARTY_DROP_LIST.entrySet())
 			{
 				int rewardItem = Rnd.get(entry.getValue().get(1), entry.getValue().get(2));

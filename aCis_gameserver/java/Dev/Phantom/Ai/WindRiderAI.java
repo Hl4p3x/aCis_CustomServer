@@ -16,7 +16,6 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class WindRiderAI extends CombatAI
 {
@@ -31,9 +30,9 @@ public class WindRiderAI extends CombatAI
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleShots();			
+		handleShots();
 		tryTargetRandomCreatureByTypeInRadius(FakeHelpers.getTestTargetClass(), FakeHelpers.getTestTargetRange());
-		if(Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
+		if (Config.FAKE_PLAYER_CAN_TARGET_REAL_PLAYER == true)
 		{
 			tryFlagTargetRandom(FakeHelpers.getFlagTargetClass(), FakeHelpers.getTestTargetRange());
 		}
@@ -58,23 +57,25 @@ public class WindRiderAI extends CombatAI
 		_offensiveSpells.add(new OffensiveSpell(102, 4));
 		_offensiveSpells.add(new OffensiveSpell(321, 5));
 		_offensiveSpells.add(new OffensiveSpell(344, 6));
-		_offensiveSpells.add(new OffensiveSpell(358, 7));	
-		return _offensiveSpells; 
+		_offensiveSpells.add(new OffensiveSpell(358, 7));
+		return _offensiveSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
-    
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
+	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

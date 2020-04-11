@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.handler.itemhandlers;
 
-
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.items.ShotType;
 import net.sf.l2j.gameserver.handler.IItemHandler;
@@ -47,20 +46,16 @@ public class BeastSoulShots implements IItemHandler
 		if (summon.isChargedShot(ShotType.SOULSHOT))
 			return;
 		
-		   // If the player doesn't have enough beast soulshot remaining, remove any auto soulshot task.
-		   if (!Config.INFINITY_SS && player.destroyItemWithoutTrace("Consume", item.getObjectId(), summon.getSoulShotsPerHit(), null, false))
-		   {
-		       if (!player.disableAutoShot(item.getItemId()))
-		    	   player.sendPacket(SystemMessageId.NOT_ENOUGH_SOULSHOTS_FOR_PET);
-		       return;
-		   }
-		   
-		   if (!player.isSSDisabled())
-			   summon.setChargedShot(ShotType.SOULSHOT, true);
+		// If the player doesn't have enough beast soulshot remaining, remove any auto soulshot task.
+		if (!Config.INFINITY_SS && player.destroyItemWithoutTrace("Consume", item.getObjectId(), summon.getSoulShotsPerHit(), null, false))
+		{
+			if (!player.disableAutoShot(item.getItemId()))
+				player.sendPacket(SystemMessageId.NOT_ENOUGH_SOULSHOTS_FOR_PET);
+			return;
+		}
 		
-		
-		
-		
+		if (!player.isSSDisabled())
+			summon.setChargedShot(ShotType.SOULSHOT, true);
 		
 		player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.PET_USES_S1).addItemName(item.getItemId()));
 		summon.setChargedShot(ShotType.SOULSHOT, true);

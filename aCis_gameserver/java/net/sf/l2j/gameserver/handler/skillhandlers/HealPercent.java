@@ -61,8 +61,6 @@ public class HealPercent implements ISkillHandler
 			if (target instanceof Door || target instanceof SiegeFlag)
 				continue;
 			
-
-			
 			targetPlayer = target instanceof Player;
 			
 			// Cursed weapon owner can't heal or be healed

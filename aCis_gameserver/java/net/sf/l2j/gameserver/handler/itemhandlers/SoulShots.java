@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.handler.itemhandlers;
 
-
 import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
@@ -52,14 +51,13 @@ public class SoulShots implements IItemHandler
 		if (weaponItem.getReducedSoulShot() > 0 && Rnd.get(100) < weaponItem.getReducedSoulShotChance())
 			ssCount = weaponItem.getReducedSoulShot();
 		
-		
 		if (!Config.INFINITY_SS && !player.destroyItemWithoutTrace("Consume", item.getObjectId(), ssCount, null, false))
-			   {
+		{
 			if (!player.disableAutoShot(item.getItemId()))
-			    	   player.sendPacket(SystemMessageId.NOT_ENOUGH_SOULSHOTS);
-			      
-			       return;
-			   }
+				player.sendPacket(SystemMessageId.NOT_ENOUGH_SOULSHOTS);
+			
+			return;
+		}
 		
 		final IntIntHolder[] skills = item.getItem().getSkills();
 		
@@ -68,8 +66,6 @@ public class SoulShots implements IItemHandler
 		
 		if (!player.isSSDisabled())
 			weaponInst.setChargedShot(ShotType.SOULSHOT, true);
-		
-		
 		
 		player.broadcastPacketInRadius(new MagicSkillUse(player, player, skills[0].getId(), 1, 0, 0), 600);
 	}

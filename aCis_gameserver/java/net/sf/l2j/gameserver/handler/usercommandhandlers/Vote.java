@@ -7,8 +7,6 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 import Dev.VoteEngine.Individual;
 
-
-
 public class Vote implements IUserCommandHandler
 {
 	private static final int[] COMMAND_IDS =
@@ -26,21 +24,20 @@ public class Vote implements IUserCommandHandler
 			
 		}
 	}
+	
+	public static void sendMainWindow(Player player)
+	{
 		
-		public static void sendMainWindow(Player player)
-		{
-
-			
-			NpcHtmlMessage htm = new NpcHtmlMessage(0);
-			htm.setFile("data/html/mods/vote.htm");
-			htm.replace("%name%", player.getName());
-			String status = Individual.cdInTopList(player, "lastVoteReward") ? Individual.Cd(player, "lastVoteReward", false) : "You can vote";
-			htm.replace("%status%", status);
-			
-			player.sendPacket(htm);
-			return;
-			
-		}
+		NpcHtmlMessage htm = new NpcHtmlMessage(0);
+		htm.setFile("data/html/mods/vote.htm");
+		htm.replace("%name%", player.getName());
+		String status = Individual.cdInTopList(player, "lastVoteReward") ? Individual.Cd(player, "lastVoteReward", false) : "You can vote";
+		htm.replace("%status%", status);
+		
+		player.sendPacket(htm);
+		return;
+		
+	}
 	
 	@Override
 	public int[] getUserCommandList()

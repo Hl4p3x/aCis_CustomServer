@@ -51,7 +51,7 @@ public class Cancel implements ISkillHandler
 			// Calculate the difference of level between skill level and victim, and retrieve the vuln/prof.
 			final int diffLevel = skill.getMagicLevel() - target.getLevel();
 			final double skillVuln = Formulas.calcSkillVulnerability(activeChar, target, skill, skill.getSkillType());
-
+			
 			// cancel task manager
 			Vector<L2Skill> cancelledBuffs = new Vector<>();
 			
@@ -92,15 +92,15 @@ public class Cancel implements ISkillHandler
 				{
 					// Stores the last canceled skill for further use.
 					lastCanceledSkillId = effect.getSkill().getId();
-
+					
 					// Custom cancel
-					if (!cancelledBuffs.contains(effect.getSkill()) && !((Player)activeChar).isInOlympiadMode())                        
+					if (!cancelledBuffs.contains(effect.getSkill()) && !((Player) activeChar).isInOlympiadMode())
 						cancelledBuffs.add(effect.getSkill());
 					
 					// Exit the effect.
 					effect.exit();
 				}
-
+				
 				if (cancelledBuffs.size() > 0)
 					ThreadPool.schedule(new CancelTaskManager((Player) target, cancelledBuffs), Config.CANCEL_SECONDS * 1000);
 				

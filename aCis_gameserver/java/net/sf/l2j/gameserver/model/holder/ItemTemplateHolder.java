@@ -22,7 +22,7 @@ public class ItemTemplateHolder extends IntIntHolder
 	{
 		return _isEquipped;
 	}
-
+	
 	public final int getEnchant()
 	{
 		return _isEnchant;

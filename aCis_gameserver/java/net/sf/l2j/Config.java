@@ -17,8 +17,8 @@ import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.math.MathUtil;
 
 import net.sf.l2j.gameserver.enums.actors.RestrictionType;
-
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
+
 /**
  * This class contains global server configuration.<br>
  * It has static final fields initialized from configuration files.
@@ -36,7 +36,7 @@ public final class Config
 	public static final String PLAYERS_FILE = "./config/players.properties";
 	public static final String SERVER_FILE = "./config/server.properties";
 	public static final String SIEGE_FILE = "./config/siege.properties";
-	//Custom Properties
+	// Custom Properties
 	public static final String NEWBIE_FILE = "./config/aCis/StartPlayer.properties";
 	public static final String PHYSICIS_FILE = "./config/aCis/Physics.properties";
 	public static final String SKINS_FILE = "./config/aCis/Skins.properties";
@@ -94,7 +94,7 @@ public final class Config
 	public static boolean flagZone, deleteNpc, rewardPvp;
 	public static int changeZoneTime, announceTimer, rewardId, rewardCount;
 	
-	/** Npc Doble SubClass*/
+	/** Npc Doble SubClass */
 	public static int SUBCLASS_LVL;
 	public static String SUBCLASS_ITEMNAME;
 	public static String SUBCLASS_TEX1;
@@ -132,7 +132,7 @@ public final class Config
 	public static boolean PHANTOM_PLAYERS_ARGUMENT_ANIM;
 	public static int PHANTOM_PLAYERS_ENCHANT_MIN;
 	public static int PHANTOM_PLAYERS_ENCHANT_MAX;
-
+	
 	public static boolean ALLOW_PHANTOM_FACE;
 	public static String PHANTOM_FACE;
 	public static List<Integer> LIST_PHANTOM_FACE;
@@ -147,11 +147,11 @@ public final class Config
 	public static String PHANTOM_TITLE_CLOLORS;
 	public static ArrayList<String> PHANTOM_PLAYERS_NAME_CLOLORS;
 	public static ArrayList<String> PHANTOM_PLAYERS_TITLE_CLOLORS;
-
-    public static int CLANID; 
-    public static int CLANIDWALKER;
-    
-	/** FAKE PLAYERS Buffer L2jBan**/
+	
+	public static int CLANID;
+	public static int CLANIDWALKER;
+	
+	/** FAKE PLAYERS Buffer L2jBan **/
 	public static String FIGHTER_BUFF;
 	public static ArrayList<Integer> FIGHTER_BUFF_LIST;
 	public static String MAGE_BUFF;
@@ -160,9 +160,8 @@ public final class Config
 	public static int[] TELE_TO_GIRAN = new int[3];
 	public static boolean ENABLE_GODARD_TO;
 	public static int[] TELE_TO_GODDARD = new int[3];
-	 public static boolean ENABLE_SPAWN_TO_50_PLAYER;
+	public static boolean ENABLE_SPAWN_TO_50_PLAYER;
 	public static int[] TELE_TO_SPWAN50 = new int[3];
-
 	
 	public static boolean CONTROLL_FAKE_ON = false;
 	public static boolean FAKE_PLAYER_CAN_TARGET_REAL_PLAYER = false;
@@ -174,10 +173,10 @@ public final class Config
 	public static int MAX_ENCHANT_FAKE_ARMOR;
 	public static int MIN_ENCHANT_FAKE_WEAPON;
 	public static int MAX_ENCHANT_FAKE_WEAPON;
-	public static  boolean FAKE_PLAYER_RETURNS_TO_FARM;
-	public static  int[] SPAWN_FAKE_LOC2;
+	public static boolean FAKE_PLAYER_RETURNS_TO_FARM;
+	public static int[] SPAWN_FAKE_LOC2;
 	public static int[] SPAWN_FAKE_LOC1;
-	/** FAKE Armor L2jBan**/
+	/** FAKE Armor L2jBan **/
 	public static String FAKE_ARMOR_MYSTIC_MUSE;
 	public static List<Integer> ARMOR_MYSTIC_MUSE = new ArrayList<>();
 	public static String FAKE_ARMOR_HIEROPHANT;
@@ -233,9 +232,9 @@ public final class Config
 	public static String FAKE_ARMOR_EVAS_TEMPLAR;
 	public static List<Integer> ARMOR_EVAS_TEMPLAR = new ArrayList<>();
 	public static String FAKE_ARMOR_SHILLIEN_TEMPLAR;
-	public static List<Integer> ARMOR_SHILLIEN_TEMPLAR = new ArrayList<>();	
+	public static List<Integer> ARMOR_SHILLIEN_TEMPLAR = new ArrayList<>();
 	public static String FAKE_ARMOR_MOONLIGHT;
-	public static List<Integer> ARMOR_MOONLIGHT = new ArrayList<>();	
+	public static List<Integer> ARMOR_MOONLIGHT = new ArrayList<>();
 	public static String FAKE_ARMOR_GHOST_HUNTER;
 	public static List<Integer> ARMOR_GHOST_HUNTER = new ArrayList<>();
 	public static String FAKE_ARMOR_FORTUNE;
@@ -298,9 +297,9 @@ public final class Config
 	public static String FAKE_WEAPON_EVAS_TEMPLAR;
 	public static List<Integer> WEAPON_EVAS_TEMPLAR = new ArrayList<>();
 	public static String FAKE_WEAPON_SHILLIEN_TEMPLAR;
-	public static List<Integer> WEAPON_SHILLIEN_TEMPLAR = new ArrayList<>();	
+	public static List<Integer> WEAPON_SHILLIEN_TEMPLAR = new ArrayList<>();
 	public static String FAKE_WEAPON_MOONLIGHT_SENTINEL;
-	public static List<Integer> WEAPON_MOONLIGHT_SENTINEL = new ArrayList<>();	
+	public static List<Integer> WEAPON_MOONLIGHT_SENTINEL = new ArrayList<>();
 	public static String FAKE_WEAPON_GHOST_HUNTER;
 	public static List<Integer> WEAPON_GHOST_HUNTER = new ArrayList<>();
 	public static String FAKE_WEAPON_FORTUNE_SEEKER;
@@ -336,9 +335,7 @@ public final class Config
 	/** Auto potions settings */
 	public static Map<Integer, Integer> AUTO_POTIONS = new HashMap<>();
 	public static Map<Integer, String[]> AUTO_POTIONS_LIMITS = new HashMap<>();
-
-
-		
+	
 	/** L2jBan Tour */
 	public static boolean TOURNAMENT_EVENT_START;
 	public static boolean TOURNAMENT_EVENT_TIME;
@@ -419,29 +416,27 @@ public final class Config
 	public static List<Integer> ARENA_STOP_SKILL_LIST = new ArrayList<>();
 	public static List<Integer> ARENA_DISABLE_SKILL_LIST_PERM = new ArrayList<>();
 	
+	public static String PARTY_FARMANNONCER;
+	public static boolean PARTY_MESSAGE_ENABLED;
+	public static long NPC_SERVER_DELAY;
+	public static boolean PARTY_FARM_BY_TIME_OF_DAY;
+	public static boolean START_PARTY;
+	public static int EVENT_BEST_FARM_TIME;
+	public static String[] EVENT_BEST_FARM_INTERVAL_BY_TIME_OF_DAY;
+	public static int PARTY_FARM_MONSTER_DALAY;
+	public static String PARTY_FARM_MESSAGE_TEXT;
+	public static int PARTY_FARM_MESSAGE_TIME;
+	public static int monsterId;
+	public static int MONSTER_LOCS_COUNT;
+	public static int[][] MONSTER_LOCS;
+	public static String NPC_LIST;
+	public static Map<Integer, Integer> PARTY_DROP_REWARDS;
+	public static int[] NPC_LIST_SET;
+	public static String PARTY_FARM_TITLE;
+	public static boolean ENABLE_DROP_PARTYFARM;
+	public static Map<Integer, List<Integer>> PARTY_DROP_LIST = new HashMap<>();
 	
-    public static String PARTY_FARMANNONCER;
-    public static boolean PARTY_MESSAGE_ENABLED;
-    public static long NPC_SERVER_DELAY;
-    public static boolean PARTY_FARM_BY_TIME_OF_DAY;
-    public static boolean START_PARTY;
-    public static int EVENT_BEST_FARM_TIME;
-    public static String[] EVENT_BEST_FARM_INTERVAL_BY_TIME_OF_DAY;
-    public static int PARTY_FARM_MONSTER_DALAY;
-    public static String PARTY_FARM_MESSAGE_TEXT;
-    public static int PARTY_FARM_MESSAGE_TIME;
-    public static int monsterId;
-    public static int MONSTER_LOCS_COUNT;
-    public static int[][] MONSTER_LOCS;
-    public static String NPC_LIST;
-    public static Map<Integer, Integer> PARTY_DROP_REWARDS;
-    public static int[] NPC_LIST_SET;
-    public static String PARTY_FARM_TITLE;
-    public static boolean ENABLE_DROP_PARTYFARM;
-    public static Map<Integer, List<Integer>> PARTY_DROP_LIST = new HashMap<>();
-
-	
-    /** Skins Dressme  */
+	/** Skins Dressme */
 	public static boolean ALLOW_DRESS_ME_SYSTEM;
 	public static Map<String, Integer> DRESS_ME_HELMET = new HashMap<>();
 	public static Map<String, Integer> DRESS_ME_CHESTS = new HashMap<>();
@@ -544,7 +539,6 @@ public final class Config
 	public static int SKIN_ITEM_45;
 	public static int SKIN_ITEM_46;
 	
-	
 	public static String NAME1;
 	public static String NAME2;
 	public static String NAME3;
@@ -591,7 +585,6 @@ public final class Config
 	public static String NAME44;
 	public static String NAME45;
 	public static String NAME46;
-
 	
 	/** Disable attack Npcs */
 	public static boolean DISABLE_ATTACK_NPC_TYPE;
@@ -632,17 +625,17 @@ public final class Config
 	
 	/** Startup Buffs */
 	public static boolean ENABLE_STARTUP;
-    public static int NEWBIE_LVL;
-    public static int START_LEVEL;
-    public static int RANDOM_SPAWN_CHAR;
-    public static int[] CUSTOM_SPAWN1;
-    public static int[] CUSTOM_SPAWN2;
-    public static int[] CUSTOM_SPAWN3;
-    public static boolean CUSTOM_SPAWN_CHAR;
-    
+	public static int NEWBIE_LVL;
+	public static int START_LEVEL;
+	public static int RANDOM_SPAWN_CHAR;
+	public static int[] CUSTOM_SPAWN1;
+	public static int[] CUSTOM_SPAWN2;
+	public static int[] CUSTOM_SPAWN3;
+	public static boolean CUSTOM_SPAWN_CHAR;
+	
 	public static List<Integer> FIGHTER_SKILL_LIST;
 	public static List<Integer> MAGE_SKILL_LIST;
-
+	
 	public static String NEWBIE_MAGE_SET;
 	public static int[] NEWBIE_MAGE_BUFFS;
 	public static String NEWBIE_FIGHTER_SET;
@@ -650,9 +643,7 @@ public final class Config
 	public static int[] TELE_TO_LOCATION = new int[3];
 	public static String SERVER_NAME;
 	public static String SERVER_TEX;
-    
-
-    
+	
 	// --------------------------------------------------
 	// Clans settings
 	// --------------------------------------------------
@@ -750,7 +741,7 @@ public final class Config
 	public static int CKM_PK_NPC_NAME_COLOR;
 	public static IntIntHolder[] MONUMENT_EVENT_REWARDS;
 	
-	/** Pc bang points*/
+	/** Pc bang points */
 	public static int PCB_INTERVAL;
 	public static int PCB_MIN_LEVEL;
 	public static int PCB_POINT_MIN;
@@ -898,7 +889,7 @@ public final class Config
 	// NPCs / Monsters
 	// --------------------------------------------------
 	
-	/** Raid info*/
+	/** Raid info */
 	public static int RAID_BOSS_INFO_PAGE_LIMIT;
 	public static int RAID_BOSS_DROP_PAGE_LIMIT;
 	public static String RAID_BOSS_DATE_FORMAT;
@@ -1117,7 +1108,7 @@ public final class Config
 	public static int COMMON_RECIPE_LIMIT;
 	public static boolean ALT_BLACKSMITH_USE_RECIPES;
 	
-	/** Offline Trade*/
+	/** Offline Trade */
 	public static boolean OFFLINE_TRADE_ENABLE;
 	public static boolean OFFLINE_CRAFT_ENABLE;
 	public static boolean OFFLINE_MODE_IN_PEACE_ZONE;
@@ -1138,7 +1129,7 @@ public final class Config
 	public static boolean DIVINE_SP_BOOK_NEEDED;
 	public static boolean SUBCLASS_WITHOUT_QUESTS;
 	public static int ALLOWED_SUBCLASS;
-	public static boolean ALT_GAME_SUBCLASS_EVERYWHERE;	
+	public static boolean ALT_GAME_SUBCLASS_EVERYWHERE;
 	
 	/** Buffs */
 	public static boolean STORE_SKILL_COOLTIME;
@@ -1328,7 +1319,7 @@ public final class Config
 	public static int ANTIBOT_TIME_JAIL;
 	public static int ANTIBOT_TIME_VOTE;
 	public static int ANTIBOT_KILL_MOBS;
-	public static int ANTIBOT_MIN_LEVEL;	
+	public static int ANTIBOT_MIN_LEVEL;
 	public static boolean ALLOW_WYVERN_RESTRITION_CITY;
 	public static RestrictionType STORE_RESTRICTION_TYPE;
 	public static RestrictionType SHOUT_RESTRICTION_TYPE;
@@ -1477,7 +1468,6 @@ public final class Config
 	private static final void loadEvents()
 	{
 		final ExProperties events = initProperties(EVENTS_FILE);
-
 		
 		ALT_OLY_START_TIME = events.getProperty("AltOlyStartTime", 18);
 		ALT_OLY_MIN = events.getProperty("AltOlyMin", 0);
@@ -1635,10 +1625,6 @@ public final class Config
 	{
 		final ExProperties npcs = initProperties(NPCS_FILE);
 		
-		
-		
-
-		
 		CHAMPION_FREQUENCY = npcs.getProperty("ChampionFrequency", 0);
 		CHAMP_MIN_LVL = npcs.getProperty("ChampionMinLevel", 20);
 		CHAMP_MAX_LVL = npcs.getProperty("ChampionMaxLevel", 70);
@@ -1727,7 +1713,6 @@ public final class Config
 		for (String skill_id : npcs.getProperty("MageSkillList", "").split(";"))
 			MAGE_SKILL_LIST.add(Integer.parseInt(skill_id));
 		
-
 	}
 	
 	/**
@@ -1749,9 +1734,6 @@ public final class Config
 		DEEPBLUE_DROP_RULES = players.getProperty("UseDeepBlueDropRules", true);
 		ALT_GAME_DELEVEL = players.getProperty("Delevel", true);
 		DEATH_PENALTY_CHANCE = players.getProperty("DeathPenaltyChance", 20);
-
-		
-		
 		
 		INVENTORY_MAXIMUM_NO_DWARF = players.getProperty("MaximumSlotsForNoDwarf", 80);
 		INVENTORY_MAXIMUM_DWARF = players.getProperty("MaximumSlotsForDwarf", 100);
@@ -1787,32 +1769,32 @@ public final class Config
 		KARMA_AWARD_PK_KILL = players.getProperty("AwardPKKillPVPPoint", true);
 		KARMA_PK_LIMIT = players.getProperty("MinimumPKRequiredToDrop", 5);
 		KARMA_NONDROPPABLE_PET_ITEMS = players.getProperty("ListOfPetItems", new int[]
-			{
-				2375,
-				3500,
-				3501,
-				3502,
-				4422,
-				4423,
-				4424,
-				4425,
-				6648,
-				6649,
-				6650
-			});
+		{
+			2375,
+			3500,
+			3501,
+			3502,
+			4422,
+			4423,
+			4424,
+			4425,
+			6648,
+			6649,
+			6650
+		});
 		KARMA_NONDROPPABLE_ITEMS = players.getProperty("ListOfNonDroppableItemsForPK", new int[]
-			{
-				1147,
-				425,
-				1146,
-				461,
-				10,
-				2368,
-				7,
-				6,
-				2370,
-				2369
-			});
+		{
+			1147,
+			425,
+			1146,
+			461,
+			10,
+			2368,
+			7,
+			6,
+			2370,
+			2369
+		});
 		
 		PVP_NORMAL_TIME = players.getProperty("PvPVsNormalTime", 15000);
 		PVP_PVP_TIME = players.getProperty("PvPVsPvPTime", 30000);
@@ -1840,8 +1822,6 @@ public final class Config
 		COMMON_RECIPE_LIMIT = players.getProperty("CommonRecipeLimit", 50);
 		ALT_BLACKSMITH_USE_RECIPES = players.getProperty("AltBlacksmithUseRecipes", true);
 		
-
-		
 		AUTO_LEARN_SKILLS = players.getProperty("AutoLearnSkills", false);
 		MAGIC_FAILURES = players.getProperty("MagicFailures", true);
 		PERFECT_SHIELD_BLOCK_RATE = players.getProperty("PerfectShieldBlockRate", 5);
@@ -1850,17 +1830,11 @@ public final class Config
 		ES_SP_BOOK_NEEDED = players.getProperty("EnchantSkillSpBookNeeded", true);
 		DIVINE_SP_BOOK_NEEDED = players.getProperty("DivineInspirationSpBookNeeded", true);
 		SUBCLASS_WITHOUT_QUESTS = players.getProperty("SubClassWithoutQuests", false);
-
 		
 		MAX_BUFFS_AMOUNT = players.getProperty("MaxBuffsAmount", 20);
 		STORE_SKILL_COOLTIME = players.getProperty("StoreSkillCooltime", true);
 		
-
-	
 	}
-	
-
-	
 	
 	/**
 	 * Loads siege settings.
@@ -1889,194 +1863,223 @@ public final class Config
 		MIN_ENCHANT_FAKE_ARMOR = Integer.parseInt(ArmorFakePlayer.getProperty("MinEnchant_Armor", "0"));
 		MAX_ENCHANT_FAKE_ARMOR = Integer.parseInt(ArmorFakePlayer.getProperty("MaxEnchant_Armor", "0"));
 		
-		/*FAKE ARMOR E WEAPONS BAN*/
+		/* FAKE ARMOR E WEAPONS BAN */
 		FAKE_ARMOR_MYSTIC_MUSE = ArmorFakePlayer.getProperty("ARMOR_MYSTIC_MUSE", "0");
 		ARMOR_MYSTIC_MUSE = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_MYSTIC_MUSE.split(",")) {
-        	ARMOR_MYSTIC_MUSE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_MYSTIC_MUSE.split(","))
+		{
+			ARMOR_MYSTIC_MUSE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_HIEROPHANT = ArmorFakePlayer.getProperty("ARMOR_HIEROPHANT", "0");
 		ARMOR_HIEROPHANT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_HIEROPHANT.split(",")) {
-        	ARMOR_HIEROPHANT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_HIEROPHANT.split(","))
+		{
+			ARMOR_HIEROPHANT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_ARCANA_LORD = ArmorFakePlayer.getProperty("ARMOR_ARCANA_LORD", "0");
 		ARMOR_ARCANA_LORD = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_ARCANA_LORD.split(",")) {
-        	ARMOR_ARCANA_LORD.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_ARCANA_LORD.split(","))
+		{
+			ARMOR_ARCANA_LORD.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_CARDINAL = ArmorFakePlayer.getProperty("ARMOR_CARDINAL", "0");
 		ARMOR_CARDINAL = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_CARDINAL.split(",")) {
-        	ARMOR_CARDINAL.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_CARDINAL.split(","))
+		{
+			ARMOR_CARDINAL.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_ELEMENTAL_MASTER = ArmorFakePlayer.getProperty("ARMOR_ELEMENTAL_MASTER", "0");
 		ARMOR_ELEMENTAL_MASTER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_ELEMENTAL_MASTER.split(",")) {
-        	ARMOR_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_ELEMENTAL_MASTER.split(","))
+		{
+			ARMOR_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_DOOMCRYER = ArmorFakePlayer.getProperty("ARMOR_DOOMCRYER", "0");
 		ARMOR_DOOMCRYER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_DOOMCRYER.split(",")) {
-        	ARMOR_DOOMCRYER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_DOOMCRYER.split(","))
+		{
+			ARMOR_DOOMCRYER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_DOMINATOR = ArmorFakePlayer.getProperty("ARMOR_DOMINATOR", "0");
 		ARMOR_DOMINATOR = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_DOMINATOR.split(",")) {
-        	ARMOR_DOMINATOR.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_DOMINATOR.split(","))
+		{
+			ARMOR_DOMINATOR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_GHOST_SENTINEL = ArmorFakePlayer.getProperty("ARMOR_GHOST_SENTINEL", "0");
 		ARMOR_GHOST_SENTINEL = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_GHOST_SENTINEL.split(",")) {
-        	ARMOR_GHOST_SENTINEL.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_GHOST_SENTINEL.split(","))
+		{
+			ARMOR_GHOST_SENTINEL.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_ADVENTURER = ArmorFakePlayer.getProperty("ARMOR_ADVENTURER", "0");
 		ARMOR_ADVENTURER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_ADVENTURER.split(",")) {
-        	ARMOR_ADVENTURER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_ADVENTURER.split(","))
+		{
+			ARMOR_ADVENTURER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SOULTAKER = ArmorFakePlayer.getProperty("ARMOR_SOULTAKER", "0");
 		ARMOR_SOULTAKER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SOULTAKER.split(",")) {
-        	ARMOR_SOULTAKER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SOULTAKER.split(","))
+		{
+			ARMOR_SOULTAKER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_ARCHMAGE = ArmorFakePlayer.getProperty("ARMOR_ARCHMAGE", "0");
 		ARMOR_ARCHMAGE = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_ARCHMAGE.split(",")) {
-        	ARMOR_ARCHMAGE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_ARCHMAGE.split(","))
+		{
+			ARMOR_ARCHMAGE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_DUELIST = ArmorFakePlayer.getProperty("ARMOR_DUELIST", "0");
 		ARMOR_DUELIST = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_DUELIST.split(",")) {
-        	ARMOR_DUELIST.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_DUELIST.split(","))
+		{
+			ARMOR_DUELIST.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_MAESTRO = ArmorFakePlayer.getProperty("ARMOR_MAESTRO", "0");
 		ARMOR_MAESTRO = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_MAESTRO.split(",")) {
-        	ARMOR_MAESTRO.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_MAESTRO.split(","))
+		{
+			ARMOR_MAESTRO.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_HELL_KNIGHT = ArmorFakePlayer.getProperty("ARMOR_HELL_KNIGHT", "0");
 		ARMOR_HELL_KNIGHT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_HELL_KNIGHT.split(",")) {
-        	ARMOR_HELL_KNIGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_HELL_KNIGHT.split(","))
+		{
+			ARMOR_HELL_KNIGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_TITAN = ArmorFakePlayer.getProperty("ARMOR_TITAN", "0");
 		ARMOR_TITAN = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_TITAN.split(",")) {
-        	ARMOR_TITAN.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_TITAN.split(","))
+		{
+			ARMOR_TITAN.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SAGGITARIUS = ArmorFakePlayer.getProperty("ARMOR_SAGGITARIUS", "0");
 		ARMOR_SAGGITARIUS = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SAGGITARIUS.split(",")) {
-        	ARMOR_SAGGITARIUS.add(Integer.parseInt(listid));
-        }
+		for (final String listid : FAKE_ARMOR_SAGGITARIUS.split(","))
+		{
+			ARMOR_SAGGITARIUS.add(Integer.parseInt(listid));
+		}
 		
 		FAKE_ARMOR_WIND_RIDER = ArmorFakePlayer.getProperty("ARMOR_WIND_RIDER", "0");
 		ARMOR_WIND_RIDER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_WIND_RIDER.split(",")) {
-        	ARMOR_WIND_RIDER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_WIND_RIDER.split(","))
+		{
+			ARMOR_WIND_RIDER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_GRAND_KHAVATARI = ArmorFakePlayer.getProperty("ARMOR_GRAND_KHAVATARI", "0");
 		ARMOR_GRAND_KHAVATARI = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_GRAND_KHAVATARI.split(",")) {
-        	ARMOR_GRAND_KHAVATARI.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_GRAND_KHAVATARI.split(","))
+		{
+			ARMOR_GRAND_KHAVATARI.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_STORM_SCREAMER = ArmorFakePlayer.getProperty("ARMOR_STORM_SCREAMER", "0");
 		ARMOR_STORM_SCREAMER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_STORM_SCREAMER.split(",")) {
-        	ARMOR_STORM_SCREAMER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_STORM_SCREAMER.split(","))
+		{
+			ARMOR_STORM_SCREAMER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_EVAS_SAINT = ArmorFakePlayer.getProperty("ARMOR_EVAS_SAINT", "0");
 		ARMOR_EVAS_SAINT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_EVAS_SAINT.split(",")) {
-        	ARMOR_EVAS_SAINT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_EVAS_SAINT.split(","))
+		{
+			ARMOR_EVAS_SAINT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SPECTRAL_MASTER = ArmorFakePlayer.getProperty("ARMOR_SPECTRAL_MASTER", "0");
 		ARMOR_SPECTRAL_MASTER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SPECTRAL_MASTER.split(",")) {
-        	ARMOR_SPECTRAL_MASTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SPECTRAL_MASTER.split(","))
+		{
+			ARMOR_SPECTRAL_MASTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SHILLIEN_SAINT = ArmorFakePlayer.getProperty("ARMOR_SHILLIEN_SAINT", "0");
 		ARMOR_SHILLIEN_SAINT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SHILLIEN_SAINT.split(",")) {
-        	ARMOR_SHILLIEN_SAINT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SHILLIEN_SAINT.split(","))
+		{
+			ARMOR_SHILLIEN_SAINT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_DREADNOUGHT = ArmorFakePlayer.getProperty("ARMOR_DREADNOUGHT", "0");
 		ARMOR_DREADNOUGHT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_DREADNOUGHT.split(",")) {
-        	ARMOR_DREADNOUGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_DREADNOUGHT.split(","))
+		{
+			ARMOR_DREADNOUGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_PHOENIX_KNIGHT = ArmorFakePlayer.getProperty("ARMOR_PHOENIX_KNIGHT", "0");
 		ARMOR_PHOENIX_KNIGHT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_PHOENIX_KNIGHT.split(",")) {
-        	ARMOR_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_PHOENIX_KNIGHT.split(","))
+		{
+			ARMOR_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SWORD_MUSE = ArmorFakePlayer.getProperty("ARMOR_SWORD_MUSE", "0");
 		ARMOR_SWORD_MUSE = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SWORD_MUSE.split(",")) {
-        	ARMOR_SWORD_MUSE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SWORD_MUSE.split(","))
+		{
+			ARMOR_SWORD_MUSE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SPECTRAL_DANCER = ArmorFakePlayer.getProperty("ARMOR_SPECTRAL_DANCER", "0");
 		ARMOR_SPECTRAL_DANCER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SPECTRAL_DANCER.split(",")) {
-        	ARMOR_SPECTRAL_DANCER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SPECTRAL_DANCER.split(","))
+		{
+			ARMOR_SPECTRAL_DANCER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_EVAS_TEMPLAR = ArmorFakePlayer.getProperty("ARMOR_EVAS_TEMPLAR", "0");
 		ARMOR_EVAS_TEMPLAR = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_EVAS_TEMPLAR.split(",")) {
-        	ARMOR_EVAS_TEMPLAR.add(Integer.parseInt(listid));
-        }
-        
-        
+		for (final String listid : FAKE_ARMOR_EVAS_TEMPLAR.split(","))
+		{
+			ARMOR_EVAS_TEMPLAR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_SHILLIEN_TEMPLAR = ArmorFakePlayer.getProperty("ARMOR_SHILLIEN_TEMPLAR", "0");
 		ARMOR_SHILLIEN_TEMPLAR = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_SHILLIEN_TEMPLAR.split(",")) {
-        	ARMOR_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_SHILLIEN_TEMPLAR.split(","))
+		{
+			ARMOR_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_MOONLIGHT = ArmorFakePlayer.getProperty("ARMOR_MOONLIGHT", "0");
 		ARMOR_MOONLIGHT = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_MOONLIGHT.split(",")) {
-        	ARMOR_MOONLIGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_MOONLIGHT.split(","))
+		{
+			ARMOR_MOONLIGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_GHOST_HUNTER = ArmorFakePlayer.getProperty("ARMOR_GHOST_HUNTER", "0");
 		ARMOR_GHOST_HUNTER = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_GHOST_HUNTER.split(",")) {
-        	ARMOR_GHOST_HUNTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_ARMOR_GHOST_HUNTER.split(","))
+		{
+			ARMOR_GHOST_HUNTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_ARMOR_FORTUNE = ArmorFakePlayer.getProperty("ARMOR_FORTUNE", "0");
 		ARMOR_FORTUNE = new ArrayList<>();
-        for (final String listid : FAKE_ARMOR_FORTUNE.split(",")) {
-        	ARMOR_FORTUNE.add(Integer.parseInt(listid));
-        }
-		
+		for (final String listid : FAKE_ARMOR_FORTUNE.split(","))
+		{
+			ARMOR_FORTUNE.add(Integer.parseInt(listid));
+		}
 		
 	}
 	
@@ -2084,373 +2087,397 @@ public final class Config
 	{
 		final ExProperties WeaponFakePlayer = initProperties(FAKE_WEAPON);
 		
-		/*FAKE WEAPONS BAN*/
+		/* FAKE WEAPONS BAN */
 		
 		MIN_ENCHANT_FAKE_WEAPON = Integer.parseInt(WeaponFakePlayer.getProperty("MinEnchant_Weapon", "0"));
 		MAX_ENCHANT_FAKE_WEAPON = Integer.parseInt(WeaponFakePlayer.getProperty("MaxEnchant_Weapon", "0"));
 		
 		FAKE_WEAPON_MYSTIC_MUSE = WeaponFakePlayer.getProperty("WEAPON_MYSTIC_MUSE", "0");
 		WEAPON_MYSTIC_MUSE = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_MYSTIC_MUSE.split(",")) {
-        	WEAPON_MYSTIC_MUSE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_MYSTIC_MUSE.split(","))
+		{
+			WEAPON_MYSTIC_MUSE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_HIEROPHANT = WeaponFakePlayer.getProperty("WEAPON_HIEROPHANT", "0");
 		WEAPON_HIEROPHANT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_HIEROPHANT.split(",")) {
-        	WEAPON_HIEROPHANT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_HIEROPHANT.split(","))
+		{
+			WEAPON_HIEROPHANT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_ARCANA_LORD = WeaponFakePlayer.getProperty("WEAPON_ARCANA_LORD", "0");
 		WEAPON_ARCANA_LORD = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_ARCANA_LORD.split(",")) {
-        	WEAPON_ARCANA_LORD.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_ARCANA_LORD.split(","))
+		{
+			WEAPON_ARCANA_LORD.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_CARDINAL = WeaponFakePlayer.getProperty("WEAPON_CARDINAL", "0");
 		WEAPON_CARDINAL = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_CARDINAL.split(",")) {
-        	WEAPON_CARDINAL.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_CARDINAL.split(","))
+		{
+			WEAPON_CARDINAL.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_ELEMENTAL_MASTER = WeaponFakePlayer.getProperty("WEAPON_ELEMENTAL_MASTER", "0");
 		WEAPON_ELEMENTAL_MASTER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_ELEMENTAL_MASTER.split(",")) {
-        	WEAPON_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_ELEMENTAL_MASTER.split(","))
+		{
+			WEAPON_ELEMENTAL_MASTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_DOOMCRYER = WeaponFakePlayer.getProperty("WEAPON_DOOMCRYER", "0");
 		WEAPON_DOOMCRYER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_DOOMCRYER.split(",")) {
-        	WEAPON_DOOMCRYER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_DOOMCRYER.split(","))
+		{
+			WEAPON_DOOMCRYER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_DOMINATOR = WeaponFakePlayer.getProperty("WEAPON_DOMINATOR", "0");
 		WEAPON_DOMINATOR = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_DOMINATOR.split(",")) {
-        	WEAPON_DOMINATOR.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_DOMINATOR.split(","))
+		{
+			WEAPON_DOMINATOR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_GHOST_SENTINEL = WeaponFakePlayer.getProperty("WEAPON_GHOST_SENTINEL", "0");
 		WEAPON_GHOST_SENTINEL = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_GHOST_SENTINEL.split(",")) {
-        	WEAPON_GHOST_SENTINEL.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_GHOST_SENTINEL.split(","))
+		{
+			WEAPON_GHOST_SENTINEL.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_ADVENTURER = WeaponFakePlayer.getProperty("WEAPON_ADVENTURER", "0");
 		WEAPON_ADVENTURER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_ADVENTURER.split(",")) {
-        	WEAPON_ADVENTURER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_ADVENTURER.split(","))
+		{
+			WEAPON_ADVENTURER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SOULTAKER = WeaponFakePlayer.getProperty("WEAPON_SOULTAKER", "0");
 		WEAPON_SOULTAKER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SOULTAKER.split(",")) {
-        	WEAPON_SOULTAKER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SOULTAKER.split(","))
+		{
+			WEAPON_SOULTAKER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_ARCHMAGE = WeaponFakePlayer.getProperty("WEAPON_ARCHMAGE", "0");
 		WEAPON_ARCHMAGE = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_ARCHMAGE.split(",")) {
-        	WEAPON_ARCHMAGE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_ARCHMAGE.split(","))
+		{
+			WEAPON_ARCHMAGE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_DUELIST = WeaponFakePlayer.getProperty("WEAPON_DUELIST", "0");
 		WEAPON_DUELIST = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_DUELIST.split(",")) {
-        	WEAPON_DUELIST.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_DUELIST.split(","))
+		{
+			WEAPON_DUELIST.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_MAESTRO = WeaponFakePlayer.getProperty("WEAPON_MAESTRO", "0");
 		WEAPON_MAESTRO = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_MAESTRO.split(",")) {
-        	WEAPON_MAESTRO.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_MAESTRO.split(","))
+		{
+			WEAPON_MAESTRO.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_HELL_KNIGHT = WeaponFakePlayer.getProperty("WEAPON_HELL_KNIGHT", "0");
 		WEAPON_HELL_KNIGHT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_HELL_KNIGHT.split(",")) {
-        	WEAPON_HELL_KNIGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_HELL_KNIGHT.split(","))
+		{
+			WEAPON_HELL_KNIGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_TITAN = WeaponFakePlayer.getProperty("WEAPON_TITAN", "0");
 		WEAPON_TITAN = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_TITAN.split(",")) {
-        	WEAPON_TITAN.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_TITAN.split(","))
+		{
+			WEAPON_TITAN.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SAGGITARIUS = WeaponFakePlayer.getProperty("WEAPON_SAGGITARIUS", "0");
 		WEAPON_SAGGITARIUS = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SAGGITARIUS.split(",")) {
-        	WEAPON_SAGGITARIUS.add(Integer.parseInt(listid));
-        }
+		for (final String listid : FAKE_WEAPON_SAGGITARIUS.split(","))
+		{
+			WEAPON_SAGGITARIUS.add(Integer.parseInt(listid));
+		}
 		
 		FAKE_WEAPON_WIND_RIDER = WeaponFakePlayer.getProperty("WEAPON_WIND_RIDER", "0");
 		WEAPON_WIND_RIDER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_WIND_RIDER.split(",")) {
-        	WEAPON_WIND_RIDER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_WIND_RIDER.split(","))
+		{
+			WEAPON_WIND_RIDER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_GRAND_KHAVATARI = WeaponFakePlayer.getProperty("WEAPON_GRAND_KHAVATARI", "0");
 		WEAPON_GRAND_KHAVATARI = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_GRAND_KHAVATARI.split(",")) {
-        	WEAPON_GRAND_KHAVATARI.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_GRAND_KHAVATARI.split(","))
+		{
+			WEAPON_GRAND_KHAVATARI.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_STORM_SCREAMER = WeaponFakePlayer.getProperty("WEAPON_STORM_SCREAMER", "0");
 		WEAPON_STORM_SCREAMER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_STORM_SCREAMER.split(",")) {
-        	WEAPON_STORM_SCREAMER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_STORM_SCREAMER.split(","))
+		{
+			WEAPON_STORM_SCREAMER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_EVAS_SAINT = WeaponFakePlayer.getProperty("WEAPON_EVAS_SAINT", "0");
 		WEAPON_EVAS_SAINT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_EVAS_SAINT.split(",")) {
-        	WEAPON_EVAS_SAINT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_EVAS_SAINT.split(","))
+		{
+			WEAPON_EVAS_SAINT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SPECTRAL_MASTER = WeaponFakePlayer.getProperty("WEAPON_SPECTRAL_MASTER", "0");
 		WEAPON_SPECTRAL_MASTER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SPECTRAL_MASTER.split(",")) {
-        	WEAPON_SPECTRAL_MASTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SPECTRAL_MASTER.split(","))
+		{
+			WEAPON_SPECTRAL_MASTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SHILLIEN_SAINT = WeaponFakePlayer.getProperty("WEAPON_SHILLIEN_SAINT", "0");
 		WEAPON_SHILLIEN_SAINT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SHILLIEN_SAINT.split(",")) {
-        	WEAPON_SHILLIEN_SAINT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SHILLIEN_SAINT.split(","))
+		{
+			WEAPON_SHILLIEN_SAINT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_DREADNOUGHT = WeaponFakePlayer.getProperty("WEAPON_DREADNOUGHT", "0");
 		WEAPON_DREADNOUGHT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_DREADNOUGHT.split(",")) {
-        	WEAPON_DREADNOUGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_DREADNOUGHT.split(","))
+		{
+			WEAPON_DREADNOUGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_PHOENIX_KNIGHT = WeaponFakePlayer.getProperty("WEAPON_PHOENIX_KNIGHT", "0");
 		WEAPON_PHOENIX_KNIGHT = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_PHOENIX_KNIGHT.split(",")) {
-        	WEAPON_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_PHOENIX_KNIGHT.split(","))
+		{
+			WEAPON_PHOENIX_KNIGHT.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SWORD_MUSE = WeaponFakePlayer.getProperty("WEAPON_SWORD_MUSE", "0");
 		WEAPON_SWORD_MUSE = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SWORD_MUSE.split(",")) {
-        	WEAPON_SWORD_MUSE.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SWORD_MUSE.split(","))
+		{
+			WEAPON_SWORD_MUSE.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SPECTRAL_DANCER = WeaponFakePlayer.getProperty("WEAPON_SPECTRAL_DANCER", "0");
 		WEAPON_SPECTRAL_DANCER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SPECTRAL_DANCER.split(",")) {
-        	WEAPON_SPECTRAL_DANCER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SPECTRAL_DANCER.split(","))
+		{
+			WEAPON_SPECTRAL_DANCER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_EVAS_TEMPLAR = WeaponFakePlayer.getProperty("WEAPON_EVAS_TEMPLAR", "0");
 		WEAPON_EVAS_TEMPLAR = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_EVAS_TEMPLAR.split(",")) {
-        	WEAPON_EVAS_TEMPLAR.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_EVAS_TEMPLAR.split(","))
+		{
+			WEAPON_EVAS_TEMPLAR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_SHILLIEN_TEMPLAR = WeaponFakePlayer.getProperty("WEAPON_SHILLIEN_TEMPLAR", "0");
 		WEAPON_SHILLIEN_TEMPLAR = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_SHILLIEN_TEMPLAR.split(",")) {
-        	WEAPON_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_SHILLIEN_TEMPLAR.split(","))
+		{
+			WEAPON_SHILLIEN_TEMPLAR.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_MOONLIGHT_SENTINEL = WeaponFakePlayer.getProperty("WEAPON_MOONLIGHT_SENTINEL", "0");
 		WEAPON_MOONLIGHT_SENTINEL = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_MOONLIGHT_SENTINEL.split(",")) {
-        	WEAPON_MOONLIGHT_SENTINEL.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_MOONLIGHT_SENTINEL.split(","))
+		{
+			WEAPON_MOONLIGHT_SENTINEL.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_GHOST_HUNTER = WeaponFakePlayer.getProperty("WEAPON_GHOST_HUNTER", "0");
 		WEAPON_GHOST_HUNTER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_GHOST_HUNTER.split(",")) {
-        	WEAPON_GHOST_HUNTER.add(Integer.parseInt(listid));
-        }
-        
+		for (final String listid : FAKE_WEAPON_GHOST_HUNTER.split(","))
+		{
+			WEAPON_GHOST_HUNTER.add(Integer.parseInt(listid));
+		}
+		
 		FAKE_WEAPON_FORTUNE_SEEKER = WeaponFakePlayer.getProperty("WEAPON_FORTUNE_SEEKER", "0");
 		WEAPON_FORTUNE_SEEKER = new ArrayList<>();
-        for (final String listid : FAKE_WEAPON_FORTUNE_SEEKER.split(",")) {
-        	WEAPON_FORTUNE_SEEKER.add(Integer.parseInt(listid));
-        }
-		
+		for (final String listid : FAKE_WEAPON_FORTUNE_SEEKER.split(","))
+		{
+			WEAPON_FORTUNE_SEEKER.add(Integer.parseInt(listid));
+		}
 		
 	}
 	
 	private static final void loadPhysics()
 	{
-	final ExProperties Physics = initProperties(PHYSICIS_FILE); 
-	BLOW_ATTACK_FRONT = Integer.parseInt(Physics.getProperty("BlowAttackFront", "50"));
-	BLOW_ATTACK_SIDE = Integer.parseInt(Physics.getProperty("BlowAttackSide", "60"));
-	BLOW_ATTACK_BEHIND = Integer.parseInt(Physics.getProperty("BlowAttackBehind", "70"));
-
-	BACKSTAB_ATTACK_FRONT = Integer.parseInt(Physics.getProperty("BackstabAttackFront", "0"));
-	BACKSTAB_ATTACK_SIDE = Integer.parseInt(Physics.getProperty("BackstabAttackSide", "0"));
-	BACKSTAB_ATTACK_BEHIND = Integer.parseInt(Physics.getProperty("BackstabAttackBehind", "70"));
-
-	ANTI_SS_BUG_1 = Integer.parseInt(Physics.getProperty("Delay", "2700"));
-	ANTI_SS_BUG_2 = Integer.parseInt(Physics.getProperty("DelayBow", "1500"));
-	ANTI_SS_BUG_3 = Integer.parseInt(Physics.getProperty("DelayNextAttack", "470000"));
-	
-	MAX_MATK_SPEED = Integer.parseInt(Physics.getProperty("MaxMAtkSpeed", "1999"));
-	MAX_MATK_SPEED_OVER = Integer.parseInt(Physics.getProperty("MaxMAtkSpeedOverlord", "1300"));
-	MAX_PATK_SPEED = Integer.parseInt(Physics.getProperty("MaxPAtkSpeed", "1500"));
-	MAX_PATK_SPEED_GHOST = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedGhost", "1500"));
-	MAX_PATK_SPEED_MOONL = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedMoonl", "1500"));
-	
-	INFINITY_SS = Physics.getProperty("InfinitySS", false);
-	INFINITY_ARROWS = Physics.getProperty("InfinityArrows", false);
-	
-	UNSTUCK_TIME = Physics.getProperty("UnstuckTime", 30);
-	
-	AUG_ITEM_TRADE = Physics.getProperty("AugItemTrade", false);
-	AUG_ITEM_DROP = Physics.getProperty("AugItemDrop", false);
-	AUG_ITEM_SELL = Physics.getProperty("AugItemSell", false);
-
+		final ExProperties Physics = initProperties(PHYSICIS_FILE);
+		BLOW_ATTACK_FRONT = Integer.parseInt(Physics.getProperty("BlowAttackFront", "50"));
+		BLOW_ATTACK_SIDE = Integer.parseInt(Physics.getProperty("BlowAttackSide", "60"));
+		BLOW_ATTACK_BEHIND = Integer.parseInt(Physics.getProperty("BlowAttackBehind", "70"));
+		
+		BACKSTAB_ATTACK_FRONT = Integer.parseInt(Physics.getProperty("BackstabAttackFront", "0"));
+		BACKSTAB_ATTACK_SIDE = Integer.parseInt(Physics.getProperty("BackstabAttackSide", "0"));
+		BACKSTAB_ATTACK_BEHIND = Integer.parseInt(Physics.getProperty("BackstabAttackBehind", "70"));
+		
+		ANTI_SS_BUG_1 = Integer.parseInt(Physics.getProperty("Delay", "2700"));
+		ANTI_SS_BUG_2 = Integer.parseInt(Physics.getProperty("DelayBow", "1500"));
+		ANTI_SS_BUG_3 = Integer.parseInt(Physics.getProperty("DelayNextAttack", "470000"));
+		
+		MAX_MATK_SPEED = Integer.parseInt(Physics.getProperty("MaxMAtkSpeed", "1999"));
+		MAX_MATK_SPEED_OVER = Integer.parseInt(Physics.getProperty("MaxMAtkSpeedOverlord", "1300"));
+		MAX_PATK_SPEED = Integer.parseInt(Physics.getProperty("MaxPAtkSpeed", "1500"));
+		MAX_PATK_SPEED_GHOST = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedGhost", "1500"));
+		MAX_PATK_SPEED_MOONL = Integer.parseInt(Physics.getProperty("MaxPAtkSpeedMoonl", "1500"));
+		
+		INFINITY_SS = Physics.getProperty("InfinitySS", false);
+		INFINITY_ARROWS = Physics.getProperty("InfinityArrows", false);
+		
+		UNSTUCK_TIME = Physics.getProperty("UnstuckTime", 30);
+		
+		AUG_ITEM_TRADE = Physics.getProperty("AugItemTrade", false);
+		AUG_ITEM_DROP = Physics.getProperty("AugItemDrop", false);
+		AUG_ITEM_SELL = Physics.getProperty("AugItemSell", false);
+		
 	}
-	
-
-	
 	
 	/**
- * Loads tournament settings.
- */
-private static final void loadTournament()
-{
-	final ExProperties Tournament = initProperties(Config.TOURNAMENTE_FILE);
-	TOURNAMENT_EVENT_START = Tournament.getProperty("TournamentStartOn", false);
-	TOURNAMENT_EVENT_TIME = Tournament.getProperty("TournamentAutoEvent", false);
-	TOURNAMENT_EVENT_SUMMON = Tournament.getProperty("TournamentSummon", false);
-	TOURNAMENT_EVENT_ANNOUNCE = Tournament.getProperty("TournamenAnnounce", false);
-
-	TOURNAMENT_EVENT_INTERVAL_BY_TIME_OF_DAY = Tournament.getProperty("TournamentStartTime", "20:00").split(",");
-
-	TOURNAMENT_TIME = Integer.parseInt(Tournament.getProperty("TournamentEventTime", "1"));
-
-	TITLE_COLOR_TEAM1 = Tournament.getProperty("TitleColorTeam_1", "FFFFFF");
-	TITLE_COLOR_TEAM2 = Tournament.getProperty("TitleColorTeam_2", "FFFFFF");
-
-	MSG_TEAM1 = Tournament.getProperty("TitleTeam_1", "Team [1]");
-	MSG_TEAM2 = Tournament.getProperty("TitleTeam_2", "Team [2]");
-
-	
-
-	ARENA_NPC = Integer.parseInt(Tournament.getProperty("NPCRegister", "1"));
-
-	NPC_locx = Integer.parseInt(Tournament.getProperty("Locx", "1"));
-	NPC_locy = Integer.parseInt(Tournament.getProperty("Locy", "1"));
-	NPC_locz = Integer.parseInt(Tournament.getProperty("Locz", "1"));
-	NPC_Heading = Integer.parseInt(Tournament.getProperty("Heading", "1"));
-
-	Tournament_locx = Integer.parseInt(Tournament.getProperty("TournamentLocx", "1"));
-	Tournament_locy = Integer.parseInt(Tournament.getProperty("TournamentLocy", "1"));
-	Tournament_locz = Integer.parseInt(Tournament.getProperty("TournamentLocz", "1"));
-
-	ALLOW_2X2_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow2x2Register", "true"));
-	ALLOW_4X4_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow4x4Register", "true"));
-	ALLOW_9X9_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow9x9Register", "true"));
-
-	ALLOW_4X4_LOSTBUFF = Boolean.parseBoolean(Tournament.getProperty("Allow4x4LostBuff", "false"));
-
-	ARENA_MESSAGE_ENABLED = Boolean.parseBoolean(Tournament.getProperty("ScreenArenaMessageEnable", "false"));
-	ARENA_MESSAGE_TEXT = Tournament.getProperty("ScreenArenaMessageText", "Welcome to L2J server!");
-	ARENA_MESSAGE_TIME = Integer.parseInt(Tournament.getProperty("ScreenArenaMessageTime", "10")) * 1000;
-
-	String[] arenaLocs = Tournament.getProperty("ArenasLoc", "").split(";");
-	String[] locSplit = null;
-	ARENA_EVENT_COUNT = arenaLocs.length;
-	ARENA_EVENT_LOCS = new int[ARENA_EVENT_COUNT][3];
-	for (int i = 0; i < ARENA_EVENT_COUNT; i++)
+	 * Loads tournament settings.
+	 */
+	private static final void loadTournament()
 	{
-		locSplit = arenaLocs[i].split(",");
-		for (int j = 0; j < 3; j++)
-			ARENA_EVENT_LOCS[i][j] = Integer.parseInt(locSplit[j].trim());
+		final ExProperties Tournament = initProperties(Config.TOURNAMENTE_FILE);
+		TOURNAMENT_EVENT_START = Tournament.getProperty("TournamentStartOn", false);
+		TOURNAMENT_EVENT_TIME = Tournament.getProperty("TournamentAutoEvent", false);
+		TOURNAMENT_EVENT_SUMMON = Tournament.getProperty("TournamentSummon", false);
+		TOURNAMENT_EVENT_ANNOUNCE = Tournament.getProperty("TournamenAnnounce", false);
+		
+		TOURNAMENT_EVENT_INTERVAL_BY_TIME_OF_DAY = Tournament.getProperty("TournamentStartTime", "20:00").split(",");
+		
+		TOURNAMENT_TIME = Integer.parseInt(Tournament.getProperty("TournamentEventTime", "1"));
+		
+		TITLE_COLOR_TEAM1 = Tournament.getProperty("TitleColorTeam_1", "FFFFFF");
+		TITLE_COLOR_TEAM2 = Tournament.getProperty("TitleColorTeam_2", "FFFFFF");
+		
+		MSG_TEAM1 = Tournament.getProperty("TitleTeam_1", "Team [1]");
+		MSG_TEAM2 = Tournament.getProperty("TitleTeam_2", "Team [2]");
+		
+		ARENA_NPC = Integer.parseInt(Tournament.getProperty("NPCRegister", "1"));
+		
+		NPC_locx = Integer.parseInt(Tournament.getProperty("Locx", "1"));
+		NPC_locy = Integer.parseInt(Tournament.getProperty("Locy", "1"));
+		NPC_locz = Integer.parseInt(Tournament.getProperty("Locz", "1"));
+		NPC_Heading = Integer.parseInt(Tournament.getProperty("Heading", "1"));
+		
+		Tournament_locx = Integer.parseInt(Tournament.getProperty("TournamentLocx", "1"));
+		Tournament_locy = Integer.parseInt(Tournament.getProperty("TournamentLocy", "1"));
+		Tournament_locz = Integer.parseInt(Tournament.getProperty("TournamentLocz", "1"));
+		
+		ALLOW_2X2_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow2x2Register", "true"));
+		ALLOW_4X4_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow4x4Register", "true"));
+		ALLOW_9X9_REGISTER = Boolean.parseBoolean(Tournament.getProperty("Allow9x9Register", "true"));
+		
+		ALLOW_4X4_LOSTBUFF = Boolean.parseBoolean(Tournament.getProperty("Allow4x4LostBuff", "false"));
+		
+		ARENA_MESSAGE_ENABLED = Boolean.parseBoolean(Tournament.getProperty("ScreenArenaMessageEnable", "false"));
+		ARENA_MESSAGE_TEXT = Tournament.getProperty("ScreenArenaMessageText", "Welcome to L2J server!");
+		ARENA_MESSAGE_TIME = Integer.parseInt(Tournament.getProperty("ScreenArenaMessageTime", "10")) * 1000;
+		
+		String[] arenaLocs = Tournament.getProperty("ArenasLoc", "").split(";");
+		String[] locSplit = null;
+		ARENA_EVENT_COUNT = arenaLocs.length;
+		ARENA_EVENT_LOCS = new int[ARENA_EVENT_COUNT][3];
+		for (int i = 0; i < ARENA_EVENT_COUNT; i++)
+		{
+			locSplit = arenaLocs[i].split(",");
+			for (int j = 0; j < 3; j++)
+				ARENA_EVENT_LOCS[i][j] = Integer.parseInt(locSplit[j].trim());
+		}
+		String[] arenaLocs4x4 = Tournament.getProperty("Arenas4x4Loc", "").split(";");
+		String[] locSplit4x4 = null;
+		ARENA_EVENT_COUNT_4X4 = arenaLocs4x4.length;
+		ARENA_EVENT_LOCS_4X4 = new int[ARENA_EVENT_COUNT_4X4][3];
+		for (int i = 0; i < ARENA_EVENT_COUNT_4X4; i++)
+		{
+			locSplit4x4 = arenaLocs4x4[i].split(",");
+			for (int j = 0; j < 3; j++)
+				ARENA_EVENT_LOCS_4X4[i][j] = Integer.parseInt(locSplit4x4[j].trim());
+		}
+		String[] arenaLocs9x9 = Tournament.getProperty("Arenas9x9Loc", "").split(";");
+		String[] locSplit8x8 = null;
+		ARENA_EVENT_COUNT_9X9 = arenaLocs9x9.length;
+		ARENA_EVENT_LOCS_9X9 = new int[ARENA_EVENT_COUNT_9X9][3];
+		int j;
+		for (int i = 0; i < ARENA_EVENT_COUNT_9X9; i++)
+		{
+			locSplit8x8 = arenaLocs9x9[i].split(",");
+			for (j = 0; j < 3; j++)
+				ARENA_EVENT_LOCS_9X9[i][j] = Integer.parseInt(locSplit8x8[j].trim());
+		}
+		duelist_COUNT_4X4 = Tournament.getProperty("duelist_amount_4x4", 1);
+		dreadnought_COUNT_4X4 = Tournament.getProperty("dreadnought_amount_4x4", 1);
+		tanker_COUNT_4X4 = Tournament.getProperty("tanker_amount_4x4", 1);
+		dagger_COUNT_4X4 = Tournament.getProperty("dagger_amount_4x4", 1);
+		archer_COUNT_4X4 = Tournament.getProperty("archer_amount_4x4", 1);
+		bs_COUNT_4X4 = Tournament.getProperty("bs_amount_4x4", 1);
+		archmage_COUNT_4X4 = Tournament.getProperty("archmage_amount_4x4", 1);
+		soultaker_COUNT_4X4 = Tournament.getProperty("soultaker_amount_4x4", 1);
+		mysticMuse_COUNT_4X4 = Tournament.getProperty("mysticMuse_amount_4x4", 1);
+		stormScreamer_COUNT_4X4 = Tournament.getProperty("stormScreamer_amount_4x4", 1);
+		titan_COUNT_4X4 = Tournament.getProperty("titan_amount_4x4", 1);
+		dominator_COUNT_4X4 = Tournament.getProperty("dominator_amount_4x4", 1);
+		doomcryer_COUNT_4X4 = Tournament.getProperty("doomcryer_amount_4x4", 1);
+		
+		duelist_COUNT_9X9 = Tournament.getProperty("duelist_amount_9x9", 1);
+		dreadnought_COUNT_9X9 = Tournament.getProperty("dreadnought_amount_9x9", 1);
+		tanker_COUNT_9X9 = Tournament.getProperty("tanker_amount_9x9", 1);
+		dagger_COUNT_9X9 = Tournament.getProperty("dagger_amount_9x9", 1);
+		archer_COUNT_9X9 = Tournament.getProperty("archer_amount_9x9", 1);
+		bs_COUNT_9X9 = Tournament.getProperty("bs_amount_9x9", 1);
+		archmage_COUNT_9X9 = Tournament.getProperty("archmage_amount_9x9", 1);
+		soultaker_COUNT_9X9 = Tournament.getProperty("soultaker_amount_9x9", 1);
+		mysticMuse_COUNT_9X9 = Tournament.getProperty("mysticMuse_amount_9x9", 1);
+		stormScreamer_COUNT_9X9 = Tournament.getProperty("stormScreamer_amount_9x9", 1);
+		titan_COUNT_9X9 = Tournament.getProperty("titan_amount_9x9", 1);
+		grandKhauatari_COUNT_9X9 = Tournament.getProperty("grandKhauatari_amount_9x9", 1);
+		dominator_COUNT_9X9 = Tournament.getProperty("dominator_amount_9x9", 1);
+		doomcryer_COUNT_9X9 = Tournament.getProperty("doomcryer_amount_9x9", 1);
+		
+		ARENA_PVP_AMOUNT = Tournament.getProperty("ArenaPvpJoin", 10);
+		ARENA_REWARD_ID = Tournament.getProperty("ArenaRewardId", 57);
+		ARENA_WIN_REWARD_COUNT = Tournament.getProperty("ArenaWinRewardCount", 1);
+		ARENA_LOST_REWARD_COUNT = Tournament.getProperty("ArenaLostRewardCount", 1);
+		
+		ARENA_WIN_REWARD_COUNT_4X4 = Tournament.getProperty("ArenaWinRewardCount4x4", 1);
+		ARENA_LOST_REWARD_COUNT_4X4 = Tournament.getProperty("ArenaLostRewardCount4x4", 1);
+		
+		ARENA_WIN_REWARD_COUNT_9X9 = Tournament.getProperty("ArenaWinRewardCount9x9", 1);
+		ARENA_LOST_REWARD_COUNT_9X9 = Tournament.getProperty("ArenaLostRewardCount9x9", 1);
+		
+		ARENA_CHECK_INTERVAL = Tournament.getProperty("ArenaBattleCheckInterval", 15) * 1000;
+		ARENA_CALL_INTERVAL = Tournament.getProperty("ArenaBattleCallInterval", 60);
+		
+		ARENA_WAIT_INTERVAL = Tournament.getProperty("ArenaBattleWaitInterval", 20);
+		ARENA_WAIT_INTERVAL_4X4 = Tournament.getProperty("ArenaBattleWaitInterval4x4", 45);
+		ARENA_WAIT_INTERVAL_9X9 = Tournament.getProperty("ArenaBattleWaitInterval9x9", 45);
+		
+		TOURNAMENT_ID_RESTRICT = Tournament.getProperty("ItemsRestriction");
+		
+		TOURNAMENT_LISTID_RESTRICT = new ArrayList<>();
+		for (String id : TOURNAMENT_ID_RESTRICT.split(","))
+			TOURNAMENT_LISTID_RESTRICT.add(Integer.valueOf(Integer.parseInt(id)));
+		ARENA_SKILL_PROTECT = Boolean.parseBoolean(Tournament.getProperty("ArenaSkillProtect", "false"));
+		for (String id : Tournament.getProperty("ArenaDisableSkillList", "0").split(","))
+			ARENA_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
+		for (String id : Tournament.getProperty("DisableSkillList", "0").split(","))
+			ARENA_DISABLE_SKILL_LIST_PERM.add(Integer.valueOf(Integer.parseInt(id)));
+		for (String id : Tournament.getProperty("ArenaDisableSkillList_noStart", "0").split(","))
+			ARENA_DISABLE_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
+		for (String id : Tournament.getProperty("ArenaStopSkillList", "0").split(","))
+			ARENA_STOP_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
 	}
-	String[] arenaLocs4x4 = Tournament.getProperty("Arenas4x4Loc", "").split(";");
-	String[] locSplit4x4 = null;
-	ARENA_EVENT_COUNT_4X4 = arenaLocs4x4.length;
-	ARENA_EVENT_LOCS_4X4 = new int[ARENA_EVENT_COUNT_4X4][3];
-	for (int i = 0; i < ARENA_EVENT_COUNT_4X4; i++)
-	{
-		locSplit4x4 = arenaLocs4x4[i].split(",");
-		for (int j = 0; j < 3; j++)
-			ARENA_EVENT_LOCS_4X4[i][j] = Integer.parseInt(locSplit4x4[j].trim());
-	}
-	String[] arenaLocs9x9 = Tournament.getProperty("Arenas9x9Loc", "").split(";");
-	String[] locSplit8x8 = null;
-	ARENA_EVENT_COUNT_9X9 = arenaLocs9x9.length;
-	ARENA_EVENT_LOCS_9X9 = new int[ARENA_EVENT_COUNT_9X9][3];
-	int j;
-	for (int i = 0; i < ARENA_EVENT_COUNT_9X9; i++)
-	{
-		locSplit8x8 = arenaLocs9x9[i].split(",");
-		for (j = 0; j < 3; j++)
-			ARENA_EVENT_LOCS_9X9[i][j] = Integer.parseInt(locSplit8x8[j].trim());
-	}
-	duelist_COUNT_4X4 = Tournament.getProperty("duelist_amount_4x4", 1);
-	dreadnought_COUNT_4X4 = Tournament.getProperty("dreadnought_amount_4x4", 1);
-	tanker_COUNT_4X4 = Tournament.getProperty("tanker_amount_4x4", 1);
-	dagger_COUNT_4X4 = Tournament.getProperty("dagger_amount_4x4", 1);
-	archer_COUNT_4X4 = Tournament.getProperty("archer_amount_4x4", 1);
-	bs_COUNT_4X4 = Tournament.getProperty("bs_amount_4x4", 1);
-	archmage_COUNT_4X4 = Tournament.getProperty("archmage_amount_4x4", 1);
-	soultaker_COUNT_4X4 = Tournament.getProperty("soultaker_amount_4x4", 1);
-	mysticMuse_COUNT_4X4 = Tournament.getProperty("mysticMuse_amount_4x4", 1);
-	stormScreamer_COUNT_4X4 = Tournament.getProperty("stormScreamer_amount_4x4", 1);
-	titan_COUNT_4X4 = Tournament.getProperty("titan_amount_4x4", 1);
-	dominator_COUNT_4X4 = Tournament.getProperty("dominator_amount_4x4", 1);
-	doomcryer_COUNT_4X4 = Tournament.getProperty("doomcryer_amount_4x4", 1);
-
-	duelist_COUNT_9X9 = Tournament.getProperty("duelist_amount_9x9", 1);
-	dreadnought_COUNT_9X9 = Tournament.getProperty("dreadnought_amount_9x9", 1);
-	tanker_COUNT_9X9 = Tournament.getProperty("tanker_amount_9x9", 1);
-	dagger_COUNT_9X9 = Tournament.getProperty("dagger_amount_9x9", 1);
-	archer_COUNT_9X9 = Tournament.getProperty("archer_amount_9x9", 1);
-	bs_COUNT_9X9 = Tournament.getProperty("bs_amount_9x9", 1);
-	archmage_COUNT_9X9 = Tournament.getProperty("archmage_amount_9x9", 1);
-	soultaker_COUNT_9X9 = Tournament.getProperty("soultaker_amount_9x9", 1);
-	mysticMuse_COUNT_9X9 = Tournament.getProperty("mysticMuse_amount_9x9", 1);
-	stormScreamer_COUNT_9X9 = Tournament.getProperty("stormScreamer_amount_9x9", 1);
-	titan_COUNT_9X9 = Tournament.getProperty("titan_amount_9x9", 1);
-	grandKhauatari_COUNT_9X9 = Tournament.getProperty("grandKhauatari_amount_9x9", 1);
-	dominator_COUNT_9X9 = Tournament.getProperty("dominator_amount_9x9", 1);
-	doomcryer_COUNT_9X9 = Tournament.getProperty("doomcryer_amount_9x9", 1);
-
-	ARENA_PVP_AMOUNT = Tournament.getProperty("ArenaPvpJoin", 10);
-	ARENA_REWARD_ID = Tournament.getProperty("ArenaRewardId", 57);
-	ARENA_WIN_REWARD_COUNT = Tournament.getProperty("ArenaWinRewardCount", 1);
-	ARENA_LOST_REWARD_COUNT = Tournament.getProperty("ArenaLostRewardCount", 1);
-
-	ARENA_WIN_REWARD_COUNT_4X4 = Tournament.getProperty("ArenaWinRewardCount4x4", 1);
-	ARENA_LOST_REWARD_COUNT_4X4 = Tournament.getProperty("ArenaLostRewardCount4x4", 1);
-
-	ARENA_WIN_REWARD_COUNT_9X9 = Tournament.getProperty("ArenaWinRewardCount9x9", 1);
-	ARENA_LOST_REWARD_COUNT_9X9 = Tournament.getProperty("ArenaLostRewardCount9x9", 1);
-
-	ARENA_CHECK_INTERVAL = Tournament.getProperty("ArenaBattleCheckInterval", 15) * 1000;
-	ARENA_CALL_INTERVAL = Tournament.getProperty("ArenaBattleCallInterval", 60);
-
-	ARENA_WAIT_INTERVAL = Tournament.getProperty("ArenaBattleWaitInterval", 20);
-	ARENA_WAIT_INTERVAL_4X4 = Tournament.getProperty("ArenaBattleWaitInterval4x4", 45);
-	ARENA_WAIT_INTERVAL_9X9 = Tournament.getProperty("ArenaBattleWaitInterval9x9", 45);
-
-	TOURNAMENT_ID_RESTRICT = Tournament.getProperty("ItemsRestriction");
-
-	TOURNAMENT_LISTID_RESTRICT = new ArrayList<>();
-	for (String id : TOURNAMENT_ID_RESTRICT.split(","))
-		TOURNAMENT_LISTID_RESTRICT.add(Integer.valueOf(Integer.parseInt(id)));
-	ARENA_SKILL_PROTECT = Boolean.parseBoolean(Tournament.getProperty("ArenaSkillProtect", "false"));
-	for (String id : Tournament.getProperty("ArenaDisableSkillList", "0").split(","))
-		ARENA_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
-	for (String id : Tournament.getProperty("DisableSkillList", "0").split(","))
-		ARENA_DISABLE_SKILL_LIST_PERM.add(Integer.valueOf(Integer.parseInt(id)));
-	for (String id : Tournament.getProperty("ArenaDisableSkillList_noStart", "0").split(","))
-		ARENA_DISABLE_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
-	for (String id : Tournament.getProperty("ArenaStopSkillList", "0").split(","))
-		ARENA_STOP_SKILL_LIST.add(Integer.valueOf(Integer.parseInt(id)));
-}
-
 	
 	/**
 	 * Loads Ptfarm settings.
@@ -2458,10 +2485,10 @@ private static final void loadTournament()
 	private static final void loadPtfarm()
 	{
 		final ExProperties DungeonPartyFarm = initProperties(BESTFARM_FILE);
-
+		
 		NPC_LIST = DungeonPartyFarm.getProperty("NpcListPartyDrop", "10506,10507");
-   
-        ENABLE_DROP_PARTYFARM = DungeonPartyFarm.getProperty("EnableDrop", false);
+		
+		ENABLE_DROP_PARTYFARM = DungeonPartyFarm.getProperty("EnableDrop", false);
 		String[] temp = DungeonPartyFarm.getProperty("PartyDropList", "").split(";");
 		for (String s : temp)
 		{
@@ -2472,24 +2499,24 @@ private static final void loadTournament()
 			list.add(Integer.parseInt(t[3]));
 			PARTY_DROP_LIST.put(Integer.parseInt(t[0]), list);
 		}
-
+		
 		PARTY_FARM_MONSTER_DALAY = Integer.parseInt(DungeonPartyFarm.getProperty("MonsterDelay", "10"));
 		PARTY_FARM_BY_TIME_OF_DAY = Boolean.parseBoolean(DungeonPartyFarm.getProperty("PartyFarmEventEnabled", "false"));
 		START_PARTY = Boolean.parseBoolean(DungeonPartyFarm.getProperty("StartSpawnPartyFarm", "false"));
 		NPC_SERVER_DELAY = DungeonPartyFarm.getProperty("npcServerDelay", 70);
-
+		
 		EVENT_BEST_FARM_TIME = Integer.parseInt(DungeonPartyFarm.getProperty("EventBestFarmTime", "1"));
 		EVENT_BEST_FARM_INTERVAL_BY_TIME_OF_DAY = DungeonPartyFarm.getProperty("BestFarmStartTime", "20:00").split(",");
 		PARTY_MESSAGE_ENABLED = Boolean.parseBoolean(DungeonPartyFarm.getProperty("ScreenPartyMessageEnable", "false"));
 		PARTY_FARMANNONCER = DungeonPartyFarm.getProperty("TownAnnoncer", "Abandoned Camp");
 		PARTY_FARM_MESSAGE_TEXT = DungeonPartyFarm.getProperty("ScreenPartyFarmMessageText", "Welcome to l2j server!");
 		PARTY_FARM_MESSAGE_TIME = Integer.parseInt(DungeonPartyFarm.getProperty("ScreenPartyFarmMessageTime", "10")) * 1000;
-
+		
 		String[] monsterLocs2 = DungeonPartyFarm.getProperty("MonsterLoc", "").split(";");
 		String[] locSplit3 = null;
-
+		
 		monsterId = Integer.parseInt(DungeonPartyFarm.getProperty("MonsterId", "1"));
-
+		
 		MONSTER_LOCS_COUNT = monsterLocs2.length;
 		MONSTER_LOCS = new int[MONSTER_LOCS_COUNT][3];
 		int g;
@@ -2499,202 +2526,201 @@ private static final void loadTournament()
 			for (g = 0; g < 3; g++)
 				MONSTER_LOCS[e][g] = Integer.parseInt(locSplit3[g].trim());
 		}
-
+		
 	}
 	
 	private static final void loadSkins()
 	{
-	final ExProperties Skins = initProperties(SKINS_FILE); 
-
-	ALLOW_DRESS_ME_SYSTEM = Boolean.parseBoolean(Skins.getProperty("AllowDressMeSystem", "false"));
-	SKIN_NAME1 = String.valueOf(Skins.getProperty("SkinName1", "SkinName"));
-	SKIN_NAME2 = String.valueOf(Skins.getProperty("SkinName2", "SkinName"));
-	SKIN_NAME3 = String.valueOf(Skins.getProperty("SkinName3", "SkinName"));
-	SKIN_NAME4 = String.valueOf(Skins.getProperty("SkinName4", "SkinName"));
-	SKIN_NAME5 = String.valueOf(Skins.getProperty("SkinName5", "SkinName"));
-	SKIN_NAME6 = String.valueOf(Skins.getProperty("SkinName6", "SkinName"));
-	SKIN_NAME7 = String.valueOf(Skins.getProperty("SkinName7", "SkinName"));
-	SKIN_NAME8 = String.valueOf(Skins.getProperty("SkinName8", "SkinName"));
-	SKIN_NAME9 = String.valueOf(Skins.getProperty("SkinName9", "SkinName"));
-	SKIN_NAME10 = String.valueOf(Skins.getProperty("SkinName10", "SkinName"));
-	SKIN_NAME11 = String.valueOf(Skins.getProperty("SkinName11", "SkinName"));
-	SKIN_NAME12 = String.valueOf(Skins.getProperty("SkinName12", "SkinName"));
-	SKIN_NAME13 = String.valueOf(Skins.getProperty("SkinName13", "SkinName"));
-	SKIN_NAME14 = String.valueOf(Skins.getProperty("SkinName14", "SkinName"));
-	SKIN_NAME15 = String.valueOf(Skins.getProperty("SkinName15", "SkinName"));
-	SKIN_NAME16 = String.valueOf(Skins.getProperty("SkinName16", "SkinName"));
-	
-	SKIN_NAME17 = String.valueOf(Skins.getProperty("SkinName17", "SkinName"));
-	SKIN_NAME18 = String.valueOf(Skins.getProperty("SkinName18", "SkinName"));
-	SKIN_NAME19 = String.valueOf(Skins.getProperty("SkinName19", "SkinName"));
-	SKIN_NAME20 = String.valueOf(Skins.getProperty("SkinName20", "SkinName"));
-	SKIN_NAME21 = String.valueOf(Skins.getProperty("SkinName21", "SkinName"));
-	SKIN_NAME22 = String.valueOf(Skins.getProperty("SkinName22", "SkinName"));
-	SKIN_NAME23 = String.valueOf(Skins.getProperty("SkinName23", "SkinName"));
-	SKIN_NAME24 = String.valueOf(Skins.getProperty("SkinName24", "SkinName"));
-	SKIN_NAME25 = String.valueOf(Skins.getProperty("SkinName25", "SkinName"));
-	SKIN_NAME26 = String.valueOf(Skins.getProperty("SkinName26", "SkinName"));
-	SKIN_NAME27 = String.valueOf(Skins.getProperty("SkinName27", "SkinName"));
-	SKIN_NAME28 = String.valueOf(Skins.getProperty("SkinName28", "SkinName"));
-	SKIN_NAME29 = String.valueOf(Skins.getProperty("SkinName29", "SkinName"));
-	SKIN_NAME30 = String.valueOf(Skins.getProperty("SkinName30", "SkinName"));
-	SKIN_NAME31 = String.valueOf(Skins.getProperty("SkinName31", "SkinName"));
-	SKIN_NAME32 = String.valueOf(Skins.getProperty("SkinName32", "SkinName"));
-	SKIN_NAME33 = String.valueOf(Skins.getProperty("SkinName33", "SkinName"));
-	SKIN_NAME34 = String.valueOf(Skins.getProperty("SkinName34", "SkinName"));
-	SKIN_NAME35 = String.valueOf(Skins.getProperty("SkinName35", "SkinName"));
-	SKIN_NAME36 = String.valueOf(Skins.getProperty("SkinName36", "SkinName"));
-	SKIN_NAME37 = String.valueOf(Skins.getProperty("SkinName37", "SkinName"));
-	SKIN_NAME38 = String.valueOf(Skins.getProperty("SkinName38", "SkinName"));
-	SKIN_NAME39 = String.valueOf(Skins.getProperty("SkinName39", "SkinName"));
-	SKIN_NAME40 = String.valueOf(Skins.getProperty("SkinName40", "SkinName"));
-	SKIN_NAME41 = String.valueOf(Skins.getProperty("SkinName41", "SkinName"));
-	SKIN_NAME42 = String.valueOf(Skins.getProperty("SkinName42", "SkinName"));
-	SKIN_NAME43 = String.valueOf(Skins.getProperty("SkinName43", "SkinName"));
-	SKIN_NAME44 = String.valueOf(Skins.getProperty("SkinName44", "SkinName"));
-	SKIN_NAME45 = String.valueOf(Skins.getProperty("SkinName45", "SkinName"));
-	SKIN_NAME46 = String.valueOf(Skins.getProperty("SkinName46", "SkinName"));
-	
-	SKIN_ITEM_1 = Integer.parseInt(Skins.getProperty("SkinItem1", "0"));
-	SKIN_ITEM_2 = Integer.parseInt(Skins.getProperty("SkinItem2", "0"));
-	SKIN_ITEM_3 = Integer.parseInt(Skins.getProperty("SkinItem3", "0"));
-	SKIN_ITEM_4 = Integer.parseInt(Skins.getProperty("SkinItem4", "0"));
-	SKIN_ITEM_5 = Integer.parseInt(Skins.getProperty("SkinItem5", "0"));
-	SKIN_ITEM_6 = Integer.parseInt(Skins.getProperty("SkinItem6", "0"));
-	SKIN_ITEM_7 = Integer.parseInt(Skins.getProperty("SkinItem7", "0"));
-	SKIN_ITEM_8 = Integer.parseInt(Skins.getProperty("SkinItem8", "0"));
-	SKIN_ITEM_9 = Integer.parseInt(Skins.getProperty("SkinItem9", "0"));
-	SKIN_ITEM_10 = Integer.parseInt(Skins.getProperty("SkinItem10", "0"));
-	SKIN_ITEM_11 = Integer.parseInt(Skins.getProperty("SkinItem11", "0"));
-	SKIN_ITEM_12 = Integer.parseInt(Skins.getProperty("SkinItem12", "0"));
-	SKIN_ITEM_13 = Integer.parseInt(Skins.getProperty("SkinItem13", "0"));
-	SKIN_ITEM_14 = Integer.parseInt(Skins.getProperty("SkinItem14", "0"));
-	SKIN_ITEM_15 = Integer.parseInt(Skins.getProperty("SkinItem15", "0"));
-	SKIN_ITEM_16 = Integer.parseInt(Skins.getProperty("SkinItem16", "0"));
-	
-	SKIN_ITEM_17 = Integer.parseInt(Skins.getProperty("SkinItem17", "0"));
-	SKIN_ITEM_18 = Integer.parseInt(Skins.getProperty("SkinItem18", "0"));
-	SKIN_ITEM_19 = Integer.parseInt(Skins.getProperty("SkinItem19", "0"));
-	SKIN_ITEM_20 = Integer.parseInt(Skins.getProperty("SkinItem20", "0"));
-	SKIN_ITEM_21 = Integer.parseInt(Skins.getProperty("SkinItem21", "0"));
-	SKIN_ITEM_22 = Integer.parseInt(Skins.getProperty("SkinItem22", "0"));
-	SKIN_ITEM_23 = Integer.parseInt(Skins.getProperty("SkinItem23", "0"));
-	SKIN_ITEM_24 = Integer.parseInt(Skins.getProperty("SkinItem24", "0"));
-	SKIN_ITEM_25 = Integer.parseInt(Skins.getProperty("SkinItem25", "0"));
-	SKIN_ITEM_26 = Integer.parseInt(Skins.getProperty("SkinItem26", "0"));
-	SKIN_ITEM_27 = Integer.parseInt(Skins.getProperty("SkinItem27", "0"));
-	SKIN_ITEM_28 = Integer.parseInt(Skins.getProperty("SkinItem28", "0"));
-	SKIN_ITEM_29 = Integer.parseInt(Skins.getProperty("SkinItem29", "0"));
-	SKIN_ITEM_30 = Integer.parseInt(Skins.getProperty("SkinItem30", "0"));
-	SKIN_ITEM_31 = Integer.parseInt(Skins.getProperty("SkinItem31", "0"));
-	SKIN_ITEM_32 = Integer.parseInt(Skins.getProperty("SkinItem32", "0"));
-	SKIN_ITEM_33 = Integer.parseInt(Skins.getProperty("SkinItem33", "0"));
-	SKIN_ITEM_34 = Integer.parseInt(Skins.getProperty("SkinItem34", "0"));
-	SKIN_ITEM_35 = Integer.parseInt(Skins.getProperty("SkinItem35", "0"));
-	SKIN_ITEM_36 = Integer.parseInt(Skins.getProperty("SkinItem36", "0"));
-	SKIN_ITEM_37 = Integer.parseInt(Skins.getProperty("SkinItem37", "0"));
-	SKIN_ITEM_38 = Integer.parseInt(Skins.getProperty("SkinItem38", "0"));
-	SKIN_ITEM_39 = Integer.parseInt(Skins.getProperty("SkinItem39", "0"));
-	SKIN_ITEM_40 = Integer.parseInt(Skins.getProperty("SkinItem40", "0"));
-	SKIN_ITEM_41 = Integer.parseInt(Skins.getProperty("SkinItem41", "0"));
-	SKIN_ITEM_42 = Integer.parseInt(Skins.getProperty("SkinItem42", "0"));
-	SKIN_ITEM_43 = Integer.parseInt(Skins.getProperty("SkinItem43", "0"));
-	SKIN_ITEM_44 = Integer.parseInt(Skins.getProperty("SkinItem44", "0"));
-	SKIN_ITEM_45 = Integer.parseInt(Skins.getProperty("SkinItem45", "0"));
-	SKIN_ITEM_46 = Integer.parseInt(Skins.getProperty("SkinItem46", "0"));
-	String temp = Skins.getProperty("DressMeChests", "");
-	String[] temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_CHESTS.put(t[0], Integer.parseInt(t[1]));
-	}
-	
-	temp = Skins.getProperty("DressMeHair", "");
-	temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_HELMET.put(t[0], Integer.parseInt(t[1]));
-	}
-	
-	
-	temp = Skins.getProperty("DressMeLegs", "");
-	temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_LEGS.put(t[0], Integer.parseInt(t[1]));
-	}
-	temp = Skins.getProperty("DressMeBoots", "");
-	temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_BOOTS.put(t[0], Integer.parseInt(t[1]));
-	}
-	temp = Skins.getProperty("DressMeGloves", "");
-	temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_GLOVES.put(t[0], Integer.parseInt(t[1]));
-	}
-	temp = Skins.getProperty("DressMeWeapons", "");
-	temp2 = temp.split(";");
-	for (String s : temp2)
-	{
-		String[] t = s.split(",");
-		DRESS_ME_WEAPONS.put(t[0], Integer.parseInt(t[1]));
-	}	
-	
-	NAME1 = Skins.getProperty("NameArmor1", " Skins Dressme");
-	NAME2 = Skins.getProperty("NameArmor2", " Skins Dressme");
-	NAME3 = Skins.getProperty("NameArmor3", " Skins Dressme");
-	NAME4 = Skins.getProperty("NameArmor4", " Skins Dressme");
-	NAME5 = Skins.getProperty("NameArmor5", " Skins Dressme");
-	NAME6 = Skins.getProperty("NameArmor6", " Skins Dressme");
-	NAME7 = Skins.getProperty("NameArmor7", " Skins Dressme");
-	NAME8 = Skins.getProperty("NameArmor8", " Skins Dressme");
-	NAME9 = Skins.getProperty("NameArmor9", " Skins Dressme");
-	NAME10 = Skins.getProperty("NameArmor10", " Skins Dressme");
-	NAME11 = Skins.getProperty("NameArmor11", " Skins Dressme");
-	NAME12 = Skins.getProperty("NameArmor12", " Skins Dressme");
-	NAME13 = Skins.getProperty("NameArmor13", " Skins Dressme");
-	NAME14 = Skins.getProperty("NameArmor14", " Skins Dressme");
-	NAME15 = Skins.getProperty("NameArmor15", " Skins Dressme");
-	NAME16 = Skins.getProperty("NameArmor16", " Skins Dressme");
-	NAME17 = Skins.getProperty("NameArmor17", " Skins Dressme");
-	NAME18 = Skins.getProperty("NameArmor18", " Skins Dressme");
-	NAME19 = Skins.getProperty("NameWeapon1", " Skins Dressme");
-	NAME20 = Skins.getProperty("NameWeapon2", " Skins Dressme");
-	NAME21 = Skins.getProperty("NameWeapon3", " Skins Dressme");
-	NAME22 = Skins.getProperty("NameWeapon4", " Skins Dressme");
-	NAME23 = Skins.getProperty("NameWeapon5", " Skins Dressme");
-	NAME24 = Skins.getProperty("NameWeapon6", " Skins Dressme");
-	NAME25 = Skins.getProperty("NameWeapon7", " Skins Dressme");
-	NAME26 = Skins.getProperty("NameWeapon8", " Skins Dressme");
-	NAME27 = Skins.getProperty("NameWeapon9", " Skins Dressme");
-	NAME28 = Skins.getProperty("NameWeapon10", " Skins Dressme");
-	NAME29 = Skins.getProperty("NameWeapon11", " Skins Dressme");
-	NAME30 = Skins.getProperty("NameWeapon12", " Skins Dressme");
-	NAME31 = Skins.getProperty("NameWeapon13", " Skins Dressme");
-	NAME32 = Skins.getProperty("NameWeapon14", " Skins Dressme");
-	NAME33 = Skins.getProperty("NameWeapon15", " Skins Dressme");
-	NAME34 = Skins.getProperty("NameWeapon16", " Skins Dressme");
-	NAME35 = Skins.getProperty("NameWeapon17", " Skins Dressme");
-	NAME36 = Skins.getProperty("NameWeapon18", " Skins Dressme");
-	NAME37 = Skins.getProperty("NameWeapon1", " Skins Dressme");
-	NAME38 = Skins.getProperty("NameWeapon2", " Skins Dressme");
-	NAME39 = Skins.getProperty("NameWeapon3", " Skins Dressme");
-	NAME40 = Skins.getProperty("NameWeapon4", " Skins Dressme");
-	NAME41 = Skins.getProperty("NameWeapon5", " Skins Dressme");
-	NAME42 = Skins.getProperty("NameWeapon6", " Skins Dressme");
-	NAME43 = Skins.getProperty("NameWeapon7", " Skins Dressme");
-	NAME44 = Skins.getProperty("NameWeapon8", " Skins Dressme");
-	NAME45 = Skins.getProperty("NameWeapon9", " Skins Dressme");
-	NAME46 = Skins.getProperty("NameWeapon10", " Skins Dressme");
-
+		final ExProperties Skins = initProperties(SKINS_FILE);
+		
+		ALLOW_DRESS_ME_SYSTEM = Boolean.parseBoolean(Skins.getProperty("AllowDressMeSystem", "false"));
+		SKIN_NAME1 = String.valueOf(Skins.getProperty("SkinName1", "SkinName"));
+		SKIN_NAME2 = String.valueOf(Skins.getProperty("SkinName2", "SkinName"));
+		SKIN_NAME3 = String.valueOf(Skins.getProperty("SkinName3", "SkinName"));
+		SKIN_NAME4 = String.valueOf(Skins.getProperty("SkinName4", "SkinName"));
+		SKIN_NAME5 = String.valueOf(Skins.getProperty("SkinName5", "SkinName"));
+		SKIN_NAME6 = String.valueOf(Skins.getProperty("SkinName6", "SkinName"));
+		SKIN_NAME7 = String.valueOf(Skins.getProperty("SkinName7", "SkinName"));
+		SKIN_NAME8 = String.valueOf(Skins.getProperty("SkinName8", "SkinName"));
+		SKIN_NAME9 = String.valueOf(Skins.getProperty("SkinName9", "SkinName"));
+		SKIN_NAME10 = String.valueOf(Skins.getProperty("SkinName10", "SkinName"));
+		SKIN_NAME11 = String.valueOf(Skins.getProperty("SkinName11", "SkinName"));
+		SKIN_NAME12 = String.valueOf(Skins.getProperty("SkinName12", "SkinName"));
+		SKIN_NAME13 = String.valueOf(Skins.getProperty("SkinName13", "SkinName"));
+		SKIN_NAME14 = String.valueOf(Skins.getProperty("SkinName14", "SkinName"));
+		SKIN_NAME15 = String.valueOf(Skins.getProperty("SkinName15", "SkinName"));
+		SKIN_NAME16 = String.valueOf(Skins.getProperty("SkinName16", "SkinName"));
+		
+		SKIN_NAME17 = String.valueOf(Skins.getProperty("SkinName17", "SkinName"));
+		SKIN_NAME18 = String.valueOf(Skins.getProperty("SkinName18", "SkinName"));
+		SKIN_NAME19 = String.valueOf(Skins.getProperty("SkinName19", "SkinName"));
+		SKIN_NAME20 = String.valueOf(Skins.getProperty("SkinName20", "SkinName"));
+		SKIN_NAME21 = String.valueOf(Skins.getProperty("SkinName21", "SkinName"));
+		SKIN_NAME22 = String.valueOf(Skins.getProperty("SkinName22", "SkinName"));
+		SKIN_NAME23 = String.valueOf(Skins.getProperty("SkinName23", "SkinName"));
+		SKIN_NAME24 = String.valueOf(Skins.getProperty("SkinName24", "SkinName"));
+		SKIN_NAME25 = String.valueOf(Skins.getProperty("SkinName25", "SkinName"));
+		SKIN_NAME26 = String.valueOf(Skins.getProperty("SkinName26", "SkinName"));
+		SKIN_NAME27 = String.valueOf(Skins.getProperty("SkinName27", "SkinName"));
+		SKIN_NAME28 = String.valueOf(Skins.getProperty("SkinName28", "SkinName"));
+		SKIN_NAME29 = String.valueOf(Skins.getProperty("SkinName29", "SkinName"));
+		SKIN_NAME30 = String.valueOf(Skins.getProperty("SkinName30", "SkinName"));
+		SKIN_NAME31 = String.valueOf(Skins.getProperty("SkinName31", "SkinName"));
+		SKIN_NAME32 = String.valueOf(Skins.getProperty("SkinName32", "SkinName"));
+		SKIN_NAME33 = String.valueOf(Skins.getProperty("SkinName33", "SkinName"));
+		SKIN_NAME34 = String.valueOf(Skins.getProperty("SkinName34", "SkinName"));
+		SKIN_NAME35 = String.valueOf(Skins.getProperty("SkinName35", "SkinName"));
+		SKIN_NAME36 = String.valueOf(Skins.getProperty("SkinName36", "SkinName"));
+		SKIN_NAME37 = String.valueOf(Skins.getProperty("SkinName37", "SkinName"));
+		SKIN_NAME38 = String.valueOf(Skins.getProperty("SkinName38", "SkinName"));
+		SKIN_NAME39 = String.valueOf(Skins.getProperty("SkinName39", "SkinName"));
+		SKIN_NAME40 = String.valueOf(Skins.getProperty("SkinName40", "SkinName"));
+		SKIN_NAME41 = String.valueOf(Skins.getProperty("SkinName41", "SkinName"));
+		SKIN_NAME42 = String.valueOf(Skins.getProperty("SkinName42", "SkinName"));
+		SKIN_NAME43 = String.valueOf(Skins.getProperty("SkinName43", "SkinName"));
+		SKIN_NAME44 = String.valueOf(Skins.getProperty("SkinName44", "SkinName"));
+		SKIN_NAME45 = String.valueOf(Skins.getProperty("SkinName45", "SkinName"));
+		SKIN_NAME46 = String.valueOf(Skins.getProperty("SkinName46", "SkinName"));
+		
+		SKIN_ITEM_1 = Integer.parseInt(Skins.getProperty("SkinItem1", "0"));
+		SKIN_ITEM_2 = Integer.parseInt(Skins.getProperty("SkinItem2", "0"));
+		SKIN_ITEM_3 = Integer.parseInt(Skins.getProperty("SkinItem3", "0"));
+		SKIN_ITEM_4 = Integer.parseInt(Skins.getProperty("SkinItem4", "0"));
+		SKIN_ITEM_5 = Integer.parseInt(Skins.getProperty("SkinItem5", "0"));
+		SKIN_ITEM_6 = Integer.parseInt(Skins.getProperty("SkinItem6", "0"));
+		SKIN_ITEM_7 = Integer.parseInt(Skins.getProperty("SkinItem7", "0"));
+		SKIN_ITEM_8 = Integer.parseInt(Skins.getProperty("SkinItem8", "0"));
+		SKIN_ITEM_9 = Integer.parseInt(Skins.getProperty("SkinItem9", "0"));
+		SKIN_ITEM_10 = Integer.parseInt(Skins.getProperty("SkinItem10", "0"));
+		SKIN_ITEM_11 = Integer.parseInt(Skins.getProperty("SkinItem11", "0"));
+		SKIN_ITEM_12 = Integer.parseInt(Skins.getProperty("SkinItem12", "0"));
+		SKIN_ITEM_13 = Integer.parseInt(Skins.getProperty("SkinItem13", "0"));
+		SKIN_ITEM_14 = Integer.parseInt(Skins.getProperty("SkinItem14", "0"));
+		SKIN_ITEM_15 = Integer.parseInt(Skins.getProperty("SkinItem15", "0"));
+		SKIN_ITEM_16 = Integer.parseInt(Skins.getProperty("SkinItem16", "0"));
+		
+		SKIN_ITEM_17 = Integer.parseInt(Skins.getProperty("SkinItem17", "0"));
+		SKIN_ITEM_18 = Integer.parseInt(Skins.getProperty("SkinItem18", "0"));
+		SKIN_ITEM_19 = Integer.parseInt(Skins.getProperty("SkinItem19", "0"));
+		SKIN_ITEM_20 = Integer.parseInt(Skins.getProperty("SkinItem20", "0"));
+		SKIN_ITEM_21 = Integer.parseInt(Skins.getProperty("SkinItem21", "0"));
+		SKIN_ITEM_22 = Integer.parseInt(Skins.getProperty("SkinItem22", "0"));
+		SKIN_ITEM_23 = Integer.parseInt(Skins.getProperty("SkinItem23", "0"));
+		SKIN_ITEM_24 = Integer.parseInt(Skins.getProperty("SkinItem24", "0"));
+		SKIN_ITEM_25 = Integer.parseInt(Skins.getProperty("SkinItem25", "0"));
+		SKIN_ITEM_26 = Integer.parseInt(Skins.getProperty("SkinItem26", "0"));
+		SKIN_ITEM_27 = Integer.parseInt(Skins.getProperty("SkinItem27", "0"));
+		SKIN_ITEM_28 = Integer.parseInt(Skins.getProperty("SkinItem28", "0"));
+		SKIN_ITEM_29 = Integer.parseInt(Skins.getProperty("SkinItem29", "0"));
+		SKIN_ITEM_30 = Integer.parseInt(Skins.getProperty("SkinItem30", "0"));
+		SKIN_ITEM_31 = Integer.parseInt(Skins.getProperty("SkinItem31", "0"));
+		SKIN_ITEM_32 = Integer.parseInt(Skins.getProperty("SkinItem32", "0"));
+		SKIN_ITEM_33 = Integer.parseInt(Skins.getProperty("SkinItem33", "0"));
+		SKIN_ITEM_34 = Integer.parseInt(Skins.getProperty("SkinItem34", "0"));
+		SKIN_ITEM_35 = Integer.parseInt(Skins.getProperty("SkinItem35", "0"));
+		SKIN_ITEM_36 = Integer.parseInt(Skins.getProperty("SkinItem36", "0"));
+		SKIN_ITEM_37 = Integer.parseInt(Skins.getProperty("SkinItem37", "0"));
+		SKIN_ITEM_38 = Integer.parseInt(Skins.getProperty("SkinItem38", "0"));
+		SKIN_ITEM_39 = Integer.parseInt(Skins.getProperty("SkinItem39", "0"));
+		SKIN_ITEM_40 = Integer.parseInt(Skins.getProperty("SkinItem40", "0"));
+		SKIN_ITEM_41 = Integer.parseInt(Skins.getProperty("SkinItem41", "0"));
+		SKIN_ITEM_42 = Integer.parseInt(Skins.getProperty("SkinItem42", "0"));
+		SKIN_ITEM_43 = Integer.parseInt(Skins.getProperty("SkinItem43", "0"));
+		SKIN_ITEM_44 = Integer.parseInt(Skins.getProperty("SkinItem44", "0"));
+		SKIN_ITEM_45 = Integer.parseInt(Skins.getProperty("SkinItem45", "0"));
+		SKIN_ITEM_46 = Integer.parseInt(Skins.getProperty("SkinItem46", "0"));
+		String temp = Skins.getProperty("DressMeChests", "");
+		String[] temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_CHESTS.put(t[0], Integer.parseInt(t[1]));
+		}
+		
+		temp = Skins.getProperty("DressMeHair", "");
+		temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_HELMET.put(t[0], Integer.parseInt(t[1]));
+		}
+		
+		temp = Skins.getProperty("DressMeLegs", "");
+		temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_LEGS.put(t[0], Integer.parseInt(t[1]));
+		}
+		temp = Skins.getProperty("DressMeBoots", "");
+		temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_BOOTS.put(t[0], Integer.parseInt(t[1]));
+		}
+		temp = Skins.getProperty("DressMeGloves", "");
+		temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_GLOVES.put(t[0], Integer.parseInt(t[1]));
+		}
+		temp = Skins.getProperty("DressMeWeapons", "");
+		temp2 = temp.split(";");
+		for (String s : temp2)
+		{
+			String[] t = s.split(",");
+			DRESS_ME_WEAPONS.put(t[0], Integer.parseInt(t[1]));
+		}
+		
+		NAME1 = Skins.getProperty("NameArmor1", " Skins Dressme");
+		NAME2 = Skins.getProperty("NameArmor2", " Skins Dressme");
+		NAME3 = Skins.getProperty("NameArmor3", " Skins Dressme");
+		NAME4 = Skins.getProperty("NameArmor4", " Skins Dressme");
+		NAME5 = Skins.getProperty("NameArmor5", " Skins Dressme");
+		NAME6 = Skins.getProperty("NameArmor6", " Skins Dressme");
+		NAME7 = Skins.getProperty("NameArmor7", " Skins Dressme");
+		NAME8 = Skins.getProperty("NameArmor8", " Skins Dressme");
+		NAME9 = Skins.getProperty("NameArmor9", " Skins Dressme");
+		NAME10 = Skins.getProperty("NameArmor10", " Skins Dressme");
+		NAME11 = Skins.getProperty("NameArmor11", " Skins Dressme");
+		NAME12 = Skins.getProperty("NameArmor12", " Skins Dressme");
+		NAME13 = Skins.getProperty("NameArmor13", " Skins Dressme");
+		NAME14 = Skins.getProperty("NameArmor14", " Skins Dressme");
+		NAME15 = Skins.getProperty("NameArmor15", " Skins Dressme");
+		NAME16 = Skins.getProperty("NameArmor16", " Skins Dressme");
+		NAME17 = Skins.getProperty("NameArmor17", " Skins Dressme");
+		NAME18 = Skins.getProperty("NameArmor18", " Skins Dressme");
+		NAME19 = Skins.getProperty("NameWeapon1", " Skins Dressme");
+		NAME20 = Skins.getProperty("NameWeapon2", " Skins Dressme");
+		NAME21 = Skins.getProperty("NameWeapon3", " Skins Dressme");
+		NAME22 = Skins.getProperty("NameWeapon4", " Skins Dressme");
+		NAME23 = Skins.getProperty("NameWeapon5", " Skins Dressme");
+		NAME24 = Skins.getProperty("NameWeapon6", " Skins Dressme");
+		NAME25 = Skins.getProperty("NameWeapon7", " Skins Dressme");
+		NAME26 = Skins.getProperty("NameWeapon8", " Skins Dressme");
+		NAME27 = Skins.getProperty("NameWeapon9", " Skins Dressme");
+		NAME28 = Skins.getProperty("NameWeapon10", " Skins Dressme");
+		NAME29 = Skins.getProperty("NameWeapon11", " Skins Dressme");
+		NAME30 = Skins.getProperty("NameWeapon12", " Skins Dressme");
+		NAME31 = Skins.getProperty("NameWeapon13", " Skins Dressme");
+		NAME32 = Skins.getProperty("NameWeapon14", " Skins Dressme");
+		NAME33 = Skins.getProperty("NameWeapon15", " Skins Dressme");
+		NAME34 = Skins.getProperty("NameWeapon16", " Skins Dressme");
+		NAME35 = Skins.getProperty("NameWeapon17", " Skins Dressme");
+		NAME36 = Skins.getProperty("NameWeapon18", " Skins Dressme");
+		NAME37 = Skins.getProperty("NameWeapon1", " Skins Dressme");
+		NAME38 = Skins.getProperty("NameWeapon2", " Skins Dressme");
+		NAME39 = Skins.getProperty("NameWeapon3", " Skins Dressme");
+		NAME40 = Skins.getProperty("NameWeapon4", " Skins Dressme");
+		NAME41 = Skins.getProperty("NameWeapon5", " Skins Dressme");
+		NAME42 = Skins.getProperty("NameWeapon6", " Skins Dressme");
+		NAME43 = Skins.getProperty("NameWeapon7", " Skins Dressme");
+		NAME44 = Skins.getProperty("NameWeapon8", " Skins Dressme");
+		NAME45 = Skins.getProperty("NameWeapon9", " Skins Dressme");
+		NAME46 = Skins.getProperty("NameWeapon10", " Skins Dressme");
+		
 	}
 	
 	/**
@@ -2777,36 +2803,40 @@ private static final void loadTournament()
 		
 		PHANTOM_CHANCE_HERO = Phanton.getProperty("Phantom_Chance_HeroEffect", 60);
 		
-        NAME_COLOR = Phanton.getProperty("NameColor", "FFFFFF");
-        TITLE_COLOR = Phanton.getProperty("TitleColor", "FFFFFF");
-        PHANTOM_NAME_CLOLORS = Phanton.getProperty("FakeNameColors", "FFFFFF");
-        PHANTOM_PLAYERS_NAME_CLOLORS = new ArrayList<>();
-        for (String type2 : PHANTOM_NAME_CLOLORS.split(",")) {
-            PHANTOM_PLAYERS_NAME_CLOLORS.add(type2);
-        }
-        PHANTOM_NAME_CLOLORS = null;
-        PHANTOM_TITLE_CLOLORS = Phanton.getProperty("FakeTitleColors", "FFFFFF");
-        PHANTOM_PLAYERS_TITLE_CLOLORS = new ArrayList<>();
-        for (String type2 : PHANTOM_TITLE_CLOLORS.split(",")) {
-            PHANTOM_PLAYERS_TITLE_CLOLORS.add(type2);
-        }
-        CLANID = Phanton.getProperty("ClanID", 50);
-        
-        CLANIDWALKER = Phanton.getProperty("ClanWalkerID", 50);
-
-        FIGHTER_BUFF = Phanton.getProperty("FighterBuffList", "0");
-        FIGHTER_BUFF_LIST = new ArrayList<>();
-        for (final String id : Config.FIGHTER_BUFF.trim().split(",")) {
-            Config.FIGHTER_BUFF_LIST.add(Integer.parseInt(id.trim()));
-        }
-        MAGE_BUFF = Phanton.getProperty("MageBuffList", "0");
-        MAGE_BUFF_LIST = new ArrayList<>();
-        for (final String id : MAGE_BUFF.trim().split(",")) {
-            MAGE_BUFF_LIST.add(Integer.parseInt(id.trim()));
-        }
-        
-    	ENABLE_GIRAN_TO = Phanton.getProperty("EnabledGiranWalker", true);
- 
+		NAME_COLOR = Phanton.getProperty("NameColor", "FFFFFF");
+		TITLE_COLOR = Phanton.getProperty("TitleColor", "FFFFFF");
+		PHANTOM_NAME_CLOLORS = Phanton.getProperty("FakeNameColors", "FFFFFF");
+		PHANTOM_PLAYERS_NAME_CLOLORS = new ArrayList<>();
+		for (String type2 : PHANTOM_NAME_CLOLORS.split(","))
+		{
+			PHANTOM_PLAYERS_NAME_CLOLORS.add(type2);
+		}
+		PHANTOM_NAME_CLOLORS = null;
+		PHANTOM_TITLE_CLOLORS = Phanton.getProperty("FakeTitleColors", "FFFFFF");
+		PHANTOM_PLAYERS_TITLE_CLOLORS = new ArrayList<>();
+		for (String type2 : PHANTOM_TITLE_CLOLORS.split(","))
+		{
+			PHANTOM_PLAYERS_TITLE_CLOLORS.add(type2);
+		}
+		CLANID = Phanton.getProperty("ClanID", 50);
+		
+		CLANIDWALKER = Phanton.getProperty("ClanWalkerID", 50);
+		
+		FIGHTER_BUFF = Phanton.getProperty("FighterBuffList", "0");
+		FIGHTER_BUFF_LIST = new ArrayList<>();
+		for (final String id : Config.FIGHTER_BUFF.trim().split(","))
+		{
+			Config.FIGHTER_BUFF_LIST.add(Integer.parseInt(id.trim()));
+		}
+		MAGE_BUFF = Phanton.getProperty("MageBuffList", "0");
+		MAGE_BUFF_LIST = new ArrayList<>();
+		for (final String id : MAGE_BUFF.trim().split(","))
+		{
+			MAGE_BUFF_LIST.add(Integer.parseInt(id.trim()));
+		}
+		
+		ENABLE_GIRAN_TO = Phanton.getProperty("EnabledGiranWalker", true);
+		
 		String[] TelepropertySplit = Phanton.getProperty("SpwanLocationGiran", "0,0,0").split(",");
 		if (TelepropertySplit.length < 3)
 			System.out.println("Fake Player Giran Walker [Config.load()]: invalid config property -> SpwanLocationFakePlayer");
@@ -2816,7 +2846,6 @@ private static final void loadTournament()
 			TELE_TO_GIRAN[1] = Integer.parseInt(TelepropertySplit[1]);
 			TELE_TO_GIRAN[2] = Integer.parseInt(TelepropertySplit[2]);
 		}
-		
 		
 		ENABLE_GODARD_TO = Phanton.getProperty("EnabledGoddardWalker", true);
 		
@@ -2842,278 +2871,282 @@ private static final void loadTournament()
 			TELE_TO_SPWAN50[2] = Integer.parseInt(TelepropertySplit2[2]);
 		}
 		
-
-		
 		CONTROLL_FAKE_ON = Boolean.parseBoolean(Phanton.getProperty("ControlFakeOn", "False"));
 		FAKE_PLAYER_CAN_TARGET_REAL_PLAYER = Boolean.parseBoolean(Phanton.getProperty("FakePlayerTargetRealPlayer", "False"));
 		
 		FAKE_PLAYER_RETURNS_TO_FARM = Phanton.getProperty("FakePlayerReturnFarm", true);
 		
-		SPAWN_FAKE_LOC1 = Phanton.getProperty("FakeSpawnLocation1", new int []
-			{53717, 83639, -3540});
-		SPAWN_FAKE_LOC2 = Phanton.getProperty("FakeSpawnLocation2", new int []
-			{57428, 82020, -3599});
+		SPAWN_FAKE_LOC1 = Phanton.getProperty("FakeSpawnLocation1", new int[]
+		{
+			53717,
+			83639,
+			-3540
+		});
+		SPAWN_FAKE_LOC2 = Phanton.getProperty("FakeSpawnLocation2", new int[]
+		{
+			57428,
+			82020,
+			-3599
+		});
 		
 		FAKE_SPAWN_RANDOM_OFFSET = Phanton.getProperty("RandomSpawnOffset", 0);
 	}
-	   
-
 	
-	private static final void loadDobleBlass() 
-{	
-	final ExProperties DobleClass = initProperties(Config.DOBLE_CLASS_FILE);
-	
-	SUBCLASS_LVL = DobleClass.getProperty("SubClassLevel", 45);
-	SUBCLASS_SETITEM = DobleClass.getProperty("BuySubClassItem", 3470);
-	SUBCLASS_COUNT = DobleClass.getProperty("SubClassItemCount", 100);
-	SUBCLASS_ITEMNAME = DobleClass.getProperty("ItemName", "Gold Bar");
-	ENABLE_EFFECT_HERO = DobleClass.getProperty("MagicSkillEffect0", false);
-	ENABLE_EFFECT_LVLUP = DobleClass.getProperty("MagicSkillEffect1", false);
-	SUBCLASS_TEX1 = DobleClass.getProperty("Tex1", "Felicitaciones");
-	SUBCLASS_TEX2 = DobleClass.getProperty("Tex2", " Por Hacer");
-	SUBCLASS_TEX3 = DobleClass.getProperty("Tex3", "SubClass");
-
-}
+	private static final void loadDobleBlass()
+	{
+		final ExProperties DobleClass = initProperties(Config.DOBLE_CLASS_FILE);
+		
+		SUBCLASS_LVL = DobleClass.getProperty("SubClassLevel", 45);
+		SUBCLASS_SETITEM = DobleClass.getProperty("BuySubClassItem", 3470);
+		SUBCLASS_COUNT = DobleClass.getProperty("SubClassItemCount", 100);
+		SUBCLASS_ITEMNAME = DobleClass.getProperty("ItemName", "Gold Bar");
+		ENABLE_EFFECT_HERO = DobleClass.getProperty("MagicSkillEffect0", false);
+		ENABLE_EFFECT_LVLUP = DobleClass.getProperty("MagicSkillEffect1", false);
+		SUBCLASS_TEX1 = DobleClass.getProperty("Tex1", "Felicitaciones");
+		SUBCLASS_TEX2 = DobleClass.getProperty("Tex2", " Por Hacer");
+		SUBCLASS_TEX3 = DobleClass.getProperty("Tex3", "SubClass");
+		
+	}
 	
 	private static final void loadaCis()
-{	
-	final ExProperties aCis = initProperties(Config.ACIS_FILE);
-	
-	AUTO_SAVE_TIME = aCis.getProperty("AutoSaveTime", "20:00").split(",");
-	
-	ENABLE_BACKUP_BOOLEAN = Boolean.parseBoolean(aCis.getProperty("AutoSaveDB", "True"));
-	NAME_DATA_BASE = aCis.getProperty("URL_DB", "aCis");
-	
-	LEAVE_BUFFS_ON_DIE = Boolean.parseBoolean(aCis.getProperty("LeaveBuffsOnDie", "True"));
-	
-    ALLOW_ANNOUNCE_ONLINE_PLAYERS = Boolean.parseBoolean(aCis.getProperty("AllowAnnounceOnlinePlayers", "True"));
-    ANNOUNCE_ONLINE_PLAYERS_DELAY = Integer.parseInt(aCis.getProperty("AnnounceOnlinePlayersDelay", "300"));
-
-	
-	String ap = aCis.getProperty("AutoPotions", "");
-	String[] ap_split = ap.split(";");
-	for (String s : ap_split)
 	{
-		String[] ss = s.split(",");
-		AUTO_POTIONS.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		final ExProperties aCis = initProperties(Config.ACIS_FILE);
+		
+		AUTO_SAVE_TIME = aCis.getProperty("AutoSaveTime", "20:00").split(",");
+		
+		ENABLE_BACKUP_BOOLEAN = Boolean.parseBoolean(aCis.getProperty("AutoSaveDB", "True"));
+		NAME_DATA_BASE = aCis.getProperty("URL_DB", "aCis");
+		
+		LEAVE_BUFFS_ON_DIE = Boolean.parseBoolean(aCis.getProperty("LeaveBuffsOnDie", "True"));
+		
+		ALLOW_ANNOUNCE_ONLINE_PLAYERS = Boolean.parseBoolean(aCis.getProperty("AllowAnnounceOnlinePlayers", "True"));
+		ANNOUNCE_ONLINE_PLAYERS_DELAY = Integer.parseInt(aCis.getProperty("AnnounceOnlinePlayersDelay", "300"));
+		
+		String ap = aCis.getProperty("AutoPotions", "");
+		String[] ap_split = ap.split(";");
+		for (String s : ap_split)
+		{
+			String[] ss = s.split(",");
+			AUTO_POTIONS.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		}
+		String apl = aCis.getProperty("AutoPotionsLimits", "");
+		String[] apl_split = apl.split(";");
+		for (String s : apl_split)
+		{
+			String[] ss = s.split(",");
+			AUTO_POTIONS_LIMITS.put(Integer.parseInt(ss[0]), new String[]
+			{
+				ss[1],
+				ss[2]
+			});
+		}
+		
+		AIO_TITLE = aCis.getProperty("AioTitle", "Aio");
+		AIO_COLOR = Integer.decode("0x" + aCis.getProperty("AioColor", "606060"));
+		LIST_AIO_ITEMS = aCis.parseIntIntList("AioItems", "1-268");
+		LIST_AIO_SKILLS = aCis.parseIntIntList("AioSkills", "1-268");
+		
+		VIP_COLOR = Integer.decode("0x" + aCis.getProperty("VipColor", "FFFF00"));
+		LIST_VIP_SKILLS = aCis.parseIntIntList("VipSkill", "1-268");
+		LIST_VIP_ITEMS = aCis.parseIntIntList("VipItems", "1-268");
+		
+		VIP_RATE_XP = aCis.getProperty("VipXpRates", 1.5);
+		VIP_RATE_SP = aCis.getProperty("VipSpRates", 1.5);
+		VIP_ADENA_RATES = aCis.getProperty("VipAdenaDrop", 1.5);
+		VIP_SPOIL_RATES = aCis.getProperty("VipSpoilRates", 1.5);
+		VIP_DROP_RATES = aCis.getProperty("VipDrop", 1.5);
+		
+		ID_REWARD = aCis.getProperty("IdReward", 57);
+		MIN_PVP = aCis.getProperty("MinPvp", 200);
+		BANKING_SYSTEM_GOLDCOIN = aCis.parseIntIntList("BankingGoldCoin", "9209-1");
+		BANKING_SYSTEM_ADENA = aCis.getProperty("BankingAdenaCount", 500000000);
+		
+		ANNOUNCE_CASTLE_LORDS = aCis.getProperty("AnnounceCastleLords", false);
+		ANNOUNCE_LORDS_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceLordsLoginByClanMemberMsg", "The Lord %player% leader of %castle% of the clan %clan% is now online.");
+		
+		ANNOUNCE_KILL = aCis.getProperty("AnnounceKill", false);
+		ANNOUNCE_PVP_MSG = aCis.getProperty("AnnouncePvpMsg", "$killer has defeated $target");
+		ANNOUNCE_PK_MSG = aCis.getProperty("AnnouncePkMsg", "$killer has slaughtered $target");
+		
+		ANNOUNCE_VIP_ENTER = aCis.getProperty("AnnounceVipLogin", false);
+		ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceVipLoginByClanMemberMsg", "The Vip %player% of the clan %clan% is now online.");
+		ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceVipLoginByPlayerMsg", "The Vip %player% is now online.");
+		
+		ANNOUNCE_HERO_ONLY_BASECLASS = aCis.getProperty("AnnounceHero", false);
+		ANNOUNCE_HERO_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceHeroLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
+		ANNOUNCE_HERO_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceHeroLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
+		
+		ANNOUNCE_TOP = aCis.getProperty("AnnounceTopKiller", false);
+		ANNOUNCE_TOP_PVP_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceTopPvPLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
+		ANNOUNCE_TOP_PVP_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceTopPvPLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
+		ANNOUNCE_TOP_PK_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceTopPkLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
+		ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceTopPkLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
+		
+		ENABLE_BOSS_DEFEATED_MSG = aCis.getProperty("EnableBossDefeatedMsg", false);
+		RAID_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG = aCis.getProperty("RaidBossDefeatedByClanMemberMsg", "Raid Boss %raidboss% has been defeated by %player% of clan %clan%.");
+		RAID_BOSS_DEFEATED_BY_PLAYER_MSG = aCis.getProperty("RaidBossDefeatedByPlayerMsg", "Raid Boss %raidboss% has been defeated by %player%.");
+		GRAND_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG = aCis.getProperty("GrandBossDefeatedByClanMemberMsg", "Raid Boss %grandboss% has been defeated by %player% of clan %clan%.");
+		GRAND_BOSS_DEFEATED_BY_PLAYER_MSG = aCis.getProperty("GrandBossDefeatedByPlayerMsg", "Raid Boss %grandboss% has been defeated by %player%.");
+		
+		ALLOWED_SUBCLASS = aCis.getProperty("AllowedSubclass", 3);
+		ALT_GAME_SUBCLASS_EVERYWHERE = aCis.getProperty("AltSubclassEverywhere", false);
+		
+		OFFLINE_TRADE_ENABLE = aCis.getProperty("OfflineTradeEnable", false);
+		OFFLINE_CRAFT_ENABLE = aCis.getProperty("OfflineCraftEnable", false);
+		OFFLINE_MODE_IN_PEACE_ZONE = aCis.getProperty("OfflineModeInPeaceZone", false);
+		OFFLINE_MODE_NO_DAMAGE = aCis.getProperty("OfflineModeNoDamage", false);
+		OFFLINE_SET_NAME_COLOR = aCis.getProperty("OfflineSetNameColor", false);
+		OFFLINE_NAME_COLOR = Integer.decode("0x" + aCis.getProperty("OfflineNameColor", "808080"));
+		RESTORE_OFFLINERS = aCis.getProperty("RestoreOffliners", false);
+		OFFLINE_MAX_DAYS = aCis.getProperty("OfflineMaxDays", 10);
+		OFFLINE_DISCONNECT_FINISHED = aCis.getProperty("OfflineDisconnectFinished", true);
+		
+		for (String listid : aCis.getProperty("RestrictedNames", "fuck,dildo,admin").split(","))
+			LIST_FORBIDDEN_NAMES.add(String.valueOf(listid));
+		
+		PROTECTION_HEAL = aCis.getProperty("HealProtection", false);
+		PROTECTION_HEAL_PVP = aCis.getProperty("HealCurrent", 1.);
+		
+		ENABLE_FARM_PVP = aCis.getProperty("PvPProtect", false);
+		
+		DISABLE_ATTACK_NPC_TYPE = aCis.getProperty("DisableAttackToNpcs", false);
+		ALLOWED_NPC_TYPES = aCis.getProperty("AllowedNPCTypes");
+		LIST_ALLOWED_NPC_TYPES = new ArrayList<>();
+		for (String npc_type : ALLOWED_NPC_TYPES.split(","))
+			LIST_ALLOWED_NPC_TYPES.add(npc_type);
+		
+		FLAG_RB = aCis.getProperty("FlagRbZones", false);
+		
+		RAID_BOSS_INFO_PAGE_LIMIT = aCis.getProperty("RaidBossInfoPageLimit", 15);
+		RAID_BOSS_DROP_PAGE_LIMIT = aCis.getProperty("RaidBossDropPageLimit", 15);
+		RAID_BOSS_DATE_FORMAT = aCis.getProperty("RaidBossDateFormat", "MMM dd, HH:mm");
+		RAID_BOSS_IDS = aCis.getProperty("RaidBossIds", "0,0");
+		LIST_RAID_BOSS_IDS = new ArrayList<>();
+		for (String val : RAID_BOSS_IDS.split(","))
+		{
+			int npcId = Integer.parseInt(val);
+			LIST_RAID_BOSS_IDS.add(npcId);
+		}
+		
+		GLOBAL_DROP = aCis.getProperty("DropSystem", false);
+		String[] temp = aCis.getProperty("DropList", "").split(";");
+		for (String s : temp)
+		{
+			List<Integer> list = new ArrayList<>();
+			String[] t = s.split(",");
+			list.add(Integer.parseInt(t[1]));
+			list.add(Integer.parseInt(t[2]));
+			list.add(Integer.parseInt(t[3]));
+			DROP_LIST.put(Integer.parseInt(t[0]), list);
+		}
+		
+		TIME_DOUBLE_RATES = aCis.getProperty("DoubleRatesTime", 18);
+		RATE_MULTIPLER = aCis.getProperty("RateMultipler", 2.);
+		
+		CKM_ENABLED = aCis.getProperty("CKMEnabled", false);
+		CKM_CYCLE_LENGTH = aCis.getProperty("CKMCycleLength", 86400000);
+		CKM_PVP_NPC_TITLE = aCis.getProperty("CKMPvPNpcTitle", "%kills% PvPs in the last 24h");
+		CKM_PVP_NPC_TITLE_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPvPNpcTitleColor", "00CCFF"));
+		CKM_PVP_NPC_NAME_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPvPNpcNameColor", "FFFFFF"));
+		CKM_PK_NPC_TITLE = aCis.getProperty("CKMPKNpcTitle", "%kills% PKs in the last 24h");
+		CKM_PK_NPC_TITLE_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPKNpcTitleColor", "00CCFF"));
+		CKM_PK_NPC_NAME_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPKNpcNameColor", "FFFFFF"));
+		MONUMENT_EVENT_REWARDS = aCis.parseIntIntList("CKMReward", "1-268");
+		
+		PCB_INTERVAL = aCis.getProperty("PcBangPointTime", 0);
+		PCB_MIN_LEVEL = aCis.getProperty("PcBangPointMinLevel", 20);
+		PCB_POINT_MIN = aCis.getProperty("PcBangPointMinCount", 1);
+		PCB_POINT_MAX = aCis.getProperty("PcBangPointMaxCount", 5);
+		PCB_CHANCE_DUAL_POINT = aCis.getProperty("PcBangPointDualChance", 100);
+		PCB_AFK_TIMER = aCis.getProperty("PcBangTimerAFK", 1);
+		
+		CANCEL_SECONDS = aCis.getProperty("CancelSeconds", 5);
+		RAIDBOSS_NOBLES = aCis.getProperty("RaidBossId", 0);
+		ENABLE_SPREEKILLS = aCis.getProperty("EnableSpreeKills", false);
+		
+		ALLOW_GIVE_ITEM_WITHOUT_CHECK_OF_TOPSITES = aCis.getProperty("AllowGiveItemWithoutCheckOfTopsites", false);
+		
+		MENU = aCis.getProperty("VoteComander", false);
+		
+		// ------------------------
+		
+		ALLOW_TOPZONE_VOTE_REWARD = aCis.getProperty("AllowTopzoneVoteReward", false);
+		TOPZONE_SERVER_ID = aCis.getProperty("TopzoneServerID", 0);
+		TOPZONE_VOTES_DIFFERENCE = aCis.getProperty("TopzoneVotesDifference", 5);
+		TOPZONE_REWARD_CHECK_TIME = aCis.getProperty("TopzoneRewardCheckTime", 5);
+		String topzone_reward = aCis.getProperty("TopzoneReward", "57,1");
+		String[] topzone_reward_splitted = topzone_reward.split(";");
+		for (String s : topzone_reward_splitted)
+		{
+			String[] ss = s.split(",");
+			TOPZONE_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		}
+		
+		TOPZONE_SERVER_API_KEY = aCis.getProperty("TopzoneServerAPI", "");
+		
+		// -------------------------
+		
+		ALLOW_HOPZONE_VOTE_REWARD = aCis.getProperty("AllowHopzoneVoteReward", false);
+		HOPZONE_SERVER_API_KEY = aCis.getProperty("HopzoneServerAPI", "");
+		
+		HOPZONE_VOTES_DIFFERENCE = aCis.getProperty("HopzoneVotesDifference", 5);
+		HOPZONE_REWARD_CHECK_TIME = aCis.getProperty("HopzoneRewardCheckTime", 5);
+		String hopzone_reward = aCis.getProperty("HopzoneReward", "57,1");
+		String[] hopzone_reward_splitted = hopzone_reward.split(";");
+		for (String s : hopzone_reward_splitted)
+		{
+			String[] ss = s.split(",");
+			HOPZONE_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		}
+		
+		// --------------------------
+		
+		ALLOW_NETWORK_VOTE_REWARD = aCis.getProperty("AllowNetWorkVoteReward", false);
+		API_NETWORK = aCis.getProperty("NetWorkServerAPI", "");
+		
+		NETWORK_VOTES_DIFFERENCE = aCis.getProperty("NetWorkVotesDifference", 5);
+		NETWORK_REWARD_CHECK_TIME = aCis.getProperty("NetWorkRewardCheckTime", 5);
+		String netWork_reward = aCis.getProperty("NetWorkReward", "57,1");
+		String[] netWork_reward_splitted = netWork_reward.split(";");
+		for (String s : netWork_reward_splitted)
+		{
+			String[] ss = s.split(",");
+			NETWORK_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		}
+		
+		String ind_rewards = aCis.getProperty("IndividualRewards", "57,1");
+		String[] ind_rewards_splitted = ind_rewards.split(";");
+		for (String s : ind_rewards_splitted)
+		{
+			String[] ss = s.split(",");
+			INDIVIDUAL_REWARDS.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
+		}
 	}
-	String apl = aCis.getProperty("AutoPotionsLimits", "");
-	String[] apl_split = apl.split(";");
-	for (String s : apl_split)
-	{
-		String[] ss = s.split(",");
-		AUTO_POTIONS_LIMITS.put(Integer.parseInt(ss[0]), new String[] { ss[1], ss[2] });
-	}
 	
-	AIO_TITLE = aCis.getProperty("AioTitle", "Aio");
-	AIO_COLOR = Integer.decode("0x" + aCis.getProperty("AioColor", "606060"));
-	LIST_AIO_ITEMS = aCis.parseIntIntList("AioItems", "1-268");
-	LIST_AIO_SKILLS = aCis.parseIntIntList("AioSkills", "1-268");
-	
-	VIP_COLOR = Integer.decode("0x" + aCis.getProperty("VipColor", "FFFF00"));
-	LIST_VIP_SKILLS = aCis.parseIntIntList("VipSkill", "1-268");
-	LIST_VIP_ITEMS = aCis.parseIntIntList("VipItems", "1-268");
-	
-	VIP_RATE_XP = aCis.getProperty("VipXpRates", 1.5);
-	VIP_RATE_SP = aCis.getProperty("VipSpRates", 1.5);
-	VIP_ADENA_RATES = aCis.getProperty("VipAdenaDrop", 1.5);
-	VIP_SPOIL_RATES = aCis.getProperty("VipSpoilRates", 1.5);
-	VIP_DROP_RATES = aCis.getProperty("VipDrop", 1.5);
-	
-	ID_REWARD = aCis.getProperty("IdReward", 57);
-	MIN_PVP = aCis.getProperty("MinPvp", 200);
-	BANKING_SYSTEM_GOLDCOIN = aCis.parseIntIntList("BankingGoldCoin", "9209-1");
-	BANKING_SYSTEM_ADENA = aCis.getProperty("BankingAdenaCount", 500000000);
-	
-	ANNOUNCE_CASTLE_LORDS = aCis.getProperty("AnnounceCastleLords", false);
-	ANNOUNCE_LORDS_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceLordsLoginByClanMemberMsg", "The Lord %player% leader of %castle% of the clan %clan% is now online.");
-	
-	ANNOUNCE_KILL = aCis.getProperty("AnnounceKill", false);
-	ANNOUNCE_PVP_MSG = aCis.getProperty("AnnouncePvpMsg", "$killer has defeated $target");
-	ANNOUNCE_PK_MSG = aCis.getProperty("AnnouncePkMsg", "$killer has slaughtered $target");
-	
-	ANNOUNCE_VIP_ENTER = aCis.getProperty("AnnounceVipLogin",false);
-	ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceVipLoginByClanMemberMsg", "The Vip %player% of the clan %clan% is now online.");
-	ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceVipLoginByPlayerMsg", "The Vip %player% is now online.");	
-
-	ANNOUNCE_HERO_ONLY_BASECLASS = aCis.getProperty("AnnounceHero", false);
-	ANNOUNCE_HERO_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceHeroLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
-	ANNOUNCE_HERO_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceHeroLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
-	
-	ANNOUNCE_TOP = aCis.getProperty("AnnounceTopKiller", false);
-	ANNOUNCE_TOP_PVP_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceTopPvPLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
-	ANNOUNCE_TOP_PVP_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceTopPvPLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
-	ANNOUNCE_TOP_PK_ENTER_BY_CLAN_MEMBER_MSG = aCis.getProperty("AnnounceTopPkLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
-	ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG = aCis.getProperty("AnnounceTopPkLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
-	
-	ENABLE_BOSS_DEFEATED_MSG = aCis.getProperty("EnableBossDefeatedMsg", false);
-	RAID_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG = aCis.getProperty("RaidBossDefeatedByClanMemberMsg", "Raid Boss %raidboss% has been defeated by %player% of clan %clan%.");
-	RAID_BOSS_DEFEATED_BY_PLAYER_MSG = aCis.getProperty("RaidBossDefeatedByPlayerMsg", "Raid Boss %raidboss% has been defeated by %player%.");
-	GRAND_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG = aCis.getProperty("GrandBossDefeatedByClanMemberMsg", "Raid Boss %grandboss% has been defeated by %player% of clan %clan%.");
-	GRAND_BOSS_DEFEATED_BY_PLAYER_MSG = aCis.getProperty("GrandBossDefeatedByPlayerMsg", "Raid Boss %grandboss% has been defeated by %player%.");
-
-	ALLOWED_SUBCLASS = aCis.getProperty("AllowedSubclass", 3);
-	ALT_GAME_SUBCLASS_EVERYWHERE = aCis.getProperty("AltSubclassEverywhere", false);
-	
-	OFFLINE_TRADE_ENABLE = aCis.getProperty("OfflineTradeEnable", false);
-	OFFLINE_CRAFT_ENABLE = aCis.getProperty("OfflineCraftEnable", false);
-	OFFLINE_MODE_IN_PEACE_ZONE = aCis.getProperty("OfflineModeInPeaceZone", false);
-	OFFLINE_MODE_NO_DAMAGE = aCis.getProperty("OfflineModeNoDamage", false);
-	OFFLINE_SET_NAME_COLOR = aCis.getProperty("OfflineSetNameColor", false);
-	OFFLINE_NAME_COLOR = Integer.decode("0x" + aCis.getProperty("OfflineNameColor", "808080"));
-	RESTORE_OFFLINERS = aCis.getProperty("RestoreOffliners", false);
-	OFFLINE_MAX_DAYS = aCis.getProperty("OfflineMaxDays", 10);
-	OFFLINE_DISCONNECT_FINISHED = aCis.getProperty("OfflineDisconnectFinished", true);
-	
-	for (String listid : aCis.getProperty("RestrictedNames", "fuck,dildo,admin").split(","))
-		LIST_FORBIDDEN_NAMES.add(String.valueOf(listid));
-	
-	PROTECTION_HEAL = aCis.getProperty("HealProtection", false);
-	PROTECTION_HEAL_PVP = aCis.getProperty("HealCurrent", 1.);
-	
-	ENABLE_FARM_PVP = aCis.getProperty("PvPProtect", false);
-	
-	
-	
-	DISABLE_ATTACK_NPC_TYPE = aCis.getProperty("DisableAttackToNpcs", false);
-	ALLOWED_NPC_TYPES = aCis.getProperty("AllowedNPCTypes");
-	LIST_ALLOWED_NPC_TYPES = new ArrayList<>();
-	for (String npc_type : ALLOWED_NPC_TYPES.split(","))
-	LIST_ALLOWED_NPC_TYPES.add(npc_type);
-	
-	FLAG_RB = aCis.getProperty("FlagRbZones", false);
-	
-	RAID_BOSS_INFO_PAGE_LIMIT = aCis.getProperty("RaidBossInfoPageLimit", 15);
-	RAID_BOSS_DROP_PAGE_LIMIT = aCis.getProperty("RaidBossDropPageLimit", 15);
-	RAID_BOSS_DATE_FORMAT = aCis.getProperty("RaidBossDateFormat", "MMM dd, HH:mm");
-	RAID_BOSS_IDS = aCis.getProperty("RaidBossIds", "0,0");
-	LIST_RAID_BOSS_IDS = new ArrayList<>();
-	for (String val : RAID_BOSS_IDS.split(","))
-	{
-		int npcId = Integer.parseInt(val);
-		LIST_RAID_BOSS_IDS.add(npcId);
-	}
-	
-	GLOBAL_DROP = aCis.getProperty("DropSystem", false);
-	String[] temp = aCis.getProperty("DropList", "").split(";");
-	for (String s : temp)
-	{
-		List<Integer> list = new ArrayList<>();
-		String[] t = s.split(",");
-		list.add(Integer.parseInt(t[1]));
-		list.add(Integer.parseInt(t[2]));
-		list.add(Integer.parseInt(t[3]));
-		DROP_LIST.put(Integer.parseInt(t[0]), list);
-	}
-	
-	TIME_DOUBLE_RATES = aCis.getProperty("DoubleRatesTime", 18);
-	RATE_MULTIPLER = aCis.getProperty("RateMultipler", 2.);
-	
-	CKM_ENABLED = aCis.getProperty("CKMEnabled", false);
-	CKM_CYCLE_LENGTH = aCis.getProperty("CKMCycleLength", 86400000);
-	CKM_PVP_NPC_TITLE = aCis.getProperty("CKMPvPNpcTitle", "%kills% PvPs in the last 24h");
-	CKM_PVP_NPC_TITLE_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPvPNpcTitleColor", "00CCFF"));
-	CKM_PVP_NPC_NAME_COLOR = Integer.decode("0x"+ aCis.getProperty("CKMPvPNpcNameColor", "FFFFFF"));
-	CKM_PK_NPC_TITLE = aCis.getProperty("CKMPKNpcTitle", "%kills% PKs in the last 24h");
-	CKM_PK_NPC_TITLE_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPKNpcTitleColor", "00CCFF"));
-	CKM_PK_NPC_NAME_COLOR = Integer.decode("0x" + aCis.getProperty("CKMPKNpcNameColor", "FFFFFF"));
-	MONUMENT_EVENT_REWARDS = aCis.parseIntIntList("CKMReward", "1-268");
-	
-	PCB_INTERVAL = aCis.getProperty("PcBangPointTime", 0);
-	PCB_MIN_LEVEL = aCis.getProperty("PcBangPointMinLevel", 20);
-	PCB_POINT_MIN = aCis.getProperty("PcBangPointMinCount", 1);
-	PCB_POINT_MAX = aCis.getProperty("PcBangPointMaxCount", 5);
-	PCB_CHANCE_DUAL_POINT = aCis.getProperty("PcBangPointDualChance", 100);
-	PCB_AFK_TIMER = aCis.getProperty("PcBangTimerAFK", 1);
-	
-	CANCEL_SECONDS = aCis.getProperty("CancelSeconds", 5);
-	RAIDBOSS_NOBLES = aCis.getProperty("RaidBossId", 0);
-	ENABLE_SPREEKILLS = aCis.getProperty("EnableSpreeKills", false);
-	
-	ALLOW_GIVE_ITEM_WITHOUT_CHECK_OF_TOPSITES = aCis.getProperty("AllowGiveItemWithoutCheckOfTopsites", false);
-	
-	MENU = aCis.getProperty("VoteComander", false);
-	
-	// ------------------------
-	
-	ALLOW_TOPZONE_VOTE_REWARD = aCis.getProperty("AllowTopzoneVoteReward", false);
-	TOPZONE_SERVER_ID = aCis.getProperty("TopzoneServerID", 0);
-	TOPZONE_VOTES_DIFFERENCE = aCis.getProperty("TopzoneVotesDifference", 5);
-	TOPZONE_REWARD_CHECK_TIME = aCis.getProperty("TopzoneRewardCheckTime", 5);
-	String topzone_reward = aCis.getProperty("TopzoneReward", "57,1");
-	String[] topzone_reward_splitted = topzone_reward.split(";");
-	for (String s : topzone_reward_splitted)
-	{
-		String[] ss = s.split(",");
-		TOPZONE_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
-	}
-
-	TOPZONE_SERVER_API_KEY = aCis.getProperty("TopzoneServerAPI", "");
-	
-	// -------------------------
-
-	ALLOW_HOPZONE_VOTE_REWARD = aCis.getProperty("AllowHopzoneVoteReward", false);
-	HOPZONE_SERVER_API_KEY = aCis.getProperty("HopzoneServerAPI", "");
-
-	HOPZONE_VOTES_DIFFERENCE = aCis.getProperty("HopzoneVotesDifference", 5);
-	HOPZONE_REWARD_CHECK_TIME = aCis.getProperty("HopzoneRewardCheckTime", 5);
-	String hopzone_reward = aCis.getProperty("HopzoneReward", "57,1");
-	String[] hopzone_reward_splitted = hopzone_reward.split(";");
-	for (String s : hopzone_reward_splitted)
-	{
-		String[] ss = s.split(",");
-		HOPZONE_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
-	}
-
-	
-	// --------------------------
-	
-	ALLOW_NETWORK_VOTE_REWARD = aCis.getProperty("AllowNetWorkVoteReward", false);
-	API_NETWORK = aCis.getProperty("NetWorkServerAPI", "");
-	
-	NETWORK_VOTES_DIFFERENCE = aCis.getProperty("NetWorkVotesDifference", 5);
-	NETWORK_REWARD_CHECK_TIME = aCis.getProperty("NetWorkRewardCheckTime", 5);
-	String netWork_reward = aCis.getProperty("NetWorkReward", "57,1");
-	String[] netWork_reward_splitted = netWork_reward.split(";");
-	for (String s : netWork_reward_splitted)
-	{
-		String[] ss = s.split(",");
-		NETWORK_REWARD.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
-	}
-
-	
-	String ind_rewards = aCis.getProperty("IndividualRewards", "57,1");
-	String[] ind_rewards_splitted = ind_rewards.split(";");
-	for (String s : ind_rewards_splitted)
-	{
-		String[] ss = s.split(",");
-		INDIVIDUAL_REWARDS.put(Integer.parseInt(ss[0]), Integer.parseInt(ss[1]));
-	}
-}
-	   
-
 	private static final void loadVoteZone()
-{	
-	final ExProperties VoteZone = initProperties(Config.VOTEZONE_FILE);
+	{
+		final ExProperties VoteZone = initProperties(Config.VOTEZONE_FILE);
+		
+		flagZone = VoteZone.getProperty("FlagZone", true);
+		deleteNpc = VoteZone.getProperty("DeleteNpc", false);
+		changeZoneTime = VoteZone.getProperty("ChangeZoneTime", 60);
+		announceTimer = VoteZone.getProperty("AnnounceTimer", 5);
+		rewardPvp = VoteZone.getProperty("RewardPvP", false);
+		rewardId = VoteZone.getProperty("RewardId", 57);
+		rewardCount = VoteZone.getProperty("RewardCount", 5);
+		
+	}
 	
-	flagZone = VoteZone.getProperty("FlagZone", true);
-	deleteNpc = VoteZone.getProperty("DeleteNpc", false);
-	changeZoneTime = VoteZone.getProperty("ChangeZoneTime", 60);
-	announceTimer = VoteZone.getProperty("AnnounceTimer", 5);
-	rewardPvp = VoteZone.getProperty("RewardPvP", false);
-	rewardId = VoteZone.getProperty("RewardId", 57);
-	rewardCount = VoteZone.getProperty("RewardCount", 5);
-	
-}
-    private static final void loadNewbies() {
-    	
-    	final ExProperties StartPlayer = initProperties(Config.NEWBIE_FILE);
-        ENABLE_STARTUP = StartPlayer.getProperty("StartupEnabled", true);
-        NEWBIE_LVL = Integer.parseInt(StartPlayer.getProperty("NewbiesLevel", "80"));
-        
-        START_LEVEL = StartPlayer.getProperty("StartLevel", 1);
-        
-        CUSTOM_SPAWN_CHAR = StartPlayer.getProperty("CustomSpawn", false);
+	private static final void loadNewbies()
+	{
+		
+		final ExProperties StartPlayer = initProperties(Config.NEWBIE_FILE);
+		ENABLE_STARTUP = StartPlayer.getProperty("StartupEnabled", true);
+		NEWBIE_LVL = Integer.parseInt(StartPlayer.getProperty("NewbiesLevel", "80"));
+		
+		START_LEVEL = StartPlayer.getProperty("StartLevel", 1);
+		
+		CUSTOM_SPAWN_CHAR = StartPlayer.getProperty("CustomSpawn", false);
 		RANDOM_SPAWN_CHAR = StartPlayer.getProperty("RandomAreasSpawn", 1);
 		
 		CUSTOM_SPAWN1 = StartPlayer.getProperty("custom_spawn1", new int[]
@@ -3134,7 +3167,6 @@ private static final void loadTournament()
 			49423,
 			-5790
 		});
-
 		
 		NEWBIE_FIGHTER_SET = StartPlayer.getProperty("FighterSet", "2375,3500,3501,3502,4422,4423,4424,4425,6648,6649,6650");
 		NEWBIE_MAGE_SET = StartPlayer.getProperty("MageSet", "2375,3500,3501,3502,4422,4423,4424,4425,6648,6649,6650");
@@ -3162,11 +3194,11 @@ private static final void loadTournament()
 			TELE_TO_LOCATION[1] = Integer.parseInt(TelepropertySplit[1]);
 			TELE_TO_LOCATION[2] = Integer.parseInt(TelepropertySplit[2]);
 		}
-        
+		
 		SERVER_NAME = StartPlayer.getProperty("ServerName", "L2jBrasil ");
 		
 		SERVER_TEX = StartPlayer.getProperty("ServerNameTex", " WELCOME TO OUR SERVER!");
-    }
+	}
 	
 	/**
 	 * Loads gameserver settings.<br>
@@ -3181,8 +3213,7 @@ private static final void loadTournament()
 		MIN_PROTOCOL_REVISION = server.getProperty("MinProtocolRevision", 730);
 		MAX_PROTOCOL_REVISION = server.getProperty("MaxProtocolRevision", 746);
 		if (MIN_PROTOCOL_REVISION > MAX_PROTOCOL_REVISION)
-		throw new Error("MinProtocolRevision is bigger than MaxProtocolRevision in server.properties.");
-		
+			throw new Error("MinProtocolRevision is bigger than MaxProtocolRevision in server.properties.");
 		
 		GAMESERVER_HOSTNAME = server.getProperty("GameserverHostname");
 		PORT_GAME = server.getProperty("GameserverPort", 7777);
@@ -3253,7 +3284,7 @@ private static final void loadTournament()
 		RATE_DROP_HP_HERBS = server.getProperty("RateHpHerbs", 1.);
 		RATE_DROP_MP_HERBS = server.getProperty("RateMpHerbs", 1.);
 		RATE_DROP_SPECIAL_HERBS = server.getProperty("RateSpecialHerbs", 1.);
-
+		
 		PLAYER_DROP_LIMIT = server.getProperty("PlayerDropLimit", 3);
 		PLAYER_RATE_DROP = server.getProperty("PlayerRateDrop", 5);
 		PLAYER_RATE_DROP_ITEM = server.getProperty("PlayerRateDropItem", 70);
@@ -3325,7 +3356,7 @@ private static final void loadTournament()
 		ANTIBOT_TIME_JAIL = server.getProperty("AntiBotTimeJail", 1);
 		ANTIBOT_TIME_VOTE = server.getProperty("AntiBotTimeVote", 30);
 		ANTIBOT_KILL_MOBS = server.getProperty("AntiBotKillMobs", 1);
-		ANTIBOT_MIN_LEVEL = server.getProperty("AntiBotMinLevel", 1);				
+		ANTIBOT_MIN_LEVEL = server.getProperty("AntiBotMinLevel", 1);
 		
 		ALLOW_WYVERN_RESTRITION_CITY = server.getProperty("MountRequest", false);
 		SHOUT_RESTRICTION_TYPE = RestrictionType.valueOf(server.getProperty("ShoutRestrictionType", "NONE"));
@@ -3337,7 +3368,6 @@ private static final void loadTournament()
 		SHOUT_RESTRICTION_VALUE = server.getProperty("ShoutRestrictionValue", 0);
 		TRADE_RESTRICTION_VALUE = server.getProperty("TradeRestrictionValue", 0);
 		
-
 	}
 	
 	private static final void loadTeamVsTeam()
@@ -3481,8 +3511,6 @@ private static final void loadTournament()
 			}
 		}
 	}
-	
-
 	
 	/**
 	 * Loads loginserver settings.<br>

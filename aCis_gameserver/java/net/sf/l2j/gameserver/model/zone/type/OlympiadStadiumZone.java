@@ -69,7 +69,6 @@ public class OlympiadStadiumZone extends SpawnZoneType
 		}
 	}
 	
-	
 	public final void updateZoneStatusForCharactersInside()
 	{
 		if (_task == null)

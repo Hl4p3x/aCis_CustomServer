@@ -1,7 +1,5 @@
 package net.sf.l2j.gameserver.model.actor.stat;
 
-
-
 import java.util.Map;
 
 import net.sf.l2j.commons.math.MathUtil;
@@ -48,12 +46,11 @@ public class PlayerStat extends PlayableStat
 		
 		Player activeChar = getActiveChar();
 		
-		
 		// Allowed to gain exp?
 		if (!getActiveChar().getAccessLevel().canGainExp())
 			return false;
 		if (activeChar.cantGainXP())
-		    return false;
+			return false;
 		if (!super.addExp(value))
 			return false;
 		
@@ -83,7 +80,7 @@ public class PlayerStat extends PlayableStat
 			return false;
 		
 		if (activeChar.cantGainXP())
-		    return false;
+			return false;
 		
 		SystemMessage sm;
 		
@@ -460,27 +457,25 @@ public class PlayerStat extends PlayableStat
 	public int getMAtkSpd()
 	{
 		
-	    int val = super.getMAtkSpd();
-	    
-		 if (getActiveChar().getClassId().equals(ClassId.OVERLORD) || getActiveChar().getClassId().equals(ClassId.DOMINATOR))
-		 {
-		     if (val > Config.MAX_MATK_SPEED_OVER)
-		         return Config.MAX_MATK_SPEED_OVER;
-		 }
-		 
-		 else if (getActiveChar().getClassId().equals(ClassId.WARCRYER) || getActiveChar().getClassId().equals(ClassId.DOOMCRYER))
-		 {
-		     if (val > Config.MAX_MATK_SPEED_OVER)
-		         return Config.MAX_MATK_SPEED_OVER;
-		 }
-		 
-	    else if (val > Config.MAX_MATK_SPEED)
-	        return Config.MAX_MATK_SPEED;
-	   return val;
-
+		int val = super.getMAtkSpd();
+		
+		if (getActiveChar().getClassId().equals(ClassId.OVERLORD) || getActiveChar().getClassId().equals(ClassId.DOMINATOR))
+		{
+			if (val > Config.MAX_MATK_SPEED_OVER)
+				return Config.MAX_MATK_SPEED_OVER;
+		}
+		
+		else if (getActiveChar().getClassId().equals(ClassId.WARCRYER) || getActiveChar().getClassId().equals(ClassId.DOOMCRYER))
+		{
+			if (val > Config.MAX_MATK_SPEED_OVER)
+				return Config.MAX_MATK_SPEED_OVER;
+		}
+		
+		else if (val > Config.MAX_MATK_SPEED)
+			return Config.MAX_MATK_SPEED;
+		return val;
+		
 	}
-	
-
 	
 	@Override
 	public int getPAtk(Creature target)
@@ -514,20 +509,20 @@ public class PlayerStat extends PlayableStat
 			return (int) calcStat(Stats.POWER_ATTACK_SPEED, base, null, null);
 		}
 		
-		 int val = super.getPAtkSpd();
-		 if (getActiveChar().getClassId().equals(ClassId.PHANTOM_RANGER) || getActiveChar().getClassId().equals(ClassId.GHOST_SENTINEL))
-		 {
-		     if (val > Config.MAX_PATK_SPEED_GHOST)
-		         return Config.MAX_PATK_SPEED_GHOST;
-		 }
-		 else if (getActiveChar().getClassId().equals(ClassId.SILVER_RANGER) || getActiveChar().getClassId().equals(ClassId.MOONLIGHT_SENTINEL))
-		 {
-		     if (val > Config.MAX_PATK_SPEED_MOONL)
-		         return Config.MAX_PATK_SPEED_MOONL;
-		 }
-		 else if (val > Config.MAX_PATK_SPEED)
-		     return Config.MAX_PATK_SPEED;
-		 return val;
+		int val = super.getPAtkSpd();
+		if (getActiveChar().getClassId().equals(ClassId.PHANTOM_RANGER) || getActiveChar().getClassId().equals(ClassId.GHOST_SENTINEL))
+		{
+			if (val > Config.MAX_PATK_SPEED_GHOST)
+				return Config.MAX_PATK_SPEED_GHOST;
+		}
+		else if (getActiveChar().getClassId().equals(ClassId.SILVER_RANGER) || getActiveChar().getClassId().equals(ClassId.MOONLIGHT_SENTINEL))
+		{
+			if (val > Config.MAX_PATK_SPEED_MOONL)
+				return Config.MAX_PATK_SPEED_MOONL;
+		}
+		else if (val > Config.MAX_PATK_SPEED)
+			return Config.MAX_PATK_SPEED;
+		return val;
 	}
 	
 	@Override

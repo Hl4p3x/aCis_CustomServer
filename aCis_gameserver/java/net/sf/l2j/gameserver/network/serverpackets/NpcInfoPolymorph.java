@@ -146,7 +146,7 @@ public final class NpcInfoPolymorph extends L2GameServerPacket
 		writeC(_activeChar.isAlikeDead() ? 1 : 0);
 		
 		writeC(0); // invisible = 1 visible =0
-			
+		
 		writeC(0); // 1 on strider 2 on wyvern 0 no mount
 		writeC(0); // 1 - sellshop
 		
@@ -155,7 +155,7 @@ public final class NpcInfoPolymorph extends L2GameServerPacket
 		writeC(0);
 		
 		writeD(_activeChar.getAbnormalEffect());
-
+		
 		writeC(0);
 		writeH(0); // Blue value for name (0 = white, 255 = pure blue)
 		writeD(_morph.getClassId());
@@ -165,7 +165,7 @@ public final class NpcInfoPolymorph extends L2GameServerPacket
 		writeC((_morph.getEnchantEffect() > 127) ? 127 : _morph.getEnchantEffect());
 		
 		writeC(0x00); // team circle around feet 1= Blue, 2 = red
-			
+		
 		writeD(_clan != null ? _clan.getCrestLargeId() : 0);
 		writeC(0); // Symbol on char menu ctrl+I
 		writeC(0); // Hero Aura

@@ -14,11 +14,10 @@ import Dev.Phantom.Model.SupportSpell;
 
 /**
  * @author Rouxy
- *
  */
 public class FallbackAI extends CombatAI
 {
-
+	
 	public FallbackAI(FakePlayer character)
 	{
 		super(character);
@@ -27,7 +26,6 @@ public class FallbackAI extends CombatAI
 	@Override
 	public void thinkAndAct()
 	{
-		
 		
 	}
 	
@@ -43,19 +41,21 @@ public class FallbackAI extends CombatAI
 		return Collections.emptyList();
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getFighterBuffs();
-    }
-    
+	@Override
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getFighterBuffs();
+	}
+	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		return Collections.emptyList();
-	}	
-
+	}
+	
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

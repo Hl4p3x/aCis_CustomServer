@@ -94,7 +94,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		else if (command.startsWith("admin_recallall"))
 		{
 			for (Player player : World.getInstance().getPlayers())
-			{ 
+			{
 				if (!activeChar.checkSummonTargetStatus(player) || (player.isInsideZone(ZoneId.BOSS) && !player.isGM()))
 					continue;
 				

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import net.sf.l2j.gameserver.model.L2Skill.SkillTargetType;
+import net.sf.l2j.gameserver.model.ShotType;
 
 import Dev.Phantom.FakePlayer;
 import Dev.Phantom.FakePlayerManager;
@@ -14,11 +15,8 @@ import Dev.Phantom.Model.HealingSpell;
 import Dev.Phantom.Model.OffensiveSpell;
 import Dev.Phantom.Model.SupportSpell;
 
-import net.sf.l2j.gameserver.model.ShotType;
-
 /**
  * @author Elfocrash
- *
  */
 public class CardinalAI extends CombatAI implements IHealer
 {
@@ -27,14 +25,13 @@ public class CardinalAI extends CombatAI implements IHealer
 		super(character);
 	}
 	
-	
 	@Override
 	public void thinkAndAct()
 	{
 		super.thinkAndAct();
 		setBusyThinking(true);
 		applyDefaultBuffs();
-		handleShots();		
+		handleShots();
 		tryTargetingLowestHpTargetInRadius(_fakePlayer, FakePlayer.class, FakeHelpers.getTestTargetRange());
 		tryHealingTarget(_fakePlayer);
 		
@@ -49,26 +46,28 @@ public class CardinalAI extends CombatAI implements IHealer
 	
 	@Override
 	protected List<OffensiveSpell> getOffensiveSpells()
-	{		
+	{
 		return Collections.emptyList();
 	}
 	
 	@Override
 	protected List<HealingSpell> getHealingSpells()
-	{		
+	{
 		List<HealingSpell> _healingSpells = new ArrayList<>();
-		_healingSpells.add(new HealingSpell(1218, SkillTargetType.TARGET_ONE, 70, 1));		
+		_healingSpells.add(new HealingSpell(1218, SkillTargetType.TARGET_ONE, 70, 1));
 		_healingSpells.add(new HealingSpell(1217, SkillTargetType.TARGET_ONE, 80, 3));
-		return _healingSpells; 
+		return _healingSpells;
 	}
 	
-    @Override
-    protected ArrayList<Integer> getBuffs() {
-        return FakePlayerManager.getMageBuffs();
-    }	
-
 	@Override
-	protected List<SupportSpell> getSelfSupportSpells() {
+	protected ArrayList<Integer> getBuffs()
+	{
+		return FakePlayerManager.getMageBuffs();
+	}
+	
+	@Override
+	protected List<SupportSpell> getSelfSupportSpells()
+	{
 		return Collections.emptyList();
 	}
 }

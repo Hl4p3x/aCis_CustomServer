@@ -6,19 +6,23 @@ import Dev.Phantom.FakePlayer;
 import Dev.Phantom.Model.WalkNode;
 import Dev.Phantom.Model.WalkerType;
 
-public class GiranStore extends WalkerAI {
+public class GiranStore extends WalkerAI
+{
 	
-	public GiranStore(FakePlayer character) {
+	public GiranStore(FakePlayer character)
+	{
 		super(character);
 	}
 	
 	@Override
-	protected WalkerType getWalkerType() {
+	protected WalkerType getWalkerType()
+	{
 		return WalkerType.STORE;
 	}
 	
 	@Override
-	protected void setWalkNodes() {
+	protected void setWalkNodes()
+	{
 		_walkNodes.add(new WalkNode(82840, 148168, -3464, Rnd.get(100, 99999)));
 		_walkNodes.add(new WalkNode(82680, 148312, -3464, Rnd.get(100, 99999)));
 		_walkNodes.add(new WalkNode(82888, 148456, -3464, Rnd.get(100, 99999)));

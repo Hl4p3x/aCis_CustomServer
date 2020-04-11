@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import net.sf.l2j.commons.logging.CLogger;
+
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 import net.sf.l2j.gameserver.data.sql.SpawnTable;
 import net.sf.l2j.gameserver.enums.SayType;
@@ -16,7 +17,6 @@ import net.sf.l2j.gameserver.model.spawn.Spawn;
 import net.sf.l2j.gameserver.model.zone.type.subtype.ZoneType;
 import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 import net.sf.l2j.gameserver.network.serverpackets.L2GameServerPacket;
-
 
 public final class World
 {
@@ -46,8 +46,6 @@ public final class World
 	private final Map<Integer, WorldObject> _objects = new ConcurrentHashMap<>();
 	private final Map<Integer, Pet> _pets = new ConcurrentHashMap<>();
 	private final Map<Integer, Player> _players = new ConcurrentHashMap<>();
-	
-
 	
 	private final WorldRegion[][] _worldRegions = new WorldRegion[REGIONS_X + 1][REGIONS_Y + 1];
 	

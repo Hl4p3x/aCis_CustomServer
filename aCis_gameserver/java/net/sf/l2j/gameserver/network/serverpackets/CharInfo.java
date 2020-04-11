@@ -42,7 +42,8 @@ public class CharInfo extends L2GameServerPacket
 		writeD(_player.getAppearance().getSex().ordinal());
 		writeD((_player.getClassIndex() == 0) ? _player.getClassId().getId() : _player.getBaseClass());
 		
-		if (_player.isDressMeEnabled()) {
+		if (_player.isDressMeEnabled())
+		{
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_HAIRALL));
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_HEAD));
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_RHAND));
@@ -56,7 +57,8 @@ public class CharInfo extends L2GameServerPacket
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_HAIR));
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_FACE));
 		}
-		else {
+		else
+		{
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIRALL) : (_player.getDressMeData().getHelmetId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_HAIRALL) : _player.getDressMeData().getHelmetId()));
 			writeD(_inv.getPaperdollItemId(Inventory.PAPERDOLL_HEAD));
 			writeD(_player.getDressMeData() == null ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_RHAND) : (_player.getDressMeData().getWeapId() == 0 ? _player.getInventory().getPaperdollItemId(Inventory.PAPERDOLL_RHAND) : _player.getDressMeData().getWeapId()));

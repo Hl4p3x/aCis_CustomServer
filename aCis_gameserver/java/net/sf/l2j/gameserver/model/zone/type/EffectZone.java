@@ -149,7 +149,6 @@ public class EffectZone extends ZoneType
 		}
 	}
 	
-	
 	/**
 	 * Edit this zone activation state.
 	 * @param state : The new state to set.

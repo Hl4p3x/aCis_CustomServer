@@ -9,7 +9,6 @@ import net.sf.l2j.gameserver.model.actor.Player;
 
 /**
  * @author williams
- *
  */
 public final class VipTaskManager implements Runnable
 {
@@ -19,7 +18,7 @@ public final class VipTaskManager implements Runnable
 	{
 		ThreadPool.scheduleAtFixedRate(this, 1000, 1000);
 	}
-
+	
 	public final void add(Player player)
 	{
 		_players.put(player, System.currentTimeMillis());
@@ -29,7 +28,7 @@ public final class VipTaskManager implements Runnable
 	{
 		_players.remove(player);
 	}
-
+	
 	@Override
 	public final void run()
 	{

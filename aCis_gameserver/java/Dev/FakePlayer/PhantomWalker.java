@@ -19,10 +19,8 @@ import java.util.logging.Logger;
 import net.sf.l2j.commons.concurrent.ThreadPool;
 import net.sf.l2j.commons.random.Rnd;
 
-
 import net.sf.l2j.Config;
 import net.sf.l2j.L2DatabaseFactory;
-
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.sql.ClanTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
@@ -35,7 +33,6 @@ import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.stat.Experience;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
-
 import net.sf.l2j.gameserver.model.location.Location;
 import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.GameClient.GameClientState;
@@ -43,10 +40,8 @@ import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 
 import Dev.TeamVsTeam.TvTEvent;
 
-
 /**
  * @author Gabia
- *
  */
 public class PhantomWalker
 {
@@ -80,8 +75,6 @@ public class PhantomWalker
 		return _instance;
 	}
 	
-
-	
 	private void load()
 	{
 		
@@ -113,8 +106,6 @@ public class PhantomWalker
 		return Config.LIST_PHANTOM_FACE.get(Rnd.get(Config.LIST_PHANTOM_FACE.size())).intValue();
 	}
 	
-	
-
 	@SuppressWarnings("null")
 	static Location getRandomLoc()
 	{
@@ -124,14 +115,13 @@ public class PhantomWalker
 			loc = _PhantomsTownLoc.get(Rnd.get(0, _locsCount));
 		}
 		
-		
 		return loc;
 	}
 	
 	public static void startWalk(Player paramPlayer)
 	{
 		ThreadPool.schedule(new PhantomWalk(paramPlayer), Rnd.get(5200, 48540));
-	}	
+	}
 	
 	@SuppressWarnings("resource")
 	private static void parceArmors()
@@ -291,17 +281,16 @@ public class PhantomWalker
 	}
 	
 	static SimpleDateFormat sdf = new SimpleDateFormat("HH");
-
+	
 	public class FantomTask implements Runnable
 	{
 		public int _task;
-
-
+		
 		public FantomTask(int paramInt)
 		{
 			_task = paramInt;
 		}
-
+		
 		@SuppressWarnings("resource")
 		@Override
 		public void run()
@@ -369,8 +358,6 @@ public class PhantomWalker
 								World.getInstance().addPlayer(player);
 								client.setState(GameClient.GameClientState.IN_GAME);
 								
-							
-								
 								client.setAccountName(player.getAccountName());
 								
 								String playerName = FakePlayerNameManager.INSTANCE.getRandomAvailableName();
@@ -379,27 +366,28 @@ public class PhantomWalker
 								
 								player.setClan(ClanTable.getInstance().getClan(Config.CLANIDWALKER));
 								PhantomWalker.startWalk(player);
-
-                                player.getAppearance().setNameColor(Integer.decode("0x" + Config.NAME_COLOR));
-                                player.getAppearance().setTitleColor(Integer.decode("0x" + Config.TITLE_COLOR));
-                                player.getAppearance().setNameColor(Integer.decode("0x" + PhantomWalker.getNameColor()));
-                                player.getAppearance().setTitleColor(Integer.decode("0x" + PhantomWalker.getTitleColor()));
- 
-                                
-                                if (Rnd.get(100) < Config.PHANTOM_CHANCE_HERO) {
-                                    player.setHero(true);
-                                    player.isHero();
-                                    player.broadcastUserInfo();
-                                }
-                                
+								
+								player.getAppearance().setNameColor(Integer.decode("0x" + Config.NAME_COLOR));
+								player.getAppearance().setTitleColor(Integer.decode("0x" + Config.TITLE_COLOR));
+								player.getAppearance().setNameColor(Integer.decode("0x" + PhantomWalker.getNameColor()));
+								player.getAppearance().setTitleColor(Integer.decode("0x" + PhantomWalker.getTitleColor()));
+								
+								if (Rnd.get(100) < Config.PHANTOM_CHANCE_HERO)
+								{
+									player.setHero(true);
+									player.isHero();
+									player.broadcastUserInfo();
+								}
+								
 								if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
 									PhantomWalker.startWalk(player);
 								else if (Rnd.get(100) < Config.PHANTOM_PLAYERS_WALK)
 									PhantomWalker.startWalk(player);
-							
-						        if (TvTEvent.isPlayerParticipant(playerName)) {
-						        	TvTEvent.addParticipant(player);
-						        }
+								
+								if (TvTEvent.isPlayerParticipant(playerName))
+								{
+									TvTEvent.addParticipant(player);
+								}
 								PhantomWalker._players.add(player);
 								
 								player.addExpAndSp(Experience.LEVEL[81], 0);
@@ -407,9 +395,8 @@ public class PhantomWalker
 								player.broadcastUserInfo();
 								
 								String playertitle = FakePlayerTitleManager.INSTANCE.getRandomAvailableName();
-								player.setTitle(playertitle);	
+								player.setTitle(playertitle);
 								player.broadcastTitleInfo();
-
 								
 								player.getInventory().equipItemAndRecord(localL2ItemInstance1);
 								player.getInventory().equipItemAndRecord(localL2ItemInstance2);
@@ -447,8 +434,6 @@ public class PhantomWalker
 									player.setSpawnProtection(true);
 								}
 								player.broadcastUserInfo();
-								
-
 								
 								PhantomWalker._players.add(player);
 								
@@ -495,7 +480,6 @@ public class PhantomWalker
 									skill.getEffects(player, player);
 								}
 								
-								
 								player.addSkill(SkillTable.getInstance().getInfo(9900, 1), false);
 								
 								PhantomWalker._PhantomsTown.get(Integer.valueOf(1)).add(player);
@@ -530,12 +514,12 @@ public class PhantomWalker
 	public class Disconnection implements Runnable
 	{
 		private final Player _activeChar;
-
+		
 		public Disconnection(Player activeChar)
 		{
 			_activeChar = activeChar;
 		}
-
+		
 		@Override
 		public void run()
 		{
@@ -551,9 +535,8 @@ public class PhantomWalker
 				client.setState(GameClientState.AUTHED);
 			}
 		}
-
+		
 	}
-	
 	
 	@SuppressWarnings("resource")
 	private static void parceTownLocs()
@@ -612,13 +595,14 @@ public class PhantomWalker
 		}
 	}
 	
-    static String getNameColor() {
-        return Config.PHANTOM_PLAYERS_NAME_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_NAME_CLOLORS.size()));
-    }
-
-    static String getTitleColor() {
-        return Config.PHANTOM_PLAYERS_TITLE_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_TITLE_CLOLORS.size()));
-    }
-    
-
+	static String getNameColor()
+	{
+		return Config.PHANTOM_PLAYERS_NAME_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_NAME_CLOLORS.size()));
+	}
+	
+	static String getTitleColor()
+	{
+		return Config.PHANTOM_PLAYERS_TITLE_CLOLORS.get(Rnd.get(Config.PHANTOM_PLAYERS_TITLE_CLOLORS.size()));
+	}
+	
 }

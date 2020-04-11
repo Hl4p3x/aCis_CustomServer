@@ -18,7 +18,6 @@ public class Dressme implements IUserCommandHandler
 	{
 		if (id == 118)
 		{
-		
 			
 			if (Config.ALLOW_DRESS_ME_SYSTEM)
 				sendMainWindow(player);

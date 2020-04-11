@@ -13,7 +13,6 @@ import org.w3c.dom.Document;
 
 /**
  * @author Williams
- *
  */
 public class DonateData implements IXmlReader
 {
@@ -23,7 +22,7 @@ public class DonateData implements IXmlReader
 	{
 		load();
 	}
-
+	
 	public void reload()
 	{
 		_services.clear();
@@ -36,7 +35,7 @@ public class DonateData implements IXmlReader
 		parseFile("./data/xml/donate.xml");
 		LOGGER.info("Loaded {} Donate Service data.", _services.size());
 	}
-
+	
 	@Override
 	public void parseDocument(Document doc, Path path)
 	{
@@ -45,8 +44,8 @@ public class DonateData implements IXmlReader
 			final StatsSet set = parseAttributes(node);
 			_services.add(new Donate(set));
 		}));
-	}	
-
+	}
+	
 	public List<Donate> getDonate()
 	{
 		return _services;
@@ -64,12 +63,12 @@ public class DonateData implements IXmlReader
 			_duration = set.getInteger("duration");
 			_price = set.getIntIntHolderList("price");
 		}
-
+		
 		public int getService()
 		{
 			return _service;
 		}
-
+		
 		public int getDuration()
 		{
 			return _duration;
@@ -78,7 +77,7 @@ public class DonateData implements IXmlReader
 		public List<IntIntHolder> getPrice()
 		{
 			return _price;
-		}	
+		}
 	}
 	
 	public static DonateData getInstance()

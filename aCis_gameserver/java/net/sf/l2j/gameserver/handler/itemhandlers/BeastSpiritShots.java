@@ -49,15 +49,14 @@ public class BeastSpiritShots implements IItemHandler
 		if (summon.isChargedShot(isBlessed ? ShotType.BLESSED_SPIRITSHOT : ShotType.SPIRITSHOT))
 			return;
 		
-		   if (!Config.INFINITY_SS && !player.destroyItemWithoutTrace("Consume", item.getObjectId(), summon.getSpiritShotsPerHit(), null, false))
-			   {
-			       if (!player.disableAutoShot(itemId))
-			    	   player.sendPacket(SystemMessageId.NOT_ENOUGH_SPIRITSHOTS_FOR_PET);
-			       return;
-			   }
-			if (!player.isSSDisabled())
-				summon.setChargedShot(isBlessed ? ShotType.BLESSED_SPIRITSHOT : ShotType.SPIRITSHOT, true);
-				
+		if (!Config.INFINITY_SS && !player.destroyItemWithoutTrace("Consume", item.getObjectId(), summon.getSpiritShotsPerHit(), null, false))
+		{
+			if (!player.disableAutoShot(itemId))
+				player.sendPacket(SystemMessageId.NOT_ENOUGH_SPIRITSHOTS_FOR_PET);
+			return;
+		}
+		if (!player.isSSDisabled())
+			summon.setChargedShot(isBlessed ? ShotType.BLESSED_SPIRITSHOT : ShotType.SPIRITSHOT, true);
 		
 		player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.PET_USES_S1).addItemName(itemId));
 		summon.setChargedShot(isBlessed ? ShotType.BLESSED_SPIRITSHOT : ShotType.SPIRITSHOT, true);

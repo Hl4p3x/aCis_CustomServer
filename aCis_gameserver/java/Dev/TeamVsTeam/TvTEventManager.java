@@ -7,7 +7,6 @@ import net.sf.l2j.gameserver.model.World;
 
 /**
  * @author COMBATE
- *
  */
 public class TvTEventManager implements Runnable
 {

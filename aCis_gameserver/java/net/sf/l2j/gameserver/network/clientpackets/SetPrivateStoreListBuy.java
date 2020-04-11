@@ -49,7 +49,7 @@ public final class SetPrivateStoreListBuy extends L2GameClientPacket
 		
 		final TradeList tradeList = player.getBuyList();
 		tradeList.clear();
-
+		
 		if (Config.STORE_RESTRICTION_TYPE == RestrictionType.PVP && player.getPvpKills() < Config.MIN_PVP_TO_USE_STORE)
 		{
 			player.sendMessage("Você deve ter pelo menos " + Config.MIN_PVP_TO_USE_STORE + " (PVP) para uma abrir loja particular.");
